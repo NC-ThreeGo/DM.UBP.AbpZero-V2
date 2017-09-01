@@ -1,5 +1,6 @@
 ﻿using Abp.Localization.Dictionaries;
 using Abp.Localization.Dictionaries.Xml;
+using Abp.Localization.Sources;
 using Abp.Modules;
 using DM.UBP.Domain.Entity;
 using System.Reflection;
@@ -16,15 +17,12 @@ namespace DM.UBP.Domain.Service
         {
             //Add/remove localization sources here
             //加载自己的多语言文件
-            Configuration.Localization.Sources.Add(
-                new DictionaryBasedLocalizationSource(
-                    //UBPConsts.LocalizationSourceName,
-                    UbpDomainServiceConsts.LocalizationSourceName,
+            Configuration.Localization.Sources.Extensions.Add(
+                new LocalizationSourceExtensionInfo(
+                    UBPConsts.LocalizationSourceName,
                     new XmlEmbeddedFileLocalizationDictionaryProvider(
-                        Assembly.GetExecutingAssembly(),
-                        "DM.UBP.Domain.Service.Localization.UBP"
-                        )
-                    )
+                        Assembly.GetExecutingAssembly(), "DM.UBP.Domain.Service.Localization.UBP"
+                    ))
                 );
         }
 

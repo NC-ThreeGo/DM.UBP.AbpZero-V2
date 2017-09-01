@@ -26,7 +26,7 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
 
         private static ILocalizableString L(string name)
         {
-            return new LocalizableString(name, UbpDomainServiceConsts.LocalizationSourceName);
+            return new LocalizableString(name, UBPConsts.LocalizationSourceName);
         }
     }
 }
