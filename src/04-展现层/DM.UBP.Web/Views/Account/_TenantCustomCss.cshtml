@@ -1,0 +1,5 @@
+﻿@model DM.UBP.Web.Models.Layout.TenantCustomCssViewModel
+@if (Model.CustomCssId != null)
+{
+    <link id="TenantCustomCss" rel="stylesheet" href="@Url.Action("GetCustomCss", "TenantCustomization", new { area = string.Empty })" />
+}

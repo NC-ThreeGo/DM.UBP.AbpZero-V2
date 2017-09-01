@@ -1,0 +1,19 @@
+﻿web.config:
+    <configSections>
+	    <section name="ubp" type="TG.UBP.Core.Config.UbpConfigSection, TG.UBP.Core" />
+    </configSections>
+
+    <ubp configSource="XmlConfig\ubp.config" />
+
+
+ubp.config:
+	<?xml version="1.0" encoding="utf-8" ?>
+	<ubp xmlns="http://file.threego.com/schemas/ubp.xsd">
+		<dbContextInitializer type="DM.UBP.EF.OracleDevart.OracleDevartDbContextInitializer, DM.UBP.EF.OracleDevart" 
+					connectionStringName="default"
+					mapperFiles="TG.UBP.Core.EntityConfiguration.Oracle"
+					>
+		</dbContextInitializer>
+		<abpZeroDbMigrator type="DM.UBP.EF.OracleDevart.AbpZeroDbMigratorForOracleDevart, DM.UBP.EF.OracleDevart">
+		</abpZeroDbMigrator>
+	</ubp>

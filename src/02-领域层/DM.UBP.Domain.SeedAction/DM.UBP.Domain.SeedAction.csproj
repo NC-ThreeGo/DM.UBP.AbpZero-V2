@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CBA073DD-12E0-4FFA-B910-38B4824B5B59}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DM.UBP.Domain.SeedAction</RootNamespace>
+    <AssemblyName>DM.UBP.Domain.SeedAction</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.DynamicFilters, Version=2.8.1.0, Culture=neutral, PublicKeyToken=146423a1b8d60775, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.DynamicFilters.2.8.1\lib\net40\EntityFramework.DynamicFilters.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CreateDatabaseSeedAction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeedData\Host\DefaultEditionCreator.cs" />
+    <Compile Include="SeedData\Host\DefaultLanguagesCreator.cs" />
+    <Compile Include="SeedData\Host\DefaultSettingsCreator.cs" />
+    <Compile Include="SeedData\Host\HostRoleAndUserCreator.cs" />
+    <Compile Include="SeedData\Host\InitialHostDbBuilder.cs" />
+    <Compile Include="SeedData\Tenants\DefaultTenantBuilder.cs" />
+    <Compile Include="SeedData\Tenants\TenantRoleAndUserBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp.EntityFramework\Abp.EntityFramework.csproj">
+      <Project>{325015f8-fb13-402e-99b5-f5b8ff462c17}</Project>
+      <Name>Abp.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp\Abp.csproj">
+      <Project>{be9aca26-9c1b-4975-9aad-bdd48de84eb8}</Project>
+      <Name>Abp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\module-zero\src\Abp.Zero.Common\Abp.Zero.Common.csproj">
+      <Project>{362af84e-4d6b-4a8b-a111-91620c1f1e50}</Project>
+      <Name>Abp.Zero.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\module-zero\src\Abp.Zero.EntityFramework\Abp.Zero.EntityFramework.csproj">
+      <Project>{e35a1703-64c2-4c81-82e5-4da2c79b4b5c}</Project>
+      <Name>Abp.Zero.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\module-zero\src\Abp.Zero\Abp.Zero.csproj">
+      <Project>{6d8ad002-4071-4094-803a-c25eb7e9c786}</Project>
+      <Name>Abp.Zero</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\00-aspnet-zero\DM.UBP.Core\DM.UBP.Core.csproj">
+      <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
+      <Name>DM.UBP.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\01-基础设施层\DM.UBP.Common\DM.UBP.Common.csproj">
+      <Project>{4fe341bf-8422-4df3-8efa-dd5187032f70}</Project>
+      <Name>DM.UBP.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\01-基础设施层\DM.UBP.EF\DM.UBP.EF.csproj">
+      <Project>{3979f157-deb0-4878-ab1d-4cef6b5a1300}</Project>
+      <Name>DM.UBP.EF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
