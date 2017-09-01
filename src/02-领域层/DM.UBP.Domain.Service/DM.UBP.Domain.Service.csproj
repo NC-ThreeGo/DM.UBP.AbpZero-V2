@@ -105,7 +105,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReportManage\AppPermissions_ReportManage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UbpAuthorizationProvider.cs" />
+    <Compile Include="UbpDomainServiceConsts.cs" />
+    <Compile Include="UbpDomainServiceModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -144,6 +148,42 @@
       <Project>{d0f6b7da-08a0-472b-ad15-3f9878439467}</Project>
       <Name>DM.UBP.Domain.Entity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\UBP\UBP-ar.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\UBP\UBP-de.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\UBP\UBP-es.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\UBP\UBP-fr.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\UBP\UBP-it.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\UBP\UBP-pt-BR.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\UBP\UBP-ru.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\UBP\UBP-tr.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\UBP\UBP-zh-CN.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\UBP\UBP.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

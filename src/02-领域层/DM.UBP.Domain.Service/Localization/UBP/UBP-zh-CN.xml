@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="zh-CN">
+    <texts>
+        <text name="ReportManage" value="报表管理" />
+    </texts>
+</localizationDictionary>

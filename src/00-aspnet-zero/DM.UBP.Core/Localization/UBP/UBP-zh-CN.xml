@@ -280,10 +280,5 @@
         <text name="LookingForMpaVersion" value="查找多页面应用版本号" />
         <text name="LookingForSpaVersion" value="查找单页面应用版本号" />
         <text name="ThisLanguageAlreadyExists" value="这种语言已经存在!" />
-
-        <text name="SysManage" value="系统管理" />
-        <text name="AuthorizationManage" value="权限管理" />
-        <text name="ModuleManager" value="模块管理" />
-        <text name="OrgManage" value="组织管理" />
     </texts>
 </localizationDictionary>

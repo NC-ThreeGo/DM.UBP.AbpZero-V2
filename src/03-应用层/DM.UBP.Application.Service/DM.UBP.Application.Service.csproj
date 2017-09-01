@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UbpApplicationServiceModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -145,6 +146,10 @@
       <Project>{6d8ad002-4071-4094-803a-c25eb7e9c786}</Project>
       <Name>Abp.Zero</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\00-aspnet-zero\DM.UBP.Application\DM.UBP.Application.csproj">
+      <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
+      <Name>DM.UBP.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\01-基础设施层\DM.UBP.Common\DM.UBP.Common.csproj">
       <Project>{4fe341bf-8422-4df3-8efa-dd5187032f70}</Project>
       <Name>DM.UBP.Common</Name>
@@ -152,6 +157,10 @@
     <ProjectReference Include="..\..\02-领域层\DM.UBP.Domain.Entity\DM.UBP.Domain.Entity.csproj">
       <Project>{d0f6b7da-08a0-472b-ad15-3f9878439467}</Project>
       <Name>DM.UBP.Domain.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\02-领域层\DM.UBP.Domain.Service\DM.UBP.Domain.Service.csproj">
+      <Project>{c0160fe5-83cd-4025-8f78-2100b02ebc5d}</Project>
+      <Name>DM.UBP.Domain.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\DM.UBP.Application.Dto\DM.UBP.Application.Dto.csproj">
       <Project>{0e684037-fae4-4f67-9c4c-b68dbb215d8d}</Project>

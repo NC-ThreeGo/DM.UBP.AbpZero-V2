@@ -2,7 +2,7 @@ namespace DM.UBP.Web.Navigation
 {
     public static class PageNames
     {
-        public static class App
+        public static partial class App
         {
             public static class Common
             {
