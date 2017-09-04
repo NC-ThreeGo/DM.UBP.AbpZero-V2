@@ -16,9 +16,15 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                 menu.AddItem(new MenuItemDefinition(
                    UbpMenu.ReportManage,
                    L("ReportManage"),
-                   url: "Mpa/ReportManage",
                    icon: "icon-globe",
                    requiredPermissionName: AppPermissions_ReportManage.Pages_ReportManage
+                   ).AddItem(new MenuItemDefinition(
+                        UbpMenu.ReportManageDesigner,
+                        L("ReportDesigner"),
+                        url: "ReportManage/Designer",
+                        icon: "icon-layers",
+                        requiredPermissionName: AppPermissions_ReportManage.Pages_ReportManage_Designer
+                        )
                    )
                );
             }

@@ -2222,6 +2222,9 @@
     <Content Include="Areas\Mpa\Views\Layout\_Layout_Abp.cshtml" />
     <Content Include="App_Start\Navigation\后续模块菜单的定义和加载.md" />
     <Content Include="Areas\ReportManage\Views\web.config" />
+    <Content Include="Areas\ReportManage\Views\Report\Index.cshtml" />
+    <Content Include="Areas\ReportManage\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\ReportManage\Views\Designer\Index.cshtml" />
     <None Include="Properties\PublishProfiles\aspnetzero - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
@@ -2991,6 +2994,8 @@
   <ItemGroup>
     <Compile Include="App_Start\Navigation\UbpMenu.cs" />
     <Compile Include="Areas\Mpa\Startup\UbpNavigationProvider.cs" />
+    <Compile Include="Areas\ReportManage\Controllers\DesignerController.cs" />
+    <Compile Include="Areas\ReportManage\Controllers\ReportController.cs" />
     <Compile Include="Areas\ReportManage\ReportManageAreaRegistration.cs" />
     <Compile Include="Models\Layout\TenantCustomCssViewModel.cs" />
     <Compile Include="Areas\Mpa\Startup\UserMenuItemExtensions.cs" />
@@ -3423,9 +3428,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\ReportManage\Controllers\" />
     <Folder Include="Areas\ReportManage\Models\" />
-    <Folder Include="Areas\ReportManage\Views\Shared\" />
     <Folder Include="libs\jquery-jtable\dev\" />
     <Folder Include="libs\jquery-jtable\lib\" />
   </ItemGroup>
