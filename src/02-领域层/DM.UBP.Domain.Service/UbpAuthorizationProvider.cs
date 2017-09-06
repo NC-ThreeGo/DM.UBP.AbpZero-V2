@@ -3,6 +3,7 @@ using Abp.Configuration.Startup;
 using Abp.Localization;
 using Abp.MultiTenancy;
 using DM.UBP.Authorization;
+using DM.UBP.Domain.Service.ReportManage;
 
 namespace DM.UBP.Domain.Service
 {

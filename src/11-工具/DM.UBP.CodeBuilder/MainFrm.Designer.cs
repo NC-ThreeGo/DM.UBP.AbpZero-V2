@@ -48,7 +48,7 @@
             this.tbDPMasterPageFile = new System.Windows.Forms.TextBox();
             this.gbDP = new System.Windows.Forms.GroupBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.tpPage = new System.Windows.Forms.TabPage();
+            this.tpWebView = new System.Windows.Forms.TabPage();
             this.gbClass = new System.Windows.Forms.GroupBox();
             this.rbIMustHaveTenant = new System.Windows.Forms.RadioButton();
             this.rbIMayHaveTenant = new System.Windows.Forms.RadioButton();
@@ -71,14 +71,47 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tpEntity = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tpService = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbAppServiceNS = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.tbAppServiceClassName = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.tbPermDelete = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.tbPermEdit = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tbPermCreate = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.tbMenuPerm = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbOutputDtoClassName = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.tbInputDtoClassName = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbDeleteAsync = new System.Windows.Forms.CheckBox();
+            this.cbUpdateAsync = new System.Windows.Forms.CheckBox();
+            this.cbCreateAsync = new System.Windows.Forms.CheckBox();
+            this.cbGetByIdAsync = new System.Windows.Forms.CheckBox();
+            this.cbGetAllAsync = new System.Windows.Forms.CheckBox();
+            this.tbDomainServiceNS = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.tbDomainServiceClassName = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbFunName = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tpController = new System.Windows.Forms.TabPage();
             this.btnRefreshCBB = new System.Windows.Forms.Button();
             this.btnCodeCreate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbComment = new System.Windows.Forms.TextBox();
             this.tbCodeRootPath = new System.Windows.Forms.TextBox();
             this.cbTableName = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.btnConn = new System.Windows.Forms.Button();
             this.gbFields = new System.Windows.Forms.GroupBox();
@@ -92,12 +125,17 @@
             this.IsIdentity = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.IsPk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Property = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HasInputDto = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.HasOutputDto = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gbLP.SuspendLayout();
             this.gbDP.SuspendLayout();
-            this.tpPage.SuspendLayout();
+            this.tpWebView.SuspendLayout();
             this.gbClass.SuspendLayout();
             this.tpEntity.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tpService.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gbFields.SuspendLayout();
@@ -118,7 +156,7 @@
             this.splitter1.Location = new System.Drawing.Point(1471, 113);
             this.splitter1.Margin = new System.Windows.Forms.Padding(6);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(6, 765);
+            this.splitter1.Size = new System.Drawing.Size(6, 820);
             this.splitter1.TabIndex = 12;
             this.splitter1.TabStop = false;
             // 
@@ -337,18 +375,18 @@
             this.label23.TabIndex = 16;
             this.label23.Text = "MasterPageFile：";
             // 
-            // tpPage
+            // tpWebView
             // 
-            this.tpPage.Controls.Add(this.gbDP);
-            this.tpPage.Controls.Add(this.gbLP);
-            this.tpPage.Location = new System.Drawing.Point(8, 39);
-            this.tpPage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tpPage.Name = "tpPage";
-            this.tpPage.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tpPage.Size = new System.Drawing.Size(754, 718);
-            this.tpPage.TabIndex = 1;
-            this.tpPage.Text = "Web";
-            this.tpPage.UseVisualStyleBackColor = true;
+            this.tpWebView.Controls.Add(this.gbDP);
+            this.tpWebView.Controls.Add(this.gbLP);
+            this.tpWebView.Location = new System.Drawing.Point(8, 39);
+            this.tpWebView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tpWebView.Name = "tpWebView";
+            this.tpWebView.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tpWebView.Size = new System.Drawing.Size(754, 773);
+            this.tpWebView.TabIndex = 1;
+            this.tpWebView.Text = "WebView";
+            this.tpWebView.UseVisualStyleBackColor = true;
             // 
             // gbClass
             // 
@@ -518,6 +556,7 @@
             this.tbClass.Name = "tbClass";
             this.tbClass.Size = new System.Drawing.Size(306, 35);
             this.tbClass.TabIndex = 12;
+            this.tbClass.TextChanged += new System.EventHandler(this.tbClass_TextChanged);
             // 
             // label6
             // 
@@ -584,7 +623,7 @@
             this.tpEntity.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpEntity.Name = "tpEntity";
             this.tpEntity.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tpEntity.Size = new System.Drawing.Size(754, 718);
+            this.tpEntity.Size = new System.Drawing.Size(754, 773);
             this.tpEntity.TabIndex = 0;
             this.tpEntity.Text = "Entity";
             this.tpEntity.UseVisualStyleBackColor = true;
@@ -592,14 +631,364 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpEntity);
-            this.tabControl1.Controls.Add(this.tpPage);
+            this.tabControl1.Controls.Add(this.tpService);
+            this.tabControl1.Controls.Add(this.tpController);
+            this.tabControl1.Controls.Add(this.tpWebView);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.tabControl1.Location = new System.Drawing.Point(1477, 113);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(770, 765);
+            this.tabControl1.Size = new System.Drawing.Size(770, 820);
             this.tabControl1.TabIndex = 11;
+            // 
+            // tpService
+            // 
+            this.tpService.Controls.Add(this.groupBox2);
+            this.tpService.Controls.Add(this.groupBox1);
+            this.tpService.Controls.Add(this.tbFunName);
+            this.tpService.Controls.Add(this.label9);
+            this.tpService.Location = new System.Drawing.Point(8, 39);
+            this.tpService.Name = "tpService";
+            this.tpService.Padding = new System.Windows.Forms.Padding(3);
+            this.tpService.Size = new System.Drawing.Size(754, 773);
+            this.tpService.TabIndex = 2;
+            this.tpService.Text = "Service";
+            this.tpService.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.tbAppServiceNS);
+            this.groupBox2.Controls.Add(this.label30);
+            this.groupBox2.Controls.Add(this.tbAppServiceClassName);
+            this.groupBox2.Controls.Add(this.label27);
+            this.groupBox2.Controls.Add(this.tbPermDelete);
+            this.groupBox2.Controls.Add(this.label26);
+            this.groupBox2.Controls.Add(this.tbPermEdit);
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.tbPermCreate);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.tbMenuPerm);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.tbOutputDtoClassName);
+            this.groupBox2.Controls.Add(this.label31);
+            this.groupBox2.Controls.Add(this.tbInputDtoClassName);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Location = new System.Drawing.Point(14, 339);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(718, 428);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "AppService";
+            // 
+            // tbAppServiceNS
+            // 
+            this.tbAppServiceNS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbAppServiceNS.Location = new System.Drawing.Point(163, 37);
+            this.tbAppServiceNS.Margin = new System.Windows.Forms.Padding(6);
+            this.tbAppServiceNS.Name = "tbAppServiceNS";
+            this.tbAppServiceNS.Size = new System.Drawing.Size(519, 35);
+            this.tbAppServiceNS.TabIndex = 29;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(15, 40);
+            this.label30.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(142, 24);
+            this.label30.TabIndex = 28;
+            this.label30.Text = "NameSpace：";
+            // 
+            // tbAppServiceClassName
+            // 
+            this.tbAppServiceClassName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbAppServiceClassName.Location = new System.Drawing.Point(163, 84);
+            this.tbAppServiceClassName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbAppServiceClassName.Name = "tbAppServiceClassName";
+            this.tbAppServiceClassName.Size = new System.Drawing.Size(519, 35);
+            this.tbAppServiceClassName.TabIndex = 29;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(15, 87);
+            this.label27.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(154, 24);
+            this.label27.TabIndex = 28;
+            this.label27.Text = "Class Name：";
+            // 
+            // tbPermDelete
+            // 
+            this.tbPermDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbPermDelete.Location = new System.Drawing.Point(195, 370);
+            this.tbPermDelete.Margin = new System.Windows.Forms.Padding(6);
+            this.tbPermDelete.Name = "tbPermDelete";
+            this.tbPermDelete.Size = new System.Drawing.Size(487, 35);
+            this.tbPermDelete.TabIndex = 16;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(15, 376);
+            this.label26.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(178, 24);
+            this.label26.TabIndex = 23;
+            this.label26.Text = "Delete权限名：";
+            // 
+            // tbPermEdit
+            // 
+            this.tbPermEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbPermEdit.Location = new System.Drawing.Point(195, 323);
+            this.tbPermEdit.Margin = new System.Windows.Forms.Padding(6);
+            this.tbPermEdit.Name = "tbPermEdit";
+            this.tbPermEdit.Size = new System.Drawing.Size(487, 35);
+            this.tbPermEdit.TabIndex = 17;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(15, 329);
+            this.label20.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(154, 24);
+            this.label20.TabIndex = 24;
+            this.label20.Text = "Edit权限名：";
+            // 
+            // tbPermCreate
+            // 
+            this.tbPermCreate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbPermCreate.Location = new System.Drawing.Point(195, 276);
+            this.tbPermCreate.Margin = new System.Windows.Forms.Padding(6);
+            this.tbPermCreate.Name = "tbPermCreate";
+            this.tbPermCreate.Size = new System.Drawing.Size(487, 35);
+            this.tbPermCreate.TabIndex = 18;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(15, 282);
+            this.label17.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(178, 24);
+            this.label17.TabIndex = 25;
+            this.label17.Text = "Create权限名：";
+            // 
+            // tbMenuPerm
+            // 
+            this.tbMenuPerm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbMenuPerm.Location = new System.Drawing.Point(158, 229);
+            this.tbMenuPerm.Margin = new System.Windows.Forms.Padding(6);
+            this.tbMenuPerm.Name = "tbMenuPerm";
+            this.tbMenuPerm.Size = new System.Drawing.Size(524, 35);
+            this.tbMenuPerm.TabIndex = 19;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(15, 235);
+            this.label13.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(154, 24);
+            this.label13.TabIndex = 26;
+            this.label13.Text = "菜单权限名：";
+            // 
+            // tbOutputDtoClassName
+            // 
+            this.tbOutputDtoClassName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbOutputDtoClassName.Location = new System.Drawing.Point(218, 182);
+            this.tbOutputDtoClassName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbOutputDtoClassName.Name = "tbOutputDtoClassName";
+            this.tbOutputDtoClassName.Size = new System.Drawing.Size(464, 35);
+            this.tbOutputDtoClassName.TabIndex = 20;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(15, 188);
+            this.label31.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(214, 24);
+            this.label31.TabIndex = 27;
+            this.label31.Text = "OutputDto Class：";
+            // 
+            // tbInputDtoClassName
+            // 
+            this.tbInputDtoClassName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbInputDtoClassName.Location = new System.Drawing.Point(218, 135);
+            this.tbInputDtoClassName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbInputDtoClassName.Name = "tbInputDtoClassName";
+            this.tbInputDtoClassName.Size = new System.Drawing.Size(464, 35);
+            this.tbInputDtoClassName.TabIndex = 20;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(15, 141);
+            this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(202, 24);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "InputDto Class：";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.cbDeleteAsync);
+            this.groupBox1.Controls.Add(this.cbUpdateAsync);
+            this.groupBox1.Controls.Add(this.cbCreateAsync);
+            this.groupBox1.Controls.Add(this.cbGetByIdAsync);
+            this.groupBox1.Controls.Add(this.cbGetAllAsync);
+            this.groupBox1.Controls.Add(this.tbDomainServiceNS);
+            this.groupBox1.Controls.Add(this.label28);
+            this.groupBox1.Controls.Add(this.tbDomainServiceClassName);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Location = new System.Drawing.Point(14, 81);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(718, 252);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "DomainService";
+            // 
+            // cbDeleteAsync
+            // 
+            this.cbDeleteAsync.AutoSize = true;
+            this.cbDeleteAsync.Checked = true;
+            this.cbDeleteAsync.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbDeleteAsync.Location = new System.Drawing.Point(499, 198);
+            this.cbDeleteAsync.Name = "cbDeleteAsync";
+            this.cbDeleteAsync.Size = new System.Drawing.Size(174, 28);
+            this.cbDeleteAsync.TabIndex = 24;
+            this.cbDeleteAsync.Text = "DeleteAsync";
+            this.cbDeleteAsync.UseVisualStyleBackColor = true;
+            // 
+            // cbUpdateAsync
+            // 
+            this.cbUpdateAsync.AutoSize = true;
+            this.cbUpdateAsync.Checked = true;
+            this.cbUpdateAsync.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbUpdateAsync.Location = new System.Drawing.Point(257, 198);
+            this.cbUpdateAsync.Name = "cbUpdateAsync";
+            this.cbUpdateAsync.Size = new System.Drawing.Size(174, 28);
+            this.cbUpdateAsync.TabIndex = 22;
+            this.cbUpdateAsync.Text = "UpdateAsync";
+            this.cbUpdateAsync.UseVisualStyleBackColor = true;
+            // 
+            // cbCreateAsync
+            // 
+            this.cbCreateAsync.AutoSize = true;
+            this.cbCreateAsync.Checked = true;
+            this.cbCreateAsync.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbCreateAsync.Location = new System.Drawing.Point(19, 198);
+            this.cbCreateAsync.Name = "cbCreateAsync";
+            this.cbCreateAsync.Size = new System.Drawing.Size(174, 28);
+            this.cbCreateAsync.TabIndex = 23;
+            this.cbCreateAsync.Text = "CreateAsync";
+            this.cbCreateAsync.UseVisualStyleBackColor = true;
+            // 
+            // cbGetByIdAsync
+            // 
+            this.cbGetByIdAsync.AutoSize = true;
+            this.cbGetByIdAsync.Checked = true;
+            this.cbGetByIdAsync.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbGetByIdAsync.Location = new System.Drawing.Point(257, 148);
+            this.cbGetByIdAsync.Name = "cbGetByIdAsync";
+            this.cbGetByIdAsync.Size = new System.Drawing.Size(222, 28);
+            this.cbGetByIdAsync.TabIndex = 21;
+            this.cbGetByIdAsync.Text = "Get...ByIdAsync";
+            this.cbGetByIdAsync.UseVisualStyleBackColor = true;
+            // 
+            // cbGetAllAsync
+            // 
+            this.cbGetAllAsync.AutoSize = true;
+            this.cbGetAllAsync.Checked = true;
+            this.cbGetAllAsync.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbGetAllAsync.Location = new System.Drawing.Point(19, 148);
+            this.cbGetAllAsync.Name = "cbGetAllAsync";
+            this.cbGetAllAsync.Size = new System.Drawing.Size(210, 28);
+            this.cbGetAllAsync.TabIndex = 20;
+            this.cbGetAllAsync.Text = "GetAll...Async";
+            this.cbGetAllAsync.UseVisualStyleBackColor = true;
+            // 
+            // tbDomainServiceNS
+            // 
+            this.tbDomainServiceNS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbDomainServiceNS.Location = new System.Drawing.Point(163, 41);
+            this.tbDomainServiceNS.Margin = new System.Windows.Forms.Padding(6);
+            this.tbDomainServiceNS.Name = "tbDomainServiceNS";
+            this.tbDomainServiceNS.Size = new System.Drawing.Size(519, 35);
+            this.tbDomainServiceNS.TabIndex = 18;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(15, 46);
+            this.label28.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(142, 24);
+            this.label28.TabIndex = 19;
+            this.label28.Text = "NameSpace：";
+            // 
+            // tbDomainServiceClassName
+            // 
+            this.tbDomainServiceClassName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbDomainServiceClassName.Location = new System.Drawing.Point(163, 88);
+            this.tbDomainServiceClassName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbDomainServiceClassName.Name = "tbDomainServiceClassName";
+            this.tbDomainServiceClassName.Size = new System.Drawing.Size(519, 35);
+            this.tbDomainServiceClassName.TabIndex = 18;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(15, 93);
+            this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(154, 24);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Class Name：";
+            // 
+            // tbFunName
+            // 
+            this.tbFunName.Location = new System.Drawing.Point(102, 19);
+            this.tbFunName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbFunName.Name = "tbFunName";
+            this.tbFunName.Size = new System.Drawing.Size(236, 35);
+            this.tbFunName.TabIndex = 12;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(10, 25);
+            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(106, 24);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "功能名：";
+            // 
+            // tpController
+            // 
+            this.tpController.Location = new System.Drawing.Point(8, 39);
+            this.tpController.Name = "tpController";
+            this.tpController.Size = new System.Drawing.Size(754, 773);
+            this.tpController.TabIndex = 4;
+            this.tpController.Text = "Controller";
+            this.tpController.UseVisualStyleBackColor = true;
             // 
             // btnRefreshCBB
             // 
@@ -640,7 +1029,7 @@
             this.panel2.Controls.Add(this.btnCodeCreate);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 878);
+            this.panel2.Location = new System.Drawing.Point(0, 933);
             this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(2247, 72);
@@ -648,9 +1037,11 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.tbComment);
             this.panel1.Controls.Add(this.tbCodeRootPath);
             this.panel1.Controls.Add(this.cbTableName);
             this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label29);
             this.panel1.Controls.Add(this.btnConn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -659,6 +1050,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2247, 113);
             this.panel1.TabIndex = 9;
+            // 
+            // tbComment
+            // 
+            this.tbComment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbComment.Location = new System.Drawing.Point(937, 64);
+            this.tbComment.Margin = new System.Windows.Forms.Padding(6);
+            this.tbComment.Name = "tbComment";
+            this.tbComment.Size = new System.Drawing.Size(1280, 35);
+            this.tbComment.TabIndex = 19;
+            this.tbComment.TextChanged += new System.EventHandler(this.tbComment_TextChanged);
             // 
             // tbCodeRootPath
             // 
@@ -689,6 +1091,16 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "代码的根目录：";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(864, 69);
+            this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(82, 24);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "说明：";
+            // 
             // label29
             // 
             this.label29.AutoSize = true;
@@ -718,7 +1130,7 @@
             this.gbFields.Margin = new System.Windows.Forms.Padding(6);
             this.gbFields.Name = "gbFields";
             this.gbFields.Padding = new System.Windows.Forms.Padding(6);
-            this.gbFields.Size = new System.Drawing.Size(1471, 765);
+            this.gbFields.Size = new System.Drawing.Size(1471, 820);
             this.gbFields.TabIndex = 13;
             this.gbFields.TabStop = false;
             this.gbFields.Text = "字段：";
@@ -737,19 +1149,22 @@
             this.comments,
             this.IsIdentity,
             this.IsPk,
-            this.Property});
+            this.Property,
+            this.HasInputDto,
+            this.HasOutputDto});
             this.gvFields.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvFields.Location = new System.Drawing.Point(6, 34);
             this.gvFields.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.gvFields.Name = "gvFields";
             this.gvFields.RowTemplate.Height = 23;
             this.gvFields.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvFields.Size = new System.Drawing.Size(1459, 725);
+            this.gvFields.Size = new System.Drawing.Size(1459, 780);
             this.gvFields.TabIndex = 0;
             // 
             // NAME
             // 
             this.NAME.DataPropertyName = "NAME";
+            this.NAME.Frozen = true;
             this.NAME.HeaderText = "字段名";
             this.NAME.Name = "NAME";
             this.NAME.Width = 140;
@@ -757,6 +1172,7 @@
             // TYPE
             // 
             this.TYPE.DataPropertyName = "TYPE";
+            this.TYPE.Frozen = true;
             this.TYPE.HeaderText = "字段类型";
             this.TYPE.Name = "TYPE";
             this.TYPE.Width = 160;
@@ -805,15 +1221,28 @@
             // 
             // Property
             // 
+            this.Property.DataPropertyName = "Property";
             this.Property.HeaderText = "类中的属性名";
             this.Property.Name = "Property";
             this.Property.Width = 160;
+            // 
+            // HasInputDto
+            // 
+            this.HasInputDto.DataPropertyName = "HasInputDto";
+            this.HasInputDto.HeaderText = "InputDto";
+            this.HasInputDto.Name = "HasInputDto";
+            // 
+            // HasOutputDto
+            // 
+            this.HasOutputDto.DataPropertyName = "HasOutputDto";
+            this.HasOutputDto.HeaderText = "OutputDto";
+            this.HasOutputDto.Name = "HasOutputDto";
             // 
             // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2247, 950);
+            this.ClientSize = new System.Drawing.Size(2247, 1005);
             this.Controls.Add(this.gbFields);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.tabControl1);
@@ -827,11 +1256,17 @@
             this.gbLP.PerformLayout();
             this.gbDP.ResumeLayout(false);
             this.gbDP.PerformLayout();
-            this.tpPage.ResumeLayout(false);
+            this.tpWebView.ResumeLayout(false);
             this.gbClass.ResumeLayout(false);
             this.gbClass.PerformLayout();
             this.tpEntity.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.tpService.ResumeLayout(false);
+            this.tpService.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -864,7 +1299,7 @@
         private System.Windows.Forms.TextBox tbDPMasterPageFile;
         private System.Windows.Forms.GroupBox gbDP;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TabPage tpPage;
+        private System.Windows.Forms.TabPage tpWebView;
         private System.Windows.Forms.GroupBox gbClass;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox tbEntityNS;
@@ -899,6 +1334,39 @@
         private System.Windows.Forms.TextBox tbCodeRootPath;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TabPage tpService;
+        private System.Windows.Forms.TabPage tpController;
+        private System.Windows.Forms.TextBox tbFunName;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox cbDeleteAsync;
+        private System.Windows.Forms.CheckBox cbUpdateAsync;
+        private System.Windows.Forms.CheckBox cbCreateAsync;
+        private System.Windows.Forms.CheckBox cbGetByIdAsync;
+        private System.Windows.Forms.CheckBox cbGetAllAsync;
+        private System.Windows.Forms.TextBox tbDomainServiceNS;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox tbDomainServiceClassName;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox tbAppServiceNS;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox tbAppServiceClassName;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox tbPermDelete;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox tbPermEdit;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox tbPermCreate;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox tbMenuPerm;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox tbInputDtoClassName;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox tbComment;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tbOutputDtoClassName;
+        private System.Windows.Forms.Label label31;
         private System.Windows.Forms.DataGridViewTextBoxColumn NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn TYPE;
         private System.Windows.Forms.DataGridViewTextBoxColumn LENGTH;
@@ -908,6 +1376,8 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsIdentity;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsPk;
         private System.Windows.Forms.DataGridViewTextBoxColumn Property;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn HasInputDto;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn HasOutputDto;
     }
 }
 

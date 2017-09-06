@@ -62,5 +62,15 @@ namespace DM.UBP.CodeBuilder
         /// 实体类中的属性名
         /// </summary>
         public string Property { get; set; }
+
+        /// <summary>
+        /// 当前字段是否需要包含在InputDto中
+        /// </summary>
+        public bool HasInputDto { get; set; }
+
+        /// <summary>
+        /// 当前字段是否需要包含在OutputDto中
+        /// </summary>
+        public bool HasOutputDto { get; set; }
     }
 }

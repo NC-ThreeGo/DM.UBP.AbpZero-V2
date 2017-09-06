@@ -21,6 +21,13 @@ namespace DM.UBP.CodeBuilder
 
         public string PkType { get; set; }
 
+        public string TableName { get; set; }
+
+        /// <summary>
+        /// 类的复数名
+        /// </summary>
+        public string ClassPluralName { get; set; }
+
         /// <summary>
         /// 实现多租户的接口：None， IMayHaveTenant、IMustHaveTenant
         /// </summary>
@@ -59,7 +66,8 @@ namespace DM.UBP.CodeBuilder
 
         private void WriteClass()
         {
-            CodeText.AppendLine("namespace " + RootNameSpace + "." + SubNameSpace + "." + ModuleName + (String.IsNullOrEmpty(SubModuleName) ? "" : "." + SubModuleName));
+            FullNameSpace = RootNameSpace + "." + SubNameSpace + "." + ModuleName + (String.IsNullOrEmpty(SubModuleName) ? "" : "." + SubModuleName);
+            CodeText.AppendLine("namespace " + FullNameSpace);
             CodeText.AppendLine("{");
             CodeText.AppendLine("/// <summary>");
             CodeText.AppendLine("/// " + ClassComments);

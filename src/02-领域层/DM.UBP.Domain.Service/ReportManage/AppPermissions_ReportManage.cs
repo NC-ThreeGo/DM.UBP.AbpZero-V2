@@ -1,4 +1,4 @@
-﻿namespace DM.UBP.Authorization
+﻿namespace DM.UBP.Domain.Service.ReportManage
 {
     /// <summary>
     /// Defines string constants for application's permission names.

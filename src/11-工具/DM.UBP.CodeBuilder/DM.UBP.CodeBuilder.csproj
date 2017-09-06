@@ -51,6 +51,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,7 +63,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppServiceCodeBuilder.cs" />
     <Compile Include="CodeBuilderBase.cs" />
+    <Compile Include="DomainServiceCodeBuilder.cs" />
+    <Compile Include="AppServiceInterfaceCodeBuilder.cs" />
+    <Compile Include="OutputDtoCodeBuilder.cs" />
+    <Compile Include="UbpDbContextCodeBuilder.cs" />
+    <Compile Include="PermissionCodeBuilder.cs" />
+    <Compile Include="InputDtoCodeBuilder.cs" />
+    <Compile Include="DomainServiceInterfaceCodeBuilder.cs" />
+    <Compile Include="EntityConfigurationCodeBuilder.cs" />
     <Compile Include="EntityCodeBuilder.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="MainFrm.cs">

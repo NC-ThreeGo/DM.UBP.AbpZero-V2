@@ -14,7 +14,7 @@ namespace DM.UBP.CodeBuilder
     public enum DbType
     {
         SqlServer = 0,
-        DevartOracle = 1,
+        OracleDevart = 1,
         Oracle = 2,
         MySql = 3,
     }
@@ -31,7 +31,7 @@ namespace DM.UBP.CodeBuilder
             string type = "";
             switch (dbType)
             {
-                case DbType.DevartOracle:
+                case DbType.OracleDevart:
                 case DbType.Oracle:
                     switch (field.Type.ToLower())
                     {

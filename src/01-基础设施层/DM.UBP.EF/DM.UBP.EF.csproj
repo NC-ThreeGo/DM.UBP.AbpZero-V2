@@ -118,8 +118,7 @@
     <Compile Include="Migrations\CreateDatabaseIfNotExistsWithSeedBase.cs" />
     <Compile Include="Migrations\ISeedAction.cs" />
     <Compile Include="Migrations\MigrationsConfigurationWithSeedBase.cs" />
-    <Compile Include="UbpDbContext.SysManage.cs" />
-    <Compile Include="UbpDbContext.cs" />
+    <Compile Include="DbContext\UbpDbContext.cs" />
     <Compile Include="UbpRepositoryBase.cs" />
     <Compile Include="IEntityMapper.cs" />
     <Compile Include="Migrations\AutoMigrationsConfiguration.cs" />
@@ -165,6 +164,10 @@
     <ProjectReference Include="..\..\00-aspnet-zero\DM.UBP.Core\DM.UBP.Core.csproj">
       <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
       <Name>DM.UBP.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\02-领域层\DM.UBP.Domain.Entity\DM.UBP.Domain.Entity.csproj">
+      <Project>{d0f6b7da-08a0-472b-ad15-3f9878439467}</Project>
+      <Name>DM.UBP.Domain.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\DM.Common\DM.Common.csproj">
       <Project>{d3c43dfa-4bc8-4daa-83a4-51d0000e788c}</Project>

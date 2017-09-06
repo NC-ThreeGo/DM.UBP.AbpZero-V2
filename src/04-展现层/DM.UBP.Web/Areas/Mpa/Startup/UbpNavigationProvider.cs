@@ -1,6 +1,7 @@
 ﻿using Abp.Application.Navigation;
 using Abp.Localization;
 using DM.UBP.Authorization;
+using DM.UBP.Domain.Service.ReportManage;
 using DM.UBP.Web.Navigation;
 
 namespace DM.UBP.Web.Areas.Mpa.Startup

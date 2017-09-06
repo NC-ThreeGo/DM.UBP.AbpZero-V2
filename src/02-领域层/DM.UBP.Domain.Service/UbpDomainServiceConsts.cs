@@ -5,6 +5,6 @@
     /// </summary>
     public class UbpDomainServiceConsts
     {
-        public const string LocalizationSourceName = "DM.UBP";
+        //public const string LocalizationSourceName = "DM.UBP";
     }
 }
