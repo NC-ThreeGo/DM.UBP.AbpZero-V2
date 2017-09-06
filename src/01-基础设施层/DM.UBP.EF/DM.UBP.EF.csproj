@@ -113,14 +113,13 @@
     <Compile Include="DatabaseInitializer.cs" />
     <Compile Include="DbContextInitializerBase.cs" />
     <Compile Include="DbContextManager.cs" />
+    <Compile Include="DbContext\UbpDbContext.cs" />
+    <Compile Include="DbContext\UbpDbContext.ReportManage.cs" />
     <Compile Include="EntityConfigurationBase.cs" />
     <Compile Include="IDatabaseInitializer.cs" />
     <Compile Include="Migrations\CreateDatabaseIfNotExistsWithSeedBase.cs" />
     <Compile Include="Migrations\ISeedAction.cs" />
     <Compile Include="Migrations\MigrationsConfigurationWithSeedBase.cs" />
-    <Compile Include="UbpDbContext.ReportManage.cs" />
-    <Compile Include="UbpDbContext.SysManage.cs" />
-    <Compile Include="UbpDbContext.cs" />
     <Compile Include="UbpRepositoryBase.cs" />
     <Compile Include="IEntityMapper.cs" />
     <Compile Include="Migrations\AutoMigrationsConfiguration.cs" />
