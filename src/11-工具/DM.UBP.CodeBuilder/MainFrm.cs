@@ -145,6 +145,7 @@ namespace DM.UBP.CodeBuilder
             }
 
             EntityCodeBuilder entityCodeBuilder = new EntityCodeBuilder();
+            entityCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             entityCodeBuilder.TableName = cbTableName.Text;
             entityCodeBuilder.DbType = _DbType;
             entityCodeBuilder.Fields = fields_Property;
