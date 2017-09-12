@@ -2,5 +2,6 @@
 <localizationDictionary culture="zh-CN">
     <texts>
         <text name="ReportManage" value="报表管理" />
+        <text name="DeleteRecordWarningMessage" value="当前记录将被删除." />
     </texts>
 </localizationDictionary>

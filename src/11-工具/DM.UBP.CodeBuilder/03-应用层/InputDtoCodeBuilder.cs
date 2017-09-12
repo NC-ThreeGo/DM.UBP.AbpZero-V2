@@ -115,7 +115,8 @@ namespace DM.UBP.CodeBuilder
                         CodeText.AppendLine("[Required]");
                     }
 
-                    CodeText.AppendLine("public " + type + (field.Nullable && type != "string" ? "? " : " ") + CultureInfo.CurrentCulture.TextInfo.ToTitleCase(field.Name.ToLower()) + " { get; set; } ");
+                    //CodeText.AppendLine("public " + type + (field.Nullable && type != "string" ? "? " : " ") + CultureInfo.CurrentCulture.TextInfo.ToTitleCase(field.Name.ToLower()) + " { get; set; } ");
+                    CodeText.AppendLine("public " + type + (field.Nullable && type != "string" ? "? " : " ") + field.Property + " { get; set; } ");
                     CodeText.AppendLine("");
                 }
             }

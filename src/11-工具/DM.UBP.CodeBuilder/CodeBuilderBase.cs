@@ -15,7 +15,16 @@ namespace DM.UBP.CodeBuilder
         /// </summary>
         public const string INSERT_POSITION = "//@@Insert Position";
 
-        private string _Suffix = ".cs";
+        /// <summary>
+        /// 指定文件的后缀名
+        /// </summary>
+        public virtual string Suffix
+        {
+            get
+            {
+                return ".cs";
+            }
+        }
 
         public const string Version = "1.0";
         public StringBuilder CodeText = new StringBuilder();
@@ -62,8 +71,13 @@ namespace DM.UBP.CodeBuilder
             {
                 return true;
             }
-            set
+        }
+
+        public virtual bool AutoMakeDir
+        {
+            get
             {
+                return true;
             }
         }
 
@@ -82,7 +96,7 @@ namespace DM.UBP.CodeBuilder
                 return File.Exists(RootCodePath + SubCodePath
                     + ModuleName + @"\" + (String.IsNullOrEmpty(SubModuleName) ? "" : SubModuleName + @"\")
                     + (String.IsNullOrEmpty(FunctionName) ? "" : FunctionName + @"\")
-                    + FileName + _Suffix);
+                    + FileName + Suffix);
             }
         }
 
@@ -97,16 +111,6 @@ namespace DM.UBP.CodeBuilder
             {
                 RootNameSpace = ConfigurationManager.AppSettings["RootNameSpace"];
             }
-        }
-
-        /// <summary>
-        /// 指定文件的后缀名
-        /// </summary>
-        /// <param name="suffix"></param>
-        public CodeBuilderBase(string suffix)
-            : this()
-        {
-            _Suffix = suffix;
         }
 
         protected void WriteCodeCopyright()
@@ -139,19 +143,22 @@ namespace DM.UBP.CodeBuilder
 
         public void Save()
         {
-            if (!Directory.Exists(RootCodePath + SubCodePath + ModuleName))
+            if (AutoMakeDir)
             {
-                Directory.CreateDirectory(RootCodePath + SubCodePath + ModuleName);
-            }
-            if (!String.IsNullOrEmpty(SubModuleName) && (!Directory.Exists(RootCodePath + SubCodePath
-                + ModuleName + @"\" + SubModuleName)))
-            {
-                Directory.CreateDirectory(RootCodePath + SubCodePath + ModuleName + @"\" + SubModuleName);
-            }
-            if (!String.IsNullOrEmpty(FunctionName) && (!Directory.Exists(RootCodePath + SubCodePath
-                + ModuleName + @"\" + SubModuleName + @"\" + FunctionName)))
-            {
-                Directory.CreateDirectory(RootCodePath + SubCodePath + ModuleName + @"\" + SubModuleName + @"\" + FunctionName);
+                if (!Directory.Exists(RootCodePath + SubCodePath + ModuleName))
+                {
+                    Directory.CreateDirectory(RootCodePath + SubCodePath + ModuleName);
+                }
+                if (!String.IsNullOrEmpty(SubModuleName) && (!Directory.Exists(RootCodePath + SubCodePath
+                    + ModuleName + @"\" + SubModuleName)))
+                {
+                    Directory.CreateDirectory(RootCodePath + SubCodePath + ModuleName + @"\" + SubModuleName);
+                }
+                if (!String.IsNullOrEmpty(FunctionName) && (!Directory.Exists(RootCodePath + SubCodePath
+                    + ModuleName + @"\" + SubModuleName + @"\" + FunctionName)))
+                {
+                    Directory.CreateDirectory(RootCodePath + SubCodePath + ModuleName + @"\" + SubModuleName + @"\" + FunctionName);
+                }
             }
 
             //当为覆盖模式时，且文件已存在，则先备份老文件。
@@ -180,11 +187,11 @@ namespace DM.UBP.CodeBuilder
             File.Move(RootCodePath + SubCodePath + ModuleName + @"\"
                 + (String.IsNullOrEmpty(SubModuleName) ? "" : SubModuleName + @"\")
                 + (String.IsNullOrEmpty(FunctionName) ? "" : FunctionName + @"\")
-                + FileName + _Suffix,
+                + FileName + Suffix,
                 RootCodePath + SubCodePath + ModuleName + @"\"
                 + (String.IsNullOrEmpty(SubModuleName) ? "" : SubModuleName + @"\")
                 + (String.IsNullOrEmpty(FunctionName) ? "" : FunctionName + @"\")
-                + FileName + _Suffix + "01");
+                + FileName + Suffix + "01");
         }
 
         private void SaveForNewFile()
@@ -195,7 +202,7 @@ namespace DM.UBP.CodeBuilder
                                 + ModuleName + @"\"
                                 + (String.IsNullOrEmpty(SubModuleName) ? "" : SubModuleName + @"\")
                                 + (String.IsNullOrEmpty(FunctionName) ? "" : FunctionName + @"\")
-                                + FileName + _Suffix, false, System.Text.Encoding.GetEncoding("UTF-8")))
+                                + FileName + Suffix, false, System.Text.Encoding.GetEncoding("UTF-8")))
             {
                 writer_CS.Write(this.CodeText);
                 writer_CS.Close();
@@ -209,7 +216,7 @@ namespace DM.UBP.CodeBuilder
                                 + ModuleName + @"\"
                                 + (String.IsNullOrEmpty(SubModuleName) ? "" : SubModuleName + @"\")
                                 + (String.IsNullOrEmpty(FunctionName) ? "" : FunctionName + @"\")
-                                + FileName + _Suffix, System.Text.Encoding.GetEncoding("UTF-8")))
+                                + FileName + Suffix, System.Text.Encoding.GetEncoding("UTF-8")))
             {
 
                 /**////设置当前流的起始位置为文件流的起始点
@@ -229,7 +236,7 @@ namespace DM.UBP.CodeBuilder
                                 + ModuleName + @"\"
                                 + (String.IsNullOrEmpty(SubModuleName) ? "" : SubModuleName + @"\")
                                 + (String.IsNullOrEmpty(FunctionName) ? "" : FunctionName + @"\")
-                                + FileName + _Suffix, false, System.Text.Encoding.GetEncoding("UTF-8")))
+                                + FileName + Suffix, false, System.Text.Encoding.GetEncoding("UTF-8")))
             {
                 output.Replace(INSERT_POSITION, this.CodeText.ToString());
                 writer_CS.Write(output);

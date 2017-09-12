@@ -116,6 +116,8 @@
             this.btnConn = new System.Windows.Forms.Button();
             this.gbFields = new System.Windows.Forms.GroupBox();
             this.gvFields = new System.Windows.Forms.DataGridView();
+            this.tbControllerName = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LENGTH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,6 +129,8 @@
             this.Property = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HasInputDto = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.HasOutputDto = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TableColWidth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsEdit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gbLP.SuspendLayout();
             this.gbDP.SuspendLayout();
             this.tpWebView.SuspendLayout();
@@ -136,6 +140,7 @@
             this.tpService.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tpController.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gbFields.SuspendLayout();
@@ -983,6 +988,8 @@
             // 
             // tpController
             // 
+            this.tpController.Controls.Add(this.tbControllerName);
+            this.tpController.Controls.Add(this.label32);
             this.tpController.Location = new System.Drawing.Point(8, 39);
             this.tpController.Name = "tpController";
             this.tpController.Size = new System.Drawing.Size(754, 773);
@@ -1151,7 +1158,9 @@
             this.IsPk,
             this.Property,
             this.HasInputDto,
-            this.HasOutputDto});
+            this.HasOutputDto,
+            this.TableColWidth,
+            this.IsEdit});
             this.gvFields.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvFields.Location = new System.Drawing.Point(6, 34);
             this.gvFields.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
@@ -1160,6 +1169,24 @@
             this.gvFields.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvFields.Size = new System.Drawing.Size(1459, 780);
             this.gvFields.TabIndex = 0;
+            // 
+            // tbControllerName
+            // 
+            this.tbControllerName.Location = new System.Drawing.Point(217, 19);
+            this.tbControllerName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbControllerName.Name = "tbControllerName";
+            this.tbControllerName.Size = new System.Drawing.Size(469, 35);
+            this.tbControllerName.TabIndex = 14;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(15, 22);
+            this.label32.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(214, 24);
+            this.label32.TabIndex = 15;
+            this.label32.Text = "Controller 名称：";
             // 
             // NAME
             // 
@@ -1238,6 +1265,20 @@
             this.HasOutputDto.HeaderText = "OutputDto";
             this.HasOutputDto.Name = "HasOutputDto";
             // 
+            // TableColWidth
+            // 
+            this.TableColWidth.DataPropertyName = "TableColWidth";
+            this.TableColWidth.HeaderText = "列宽(%)";
+            this.TableColWidth.Name = "TableColWidth";
+            // 
+            // IsEdit
+            // 
+            this.IsEdit.DataPropertyName = "IsEdit";
+            this.IsEdit.HeaderText = "IsEdit";
+            this.IsEdit.Name = "IsEdit";
+            this.IsEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -1267,6 +1308,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tpController.ResumeLayout(false);
+            this.tpController.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -1367,6 +1410,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox tbOutputDtoClassName;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox tbControllerName;
+        private System.Windows.Forms.Label label32;
         private System.Windows.Forms.DataGridViewTextBoxColumn NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn TYPE;
         private System.Windows.Forms.DataGridViewTextBoxColumn LENGTH;
@@ -1378,6 +1423,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Property;
         private System.Windows.Forms.DataGridViewCheckBoxColumn HasInputDto;
         private System.Windows.Forms.DataGridViewCheckBoxColumn HasOutputDto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TableColWidth;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsEdit;
     }
 }
 

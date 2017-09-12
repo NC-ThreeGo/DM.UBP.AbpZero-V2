@@ -80,7 +80,8 @@ namespace DM.UBP.CodeBuilder
                                         else a.DATA_LENGTH end length, " 
                             + " a.DATA_SCALE scale, "
                             + " case when a.nullable = 'Y' then 1 else 0 end nullable, 0 IsIdentity, 0 ispk, b.comments, "
-                            + " 1 HasInputDto, 1 HasOutputDto "
+                            + " 1 HasInputDto, 1 HasOutputDto, "
+                            + " '' TableColWidth, 0 IsEdit "
                             + " from user_TAB_COLUMNS a, user_col_comments b "
                             + " where a.table_name = b.table_name and a.column_name = b.column_name"
                             + " and a.TABLE_NAME ='" + cbTableName.Text + "'"
@@ -100,7 +101,8 @@ namespace DM.UBP.CodeBuilder
                                                                 AND idx.is_primary_key = 1
                                                     ) THEN 1 ELSE 0 END as bit) AS IsPk,
 	                                g.[value] comments,
-                                1 As listdto, 1 As editdto 
+                                1 As listdto, 1 As editdto, 
+                                '' As TableColWidth, 1 As IsEdit
                                 FROM sys.columns col left join sys.types typ on(col.system_type_id = typ.system_type_id)
                                      left join sys.extended_properties g on(col.object_id = g.major_id AND g.minor_id = col.column_id)
                                     WHERE col.object_id = (SELECT object_id FROM sys.tables WHERE name = '" + cbTableName.Text + "')"
@@ -136,6 +138,8 @@ namespace DM.UBP.CodeBuilder
                 f.Property = row.Cells["Property"].Value is null ? CultureInfo.CurrentCulture.TextInfo.ToTitleCase(f.Name.ToLower()) : row.Cells["Property"].Value.ToString();
                 f.HasInputDto = Convert.ToBoolean(row.Cells["HasInputDto"].Value is null ? false : row.Cells["HasInputDto"].Value);
                 f.HasOutputDto = Convert.ToBoolean(row.Cells["HasOutputDto"].Value is null ? false : row.Cells["HasOutputDto"].Value);
+                f.TableColWidth = Convert.ToInt32(row.Cells["TableColWidth"].Value is null ? 0 : row.Cells["TableColWidth"].Value);
+                f.IsEdit = Convert.ToBoolean(row.Cells["IsEdit"].Value is null ? false : row.Cells["IsEdit"].Value);
 
                 fields_Property.Add(f);
             }
@@ -224,6 +228,32 @@ namespace DM.UBP.CodeBuilder
             appServiceCodeBuilder.ClassComments = tbComment.Text + "的Application.Service";
             appServiceCodeBuilder.CreateCode();
 
+            //Controller
+            ControllerCodeBuilder controllerCodeBuilder = new ControllerCodeBuilder(inputDtoCodeBuilder, outputDtoCodeBuilder,
+                appServiceInterfaceCodeBuilder, permissionCodeBuilder, tbControllerName.Text, tbModuleName.Text);
+            controllerCodeBuilder.ClassComments = tbComment.Text + "的Controller";
+            controllerCodeBuilder.CreateCode();
+
+            //Index.cshtml
+            IndexCshtmlCodeBuilder indexCshtmlCodeBuilder = new IndexCshtmlCodeBuilder(permissionCodeBuilder,
+                controllerCodeBuilder, tbModuleName.Text);
+            indexCshtmlCodeBuilder.CreateCode();
+
+            //Index.js
+            IndexJsCodeBuilder indexJsCodeBuilder = new IndexJsCodeBuilder(permissionCodeBuilder,
+                controllerCodeBuilder, tbModuleName.Text);
+            indexJsCodeBuilder.CreateCode();
+
+            //_CreateOrEditModal.cshtml
+            EditModalCshtmlCodeBuilder editModalCshtmlCodeBuilder = new EditModalCshtmlCodeBuilder(permissionCodeBuilder,
+                controllerCodeBuilder, tbModuleName.Text);
+            editModalCshtmlCodeBuilder.CreateCode();
+
+            //_CreateOrEditModal.js
+            EditModalJsCodeBuilder editModalJsCodeBuilder = new EditModalJsCodeBuilder(permissionCodeBuilder,
+                controllerCodeBuilder, tbModuleName.Text);
+            editModalJsCodeBuilder.CreateCode();
+
             MessageBox.Show("OK");
         }
 
@@ -240,6 +270,8 @@ namespace DM.UBP.CodeBuilder
             tbPermCreate.Text = tbMenuPerm.Text + ".Create";
             tbPermEdit.Text = tbMenuPerm.Text + ".Edit";
             tbPermDelete.Text = tbMenuPerm.Text + ".Delete";
+
+            tbControllerName.Text = tbClass.Text;
         }
 
         private void tbComment_TextChanged(object sender, EventArgs e)

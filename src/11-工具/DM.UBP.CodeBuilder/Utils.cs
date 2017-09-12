@@ -21,6 +21,12 @@ namespace DM.UBP.CodeBuilder
 
     public static class Utils
     {
+
+        public static string FirstWordToLower(string str)
+        {
+            return str.Substring(0, 1).ToLower() + str.Substring(1);
+        }
+
         /// <summary>
         /// 
         /// </summary>

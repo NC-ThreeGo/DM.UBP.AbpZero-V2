@@ -63,17 +63,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppServiceCodeBuilder.cs" />
+    <Compile Include="03-应用层\AppServiceCodeBuilder.cs" />
+    <Compile Include="04-展现层\EditModalCshtmlCodeBuilder.cs" />
+    <Compile Include="04-展现层\EditModalJsCodeBuilder.cs" />
+    <Compile Include="04-展现层\IndexJsCodeBuilder.cs" />
+    <Compile Include="04-展现层\IndexCshtmlCodeBuilder.cs" />
     <Compile Include="CodeBuilderBase.cs" />
-    <Compile Include="DomainServiceCodeBuilder.cs" />
-    <Compile Include="AppServiceInterfaceCodeBuilder.cs" />
-    <Compile Include="OutputDtoCodeBuilder.cs" />
-    <Compile Include="UbpDbContextCodeBuilder.cs" />
-    <Compile Include="PermissionCodeBuilder.cs" />
-    <Compile Include="InputDtoCodeBuilder.cs" />
-    <Compile Include="DomainServiceInterfaceCodeBuilder.cs" />
-    <Compile Include="EntityConfigurationCodeBuilder.cs" />
-    <Compile Include="EntityCodeBuilder.cs" />
+    <Compile Include="04-展现层\ControllerCodeBuilder.cs" />
+    <Compile Include="02-领域层\DomainServiceCodeBuilder.cs" />
+    <Compile Include="03-应用层\AppServiceInterfaceCodeBuilder.cs" />
+    <Compile Include="03-应用层\OutputDtoCodeBuilder.cs" />
+    <Compile Include="01-基础设施层\UbpDbContextCodeBuilder.cs" />
+    <Compile Include="03-应用层\PermissionCodeBuilder.cs" />
+    <Compile Include="03-应用层\InputDtoCodeBuilder.cs" />
+    <Compile Include="02-领域层\DomainServiceInterfaceCodeBuilder.cs" />
+    <Compile Include="02-领域层\EntityConfigurationCodeBuilder.cs" />
+    <Compile Include="02-领域层\EntityCodeBuilder.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="MainFrm.cs">
       <SubType>Form</SubType>
@@ -110,5 +115,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -89,29 +89,29 @@ namespace DM.UBP.CodeBuilder
                 //审计字段已经在基类里实现了，所以这里就不用再定义了。
                 if (BaseClass.ToLower() == "fullauditedentity")
                 {
-                    if ((field.Name.ToLower() == "isdeleted") ||
-                        (field.Name.ToLower() == "deleteruserid") ||
-                        (field.Name.ToLower() == "deletiontime") ||
-                        (field.Name.ToLower() == "lastmodificationtime") ||
-                        (field.Name.ToLower() == "lastmodifieruserid") ||
-                        (field.Name.ToLower() == "creationtime") ||
-                        (field.Name.ToLower() == "creatoruserid"))
+                    if ((field.Property.ToLower() == "isdeleted") ||
+                        (field.Property.ToLower() == "deleteruserid") ||
+                        (field.Property.ToLower() == "deletiontime") ||
+                        (field.Property.ToLower() == "lastmodificationtime") ||
+                        (field.Property.ToLower() == "lastmodifieruserid") ||
+                        (field.Property.ToLower() == "creationtime") ||
+                        (field.Property.ToLower() == "creatoruserid"))
                         continue;
                 }
 
                 if (BaseClass.ToLower() == "auditedentity")
                 {
-                    if ((field.Name.ToLower() == "lastmodificationtime") ||
-                        (field.Name.ToLower() == "lastmodifieruserid") ||
-                        (field.Name.ToLower() == "creationtime") ||
-                        (field.Name.ToLower() == "creatoruserid"))
+                    if ((field.Property.ToLower() == "lastmodificationtime") ||
+                        (field.Property.ToLower() == "lastmodifieruserid") ||
+                        (field.Property.ToLower() == "creationtime") ||
+                        (field.Property.ToLower() == "creatoruserid"))
                         continue;
                 }
 
                 if (BaseClass.ToLower() == "creationauditedentity")
                 {
-                    if ((field.Name.ToLower() == "creationtime") ||
-                        (field.Name.ToLower() == "creatoruserid"))
+                    if ((field.Property.ToLower() == "creationtime") ||
+                        (field.Property.ToLower() == "creatoruserid"))
                         continue;
                 }
 
@@ -135,7 +135,8 @@ namespace DM.UBP.CodeBuilder
                     CodeText.AppendLine("[StringLength(StringMaxLengthConst.MaxStringLength" + field.Length + ")]");
                 }
 
-                CodeText.AppendLine("public " + type + (field.Nullable && type != "string" ? "? " : " ") + CultureInfo.CurrentCulture.TextInfo.ToTitleCase(field.Name.ToLower()) + " { get; set; } ");
+                //CodeText.AppendLine("public " + type + (field.Nullable && type != "string" ? "? " : " ") + CultureInfo.CurrentCulture.TextInfo.ToTitleCase(field.Name.ToLower()) + " { get; set; } ");
+                CodeText.AppendLine("public " + type + (field.Nullable && type != "string" ? "? " : " ") + field.Property + " { get; set; } ");
 
                 CodeText.AppendLine("");
             }

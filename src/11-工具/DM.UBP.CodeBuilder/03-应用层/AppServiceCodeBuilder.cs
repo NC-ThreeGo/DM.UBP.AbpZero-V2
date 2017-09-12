@@ -77,11 +77,12 @@ namespace DM.UBP.CodeBuilder
         private void WriteConstructor()
         {
             CodeText.AppendLine("public " + ClassName + "(");
-            CodeText.AppendLine("   " + DomainServiceInterfaceCodeBuilder.ClassName + " " + DomainServiceInterfaceCodeBuilder.ClassName.ToLower());
+            CodeText.AppendLine("   " + DomainServiceInterfaceCodeBuilder.ClassName + " " + DomainServiceInterfaceCodeBuilder.ClassName.Substring(1).ToLower());
             CodeText.AppendLine("   )");
             CodeText.AppendLine("{");
-            CodeText.AppendLine("_" + DomainServiceInterfaceCodeBuilder.ClassName.Substring(1) + " = " + DomainServiceInterfaceCodeBuilder.ClassName.ToLower() + "; ");
+            CodeText.AppendLine("_" + DomainServiceInterfaceCodeBuilder.ClassName.Substring(1) + " = " + DomainServiceInterfaceCodeBuilder.ClassName.Substring(1).ToLower() + "; ");
             CodeText.AppendLine("}");
+            CodeText.AppendLine("");
         }
 
         private void WriteProperty()

@@ -12,7 +12,7 @@ namespace DM.UBP.CodeBuilder
     {
         public override string SubCodePath { get => _RelativePath; set => _RelativePath = value; }
 
-        public override bool IsOverrideWrite { get => false; set => base.IsOverrideWrite = value; }
+        public override bool IsOverrideWrite { get => false; }
 
         public string _RelativePath = @"01-基础设施层\DM.UBP.EF\";
 

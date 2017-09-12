@@ -72,5 +72,15 @@ namespace DM.UBP.CodeBuilder
         /// 当前字段是否需要包含在OutputDto中
         /// </summary>
         public bool HasOutputDto { get; set; }
+
+        /// <summary>
+        /// jtable中列的宽度（百分比）
+        /// </summary>
+        public int TableColWidth { get; set; }
+
+        /// <summary>
+        /// 当前属性是否可编辑
+        /// </summary>
+        public bool IsEdit { get; set; }
     }
 }
