@@ -199,6 +199,10 @@
       <Project>{6d8ad002-4071-4094-803a-c25eb7e9c786}</Project>
       <Name>Abp.Zero</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\03-应用层\DM.UBP.Application.Service\DM.UBP.Application.Service.csproj">
+      <Project>{10e6adbf-9f47-4b9e-918a-e0d2960599b6}</Project>
+      <Name>DM.UBP.Application.Service</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DM.UBP.Application\DM.UBP.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
       <Name>DM.UBP.Application</Name>

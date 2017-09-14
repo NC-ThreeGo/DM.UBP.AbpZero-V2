@@ -7,7 +7,8 @@ namespace DM.UBP.Web.Navigation
 {
     public static partial class UbpMenu
     {
-        public const string ReportManage = "ReportManage";
-        public const string ReportManageDesigner = "ReportManage.Designer";
+        public const string ReportManager = "ReportManager";
+        public const string ReportManagerCategories = "ReportManager.Categories";
+        public const string ReportManagerDesigner = "ReportManager.Designer";
     }
 }

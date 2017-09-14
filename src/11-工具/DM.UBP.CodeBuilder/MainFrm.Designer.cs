@@ -102,6 +102,8 @@
             this.tbFunName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tpController = new System.Windows.Forms.TabPage();
+            this.tbControllerName = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.btnRefreshCBB = new System.Windows.Forms.Button();
             this.btnCodeCreate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -116,8 +118,6 @@
             this.btnConn = new System.Windows.Forms.Button();
             this.gbFields = new System.Windows.Forms.GroupBox();
             this.gvFields = new System.Windows.Forms.DataGridView();
-            this.tbControllerName = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
             this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LENGTH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,19 +149,17 @@
             // 
             // tbClassDesc
             // 
-            this.tbClassDesc.Location = new System.Drawing.Point(97, 207);
-            this.tbClassDesc.Margin = new System.Windows.Forms.Padding(6);
+            this.tbClassDesc.Location = new System.Drawing.Point(48, 104);
             this.tbClassDesc.Name = "tbClassDesc";
-            this.tbClassDesc.Size = new System.Drawing.Size(631, 35);
+            this.tbClassDesc.Size = new System.Drawing.Size(318, 21);
             this.tbClassDesc.TabIndex = 16;
             // 
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(1471, 113);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(6);
+            this.splitter1.Location = new System.Drawing.Point(546, 56);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(6, 820);
+            this.splitter1.Size = new System.Drawing.Size(3, 417);
             this.splitter1.TabIndex = 12;
             this.splitter1.TabStop = false;
             // 
@@ -177,67 +175,61 @@
             this.gbLP.Controls.Add(this.tbLPClassName);
             this.gbLP.Controls.Add(this.label21);
             this.gbLP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbLP.Location = new System.Drawing.Point(4, 5);
-            this.gbLP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbLP.Location = new System.Drawing.Point(2, 2);
+            this.gbLP.Margin = new System.Windows.Forms.Padding(2);
             this.gbLP.Name = "gbLP";
-            this.gbLP.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbLP.Size = new System.Drawing.Size(746, 413);
+            this.gbLP.Padding = new System.Windows.Forms.Padding(2);
+            this.gbLP.Size = new System.Drawing.Size(373, 206);
             this.gbLP.TabIndex = 6;
             this.gbLP.TabStop = false;
             this.gbLP.Text = "LP：";
             // 
             // tbLPNameSpace
             // 
-            this.tbLPNameSpace.Location = new System.Drawing.Point(138, 24);
-            this.tbLPNameSpace.Margin = new System.Windows.Forms.Padding(6);
+            this.tbLPNameSpace.Location = new System.Drawing.Point(69, 12);
             this.tbLPNameSpace.Name = "tbLPNameSpace";
-            this.tbLPNameSpace.Size = new System.Drawing.Size(592, 35);
+            this.tbLPNameSpace.Size = new System.Drawing.Size(298, 21);
             this.tbLPNameSpace.TabIndex = 17;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(6, 32);
-            this.label24.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label24.Location = new System.Drawing.Point(3, 16);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(142, 24);
+            this.label24.Size = new System.Drawing.Size(71, 12);
             this.label24.TabIndex = 18;
             this.label24.Text = "NameSpace：";
             // 
             // tbGridView
             // 
-            this.tbGridView.Location = new System.Drawing.Point(114, 360);
-            this.tbGridView.Margin = new System.Windows.Forms.Padding(6);
+            this.tbGridView.Location = new System.Drawing.Point(57, 180);
             this.tbGridView.Name = "tbGridView";
-            this.tbGridView.Size = new System.Drawing.Size(613, 35);
+            this.tbGridView.Size = new System.Drawing.Size(308, 21);
             this.tbGridView.TabIndex = 15;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 365);
-            this.label19.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label19.Location = new System.Drawing.Point(3, 182);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(118, 24);
+            this.label19.Size = new System.Drawing.Size(59, 12);
             this.label19.TabIndex = 16;
             this.label19.Text = "GriView：";
             // 
             // tbLPMasterPageFile
             // 
-            this.tbLPMasterPageFile.Location = new System.Drawing.Point(196, 126);
-            this.tbLPMasterPageFile.Margin = new System.Windows.Forms.Padding(6);
+            this.tbLPMasterPageFile.Location = new System.Drawing.Point(98, 63);
             this.tbLPMasterPageFile.Name = "tbLPMasterPageFile";
-            this.tbLPMasterPageFile.Size = new System.Drawing.Size(534, 35);
+            this.tbLPMasterPageFile.Size = new System.Drawing.Size(269, 21);
             this.tbLPMasterPageFile.TabIndex = 13;
             this.tbLPMasterPageFile.Text = "~/MasterPage/ListPage.Master";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 131);
-            this.label18.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label18.Location = new System.Drawing.Point(3, 66);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(202, 24);
+            this.label18.Size = new System.Drawing.Size(101, 12);
             this.label18.TabIndex = 14;
             this.label18.Text = "MasterPageFile：";
             // 
@@ -257,28 +249,26 @@
             "Attachment",
             "Disable",
             "Suspend"});
-            this.clbLPActionList.Location = new System.Drawing.Point(10, 184);
-            this.clbLPActionList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.clbLPActionList.Location = new System.Drawing.Point(5, 92);
+            this.clbLPActionList.Margin = new System.Windows.Forms.Padding(2);
             this.clbLPActionList.MultiColumn = true;
             this.clbLPActionList.Name = "clbLPActionList";
-            this.clbLPActionList.Size = new System.Drawing.Size(720, 154);
+            this.clbLPActionList.Size = new System.Drawing.Size(362, 68);
             this.clbLPActionList.TabIndex = 12;
             // 
             // tbLPClassName
             // 
-            this.tbLPClassName.Location = new System.Drawing.Point(76, 74);
-            this.tbLPClassName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbLPClassName.Location = new System.Drawing.Point(38, 37);
             this.tbLPClassName.Name = "tbLPClassName";
-            this.tbLPClassName.Size = new System.Drawing.Size(654, 35);
+            this.tbLPClassName.Size = new System.Drawing.Size(329, 21);
             this.tbLPClassName.TabIndex = 10;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 78);
-            this.label21.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label21.Location = new System.Drawing.Point(3, 39);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(82, 24);
+            this.label21.Size = new System.Drawing.Size(41, 12);
             this.label21.TabIndex = 11;
             this.label21.Text = "类名：";
             // 
@@ -299,55 +289,50 @@
             "Attachment",
             "Disable",
             "Suspend"});
-            this.clbDPActionList.Location = new System.Drawing.Point(18, 189);
-            this.clbDPActionList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.clbDPActionList.Location = new System.Drawing.Point(9, 94);
+            this.clbDPActionList.Margin = new System.Windows.Forms.Padding(2);
             this.clbDPActionList.MultiColumn = true;
             this.clbDPActionList.Name = "clbDPActionList";
-            this.clbDPActionList.Size = new System.Drawing.Size(720, 154);
+            this.clbDPActionList.Size = new System.Drawing.Size(362, 68);
             this.clbDPActionList.TabIndex = 14;
             // 
             // tbDPClassName
             // 
-            this.tbDPClassName.Location = new System.Drawing.Point(81, 85);
-            this.tbDPClassName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbDPClassName.Location = new System.Drawing.Point(40, 42);
             this.tbDPClassName.Name = "tbDPClassName";
-            this.tbDPClassName.Size = new System.Drawing.Size(650, 35);
+            this.tbDPClassName.Size = new System.Drawing.Size(327, 21);
             this.tbDPClassName.TabIndex = 12;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(10, 90);
-            this.label22.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label22.Location = new System.Drawing.Point(5, 45);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(82, 24);
+            this.label22.Size = new System.Drawing.Size(41, 12);
             this.label22.TabIndex = 13;
             this.label22.Text = "类名：";
             // 
             // tbDPNameSpace
             // 
-            this.tbDPNameSpace.Location = new System.Drawing.Point(138, 32);
-            this.tbDPNameSpace.Margin = new System.Windows.Forms.Padding(6);
+            this.tbDPNameSpace.Location = new System.Drawing.Point(69, 16);
             this.tbDPNameSpace.Name = "tbDPNameSpace";
-            this.tbDPNameSpace.Size = new System.Drawing.Size(595, 35);
+            this.tbDPNameSpace.Size = new System.Drawing.Size(300, 21);
             this.tbDPNameSpace.TabIndex = 19;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(9, 40);
-            this.label25.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label25.Location = new System.Drawing.Point(4, 20);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(142, 24);
+            this.label25.Size = new System.Drawing.Size(71, 12);
             this.label25.TabIndex = 20;
             this.label25.Text = "NameSpace：";
             // 
             // tbDPMasterPageFile
             // 
-            this.tbDPMasterPageFile.Location = new System.Drawing.Point(201, 138);
-            this.tbDPMasterPageFile.Margin = new System.Windows.Forms.Padding(6);
+            this.tbDPMasterPageFile.Location = new System.Drawing.Point(100, 69);
             this.tbDPMasterPageFile.Name = "tbDPMasterPageFile";
-            this.tbDPMasterPageFile.Size = new System.Drawing.Size(534, 35);
+            this.tbDPMasterPageFile.Size = new System.Drawing.Size(269, 21);
             this.tbDPMasterPageFile.TabIndex = 15;
             this.tbDPMasterPageFile.Text = "~/MasterPage/DetailsPage.Master";
             // 
@@ -361,11 +346,11 @@
             this.gbDP.Controls.Add(this.tbDPClassName);
             this.gbDP.Controls.Add(this.label22);
             this.gbDP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbDP.Location = new System.Drawing.Point(4, 418);
-            this.gbDP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbDP.Location = new System.Drawing.Point(2, 208);
+            this.gbDP.Margin = new System.Windows.Forms.Padding(2);
             this.gbDP.Name = "gbDP";
-            this.gbDP.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbDP.Size = new System.Drawing.Size(746, 381);
+            this.gbDP.Padding = new System.Windows.Forms.Padding(2);
+            this.gbDP.Size = new System.Drawing.Size(373, 190);
             this.gbDP.TabIndex = 8;
             this.gbDP.TabStop = false;
             this.gbDP.Text = "DP：";
@@ -373,10 +358,9 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(10, 142);
-            this.label23.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label23.Location = new System.Drawing.Point(5, 71);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(202, 24);
+            this.label23.Size = new System.Drawing.Size(101, 12);
             this.label23.TabIndex = 16;
             this.label23.Text = "MasterPageFile：";
             // 
@@ -384,11 +368,11 @@
             // 
             this.tpWebView.Controls.Add(this.gbDP);
             this.tpWebView.Controls.Add(this.gbLP);
-            this.tpWebView.Location = new System.Drawing.Point(8, 39);
-            this.tpWebView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tpWebView.Location = new System.Drawing.Point(4, 22);
+            this.tpWebView.Margin = new System.Windows.Forms.Padding(2);
             this.tpWebView.Name = "tpWebView";
-            this.tpWebView.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tpWebView.Size = new System.Drawing.Size(754, 773);
+            this.tpWebView.Padding = new System.Windows.Forms.Padding(2);
+            this.tpWebView.Size = new System.Drawing.Size(377, 391);
             this.tpWebView.TabIndex = 1;
             this.tpWebView.Text = "WebView";
             this.tpWebView.UseVisualStyleBackColor = true;
@@ -416,11 +400,11 @@
             this.gbClass.Controls.Add(this.label2);
             this.gbClass.Controls.Add(this.label3);
             this.gbClass.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbClass.Location = new System.Drawing.Point(4, 5);
-            this.gbClass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbClass.Location = new System.Drawing.Point(2, 2);
+            this.gbClass.Margin = new System.Windows.Forms.Padding(2);
             this.gbClass.Name = "gbClass";
-            this.gbClass.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbClass.Size = new System.Drawing.Size(746, 691);
+            this.gbClass.Padding = new System.Windows.Forms.Padding(2);
+            this.gbClass.Size = new System.Drawing.Size(373, 346);
             this.gbClass.TabIndex = 5;
             this.gbClass.TabStop = false;
             this.gbClass.Text = "类名：";
@@ -428,9 +412,10 @@
             // rbIMustHaveTenant
             // 
             this.rbIMustHaveTenant.AutoSize = true;
-            this.rbIMustHaveTenant.Location = new System.Drawing.Point(507, 394);
+            this.rbIMustHaveTenant.Location = new System.Drawing.Point(254, 197);
+            this.rbIMustHaveTenant.Margin = new System.Windows.Forms.Padding(2);
             this.rbIMustHaveTenant.Name = "rbIMustHaveTenant";
-            this.rbIMustHaveTenant.Size = new System.Drawing.Size(221, 28);
+            this.rbIMustHaveTenant.Size = new System.Drawing.Size(113, 16);
             this.rbIMustHaveTenant.TabIndex = 19;
             this.rbIMustHaveTenant.TabStop = true;
             this.rbIMustHaveTenant.Text = "IMustHaveTenant";
@@ -439,9 +424,10 @@
             // rbIMayHaveTenant
             // 
             this.rbIMayHaveTenant.AutoSize = true;
-            this.rbIMayHaveTenant.Location = new System.Drawing.Point(269, 394);
+            this.rbIMayHaveTenant.Location = new System.Drawing.Point(134, 197);
+            this.rbIMayHaveTenant.Margin = new System.Windows.Forms.Padding(2);
             this.rbIMayHaveTenant.Name = "rbIMayHaveTenant";
-            this.rbIMayHaveTenant.Size = new System.Drawing.Size(209, 28);
+            this.rbIMayHaveTenant.Size = new System.Drawing.Size(107, 16);
             this.rbIMayHaveTenant.TabIndex = 19;
             this.rbIMayHaveTenant.TabStop = true;
             this.rbIMayHaveTenant.Text = "IMayHaveTenant";
@@ -450,9 +436,10 @@
             // rbNone
             // 
             this.rbNone.AutoSize = true;
-            this.rbNone.Location = new System.Drawing.Point(158, 394);
+            this.rbNone.Location = new System.Drawing.Point(79, 197);
+            this.rbNone.Margin = new System.Windows.Forms.Padding(2);
             this.rbNone.Name = "rbNone";
-            this.rbNone.Size = new System.Drawing.Size(65, 28);
+            this.rbNone.Size = new System.Drawing.Size(35, 16);
             this.rbNone.TabIndex = 19;
             this.rbNone.TabStop = true;
             this.rbNone.Text = "空";
@@ -466,10 +453,9 @@
             "int",
             "long",
             "Guid"});
-            this.cbPkType.Location = new System.Drawing.Point(125, 332);
-            this.cbPkType.Margin = new System.Windows.Forms.Padding(6);
+            this.cbPkType.Location = new System.Drawing.Point(62, 166);
             this.cbPkType.Name = "cbPkType";
-            this.cbPkType.Size = new System.Drawing.Size(603, 32);
+            this.cbPkType.Size = new System.Drawing.Size(304, 20);
             this.cbPkType.TabIndex = 18;
             // 
             // cbBaseClass
@@ -481,142 +467,127 @@
             "AuditedEntity",
             "CreationAuditedEntity",
             "Entity"});
-            this.cbBaseClass.Location = new System.Drawing.Point(97, 275);
-            this.cbBaseClass.Margin = new System.Windows.Forms.Padding(6);
+            this.cbBaseClass.Location = new System.Drawing.Point(48, 138);
             this.cbBaseClass.Name = "cbBaseClass";
-            this.cbBaseClass.Size = new System.Drawing.Size(631, 32);
+            this.cbBaseClass.Size = new System.Drawing.Size(318, 20);
             this.cbBaseClass.TabIndex = 18;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(4, 396);
-            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label8.Location = new System.Drawing.Point(2, 198);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(154, 24);
+            this.label8.Size = new System.Drawing.Size(77, 12);
             this.label8.TabIndex = 17;
             this.label8.Text = "多租户接口：";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 340);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label5.Location = new System.Drawing.Point(2, 170);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 24);
+            this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 17;
             this.label5.Text = "主键类型：";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 283);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Location = new System.Drawing.Point(4, 142);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 24);
+            this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 17;
             this.label1.Text = "基类：";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(4, 207);
-            this.label16.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label16.Location = new System.Drawing.Point(2, 104);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(106, 24);
+            this.label16.Size = new System.Drawing.Size(53, 12);
             this.label16.TabIndex = 17;
             this.label16.Text = "类说明：";
             // 
             // tbEntityNS
             // 
-            this.tbEntityNS.Location = new System.Drawing.Point(133, 89);
-            this.tbEntityNS.Margin = new System.Windows.Forms.Padding(6);
+            this.tbEntityNS.Location = new System.Drawing.Point(66, 44);
             this.tbEntityNS.Name = "tbEntityNS";
-            this.tbEntityNS.Size = new System.Drawing.Size(595, 35);
+            this.tbEntityNS.Size = new System.Drawing.Size(300, 21);
             this.tbEntityNS.TabIndex = 14;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(4, 89);
-            this.label14.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label14.Location = new System.Drawing.Point(2, 44);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(142, 24);
+            this.label14.Size = new System.Drawing.Size(71, 12);
             this.label14.TabIndex = 15;
             this.label14.Text = "NameSpace：";
             // 
             // tbSubModuleName
             // 
-            this.tbSubModuleName.Location = new System.Drawing.Point(461, 33);
-            this.tbSubModuleName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbSubModuleName.Location = new System.Drawing.Point(230, 16);
             this.tbSubModuleName.Name = "tbSubModuleName";
-            this.tbSubModuleName.Size = new System.Drawing.Size(267, 35);
+            this.tbSubModuleName.Size = new System.Drawing.Size(136, 21);
             this.tbSubModuleName.TabIndex = 12;
             this.tbSubModuleName.TextChanged += new System.EventHandler(this.tbModuleName_TextChanged);
             // 
             // tbClass
             // 
-            this.tbClass.Location = new System.Drawing.Point(422, 148);
-            this.tbClass.Margin = new System.Windows.Forms.Padding(6);
+            this.tbClass.Location = new System.Drawing.Point(211, 74);
             this.tbClass.Name = "tbClass";
-            this.tbClass.Size = new System.Drawing.Size(306, 35);
+            this.tbClass.Size = new System.Drawing.Size(155, 21);
             this.tbClass.TabIndex = 12;
             this.tbClass.TextChanged += new System.EventHandler(this.tbClass_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(348, 40);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label6.Location = new System.Drawing.Point(174, 20);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 24);
+            this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 13;
             this.label6.Text = "子模块名：";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(350, 153);
-            this.label15.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label15.Location = new System.Drawing.Point(175, 76);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(82, 24);
+            this.label15.Size = new System.Drawing.Size(41, 12);
             this.label15.TabIndex = 13;
             this.label15.Text = "类名：";
             // 
             // tbModuleName
             // 
-            this.tbModuleName.Location = new System.Drawing.Point(97, 33);
-            this.tbModuleName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbModuleName.Location = new System.Drawing.Point(48, 16);
             this.tbModuleName.Name = "tbModuleName";
-            this.tbModuleName.Size = new System.Drawing.Size(236, 35);
+            this.tbModuleName.Size = new System.Drawing.Size(120, 21);
             this.tbModuleName.TabIndex = 10;
             this.tbModuleName.TextChanged += new System.EventHandler(this.tbModuleName_TextChanged);
             // 
             // tbFileName
             // 
-            this.tbFileName.Location = new System.Drawing.Point(99, 148);
-            this.tbFileName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbFileName.Location = new System.Drawing.Point(50, 74);
             this.tbFileName.Name = "tbFileName";
-            this.tbFileName.Size = new System.Drawing.Size(236, 35);
+            this.tbFileName.Size = new System.Drawing.Size(120, 21);
             this.tbFileName.TabIndex = 10;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 39);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Location = new System.Drawing.Point(2, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 24);
+            this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 11;
             this.label2.Text = "模块名：";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 153);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Location = new System.Drawing.Point(3, 76);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 24);
+            this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 11;
             this.label3.Text = "文件名：";
             // 
@@ -624,11 +595,11 @@
             // 
             this.tpEntity.AutoScroll = true;
             this.tpEntity.Controls.Add(this.gbClass);
-            this.tpEntity.Location = new System.Drawing.Point(8, 39);
-            this.tpEntity.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tpEntity.Location = new System.Drawing.Point(4, 22);
+            this.tpEntity.Margin = new System.Windows.Forms.Padding(2);
             this.tpEntity.Name = "tpEntity";
-            this.tpEntity.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tpEntity.Size = new System.Drawing.Size(754, 773);
+            this.tpEntity.Padding = new System.Windows.Forms.Padding(2);
+            this.tpEntity.Size = new System.Drawing.Size(377, 391);
             this.tpEntity.TabIndex = 0;
             this.tpEntity.Text = "Entity";
             this.tpEntity.UseVisualStyleBackColor = true;
@@ -640,11 +611,11 @@
             this.tabControl1.Controls.Add(this.tpController);
             this.tabControl1.Controls.Add(this.tpWebView);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tabControl1.Location = new System.Drawing.Point(1477, 113);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabControl1.Location = new System.Drawing.Point(549, 56);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(770, 820);
+            this.tabControl1.Size = new System.Drawing.Size(385, 417);
             this.tabControl1.TabIndex = 11;
             // 
             // tpService
@@ -653,10 +624,11 @@
             this.tpService.Controls.Add(this.groupBox1);
             this.tpService.Controls.Add(this.tbFunName);
             this.tpService.Controls.Add(this.label9);
-            this.tpService.Location = new System.Drawing.Point(8, 39);
+            this.tpService.Location = new System.Drawing.Point(4, 22);
+            this.tpService.Margin = new System.Windows.Forms.Padding(2);
             this.tpService.Name = "tpService";
-            this.tpService.Padding = new System.Windows.Forms.Padding(3);
-            this.tpService.Size = new System.Drawing.Size(754, 773);
+            this.tpService.Padding = new System.Windows.Forms.Padding(2);
+            this.tpService.Size = new System.Drawing.Size(377, 391);
             this.tpService.TabIndex = 2;
             this.tpService.Text = "Service";
             this.tpService.UseVisualStyleBackColor = true;
@@ -681,9 +653,11 @@
             this.groupBox2.Controls.Add(this.label31);
             this.groupBox2.Controls.Add(this.tbInputDtoClassName);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Location = new System.Drawing.Point(14, 339);
+            this.groupBox2.Location = new System.Drawing.Point(7, 170);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(718, 428);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(359, 214);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "AppService";
@@ -692,19 +666,17 @@
             // 
             this.tbAppServiceNS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbAppServiceNS.Location = new System.Drawing.Point(163, 37);
-            this.tbAppServiceNS.Margin = new System.Windows.Forms.Padding(6);
+            this.tbAppServiceNS.Location = new System.Drawing.Point(82, 18);
             this.tbAppServiceNS.Name = "tbAppServiceNS";
-            this.tbAppServiceNS.Size = new System.Drawing.Size(519, 35);
+            this.tbAppServiceNS.Size = new System.Drawing.Size(262, 21);
             this.tbAppServiceNS.TabIndex = 29;
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(15, 40);
-            this.label30.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label30.Location = new System.Drawing.Point(8, 20);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(142, 24);
+            this.label30.Size = new System.Drawing.Size(71, 12);
             this.label30.TabIndex = 28;
             this.label30.Text = "NameSpace：";
             // 
@@ -712,19 +684,17 @@
             // 
             this.tbAppServiceClassName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbAppServiceClassName.Location = new System.Drawing.Point(163, 84);
-            this.tbAppServiceClassName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbAppServiceClassName.Location = new System.Drawing.Point(82, 42);
             this.tbAppServiceClassName.Name = "tbAppServiceClassName";
-            this.tbAppServiceClassName.Size = new System.Drawing.Size(519, 35);
+            this.tbAppServiceClassName.Size = new System.Drawing.Size(262, 21);
             this.tbAppServiceClassName.TabIndex = 29;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(15, 87);
-            this.label27.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label27.Location = new System.Drawing.Point(8, 44);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(154, 24);
+            this.label27.Size = new System.Drawing.Size(77, 12);
             this.label27.TabIndex = 28;
             this.label27.Text = "Class Name：";
             // 
@@ -732,19 +702,17 @@
             // 
             this.tbPermDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPermDelete.Location = new System.Drawing.Point(195, 370);
-            this.tbPermDelete.Margin = new System.Windows.Forms.Padding(6);
+            this.tbPermDelete.Location = new System.Drawing.Point(98, 185);
             this.tbPermDelete.Name = "tbPermDelete";
-            this.tbPermDelete.Size = new System.Drawing.Size(487, 35);
+            this.tbPermDelete.Size = new System.Drawing.Size(246, 21);
             this.tbPermDelete.TabIndex = 16;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(15, 376);
-            this.label26.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label26.Location = new System.Drawing.Point(8, 188);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(178, 24);
+            this.label26.Size = new System.Drawing.Size(89, 12);
             this.label26.TabIndex = 23;
             this.label26.Text = "Delete权限名：";
             // 
@@ -752,19 +720,17 @@
             // 
             this.tbPermEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPermEdit.Location = new System.Drawing.Point(195, 323);
-            this.tbPermEdit.Margin = new System.Windows.Forms.Padding(6);
+            this.tbPermEdit.Location = new System.Drawing.Point(98, 162);
             this.tbPermEdit.Name = "tbPermEdit";
-            this.tbPermEdit.Size = new System.Drawing.Size(487, 35);
+            this.tbPermEdit.Size = new System.Drawing.Size(246, 21);
             this.tbPermEdit.TabIndex = 17;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(15, 329);
-            this.label20.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label20.Location = new System.Drawing.Point(8, 164);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(154, 24);
+            this.label20.Size = new System.Drawing.Size(77, 12);
             this.label20.TabIndex = 24;
             this.label20.Text = "Edit权限名：";
             // 
@@ -772,19 +738,17 @@
             // 
             this.tbPermCreate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPermCreate.Location = new System.Drawing.Point(195, 276);
-            this.tbPermCreate.Margin = new System.Windows.Forms.Padding(6);
+            this.tbPermCreate.Location = new System.Drawing.Point(98, 138);
             this.tbPermCreate.Name = "tbPermCreate";
-            this.tbPermCreate.Size = new System.Drawing.Size(487, 35);
+            this.tbPermCreate.Size = new System.Drawing.Size(246, 21);
             this.tbPermCreate.TabIndex = 18;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(15, 282);
-            this.label17.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label17.Location = new System.Drawing.Point(8, 141);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(178, 24);
+            this.label17.Size = new System.Drawing.Size(89, 12);
             this.label17.TabIndex = 25;
             this.label17.Text = "Create权限名：";
             // 
@@ -792,19 +756,17 @@
             // 
             this.tbMenuPerm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbMenuPerm.Location = new System.Drawing.Point(158, 229);
-            this.tbMenuPerm.Margin = new System.Windows.Forms.Padding(6);
+            this.tbMenuPerm.Location = new System.Drawing.Point(79, 114);
             this.tbMenuPerm.Name = "tbMenuPerm";
-            this.tbMenuPerm.Size = new System.Drawing.Size(524, 35);
+            this.tbMenuPerm.Size = new System.Drawing.Size(264, 21);
             this.tbMenuPerm.TabIndex = 19;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(15, 235);
-            this.label13.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label13.Location = new System.Drawing.Point(8, 118);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(154, 24);
+            this.label13.Size = new System.Drawing.Size(77, 12);
             this.label13.TabIndex = 26;
             this.label13.Text = "菜单权限名：";
             // 
@@ -812,19 +774,17 @@
             // 
             this.tbOutputDtoClassName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbOutputDtoClassName.Location = new System.Drawing.Point(218, 182);
-            this.tbOutputDtoClassName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbOutputDtoClassName.Location = new System.Drawing.Point(109, 91);
             this.tbOutputDtoClassName.Name = "tbOutputDtoClassName";
-            this.tbOutputDtoClassName.Size = new System.Drawing.Size(464, 35);
+            this.tbOutputDtoClassName.Size = new System.Drawing.Size(234, 21);
             this.tbOutputDtoClassName.TabIndex = 20;
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(15, 188);
-            this.label31.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label31.Location = new System.Drawing.Point(8, 94);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(214, 24);
+            this.label31.Size = new System.Drawing.Size(107, 12);
             this.label31.TabIndex = 27;
             this.label31.Text = "OutputDto Class：";
             // 
@@ -832,19 +792,17 @@
             // 
             this.tbInputDtoClassName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbInputDtoClassName.Location = new System.Drawing.Point(218, 135);
-            this.tbInputDtoClassName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbInputDtoClassName.Location = new System.Drawing.Point(109, 68);
             this.tbInputDtoClassName.Name = "tbInputDtoClassName";
-            this.tbInputDtoClassName.Size = new System.Drawing.Size(464, 35);
+            this.tbInputDtoClassName.Size = new System.Drawing.Size(234, 21);
             this.tbInputDtoClassName.TabIndex = 20;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 141);
-            this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label11.Location = new System.Drawing.Point(8, 70);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(202, 24);
+            this.label11.Size = new System.Drawing.Size(101, 12);
             this.label11.TabIndex = 27;
             this.label11.Text = "InputDto Class：";
             // 
@@ -861,9 +819,11 @@
             this.groupBox1.Controls.Add(this.label28);
             this.groupBox1.Controls.Add(this.tbDomainServiceClassName);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Location = new System.Drawing.Point(14, 81);
+            this.groupBox1.Location = new System.Drawing.Point(7, 40);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(718, 252);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(359, 126);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DomainService";
@@ -873,9 +833,10 @@
             this.cbDeleteAsync.AutoSize = true;
             this.cbDeleteAsync.Checked = true;
             this.cbDeleteAsync.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbDeleteAsync.Location = new System.Drawing.Point(499, 198);
+            this.cbDeleteAsync.Location = new System.Drawing.Point(250, 99);
+            this.cbDeleteAsync.Margin = new System.Windows.Forms.Padding(2);
             this.cbDeleteAsync.Name = "cbDeleteAsync";
-            this.cbDeleteAsync.Size = new System.Drawing.Size(174, 28);
+            this.cbDeleteAsync.Size = new System.Drawing.Size(90, 16);
             this.cbDeleteAsync.TabIndex = 24;
             this.cbDeleteAsync.Text = "DeleteAsync";
             this.cbDeleteAsync.UseVisualStyleBackColor = true;
@@ -885,9 +846,10 @@
             this.cbUpdateAsync.AutoSize = true;
             this.cbUpdateAsync.Checked = true;
             this.cbUpdateAsync.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbUpdateAsync.Location = new System.Drawing.Point(257, 198);
+            this.cbUpdateAsync.Location = new System.Drawing.Point(128, 99);
+            this.cbUpdateAsync.Margin = new System.Windows.Forms.Padding(2);
             this.cbUpdateAsync.Name = "cbUpdateAsync";
-            this.cbUpdateAsync.Size = new System.Drawing.Size(174, 28);
+            this.cbUpdateAsync.Size = new System.Drawing.Size(90, 16);
             this.cbUpdateAsync.TabIndex = 22;
             this.cbUpdateAsync.Text = "UpdateAsync";
             this.cbUpdateAsync.UseVisualStyleBackColor = true;
@@ -897,9 +859,10 @@
             this.cbCreateAsync.AutoSize = true;
             this.cbCreateAsync.Checked = true;
             this.cbCreateAsync.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbCreateAsync.Location = new System.Drawing.Point(19, 198);
+            this.cbCreateAsync.Location = new System.Drawing.Point(10, 99);
+            this.cbCreateAsync.Margin = new System.Windows.Forms.Padding(2);
             this.cbCreateAsync.Name = "cbCreateAsync";
-            this.cbCreateAsync.Size = new System.Drawing.Size(174, 28);
+            this.cbCreateAsync.Size = new System.Drawing.Size(90, 16);
             this.cbCreateAsync.TabIndex = 23;
             this.cbCreateAsync.Text = "CreateAsync";
             this.cbCreateAsync.UseVisualStyleBackColor = true;
@@ -909,9 +872,10 @@
             this.cbGetByIdAsync.AutoSize = true;
             this.cbGetByIdAsync.Checked = true;
             this.cbGetByIdAsync.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbGetByIdAsync.Location = new System.Drawing.Point(257, 148);
+            this.cbGetByIdAsync.Location = new System.Drawing.Point(128, 74);
+            this.cbGetByIdAsync.Margin = new System.Windows.Forms.Padding(2);
             this.cbGetByIdAsync.Name = "cbGetByIdAsync";
-            this.cbGetByIdAsync.Size = new System.Drawing.Size(222, 28);
+            this.cbGetByIdAsync.Size = new System.Drawing.Size(114, 16);
             this.cbGetByIdAsync.TabIndex = 21;
             this.cbGetByIdAsync.Text = "Get...ByIdAsync";
             this.cbGetByIdAsync.UseVisualStyleBackColor = true;
@@ -921,9 +885,10 @@
             this.cbGetAllAsync.AutoSize = true;
             this.cbGetAllAsync.Checked = true;
             this.cbGetAllAsync.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbGetAllAsync.Location = new System.Drawing.Point(19, 148);
+            this.cbGetAllAsync.Location = new System.Drawing.Point(10, 74);
+            this.cbGetAllAsync.Margin = new System.Windows.Forms.Padding(2);
             this.cbGetAllAsync.Name = "cbGetAllAsync";
-            this.cbGetAllAsync.Size = new System.Drawing.Size(210, 28);
+            this.cbGetAllAsync.Size = new System.Drawing.Size(108, 16);
             this.cbGetAllAsync.TabIndex = 20;
             this.cbGetAllAsync.Text = "GetAll...Async";
             this.cbGetAllAsync.UseVisualStyleBackColor = true;
@@ -932,19 +897,17 @@
             // 
             this.tbDomainServiceNS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDomainServiceNS.Location = new System.Drawing.Point(163, 41);
-            this.tbDomainServiceNS.Margin = new System.Windows.Forms.Padding(6);
+            this.tbDomainServiceNS.Location = new System.Drawing.Point(82, 20);
             this.tbDomainServiceNS.Name = "tbDomainServiceNS";
-            this.tbDomainServiceNS.Size = new System.Drawing.Size(519, 35);
+            this.tbDomainServiceNS.Size = new System.Drawing.Size(262, 21);
             this.tbDomainServiceNS.TabIndex = 18;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(15, 46);
-            this.label28.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label28.Location = new System.Drawing.Point(8, 23);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(142, 24);
+            this.label28.Size = new System.Drawing.Size(71, 12);
             this.label28.TabIndex = 19;
             this.label28.Text = "NameSpace：";
             // 
@@ -952,37 +915,33 @@
             // 
             this.tbDomainServiceClassName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDomainServiceClassName.Location = new System.Drawing.Point(163, 88);
-            this.tbDomainServiceClassName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbDomainServiceClassName.Location = new System.Drawing.Point(82, 44);
             this.tbDomainServiceClassName.Name = "tbDomainServiceClassName";
-            this.tbDomainServiceClassName.Size = new System.Drawing.Size(519, 35);
+            this.tbDomainServiceClassName.Size = new System.Drawing.Size(262, 21);
             this.tbDomainServiceClassName.TabIndex = 18;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(15, 93);
-            this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label10.Location = new System.Drawing.Point(8, 46);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(154, 24);
+            this.label10.Size = new System.Drawing.Size(77, 12);
             this.label10.TabIndex = 19;
             this.label10.Text = "Class Name：";
             // 
             // tbFunName
             // 
-            this.tbFunName.Location = new System.Drawing.Point(102, 19);
-            this.tbFunName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbFunName.Location = new System.Drawing.Point(51, 10);
             this.tbFunName.Name = "tbFunName";
-            this.tbFunName.Size = new System.Drawing.Size(236, 35);
+            this.tbFunName.Size = new System.Drawing.Size(120, 21);
             this.tbFunName.TabIndex = 12;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 25);
-            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label9.Location = new System.Drawing.Point(5, 12);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(106, 24);
+            this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 13;
             this.label9.Text = "功能名：";
             // 
@@ -990,20 +949,36 @@
             // 
             this.tpController.Controls.Add(this.tbControllerName);
             this.tpController.Controls.Add(this.label32);
-            this.tpController.Location = new System.Drawing.Point(8, 39);
+            this.tpController.Location = new System.Drawing.Point(4, 22);
+            this.tpController.Margin = new System.Windows.Forms.Padding(2);
             this.tpController.Name = "tpController";
-            this.tpController.Size = new System.Drawing.Size(754, 773);
+            this.tpController.Size = new System.Drawing.Size(377, 391);
             this.tpController.TabIndex = 4;
             this.tpController.Text = "Controller";
             this.tpController.UseVisualStyleBackColor = true;
             // 
+            // tbControllerName
+            // 
+            this.tbControllerName.Location = new System.Drawing.Point(108, 10);
+            this.tbControllerName.Name = "tbControllerName";
+            this.tbControllerName.Size = new System.Drawing.Size(236, 21);
+            this.tbControllerName.TabIndex = 14;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(8, 11);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(107, 12);
+            this.label32.TabIndex = 15;
+            this.label32.Text = "Controller 名称：";
+            // 
             // btnRefreshCBB
             // 
             this.btnRefreshCBB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefreshCBB.Location = new System.Drawing.Point(1821, 13);
-            this.btnRefreshCBB.Margin = new System.Windows.Forms.Padding(6);
+            this.btnRefreshCBB.Location = new System.Drawing.Point(720, 6);
             this.btnRefreshCBB.Name = "btnRefreshCBB";
-            this.btnRefreshCBB.Size = new System.Drawing.Size(196, 46);
+            this.btnRefreshCBB.Size = new System.Drawing.Size(98, 23);
             this.btnRefreshCBB.TabIndex = 1;
             this.btnRefreshCBB.Text = "刷新ComboBox";
             this.btnRefreshCBB.UseVisualStyleBackColor = true;
@@ -1011,10 +986,9 @@
             // btnCodeCreate
             // 
             this.btnCodeCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCodeCreate.Location = new System.Drawing.Point(2073, 13);
-            this.btnCodeCreate.Margin = new System.Windows.Forms.Padding(6);
+            this.btnCodeCreate.Location = new System.Drawing.Point(846, 6);
             this.btnCodeCreate.Name = "btnCodeCreate";
-            this.btnCodeCreate.Size = new System.Drawing.Size(150, 46);
+            this.btnCodeCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCodeCreate.TabIndex = 0;
             this.btnCodeCreate.Text = "生成代码";
             this.btnCodeCreate.UseVisualStyleBackColor = true;
@@ -1023,10 +997,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 22);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label4.Location = new System.Drawing.Point(12, 11);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 24);
+            this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 0;
             this.label4.Text = "label4";
             // 
@@ -1036,10 +1009,9 @@
             this.panel2.Controls.Add(this.btnCodeCreate);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 933);
-            this.panel2.Margin = new System.Windows.Forms.Padding(6);
+            this.panel2.Location = new System.Drawing.Point(0, 473);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2247, 72);
+            this.panel2.Size = new System.Drawing.Size(934, 36);
             this.panel2.TabIndex = 10;
             // 
             // panel1
@@ -1053,77 +1025,69 @@
             this.panel1.Controls.Add(this.btnConn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2247, 113);
+            this.panel1.Size = new System.Drawing.Size(934, 56);
             this.panel1.TabIndex = 9;
             // 
             // tbComment
             // 
             this.tbComment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbComment.Location = new System.Drawing.Point(937, 64);
-            this.tbComment.Margin = new System.Windows.Forms.Padding(6);
+            this.tbComment.Location = new System.Drawing.Point(468, 32);
             this.tbComment.Name = "tbComment";
-            this.tbComment.Size = new System.Drawing.Size(1280, 35);
+            this.tbComment.Size = new System.Drawing.Size(452, 21);
             this.tbComment.TabIndex = 19;
             this.tbComment.TextChanged += new System.EventHandler(this.tbComment_TextChanged);
             // 
             // tbCodeRootPath
             // 
-            this.tbCodeRootPath.Location = new System.Drawing.Point(189, 15);
-            this.tbCodeRootPath.Margin = new System.Windows.Forms.Padding(6);
+            this.tbCodeRootPath.Location = new System.Drawing.Point(94, 8);
             this.tbCodeRootPath.Name = "tbCodeRootPath";
-            this.tbCodeRootPath.Size = new System.Drawing.Size(2028, 35);
+            this.tbCodeRootPath.Size = new System.Drawing.Size(1016, 21);
             this.tbCodeRootPath.TabIndex = 16;
             // 
             // cbTableName
             // 
             this.cbTableName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTableName.FormattingEnabled = true;
-            this.cbTableName.Location = new System.Drawing.Point(263, 69);
-            this.cbTableName.Margin = new System.Windows.Forms.Padding(6);
+            this.cbTableName.Location = new System.Drawing.Point(132, 34);
             this.cbTableName.Name = "cbTableName";
-            this.cbTableName.Size = new System.Drawing.Size(502, 32);
+            this.cbTableName.Size = new System.Drawing.Size(253, 20);
             this.cbTableName.TabIndex = 15;
             this.cbTableName.SelectedIndexChanged += new System.EventHandler(this.cbTableName_SelectedIndexChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 21);
-            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label7.Location = new System.Drawing.Point(8, 10);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(178, 24);
+            this.label7.Size = new System.Drawing.Size(89, 12);
             this.label7.TabIndex = 14;
             this.label7.Text = "代码的根目录：";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(864, 69);
-            this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label12.Location = new System.Drawing.Point(432, 34);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(82, 24);
+            this.label12.Size = new System.Drawing.Size(41, 12);
             this.label12.TabIndex = 14;
             this.label12.Text = "说明：";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(185, 74);
-            this.label29.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label29.Location = new System.Drawing.Point(92, 37);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(82, 24);
+            this.label29.Size = new System.Drawing.Size(41, 12);
             this.label29.TabIndex = 14;
             this.label29.Text = "表名：";
             // 
             // btnConn
             // 
-            this.btnConn.Location = new System.Drawing.Point(18, 64);
-            this.btnConn.Margin = new System.Windows.Forms.Padding(6);
+            this.btnConn.Location = new System.Drawing.Point(9, 32);
             this.btnConn.Name = "btnConn";
-            this.btnConn.Size = new System.Drawing.Size(128, 39);
+            this.btnConn.Size = new System.Drawing.Size(64, 20);
             this.btnConn.TabIndex = 13;
             this.btnConn.Text = "连接";
             this.btnConn.UseVisualStyleBackColor = true;
@@ -1133,11 +1097,9 @@
             // 
             this.gbFields.Controls.Add(this.gvFields);
             this.gbFields.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbFields.Location = new System.Drawing.Point(0, 113);
-            this.gbFields.Margin = new System.Windows.Forms.Padding(6);
+            this.gbFields.Location = new System.Drawing.Point(0, 56);
             this.gbFields.Name = "gbFields";
-            this.gbFields.Padding = new System.Windows.Forms.Padding(6);
-            this.gbFields.Size = new System.Drawing.Size(1471, 820);
+            this.gbFields.Size = new System.Drawing.Size(546, 417);
             this.gbFields.TabIndex = 13;
             this.gbFields.TabStop = false;
             this.gbFields.Text = "字段：";
@@ -1162,31 +1124,13 @@
             this.TableColWidth,
             this.IsEdit});
             this.gvFields.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gvFields.Location = new System.Drawing.Point(6, 34);
-            this.gvFields.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
+            this.gvFields.Location = new System.Drawing.Point(3, 17);
+            this.gvFields.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gvFields.Name = "gvFields";
             this.gvFields.RowTemplate.Height = 23;
             this.gvFields.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvFields.Size = new System.Drawing.Size(1459, 780);
+            this.gvFields.Size = new System.Drawing.Size(540, 397);
             this.gvFields.TabIndex = 0;
-            // 
-            // tbControllerName
-            // 
-            this.tbControllerName.Location = new System.Drawing.Point(217, 19);
-            this.tbControllerName.Margin = new System.Windows.Forms.Padding(6);
-            this.tbControllerName.Name = "tbControllerName";
-            this.tbControllerName.Size = new System.Drawing.Size(469, 35);
-            this.tbControllerName.TabIndex = 14;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(15, 22);
-            this.label32.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(214, 24);
-            this.label32.TabIndex = 15;
-            this.label32.Text = "Controller 名称：";
             // 
             // NAME
             // 
@@ -1230,7 +1174,7 @@
             this.comments.DataPropertyName = "comments";
             this.comments.HeaderText = "字段说明";
             this.comments.Name = "comments";
-            this.comments.Width = 118;
+            this.comments.Width = 61;
             // 
             // IsIdentity
             // 
@@ -1281,14 +1225,15 @@
             // 
             // MainFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2247, 1005);
+            this.ClientSize = new System.Drawing.Size(934, 509);
             this.Controls.Add(this.gbFields);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainFrm";
             this.Text = "DM.UBP代码生成器";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

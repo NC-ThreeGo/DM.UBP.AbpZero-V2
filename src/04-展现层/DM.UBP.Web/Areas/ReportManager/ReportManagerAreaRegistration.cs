@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace DM.UBP.Web.Areas.ReportManage
+namespace DM.UBP.Web.Areas.ReportManager
 {
-    public class ReportManageAreaRegistration : AreaRegistration 
+    public class ReportManagerAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "ReportManage";
+                return "ReportManager";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "ReportManage_default",
-                "ReportManage/{controller}/{action}/{id}",
+                "ReportManager_default",
+                "ReportManager/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

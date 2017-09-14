@@ -131,7 +131,7 @@ namespace DM.UBP.CodeBuilder
             CodeText.AppendLine("[AbpMvcAuthorize(" + PermissionCodeBuilder.ClassName + "." + PermissionCodeBuilder.PermCreateKey + ")]");
             CodeText.AppendLine("public PartialViewResult CreateModal()");
             CodeText.AppendLine("{");
-            CodeText.AppendLine("var viewModel = new " + InputDtoCodeBuilder.ClassName + "()");
+            CodeText.AppendLine("var viewModel = new " + OutputDtoCodeBuilder.ClassName + "()");
             CodeText.AppendLine("{");
             CodeText.AppendLine("//给属性赋值");
             CodeText.AppendLine("};");

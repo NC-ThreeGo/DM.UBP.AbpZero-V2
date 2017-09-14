@@ -6,6 +6,7 @@ using Abp.Configuration.Startup;
 using Abp.Modules;
 using Abp.WebApi;
 using Swashbuckle.Application;
+using DM.UBP.Application.Service;
 
 namespace DM.UBP.WebApi
 {
@@ -13,6 +14,7 @@ namespace DM.UBP.WebApi
     /// Web API layer of the application.
     /// </summary>
     [DependsOn(typeof(AbpWebApiModule), typeof(UBPApplicationModule))]
+    [DependsOn(typeof(UbpApplicationServiceModule))]
     public class UBPWebApiModule : AbpModule
     {
         public override void Initialize()
@@ -22,6 +24,10 @@ namespace DM.UBP.WebApi
             //Automatically creates Web API controllers for all application services of the application
             Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
                 .ForAll<IApplicationService>(typeof(UBPApplicationModule).Assembly, "app")
+                .Build();
+
+            Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
+                .ForAll<IApplicationService>(typeof(UbpApplicationServiceModule).Assembly, "ReportManager")
                 .Build();
 
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));

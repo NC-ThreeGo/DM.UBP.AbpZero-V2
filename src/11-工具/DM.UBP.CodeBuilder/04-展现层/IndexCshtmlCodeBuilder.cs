@@ -62,27 +62,27 @@ namespace DM.UBP.CodeBuilder
             CodeText.AppendLine("@section Scripts");
             CodeText.AppendLine("{");
             CodeText.AppendLine("   @Html.IncludeScript(\"~/Areas/" + ModuleName + "/Views/" + ControllerCodeBuilder.ControllerName + "/Index.js\")");
-            CodeText.AppendLine("   @Html.IncludeScript(\"~/Areas/" + ModuleName + "/Views/" + ControllerCodeBuilder.ControllerName + "/_CreateOrEditModal.js\")");
+            //CodeText.AppendLine("   @Html.IncludeScript(\"~/Areas/" + ModuleName + "/Views/" + ControllerCodeBuilder.ControllerName + "/_CreateOrEditModal.js\")");
             CodeText.AppendLine("}");
             CodeText.AppendLine("");
         }
 
         private void WriteHtml()
         {
-            CodeText.AppendLine("<div class=\"row margin - bottom - 5\">");
-            CodeText.AppendLine("   <div class=\"col - xs - 6\">");
-            CodeText.AppendLine("       <div class=\"page - head\">");
-            CodeText.AppendLine("           <div class=\"page - title\">");
+            CodeText.AppendLine("<div class=\"row margin-bottom-5\">");
+            CodeText.AppendLine("   <div class=\"col-xs-6\">");
+            CodeText.AppendLine("       <div class=\"page-head\">");
+            CodeText.AppendLine("           <div class=\"page-title\">");
             CodeText.AppendLine("               <h1>");
             CodeText.AppendLine("                   <span>@L(\"" + ControllerCodeBuilder.ControllerName + "\") </span> <small>@L(\"" + ControllerCodeBuilder.ControllerName + "HeaderInfo\")</small>");
             CodeText.AppendLine("               </h1>");
             CodeText.AppendLine("           </div>");
             CodeText.AppendLine("       </div>");
             CodeText.AppendLine("   </div>");
-            CodeText.AppendLine("   <div class=\"col - xs - 6 text - right\">");
+            CodeText.AppendLine("   <div class=\"col-xs-6 text-right\">");
             CodeText.AppendLine("       @if (IsGranted(" + PermissionCodeBuilder.ClassName + "." + PermissionCodeBuilder.PermCreateKey + "))");
             CodeText.AppendLine("       {");
-            CodeText.AppendLine("           <button id=\"CreateNew" + ControllerCodeBuilder.ControllerName + "Button\" class=\"btn btn - primary blue\"><i class=\"fa fa - plus\"></i> @L(\"CreateNew" + ControllerCodeBuilder.ControllerName + "\")</button>");
+            CodeText.AppendLine("           <button id=\"CreateNew" + ControllerCodeBuilder.ControllerName + "Button\" class=\"btn btn-primary blue\"><i class=\"fa fa-plus\"></i> @L(\"CreateNew" + ControllerCodeBuilder.ControllerName + "\")</button>");
             CodeText.AppendLine("       }");
             CodeText.AppendLine("   </div>");
             CodeText.AppendLine("</div>");

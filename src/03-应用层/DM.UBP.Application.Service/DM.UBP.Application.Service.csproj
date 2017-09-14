@@ -119,6 +119,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportManager\Categories\CategoryAppService.cs" />
+    <Compile Include="ReportManager\Categories\ICategoryAppService.cs" />
     <Compile Include="UbpApplicationServiceModule.cs" />
   </ItemGroup>
   <ItemGroup>

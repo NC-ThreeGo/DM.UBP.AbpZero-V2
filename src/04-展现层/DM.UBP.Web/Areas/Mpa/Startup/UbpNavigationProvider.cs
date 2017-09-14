@@ -1,7 +1,7 @@
 ﻿using Abp.Application.Navigation;
 using Abp.Localization;
 using DM.UBP.Authorization;
-using DM.UBP.Domain.Service.ReportManage;
+using DM.UBP.Domain.Service.ReportManager;
 using DM.UBP.Web.Navigation;
 
 namespace DM.UBP.Web.Areas.Mpa.Startup
@@ -15,16 +15,16 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
             if (menu != null)
             {
                 menu.AddItem(new MenuItemDefinition(
-                   UbpMenu.ReportManage,
-                   L("ReportManage"),
+                   UbpMenu.ReportManager,
+                   L("ReportManager"),
                    icon: "icon-globe",
-                   requiredPermissionName: AppPermissions_ReportManage.Pages_ReportManage
+                   requiredPermissionName: AppPermissions_ReportManager.Pages_ReportManager
                    ).AddItem(new MenuItemDefinition(
-                        UbpMenu.ReportManageDesigner,
-                        L("ReportDesigner"),
-                        url: "ReportManage/Designer",
+                        UbpMenu.ReportManagerCategories,
+                        L("ReportManagerCategories"),
+                        url: "ReportManager/Category",
                         icon: "icon-layers",
-                        requiredPermissionName: AppPermissions_ReportManage.Pages_ReportManage_Designer
+                        requiredPermissionName: AppPermissions_ReportManager.Pages_ReportManager_Categories
                         )
                    )
                );

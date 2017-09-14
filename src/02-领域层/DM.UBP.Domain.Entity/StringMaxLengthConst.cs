@@ -15,6 +15,10 @@ namespace DM.UBP.Domain.Entity
 
         public const int MaxStringLength50 = 50;
 
+        public const int MaxStringLength100 = 100;
+
         public const int MaxStringLength200 = 200;
+
+        public const int MaxStringLength1000 = 1000;
     }
 }

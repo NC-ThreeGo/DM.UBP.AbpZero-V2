@@ -51,10 +51,10 @@ namespace DM.UBP.CodeBuilder
             CodeText.AppendLine(@"(function () {
                                     $(function () {
                                         var _$entityTable = $('#" + ControllerCodeBuilder.ControllerName + @"Table');
-                                        var _appService = abp.services.app." + ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.ClassName.Substring(1).ToLower().Substring(0, ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.ClassName.Substring(1).ToLower().Length - 10) + @";
+                                        var _appService = abp.services."+ ModuleName + "." + ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.ClassName.Substring(1).ToLower().Substring(0, ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.ClassName.Substring(1).ToLower().Length - 10) + @";
 
                                         var _permissions = {
-                                            create: abp.auth.hasPermission('" + PermissionCodeBuilder.PermCreateKey + @"'),
+                                            create: abp.auth.hasPermission('" + PermissionCodeBuilder.PermEditValue + @"'),
                                             edit: abp.auth.hasPermission('" + PermissionCodeBuilder.PermEditValue + @"'),
                                             delete: abp.auth.hasPermission('" + PermissionCodeBuilder.PermDeleteValue + @"')
                                             };
@@ -62,13 +62,13 @@ namespace DM.UBP.CodeBuilder
                                         var _createModal = new app.ModalManager({
                                             viewUrl: abp.appPath + '" + ControllerCodeBuilder.ModuleName + "/" + ControllerCodeBuilder.ControllerName + @"/CreateModal',
                                             scriptUrl: abp.appPath + 'Areas/" + ControllerCodeBuilder.ModuleName + "/Views/" + ControllerCodeBuilder.ControllerName + @"/_CreateOrEditModal.js',
-                                            modalClass: 'CreateOrEditUserModal'
+                                            modalClass: 'CreateOrEditModal'
                                         });
 
                                         var _editModal = new app.ModalManager({
                                             viewUrl: abp.appPath + '" + ControllerCodeBuilder.ModuleName + "/" + ControllerCodeBuilder.ControllerName + @"/EditModal',
                                             scriptUrl: abp.appPath + 'Areas/" + ControllerCodeBuilder.ModuleName + "/Views/" + ControllerCodeBuilder.ControllerName + @"/_CreateOrEditModal.js',
-                                            modalClass: 'CreateOrEditUserModal'
+                                            modalClass: 'CreateOrEditModal'
                                         });
                                 ");
             CodeText.AppendLine("");
@@ -104,12 +104,14 @@ namespace DM.UBP.CodeBuilder
                                         };
                                 ");
             CodeText.AppendLine("");
-            CodeText.AppendLine(@"      _$rolesTable.jtable({
+            CodeText.AppendLine(@"      _$entityTable.jtable({
                                             title: app.localize('" + ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.EntityCodeBuilder.ClassPluralName + @"'),
-
+                                            paging: true,
+                                            sorting: true,
+                                            multiSorting: true,
                                             actions: {
                                                 listAction: {
-                                                    method: _appService" + Utils.FirstWordToLower(ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.Method_GetAllAsync_Name) + @"
+                                                    method: _appService." + Utils.FirstWordToLower(ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.Method_GetAllAsync_Name) + @"
                                                 }
                                             },
 
@@ -121,7 +123,7 @@ namespace DM.UBP.CodeBuilder
                                                 actions: {
                                                     type: 'record-actions',
                                                     cssClass: 'btn btn-xs btn-primary blue',
-                                                    text: '<i class=" + "\"fa fa - cog\"></i> ' + app.localize('Actions') + ' <span class=\"caret\"></span>'," + @"
+                                                    text: '<i class=" + "\"fa fa-cog\"></i> ' + app.localize('Actions') + ' <span class=\"caret\"></span>'," + @"
                                                     items: [{
                                                         text: app.localize('Edit'),
                                                         visible: function() {

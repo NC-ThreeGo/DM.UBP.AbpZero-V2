@@ -184,14 +184,27 @@ namespace DM.UBP.CodeBuilder
 
         private void BackupOldFile()
         {
+            var fileNum = 1;
+            var newFileName = RootCodePath + SubCodePath + ModuleName + @"\"
+                + (String.IsNullOrEmpty(SubModuleName) ? "" : SubModuleName + @"\")
+                + (String.IsNullOrEmpty(FunctionName) ? "" : FunctionName + @"\")
+                + FileName + Suffix + fileNum.ToString();
+
+
+            while (File.Exists(newFileName))
+            {
+                fileNum++;
+                newFileName = RootCodePath + SubCodePath + ModuleName + @"\"
+                + (String.IsNullOrEmpty(SubModuleName) ? "" : SubModuleName + @"\")
+                + (String.IsNullOrEmpty(FunctionName) ? "" : FunctionName + @"\")
+                + FileName + Suffix + fileNum.ToString();
+            }
+
             File.Move(RootCodePath + SubCodePath + ModuleName + @"\"
                 + (String.IsNullOrEmpty(SubModuleName) ? "" : SubModuleName + @"\")
                 + (String.IsNullOrEmpty(FunctionName) ? "" : FunctionName + @"\")
                 + FileName + Suffix,
-                RootCodePath + SubCodePath + ModuleName + @"\"
-                + (String.IsNullOrEmpty(SubModuleName) ? "" : SubModuleName + @"\")
-                + (String.IsNullOrEmpty(FunctionName) ? "" : FunctionName + @"\")
-                + FileName + Suffix + "01");
+                newFileName);
         }
 
         private void SaveForNewFile()

@@ -114,7 +114,7 @@
     <Compile Include="DbContextInitializerBase.cs" />
     <Compile Include="DbContextManager.cs" />
     <Compile Include="DbContext\UbpDbContext.cs" />
-    <Compile Include="DbContext\UbpDbContext.ReportManage.cs" />
+    <Compile Include="DbContext\UbpDbContext.ReportManager.cs" />
     <Compile Include="EntityConfigurationBase.cs" />
     <Compile Include="IDatabaseInitializer.cs" />
     <Compile Include="Migrations\CreateDatabaseIfNotExistsWithSeedBase.cs" />

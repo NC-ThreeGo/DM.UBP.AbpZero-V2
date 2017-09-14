@@ -76,19 +76,19 @@ namespace DM.UBP.CodeBuilder
             CodeText.AppendLine("           </li>");
             CodeText.AppendLine("       </ul>");
             CodeText.AppendLine("       <div class=\"tab-content\">");
-            CodeText.AppendLine("           <div class=\"tab - pane active\" id=\"EntityInformationsTab\">");
-            CodeText.AppendLine("               <form name=\"EntityOptInformationsForm\" role=\"form\" novalidate class=\"form - validation\">");
+            CodeText.AppendLine("           <div class=\"tab-pane active\" id=\"EntityInformationsTab\">");
+            CodeText.AppendLine("               <form name=\"EntityOptInformationsForm\" role=\"form\" novalidate class=\"form-validation\">");
             CodeText.AppendLine("                   @if (Model.IsEditMode)");
             CodeText.AppendLine("                   {");
-            CodeText.AppendLine("                       < input type = \"hidden\" name = \"Id\" value = \"@Model.Id\" />");
+            CodeText.AppendLine("                       <input type=\"hidden\" name=\"Id\" value=\"@Model.Id\" />");
             CodeText.AppendLine("                   }");
             //加载实体的字段
             foreach (Field f in ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.EntityCodeBuilder.Fields)
             {
                 if (f.IsEdit)
                 {
-                    CodeText.AppendLine("           <div class=\"form - group form - md - line - input form - md - floating - label no - hint\">");
-                    CodeText.AppendLine("               <input type=\"text\" name=\"" + f.Property + "\" class=\"form - control@(Model." + f.Property + ".IsNullOrEmpty() ? \"\" : \" edited\")\" value=\"@Model." + f.Property + "\">");
+                    CodeText.AppendLine("           <div class=\"form-group form-md-line-input form-md-floating-label no-hint\">");
+                    CodeText.AppendLine("               <input type=\"text\" name=\"" + f.Property + "\" class=\"form-control@(Model." + f.Property + ".IsNullOrEmpty() ? \"\" : \" edited\")\" value=\"@Model." + f.Property + "\" " + (!f.Nullable? "required" : "") + ">");
                     CodeText.AppendLine("               <label>@L(\"" + f.Property + "\")</label>");
                     CodeText.AppendLine("           </div>");
                 }

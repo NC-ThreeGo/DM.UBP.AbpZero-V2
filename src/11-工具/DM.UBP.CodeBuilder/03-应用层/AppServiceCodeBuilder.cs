@@ -46,6 +46,9 @@ namespace DM.UBP.CodeBuilder
             CodeText.AppendLine("using " + DomainServiceInterfaceCodeBuilder.FullNameSpace + ";");
             CodeText.AppendLine("using " + PermissionCodeBuilder.FullNameSpace + ";");
             CodeText.AppendLine("using " + InputDtoCodeBuilder.FullNameSpace + ";");
+            CodeText.AppendLine("using System.Linq;");
+            CodeText.AppendLine("using System.Linq.Dynamic;");
+            CodeText.AppendLine("using DM.UBP.Dto;");
             CodeText.AppendLine("");
         }
 
@@ -101,6 +104,21 @@ namespace DM.UBP.CodeBuilder
                 CodeText.AppendLine("");
                 CodeText.AppendLine("return new PagedResultDto<" + OutputDtoCodeBuilder.ClassName + "> (");
                 CodeText.AppendLine("listDto.Count,");
+                CodeText.AppendLine("listDto");
+                CodeText.AppendLine("); ");
+                CodeText.AppendLine("}");
+
+                CodeText.AppendLine("public async " + AppServiceInterfaceCodeBuilder.Method_GetPageAllAsync_FullName);
+                CodeText.AppendLine("{");
+                CodeText.AppendLine("var entities = await _" + DomainServiceInterfaceCodeBuilder.ClassName.Substring(1) + "." + DomainServiceInterfaceCodeBuilder.Method_GetAllAsync_Name + "();");
+                CodeText.AppendLine("if (string.IsNullOrEmpty(input.Sorting))");
+                CodeText.AppendLine("input.Sorting = \"Id\";");
+                CodeText.AppendLine("var orderEntities = await Task.FromResult(entities.OrderBy(input.Sorting));");
+                CodeText.AppendLine("var pageEntities = await Task.FromResult(orderEntities.Skip(input.SkipCount).Take(input.MaxResultCount));");
+                CodeText.AppendLine("var listDto = pageEntities.MapTo<List<" + OutputDtoCodeBuilder.ClassName + ">>();");
+                CodeText.AppendLine("");
+                CodeText.AppendLine("return new PagedResultDto<" + OutputDtoCodeBuilder.ClassName + "> (");
+                CodeText.AppendLine("entities.Count,");
                 CodeText.AppendLine("listDto");
                 CodeText.AppendLine("); ");
                 CodeText.AppendLine("}");

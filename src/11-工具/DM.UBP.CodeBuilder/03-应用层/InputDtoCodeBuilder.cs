@@ -68,20 +68,23 @@ namespace DM.UBP.CodeBuilder
             CodeText.AppendLine("/// <summary>");
             CodeText.AppendLine("[AutoMapTo(typeof(" + EntityCodeBuilder.ClassName + "))]");
 
-            if (EntityCodeBuilder.BaseClass.ToLower() == "fullauditedentity")
-            {
-                BaseClass = "FullAuditedEntityDto";
-            }
+            //if (EntityCodeBuilder.BaseClass.ToLower() == "fullauditedentity")
+            //{
+            //    BaseClass = "FullAuditedEntityDto";
+            //}
 
-            if (EntityCodeBuilder.BaseClass.ToLower() == "auditedentity")
-            {
-                BaseClass = "AuditedEntityDto";
-            }
+            //if (EntityCodeBuilder.BaseClass.ToLower() == "auditedentity")
+            //{
+            //    BaseClass = "AuditedEntityDto";
+            //}
 
-            if (EntityCodeBuilder.BaseClass.ToLower() == "creationauditedentity")
-            {
-                BaseClass = "CreationAuditedEntityDto";
-            }
+            //if (EntityCodeBuilder.BaseClass.ToLower() == "creationauditedentity")
+            //{
+            //    BaseClass = "CreationAuditedEntityDto";
+            //}
+
+            //传入参数不需要create等相关信息
+            BaseClass = "EntityDto";
 
             CodeText.AppendLine("public class " + ClassName + " : " + BaseClass 
                 + (EntityCodeBuilder.PkType.ToLower() == "int" ? "" : "<" + EntityCodeBuilder.PkType + ">"));

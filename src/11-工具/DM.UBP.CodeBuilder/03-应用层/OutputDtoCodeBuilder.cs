@@ -63,6 +63,7 @@ namespace DM.UBP.CodeBuilder
             CodeText.AppendLine("{");
 
             this.WriteProperty();
+            WriteIsEditMode();
 
             CodeText.AppendLine("}");
             CodeText.AppendLine("}");
@@ -95,6 +96,14 @@ namespace DM.UBP.CodeBuilder
                     CodeText.AppendLine("");
                 }
             }
+        }
+
+        private void WriteIsEditMode()
+        {
+            CodeText.AppendLine("public bool IsEditMode");
+            CodeText.AppendLine("{");
+            CodeText.AppendLine("get { return Id > 0; }");
+            CodeText.AppendLine("}");
         }
     }
 }

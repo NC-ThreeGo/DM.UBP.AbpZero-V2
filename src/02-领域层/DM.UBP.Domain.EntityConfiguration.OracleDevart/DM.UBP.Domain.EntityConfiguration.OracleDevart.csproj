@@ -55,6 +55,7 @@
     <Compile Include="AbpZero\Notification\NotificationConfiguration.cs" />
     <Compile Include="AbpZero\Notification\NotificationSubscriptionConfiguration.cs" />
     <Compile Include="AbpZero\Notification\TenantNotification.cs" />
+    <Compile Include="ReportManager\Rpt_CategoryConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp\Abp.csproj">

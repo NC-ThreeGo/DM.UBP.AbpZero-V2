@@ -24,6 +24,7 @@ namespace DM.UBP.CodeBuilder
 
         // 5个方法名
         public string Method_GetAllAsync_FullName { get; set; }
+        public string Method_GetPageAllAsync_FullName { get; set; }
         public string Method_GetAllAsync_Name { get; set; }
         public string Method_GetByIdAsync_FullName { get; set; }
         public string Method_GetByIdAsync_Name { get; set; }
@@ -75,6 +76,7 @@ namespace DM.UBP.CodeBuilder
             CodeText.AppendLine("using Abp.Application.Services;");
             CodeText.AppendLine("using Abp.Application.Services.Dto;");
             CodeText.AppendLine("using " + InputDtoCodeBuilder.FullNameSpace + ";");
+            CodeText.AppendLine("using DM.UBP.Dto;");
             CodeText.AppendLine("");
         }
 
@@ -104,6 +106,10 @@ namespace DM.UBP.CodeBuilder
                 Method_GetAllAsync_Name = "Get" + EntityCodeBuilder.ClassPluralName;
                 Method_GetAllAsync_FullName = "Task<PagedResultDto<" + OutputDtoCodeBuilder.ClassName + ">> " + Method_GetAllAsync_Name + "()";
                 CodeText.AppendLine(Method_GetAllAsync_FullName + ";");
+                CodeText.AppendLine("");
+
+                Method_GetPageAllAsync_FullName = "Task<PagedResultDto<" + OutputDtoCodeBuilder.ClassName + ">> " + Method_GetAllAsync_Name + "(PagedAndSortedInputDto input)";
+                CodeText.AppendLine(Method_GetPageAllAsync_FullName + ";");
                 CodeText.AppendLine("");
             }
 
@@ -137,8 +143,10 @@ namespace DM.UBP.CodeBuilder
             if (DomainServiceInterfaceCodeBuilder.Has_Method_DeleteAsync)
             {
                 Method_DeleteAsync_Name = "Delete" + EntityCodeBuilder.ClassName;
+                //Method_DeleteAsync_FullName = "Task " + Method_DeleteAsync_Name
+                //    + "(" + InputDtoCodeBuilder.ClassName + " input)";
                 Method_DeleteAsync_FullName = "Task " + Method_DeleteAsync_Name
-                    + "(" + InputDtoCodeBuilder.ClassName + " input)";
+                   + "(EntityDto input)";
                 CodeText.AppendLine(Method_DeleteAsync_FullName + ";");
                 CodeText.AppendLine("");
             }

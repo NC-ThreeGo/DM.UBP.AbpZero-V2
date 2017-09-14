@@ -50,7 +50,7 @@ namespace DM.UBP.CodeBuilder
         {
             CodeText.AppendLine(@"(function ($) {
                                     app.modals.CreateOrEditModal = function() {
-                                        var _appService = abp.services.app." + ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.ClassName.Substring(1).ToLower().Substring(0, ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.ClassName.Substring(1).ToLower().Length - 10) + @";
+                                        var _appService = abp.services."+ ModuleName + "." + ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.ClassName.Substring(1).ToLower().Substring(0, ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.ClassName.Substring(1).ToLower().Length - 10) + @";
 
                                         var _modalManager;
                                         var _$formInfo = null;
@@ -72,7 +72,7 @@ namespace DM.UBP.CodeBuilder
 
                                             _modalManager.setBusy(true);
 
-                                            if (input.Id >= 0)
+                                            if (input.Id > 0)
                                             {
                                                 //修改
                                                 _appService." + ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.Method_UpdateAsync_Name + @"(input)

@@ -1,0 +1,60 @@
+﻿@*//------------------------------------------------------------
+    // All Rights Reserved , Copyright (C)
+    // 版本：1.0
+    /// <author>
+        ///		<name></name>
+        ///		<date>0001/1/1 0:00:00</date>
+        ///
+    </author>
+    //------------------------------------------------------------*@
+
+@using Abp.Extensions
+@using DM.UBP.Web.Areas.Mpa.Models.Common.Modals
+@using DM.UBP.Domain.Entity
+
+@model DM.UBP.Application.Dto.ReportManager.Categories.CategoryOutputDto
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditCategory") + ": " + Model.Categoryname) : L("CreateCategory")))
+@section Styles
+{
+}
+@section Scripts
+{
+}
+
+<div class="modal-body">
+    <div class="tabbable-line">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#EntityInformationsTab" data-toggle="tab" aria-expanded="true">
+                    @L("CategoryInformations")
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="EntityInformationsTab">
+                <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
+                    @if (Model.IsEditMode)
+                    {
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                    }
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Categoryname" class="form-control@(Model.Categoryname.IsNullOrEmpty() ? "" : " edited")" value="@Model.Categoryname"  required maxlength="@StringMaxLengthConst.MaxStringLength100">
+                        <label>@L("Categoryname")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Parentid" class="form-control@(Model.Parentid == 0 ? "" : " edited")" value="@Model.Parentid">
+                        <label>@L("Parentid")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Code" class="form-control@(Model.Code.IsNullOrEmpty() ? "" : " edited")" value="@Model.Code">
+                        <label>@L("Code")</label>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

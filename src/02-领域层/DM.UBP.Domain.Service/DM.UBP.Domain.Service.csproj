@@ -105,8 +105,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ReportManage\AppPermissions_ReportManage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportManager\AppPermissions_ReportManager.cs" />
+    <Compile Include="ReportManager\Categories\CategoryManager.cs" />
+    <Compile Include="ReportManager\Categories\ICategoryManager.cs" />
     <Compile Include="UbpAuthorizationProvider.cs" />
     <Compile Include="UbpDomainServiceConsts.cs" />
     <Compile Include="UbpDomainServiceModule.cs" />

@@ -166,6 +166,7 @@ namespace DM.UBP.CodeBuilder
                 entityCodeBuilder.TenantInterface = "IMustHaveTenant";
 
             EntityConfigurationCodeBuilder entityConfigurationCodeBuilder = new EntityConfigurationCodeBuilder(entityCodeBuilder);
+            entityConfigurationCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             entityConfigurationCodeBuilder.ClassComments = tbComment.Text +  "基于数据库—" + _DbType.ToString() + "的映射";
 
             entityCodeBuilder.CreateCode();
@@ -173,11 +174,13 @@ namespace DM.UBP.CodeBuilder
 
             //UbpDbContext
             UbpDbContextCodeBuilder ubpDbContextCodeBuilder = new UbpDbContextCodeBuilder(entityCodeBuilder, tbModuleName.Text);
+            ubpDbContextCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             ubpDbContextCodeBuilder.ClassComments = tbModuleName.Text + "的DbContext";
             ubpDbContextCodeBuilder.CreateCode();
 
             //Domain.Service.Interface
             DomainServiceInterfaceCodeBuilder domainServiceInterfaceCodeBuilder = new DomainServiceInterfaceCodeBuilder(entityCodeBuilder, tbFunName.Text);
+            domainServiceInterfaceCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             domainServiceInterfaceCodeBuilder.ClassName = domainServiceInterfaceCodeBuilder.FileName = "I" + tbDomainServiceClassName.Text;
             domainServiceInterfaceCodeBuilder.ClassComments = tbComment.Text + "的Domain.Service.Interface";
             domainServiceInterfaceCodeBuilder.Has_Method_GetAllAsync = cbGetAllAsync.Checked;
@@ -190,22 +193,26 @@ namespace DM.UBP.CodeBuilder
             //Domain.Service
             DomainServiceCodeBuilder domainServiceCodeBuilder = new DomainServiceCodeBuilder(entityCodeBuilder, 
                 domainServiceInterfaceCodeBuilder, tbFunName.Text);
+            domainServiceCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             domainServiceCodeBuilder.ClassName = domainServiceCodeBuilder.FileName = tbDomainServiceClassName.Text;
             domainServiceCodeBuilder.ClassComments = tbComment.Text + "的Domain.Service";
             domainServiceCodeBuilder.CreateCode();
 
             //InputDto
             InputDtoCodeBuilder inputDtoCodeBuilder = new InputDtoCodeBuilder(entityCodeBuilder, tbInputDtoClassName.Text, tbFunName.Text);
+            inputDtoCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             inputDtoCodeBuilder.ClassComments = tbComment.Text + "的InputDto";
             inputDtoCodeBuilder.CreateCode();
 
             //OutputDto
             OutputDtoCodeBuilder outputDtoCodeBuilder = new OutputDtoCodeBuilder(entityCodeBuilder, tbOutputDtoClassName.Text, tbFunName.Text);
+            outputDtoCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             outputDtoCodeBuilder.ClassComments = tbComment.Text + "的OutputDto";
             outputDtoCodeBuilder.CreateCode();
 
             //Permission
             PermissionCodeBuilder permissionCodeBuilder = new PermissionCodeBuilder(tbModuleName.Text);
+            permissionCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             permissionCodeBuilder.ClassComments = tbModuleName.Text + "的Permission定义";
             permissionCodeBuilder.MenuPermValue = tbMenuPerm.Text;
             permissionCodeBuilder.PermCreateValue = tbPermCreate.Text;
@@ -219,6 +226,7 @@ namespace DM.UBP.CodeBuilder
                 inputDtoCodeBuilder, outputDtoCodeBuilder, 
                 domainServiceInterfaceCodeBuilder, "I" + tbAppServiceClassName.Text,
                 tbFunName.Text);
+            appServiceInterfaceCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             appServiceInterfaceCodeBuilder.ClassComments = tbComment.Text + "的Application.Service.Interface";
             appServiceInterfaceCodeBuilder.CreateCode();
 
@@ -226,33 +234,39 @@ namespace DM.UBP.CodeBuilder
             AppServiceCodeBuilder appServiceCodeBuilder = new AppServiceCodeBuilder(entityCodeBuilder,
                 inputDtoCodeBuilder, outputDtoCodeBuilder, domainServiceInterfaceCodeBuilder, appServiceInterfaceCodeBuilder,
                 permissionCodeBuilder, tbAppServiceClassName.Text, tbFunName.Text);
+            appServiceCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             appServiceCodeBuilder.ClassComments = tbComment.Text + "的Application.Service";
             appServiceCodeBuilder.CreateCode();
 
             //Controller
             ControllerCodeBuilder controllerCodeBuilder = new ControllerCodeBuilder(inputDtoCodeBuilder, outputDtoCodeBuilder,
                 appServiceInterfaceCodeBuilder, permissionCodeBuilder, tbControllerName.Text, tbModuleName.Text);
+            controllerCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             controllerCodeBuilder.ClassComments = tbComment.Text + "的Controller";
             controllerCodeBuilder.CreateCode();
 
             //Index.cshtml
             IndexCshtmlCodeBuilder indexCshtmlCodeBuilder = new IndexCshtmlCodeBuilder(permissionCodeBuilder,
                 controllerCodeBuilder, tbModuleName.Text);
+            indexCshtmlCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             indexCshtmlCodeBuilder.CreateCode();
 
             //Index.js
             IndexJsCodeBuilder indexJsCodeBuilder = new IndexJsCodeBuilder(permissionCodeBuilder,
                 controllerCodeBuilder, tbModuleName.Text);
+            indexJsCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             indexJsCodeBuilder.CreateCode();
 
             //_CreateOrEditModal.cshtml
             EditModalCshtmlCodeBuilder editModalCshtmlCodeBuilder = new EditModalCshtmlCodeBuilder(permissionCodeBuilder,
                 controllerCodeBuilder, tbModuleName.Text);
+            editModalCshtmlCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             editModalCshtmlCodeBuilder.CreateCode();
 
             //_CreateOrEditModal.js
             EditModalJsCodeBuilder editModalJsCodeBuilder = new EditModalJsCodeBuilder(permissionCodeBuilder,
                 controllerCodeBuilder, tbModuleName.Text);
+            editModalJsCodeBuilder.RootCodePath = tbCodeRootPath.Text;
             editModalJsCodeBuilder.CreateCode();
 
             MessageBox.Show("OK");
@@ -263,11 +277,15 @@ namespace DM.UBP.CodeBuilder
             string classPlural = System.Data.Entity.Design.PluralizationServices.PluralizationService.CreateService(new CultureInfo("en")).Pluralize(tbClass.Text);
 
             tbFunName.Text = classPlural;
+
             tbDomainServiceClassName.Text = tbClass.Text + "Manager";
             tbAppServiceClassName.Text = tbClass.Text + "AppService";
             tbInputDtoClassName.Text = tbClass.Text + "InputDto";
             tbOutputDtoClassName.Text = tbClass.Text + "OutputDto";
-            tbMenuPerm.Text = "Pages." + tbModuleName.Text + "." + tbSubModuleName.Text + "." + classPlural;
+            tbMenuPerm.Text = "Pages."
+                + (string.IsNullOrEmpty(tbModuleName.Text) ? "" : tbModuleName.Text + ".")
+                + (string.IsNullOrEmpty(tbSubModuleName.Text) ? "" : tbSubModuleName.Text + ".") 
+                + classPlural;
             tbPermCreate.Text = tbMenuPerm.Text + ".Create";
             tbPermEdit.Text = tbMenuPerm.Text + ".Edit";
             tbPermDelete.Text = tbMenuPerm.Text + ".Delete";
