@@ -4272,3 +4272,64 @@ DEBUG 2017-09-12 10:22:19,810 [74   ] Abp.Logging.LogHelper                    -
 DEBUG 2017-09-12 10:22:19,813 [74   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Authorization.Permissions.IPermissionAppService' with service name 'app/permission'.
 DEBUG 2017-09-12 10:22:19,815 [74   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Auditing.IAuditLogAppService' with service name 'app/auditLog'.
 DEBUG 2017-09-12 10:22:25,774 [245  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"2042e2f7-f56f-4cf1-8e74-a240206af184","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-12T02:22:25.273711Z","Properties":{}}
+DEBUG 2017-09-12 16:04:46,599 [253  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"77a4bc1c-37a3-4f5b-a5c0-7c866ea753d7","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-12T08:04:46.5997928Z","Properties":{}}
+DEBUG 2017-09-12 16:05:15,540 [344  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 2042e2f7-f56f-4cf1-8e74-a240206af184
+DEBUG 2017-09-12 20:26:09,398 [286  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 77a4bc1c-37a3-4f5b-a5c0-7c866ea753d7
+DEBUG 2017-09-12 20:26:13,414 [279  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"7a01053e-b30e-49f2-aa8f-93b52991a17b","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-12T12:26:13.4140641Z","Properties":{}}
+DEBUG 2017-09-13 08:54:45,813 [281  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 7a01053e-b30e-49f2-aa8f-93b52991a17b
+DEBUG 2017-09-13 08:54:50,936 [311  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"608d992f-51c4-4dc4-958f-2cc5ef52c985","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-13T00:54:50.9369338Z","Properties":{}}
+DEBUG 2017-09-13 10:35:25,989 [315  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 608d992f-51c4-4dc4-958f-2cc5ef52c985
+DEBUG 2017-09-13 10:35:30,823 [339  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"471d85e6-acca-420c-9234-28e30010ccc6","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-13T02:35:30.8230611Z","Properties":{}}
+DEBUG 2017-09-13 15:45:26,746 [178  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"b9a5741c-ad10-4fe7-85d9-010b7e7879d0","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-13T07:45:26.7445682Z","Properties":{}}
+DEBUG 2017-09-13 15:45:55,848 [291  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 471d85e6-acca-420c-9234-28e30010ccc6
+DEBUG 2017-09-13 17:22:41,694 [163  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: b9a5741c-ad10-4fe7-85d9-010b7e7879d0
+DEBUG 2017-09-13 17:22:44,557 [268  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"1f450b34-5873-44e3-a572-e2671b399d84","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-13T09:22:44.557541Z","Properties":{}}
+DEBUG 2017-09-14 08:58:05,667 [285  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 1f450b34-5873-44e3-a572-e2671b399d84
+DEBUG 2017-09-14 08:58:10,091 [294  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"9f630e83-b22b-4ac3-bff1-574f17a400ac","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-14T00:58:10.0915871Z","Properties":{}}
+DEBUG 2017-09-14 15:16:07,906 [96   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"f8bf1abc-0c6b-460b-a84c-33e217bbdb7f","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-14T07:16:07.906907Z","Properties":{}}
+DEBUG 2017-09-14 15:16:36,146 [271  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 9f630e83-b22b-4ac3-bff1-574f17a400ac
+DEBUG 2017-09-14 17:02:39,277 [278  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: f8bf1abc-0c6b-460b-a84c-33e217bbdb7f
+DEBUG 2017-09-14 17:02:40,944 [278  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"466c9bd7-2117-4140-a877-40ad092404f3","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-14T09:02:40.9442472Z","Properties":{}}
+DEBUG 2017-09-14 17:03:16,777 [278  ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-09-14 17:03:16,778 [278  ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-14 17:03:16,778 [278  ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-14 17:03:16,778 [278  ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-09-14 17:03:49,515 [197  ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-09-14 17:03:51,998 [197  ] Abp.Modules.AbpModuleManager             - Found 26 ABP modules in total.
+DEBUG 2017-09-14 17:03:52,017 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Web.UBPWebModule, DM.UBP.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,021 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,021 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,022 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,022 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,022 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpZeroOwinModule, Abp.Zero.Owin, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,023 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,023 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,023 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.EF.UbpEFModule, DM.UBP.EF, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,024 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,025 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,025 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,026 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Common.UbpCommonModule, DM.UBP.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,026 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.UBPCoreModule, DM.UBP.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,027 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,027 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,027 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Application.Service.UbpApplicationServiceModule, DM.UBP.Application.Service, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,028 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Domain.Service.UbpDomainServiceModule, DM.UBP.Domain.Service, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,028 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Domain.Entity.UbpDomainEntityModule, DM.UBP.Domain.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,028 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Application.Dto.UbpApplicationDtoModule, DM.UBP.Application.Dto, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,029 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.UBPApplicationModule, DM.UBP.Application, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,029 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.WebApi.UBPWebApiModule, DM.UBP.WebApi, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,029 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,030 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,030 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Runtime.Caching.Redis.AbpRedisCacheModule, Abp.RedisCache, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,030 [197  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:52,037 [197  ] Abp.Modules.AbpModuleManager             - 26 modules loaded.
+DEBUG 2017-09-14 17:03:54,736 [197  ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-14 17:03:54,736 [197  ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-14 17:03:54,736 [197  ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-14 17:03:54,736 [197  ] o.Configuration.LanguageManagementConfig - Converted UBP (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-14 17:03:56,145 [197  ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: DM.UBP.EF.UbpDbContext, DM.UBP.EF, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-14 17:03:59,918 [197  ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-09-14 17:03:59,936 [197  ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-09-14 17:03:59,939 [197  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-09-14 17:03:59,954 [197  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-09-14 17:04:00,016 [197  ] Abp.Localization.LocalizationManager     - Initialized localization source: UBP
