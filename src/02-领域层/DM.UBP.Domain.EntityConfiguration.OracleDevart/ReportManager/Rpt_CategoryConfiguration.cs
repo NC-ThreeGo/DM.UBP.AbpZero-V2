@@ -15,7 +15,7 @@ namespace DM.UBP.Domain.EntityConfiguration.OracleDevart.ReportManager
     /// <summary>
     /// 报表分类基于数据库—OracleDevart的映射
     /// <summary>
-    public class CategoryConfiguration : EntityConfigurationBase<Category, long>
+    public class CategoryConfiguration : EntityConfigurationBase<ReportCategory, long>
     {
         public CategoryConfiguration()
         {

@@ -27,28 +27,28 @@ namespace DM.UBP.Application.Service.ReportManager.Categories
     /// 报表分类的Application.Service
     /// <summary>
     [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager)]
-    public class CategoryAppService : ICategoryAppService
+    public class ReportCategoryAppService : IReportCategoryAppService
     {
         private readonly ICategoryManager _CategoryManager;
-        public CategoryAppService(
+        public ReportCategoryAppService(
            ICategoryManager categorymanager
            )
         {
             _CategoryManager = categorymanager;
         }
 
-        public async Task<PagedResultDto<CategoryOutputDto>> GetCategories()
+        public async Task<PagedResultDto<ReportCategoryOutputDto>> GetCategories()
         {
             var entities = await _CategoryManager.GetAllCategoriesAsync();
-            var listDto = entities.MapTo<List<CategoryOutputDto>>();
+            var listDto = entities.MapTo<List<ReportCategoryOutputDto>>();
 
-            return new PagedResultDto<CategoryOutputDto>(
+            return new PagedResultDto<ReportCategoryOutputDto>(
             listDto.Count,
             listDto
             );
 
         }
-        public async Task<PagedResultDto<CategoryOutputDto>> GetCategories(PagedAndSortedInputDto input)
+        public async Task<PagedResultDto<ReportCategoryOutputDto>> GetCategories(PagedAndSortedInputDto input)
         {
             var entities = await _CategoryManager.GetAllCategoriesAsync();
 
@@ -59,26 +59,26 @@ namespace DM.UBP.Application.Service.ReportManager.Categories
 
             var pageEntities = await Task.FromResult(orderEntities.Skip(input.SkipCount).Take(input.MaxResultCount));
 
-            var listDto = pageEntities.MapTo<List<CategoryOutputDto>>();
+            var listDto = pageEntities.MapTo<List<ReportCategoryOutputDto>>();
 
-            return new PagedResultDto<CategoryOutputDto>(
+            return new PagedResultDto<ReportCategoryOutputDto>(
             entities.Count,
             listDto
             );
         }
-        public async Task<CategoryOutputDto> GetCategoryById(long id)
+        public async Task<ReportCategoryOutputDto> GetCategoryById(long id)
         {
             var entity = await _CategoryManager.GetCategoryByIdAsync(id);
-            return entity.MapTo<CategoryOutputDto>();
+            return entity.MapTo<ReportCategoryOutputDto>();
         }
         [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Categories_Create)]
-        public async Task<bool> CreateCategory(CategoryInputDto input)
+        public async Task<bool> CreateCategory(ReportCategoryInputDto input)
         {
-            var entity = input.MapTo<Category>();
+            var entity = input.MapTo<ReportCategory>();
             return await _CategoryManager.CreateCategoryAsync(entity);
         }
         [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Categories_Edit)]
-        public async Task<bool> UpdateCategory(CategoryInputDto input)
+        public async Task<bool> UpdateCategory(ReportCategoryInputDto input)
         {
             var entity = await _CategoryManager.GetCategoryByIdAsync(input.Id);
             input.MapTo(entity);

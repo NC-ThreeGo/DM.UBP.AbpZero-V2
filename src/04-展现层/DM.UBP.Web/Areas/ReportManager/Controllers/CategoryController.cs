@@ -26,10 +26,10 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
     [AbpMvcAuthorize(AppPermissions_ReportManager.Pages_ReportManager)]
     public class CategoryController : UBPControllerBase
     {
-        private ICategoryAppService _CategoryAppService;
+        private IReportCategoryAppService _CategoryAppService;
         public CategoryController(
            ICacheManager cacheManager,
-           ICategoryAppService categoryappservice
+           IReportCategoryAppService categoryappservice
            )
         {
             _CategoryAppService = categoryappservice;
@@ -43,7 +43,7 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
         [AbpMvcAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Categories_Create)]
         public PartialViewResult CreateModal()
         {
-            var viewModel = new CategoryOutputDto()
+            var viewModel = new ReportCategoryOutputDto()
             {
                 //给属性赋值
             };

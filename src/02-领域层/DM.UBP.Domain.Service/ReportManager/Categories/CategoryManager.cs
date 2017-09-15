@@ -25,42 +25,42 @@ namespace DM.UBP.Domain.Service.ReportManager.Categories
     {
         private readonly IUnitOfWorkManager _unitOfWorkManager;
 
-        private readonly IRepository<Category, long> _categoryRepository;
+        private readonly IRepository<ReportCategory, long> _categoryRepository;
 
         public CategoryManager(
            IUnitOfWorkManager unitOfWorkManager,
-           IRepository<Category, long> categoryRepository
+           IRepository<ReportCategory, long> categoryRepository
            )
         {
             _unitOfWorkManager = unitOfWorkManager;
             _categoryRepository = categoryRepository;
         }
 
-        public async Task<List<Category>> GetAllCategoriesAsync()
+        public async Task<List<ReportCategory>> GetAllCategoriesAsync()
         {
             var categories = _categoryRepository.GetAll().OrderBy(p => p.Id);
 
             return await categories.ToListAsync();
         }
 
-        public async Task<Category> GetCategoryByIdAsync(long id)
+        public async Task<ReportCategory> GetCategoryByIdAsync(long id)
         {
             return await _categoryRepository.GetAsync(id);
         }
 
-        public async Task<bool> CreateCategoryAsync(Category category)
+        public async Task<bool> CreateCategoryAsync(ReportCategory category)
         {
             var entity = await _categoryRepository.InsertAsync(category);
             return entity != null;
         }
 
-        public async Task<bool> UpdateCategoryAsync(Category category)
+        public async Task<bool> UpdateCategoryAsync(ReportCategory category)
         {
             var entity = await _categoryRepository.UpdateAsync(category);
             return entity != null;
         }
 
-        public async Task DeleteCategoryAsync(Category category)
+        public async Task DeleteCategoryAsync(ReportCategory category)
         {
             await _categoryRepository.DeleteAsync(category);
         }

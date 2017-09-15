@@ -18,7 +18,7 @@ namespace DM.UBP.Domain.Entity.ReportManager
     /// <summary>
     /// 报表分类的实体类
     /// <summary>
-    public class Category : FullAuditedEntity<long>, IMayHaveTenant
+    public class ReportCategory : FullAuditedEntity<long>, IMayHaveTenant
     {
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
         public string CategoryName { get; set; }

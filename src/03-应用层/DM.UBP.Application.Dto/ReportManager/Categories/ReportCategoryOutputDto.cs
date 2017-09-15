@@ -16,11 +16,12 @@ using DM.UBP.Domain.Entity.ReportManager;
 namespace DM.UBP.Application.Dto.ReportManager.Categories
 {
     /// <summary>
-    /// 报表分类的InputDto
+    /// 报表分类的OutputDto
     /// <summary>
-    [AutoMapTo(typeof(Category))]
-    public class CategoryInputDto : EntityDto<long>
+    [AutoMapFrom(typeof(ReportCategory))]
+    public class ReportCategoryOutputDto : FullAuditedEntityDto<long>
     {
+
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
         [Required]
         public string Categoryname { get; set; }
@@ -31,5 +32,14 @@ namespace DM.UBP.Application.Dto.ReportManager.Categories
         [StringLength(StringMaxLengthConst.MaxStringLength1000)]
         [Required]
         public string Code { get; set; }
+
+        /// <summary>
+        /// 是否处于修改状态，如果Id有值则表示修改否则表示新增。
+        /// </summary>
+        public bool IsEditMode
+        {
+            get { return Id > 0; }
+        }
+
     }
 }

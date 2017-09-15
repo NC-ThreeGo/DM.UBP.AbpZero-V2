@@ -19,17 +19,17 @@ namespace DM.UBP.Application.Service.ReportManager.Categories
     /// <summary>
     /// 报表分类的Application.Service.Interface
     /// <summary>
-    public interface ICategoryAppService : IApplicationService
+    public interface IReportCategoryAppService : IApplicationService
     {
-        Task<PagedResultDto<CategoryOutputDto>> GetCategories();
+        Task<PagedResultDto<ReportCategoryOutputDto>> GetCategories();
 
-        Task<PagedResultDto<CategoryOutputDto>> GetCategories(PagedAndSortedInputDto input);
+        Task<PagedResultDto<ReportCategoryOutputDto>> GetCategories(PagedAndSortedInputDto input);
 
-        Task<CategoryOutputDto> GetCategoryById(long id);
+        Task<ReportCategoryOutputDto> GetCategoryById(long id);
 
-        Task<bool> CreateCategory(CategoryInputDto input);
+        Task<bool> CreateCategory(ReportCategoryInputDto input);
 
-        Task<bool> UpdateCategory(CategoryInputDto input);
+        Task<bool> UpdateCategory(ReportCategoryInputDto input);
 
         Task DeleteCategory(EntityDto input);
 

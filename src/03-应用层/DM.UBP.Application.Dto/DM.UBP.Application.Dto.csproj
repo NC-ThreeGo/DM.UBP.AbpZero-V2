@@ -48,8 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportManager\Categories\CategoryInputDto.cs" />
-    <Compile Include="ReportManager\Categories\CategoryOutputDto.cs" />
+    <Compile Include="ReportManager\Categories\ReportCategoryInputDto.cs" />
+    <Compile Include="ReportManager\Categories\ReportCategoryOutputDto.cs" />
     <Compile Include="UbpApplicationDtoModule.cs" />
   </ItemGroup>
   <ItemGroup>

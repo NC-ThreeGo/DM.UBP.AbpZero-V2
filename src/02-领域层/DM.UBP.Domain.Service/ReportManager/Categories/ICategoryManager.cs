@@ -19,15 +19,15 @@ namespace DM.UBP.Domain.Service.ReportManager.Categories
     /// <summary>
     public interface ICategoryManager : IDomainService
     {
-        Task<List<Category>> GetAllCategoriesAsync();
+        Task<List<ReportCategory>> GetAllCategoriesAsync();
 
-        Task<Category> GetCategoryByIdAsync(long id);
+        Task<ReportCategory> GetCategoryByIdAsync(long id);
 
-        Task<bool> CreateCategoryAsync(Category category);
+        Task<bool> CreateCategoryAsync(ReportCategory category);
 
-        Task<bool> UpdateCategoryAsync(Category category);
+        Task<bool> UpdateCategoryAsync(ReportCategory category);
 
-        Task DeleteCategoryAsync(Category category);
+        Task DeleteCategoryAsync(ReportCategory category);
 
     }
 }

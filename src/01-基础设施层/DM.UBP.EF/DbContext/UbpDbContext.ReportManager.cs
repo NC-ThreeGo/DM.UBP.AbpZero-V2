@@ -18,7 +18,7 @@ namespace DM.UBP.EF
     public partial class UbpDbContext
     {
         //TODO: Define an IDbSet for each Entity...
-        public virtual IDbSet<Category> Categories { get; set; }
+        public virtual IDbSet<ReportCategory> Categories { get; set; }
 
         //@@Insert Position
 
