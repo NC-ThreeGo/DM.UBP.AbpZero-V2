@@ -9,8 +9,6 @@
 
 using System.Web.Mvc;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using Abp.Web.Models;
 using Abp.Runtime.Caching;
 using Abp.Web.Mvc.Authorization;
 using DM.UBP.Application.Dto.ReportManager.Categories;
@@ -23,7 +21,7 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
     /// <summary>
     /// 报表分类的Controller
     /// <summary>
-    [AbpMvcAuthorize(AppPermissions_ReportManager.Pages_ReportManager)]
+    [AbpMvcAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Categories)]
     public class CategoryController : UBPControllerBase
     {
         private IReportCategoryAppService _CategoryAppService;

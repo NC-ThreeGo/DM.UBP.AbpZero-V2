@@ -107,8 +107,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportManager\AppPermissions_ReportManager.cs" />
-    <Compile Include="ReportManager\Categories\CategoryManager.cs" />
-    <Compile Include="ReportManager\Categories\ICategoryManager.cs" />
+    <Compile Include="ReportManager\Categories\ReportCategoryManager.cs" />
+    <Compile Include="ReportManager\Categories\IReportCategoryManager.cs" />
     <Compile Include="UbpAuthorizationProvider.cs" />
     <Compile Include="UbpDomainServiceConsts.cs" />
     <Compile Include="UbpDomainServiceModule.cs" />

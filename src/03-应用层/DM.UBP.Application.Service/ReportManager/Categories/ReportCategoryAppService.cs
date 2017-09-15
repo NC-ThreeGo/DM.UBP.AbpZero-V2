@@ -29,9 +29,9 @@ namespace DM.UBP.Application.Service.ReportManager.Categories
     [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager)]
     public class ReportCategoryAppService : IReportCategoryAppService
     {
-        private readonly ICategoryManager _CategoryManager;
+        private readonly IReportCategoryManager _CategoryManager;
         public ReportCategoryAppService(
-           ICategoryManager categorymanager
+           IReportCategoryManager categorymanager
            )
         {
             _CategoryManager = categorymanager;

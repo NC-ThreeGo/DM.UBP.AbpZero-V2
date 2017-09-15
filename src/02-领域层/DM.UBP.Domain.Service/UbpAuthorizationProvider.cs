@@ -38,6 +38,8 @@ namespace DM.UBP.Domain.Service
                 reportManagerCategories.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Categories_Create, L("CreatingNewCategory"));
                 reportManagerCategories.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Categories_Edit, L("EditingCategory"));
                 reportManagerCategories.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Categories_Delete, L("DeletingCategory"));
+
+                var reportManagerDesigner = reportManager.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Designer, L("ReportManagerDesigner"));
             }
         }
 

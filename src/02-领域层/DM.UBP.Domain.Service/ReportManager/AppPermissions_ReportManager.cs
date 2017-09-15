@@ -21,6 +21,8 @@ namespace DM.UBP.Domain.Service.ReportManager
         public const string Pages_ReportManager_Categories_Edit = "Pages.ReportManager.Categories.Edit";
         public const string Pages_ReportManager_Categories_Delete = "Pages.ReportManager.Categories.Delete";
 
+        public const string Pages_ReportManager_Designer = "Pages.ReportManager.Designer";
+
         //@@Insert Position
 
     }
