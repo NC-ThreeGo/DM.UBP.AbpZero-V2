@@ -63,7 +63,7 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
             _webReport.DesignScriptCode = false;
             _webReport.Debug = true;
             _webReport.DesignerPath = "~/Areas/ReportManager/Views/WebReportDesigner/index.html";
-            _webReport.DesignerSaveCallBack = "~/Areas/ReportManager/Views/Designer/SaveDesignedReport";
+            _webReport.DesignerSaveCallBack = "/ReportManager/Designer/SaveDesignedReport";
             _webReport.ID = "DesignReport";
             _webReport.XlsxPageBreaks = false;
             _webReport.XlsxSeamless = true;

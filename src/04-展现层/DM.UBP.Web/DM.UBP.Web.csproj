@@ -77,11 +77,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="FastReport, Version=2017.3.2.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+    <Reference Include="FastReport, Version=2017.1.22.0, Culture=neutral, PublicKeyToken=417583d16d08abed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\libs\FastReport.dll</HintPath>
     </Reference>
-    <Reference Include="FastReport.Web, Version=2017.3.2.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+    <Reference Include="FastReport.Editor, Version=2017.1.22.0, Culture=neutral, PublicKeyToken=417583d16d08abed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\FastReport.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Web, Version=2017.1.22.0, Culture=neutral, PublicKeyToken=417583d16d08abed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\libs\FastReport.Web.dll</HintPath>
     </Reference>
