@@ -54,7 +54,7 @@ namespace DM.UBP.CodeBuilder
                                         var _appService = abp.services."+ ModuleName + "." + ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.ClassName.Substring(1).ToLower().Substring(0, ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.ClassName.Substring(1).ToLower().Length - 10) + @";
 
                                         var _permissions = {
-                                            create: abp.auth.hasPermission('" + PermissionCodeBuilder.PermEditValue + @"'),
+                                            create: abp.auth.hasPermission('" + PermissionCodeBuilder.PermCreateValue + @"'),
                                             edit: abp.auth.hasPermission('" + PermissionCodeBuilder.PermEditValue + @"'),
                                             delete: abp.auth.hasPermission('" + PermissionCodeBuilder.PermDeleteValue + @"')
                                             };

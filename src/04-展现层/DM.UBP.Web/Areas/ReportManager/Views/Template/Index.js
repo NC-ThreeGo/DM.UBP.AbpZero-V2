@@ -9,24 +9,24 @@
 
 (function () {
     $(function () {
-        var _$entityTable = $('#CategoryTable');
-        var _appService = abp.services.ReportManager.reportCategory;
+        var _$entityTable = $('#TemplateTable');
+        var _appService = abp.services.ReportManager.reportTemplate;
 
         var _permissions = {
-            create: abp.auth.hasPermission('Pages.ReportManager.Categories.Create'),
-            edit: abp.auth.hasPermission('Pages.ReportManager.Categories.Edit'),
-            delete: abp.auth.hasPermission('Pages.ReportManager.Categories.Delete')
+            create: abp.auth.hasPermission('Pages.ReportManager.ReportTemplates.Create'),
+            edit: abp.auth.hasPermission('Pages.ReportManager.ReportTemplates.Edit'),
+            delete: abp.auth.hasPermission('Pages.ReportManager.ReportTemplates.Delete')
         };
 
         var _createModal = new app.ModalManager({
-            viewUrl: abp.appPath + 'ReportManager/Category/CreateModal',
-            scriptUrl: abp.appPath + 'Areas/ReportManager/Views/Category/_CreateOrEditModal.js',
+            viewUrl: abp.appPath + 'ReportManager/Template/CreateModal',
+            scriptUrl: abp.appPath + 'Areas/ReportManager/Views/Template/_CreateOrEditModal.js',
             modalClass: 'CreateOrEditModal'
         });
 
         var _editModal = new app.ModalManager({
-            viewUrl: abp.appPath + 'ReportManager/Category/EditModal',
-            scriptUrl: abp.appPath + 'Areas/ReportManager/Views/Category/_CreateOrEditModal.js',
+            viewUrl: abp.appPath + 'ReportManager/Template/EditModal',
+            scriptUrl: abp.appPath + 'Areas/ReportManager/Views/Template/_CreateOrEditModal.js',
             modalClass: 'CreateOrEditModal'
         });
 
@@ -41,7 +41,7 @@
         });
 
 
-        $('#CreateNewCategoryButton').click(function () {
+        $('#CreateNewTemplateButton').click(function () {
             _createModal.open();
         });
 
@@ -51,7 +51,7 @@
                 app.localize('DeleteRecordWarningMessage'),
                 function (isConfirmed) {
                     if (isConfirmed) {
-                        _appService.deleteCategory({
+                        _appService.deleteReportTemplate({
                             id: entity.id
                         }).done(function () {
                             getEntities();
@@ -64,13 +64,13 @@
 
 
         _$entityTable.jtable({
-            title: app.localize('ReportCategories'),
+            title: app.localize('ReportTemplates'),
             paging: true,
             sorting: true,
             multiSorting: true,
             actions: {
                 listAction: {
-                    method: _appService.getCategories 
+                    method: _appService.getReportTemplates
                 }
             },
 
@@ -102,17 +102,17 @@
                         }
                     }]
                 },
-                categoryName: {
-                    title: app.localize('CategoryName'),
+                templateName: {
+                    title: app.localize('TemplateName'),
+                    width: '25%',
+                },
+                fileName: {
+                    title: app.localize('FileName'),
+                    width: '25%',
+                },
+                description: {
+                    title: app.localize('Description'),
                     width: '50%',
-                },
-                parentId: {
-                    title: app.localize('ParentId'),
-                    width: '25%',
-                },
-                code: {
-                    title: app.localize('Code'),
-                    width: '25%',
                 },
             }
         });

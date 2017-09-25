@@ -75,7 +75,7 @@ namespace DM.UBP.CodeBuilder
                                             if (input.Id > 0)
                                             {
                                                 //修改
-                                                _appService." + ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.Method_UpdateAsync_Name + @"(input)
+                                                _appService." + Utils.FirstWordToLower(ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.Method_UpdateAsync_Name) + @"(input)
                                                     .done(function()
                                                     {
                                                         abp.notify.info(app.localize('SavedSuccessfully'));
@@ -89,7 +89,7 @@ namespace DM.UBP.CodeBuilder
                                             else
                                             {
                                                 //新建
-                                                _appService." + ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.Method_CreateAsync_Name + @"(input)
+                                                _appService." + Utils.FirstWordToLower(ControllerCodeBuilder.AppServiceInterfaceCodeBuilder.Method_CreateAsync_Name) + @"(input)
                                                     .done(function ()
                                                     {
                                                         abp.notify.info(app.localize('SavedSuccessfully'));

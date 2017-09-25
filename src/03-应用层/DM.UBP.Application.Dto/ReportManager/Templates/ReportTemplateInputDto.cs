@@ -13,23 +13,28 @@ using Abp.Application.Services.Dto;
 using DM.UBP.Domain.Entity;
 using DM.UBP.Domain.Entity.ReportManager;
 
-namespace DM.UBP.Application.Dto.ReportManager.Categories
+namespace DM.UBP.Application.Dto.ReportManager.Templates
 {
     /// <summary>
-    /// 报表分类的InputDto
+    /// 报表模板的InputDto
     /// <summary>
-    [AutoMapTo(typeof(ReportCategory))]
-    public class ReportCategoryInputDto : EntityDto<long>
+    [AutoMapTo(typeof(ReportTemplate))]
+    public class ReportTemplateInputDto : EntityDto<long>
     {
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
         [Required]
-        public string CategoryName { get; set; }
+        public string TemplateName { get; set; }
 
+        [StringLength(StringMaxLengthConst.MaxStringLength100)]
         [Required]
-        public long ParentId { get; set; }
+        public string FileName { get; set; }
 
-        [StringLength(StringMaxLengthConst.MaxStringLength1000)]
+        [StringLength(StringMaxLengthConst.MaxStringLength250)]
         [Required]
-        public string Code { get; set; }
+        public string FilePath { get; set; }
+
+        [StringLength(StringMaxLengthConst.MaxStringLength2000)]
+        public string Description { get; set; }
+
     }
 }

@@ -109,6 +109,8 @@
     <Compile Include="ReportManager\AppPermissions_ReportManager.cs" />
     <Compile Include="ReportManager\Categories\ReportCategoryManager.cs" />
     <Compile Include="ReportManager\Categories\IReportCategoryManager.cs" />
+    <Compile Include="ReportManager\Templates\IReportTemplateManager.cs" />
+    <Compile Include="ReportManager\Templates\ReportTemplateManager.cs" />
     <Compile Include="UbpAuthorizationProvider.cs" />
     <Compile Include="UbpDomainServiceConsts.cs" />
     <Compile Include="UbpDomainServiceModule.cs" />

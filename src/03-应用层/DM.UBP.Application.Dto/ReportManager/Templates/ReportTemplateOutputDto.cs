@@ -13,33 +13,34 @@ using Abp.Application.Services.Dto;
 using DM.UBP.Domain.Entity;
 using DM.UBP.Domain.Entity.ReportManager;
 
-namespace DM.UBP.Application.Dto.ReportManager.Categories
+namespace DM.UBP.Application.Dto.ReportManager.Templates
 {
     /// <summary>
-    /// 报表分类的OutputDto
+    /// 报表模板的OutputDto
     /// <summary>
-    [AutoMapFrom(typeof(ReportCategory))]
-    public class ReportCategoryOutputDto : FullAuditedEntityDto<long>
+    [AutoMapFrom(typeof(ReportTemplate))]
+    public class ReportTemplateOutputDto : FullAuditedEntityDto<long>
     {
+        [StringLength(StringMaxLengthConst.MaxStringLength100)]
+        [Required]
+        public string TemplateName { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
         [Required]
-        public string CategoryName { get; set; }
+        public string FileName { get; set; }
 
+        [StringLength(StringMaxLengthConst.MaxStringLength250)]
         [Required]
-        public long ParentId { get; set; }
+        public string FilePath { get; set; }
 
-        [StringLength(StringMaxLengthConst.MaxStringLength1000)]
-        [Required]
-        public string Code { get; set; }
+        [StringLength(StringMaxLengthConst.MaxStringLength2000)]
+        public string Description { get; set; }
 
-        /// <summary>
-        /// 是否处于修改状态，如果Id有值则表示修改否则表示新增。
-        /// </summary>
+        public int? Tenantid { get; set; }
+
         public bool IsEditMode
         {
             get { return Id > 0; }
         }
-
     }
 }

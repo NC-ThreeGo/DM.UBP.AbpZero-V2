@@ -78,25 +78,25 @@ namespace DM.UBP.CodeBuilder
         {
             if (!String.IsNullOrEmpty(MenuPermValue))
             {
-                MenuPermKey = "Pages_" + ModuleName;
+                MenuPermKey = "Pages_" + ModuleName + "_" + ClassName;
                 CodeText.AppendLine("public const string " + MenuPermKey + " = \"" + MenuPermValue + "\";");
             }
 
             if (!String.IsNullOrEmpty(PermCreateValue))
             {
-                PermCreateKey = "Pages_" + ModuleName + "_Create";
+                PermCreateKey = "Pages_" + ModuleName + "_" + ClassName + "_Create";
                 CodeText.AppendLine("public const string " + PermCreateKey + " = \"" + PermCreateValue + "\";");
             }
 
             if (!String.IsNullOrEmpty(PermEditValue))
             {
-                PermEditKey = "Pages_" + ModuleName + "_Edit";
+                PermEditKey = "Pages_" + ModuleName + "_" + ClassName + "_Edit";
                 CodeText.AppendLine("public const string " + PermEditKey + " = \"" + PermEditValue + "\";");
             }
 
             if (!String.IsNullOrEmpty(PermDeleteValue))
             {
-                PermDeleteKey = "Pages_" + ModuleName + "_Delete";
+                PermDeleteKey = "Pages_" + ModuleName + "_" + ClassName + "_Delete";
                 CodeText.AppendLine("public const string " + PermDeleteKey + " = \"" + PermDeleteValue + "\";");
             }
 

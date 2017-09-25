@@ -20,7 +20,10 @@ namespace DM.UBP.EF
         //TODO: Define an IDbSet for each Entity...
         public virtual IDbSet<ReportCategory> Categories { get; set; }
 
-        //@@Insert Position
+        public virtual IDbSet<ReportTemplate> ReportTemplates { get; set; }
+
+//@@Insert Position
+
 
     }
 }

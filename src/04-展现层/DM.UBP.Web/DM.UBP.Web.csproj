@@ -491,6 +491,8 @@
     <Content Include="Areas\ReportManager\Views\Category\Index.js" />
     <Content Include="Areas\ReportManager\Views\Category\_CreateOrEditModal.js" />
     <Content Include="Areas\ReportManager\Views\Designer\Index.js" />
+    <Content Include="Areas\ReportManager\Views\Template\Index.js" />
+    <Content Include="Areas\ReportManager\Views\Template\_CreateOrEditModal.js" />
     <Content Include="Areas\ReportManager\Views\WebReportDesigner\52d15d54.0.js" />
     <Content Include="Areas\ReportManager\Views\WebReportDesigner\barcode-sprite.png" />
     <Content Include="Areas\ReportManager\Views\WebReportDesigner\config-data.js" />
@@ -2260,6 +2262,8 @@
     <Content Include="Areas\ReportManager\Views\WebReportDesigner\fontawesome-webfont.woff" />
     <Content Include="Areas\ReportManager\Views\WebReportDesigner\fontawesome-webfont.woff2" />
     <Content Include="Areas\ReportManager\Views\WebReportDesigner\offline.appcache" />
+    <Content Include="Areas\ReportManager\Views\Template\Index.cshtml" />
+    <Content Include="Areas\ReportManager\Views\Template\_CreateOrEditModal.cshtml" />
     <None Include="Properties\PublishProfiles\aspnetzero - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
@@ -3031,6 +3035,7 @@
     <Compile Include="Areas\Mpa\Startup\UbpNavigationProvider.cs" />
     <Compile Include="Areas\ReportManager\Controllers\CategoryController.cs" />
     <Compile Include="Areas\ReportManager\Controllers\DesignerController.cs" />
+    <Compile Include="Areas\ReportManager\Controllers\TemplateController.cs" />
     <Compile Include="Areas\ReportManager\ReportManagerAreaRegistration.cs" />
     <Compile Include="Models\Layout\TenantCustomCssViewModel.cs" />
     <Compile Include="Areas\Mpa\Startup\UserMenuItemExtensions.cs" />

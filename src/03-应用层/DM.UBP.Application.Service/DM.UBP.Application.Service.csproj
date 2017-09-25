@@ -121,6 +121,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportManager\Categories\ReportCategoryAppService.cs" />
     <Compile Include="ReportManager\Categories\IReportCategoryAppService.cs" />
+    <Compile Include="ReportManager\Templates\IReportTemplateAppService.cs" />
+    <Compile Include="ReportManager\Templates\ReportTemplateAppService.cs" />
     <Compile Include="UbpApplicationServiceModule.cs" />
   </ItemGroup>
   <ItemGroup>

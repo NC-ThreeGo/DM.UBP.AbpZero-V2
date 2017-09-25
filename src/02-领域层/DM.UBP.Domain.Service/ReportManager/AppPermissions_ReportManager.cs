@@ -23,7 +23,13 @@ namespace DM.UBP.Domain.Service.ReportManager
 
         public const string Pages_ReportManager_Designer = "Pages.ReportManager.Designer";
 
+        public const string Pages_ReportManager_Templates = "Pages.ReportManager.ReportTemplates";
+        public const string Pages_ReportManager_Templates_Create = "Pages.ReportManager.ReportTemplates.Create";
+        public const string Pages_ReportManager_Templates_Edit = "Pages.ReportManager.ReportTemplates.Edit";
+        public const string Pages_ReportManager_Templates_Delete = "Pages.ReportManager.ReportTemplates.Delete";
+
         //@@Insert Position
+
 
     }
 }
