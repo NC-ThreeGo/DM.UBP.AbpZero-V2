@@ -1,25 +1,48 @@
 ﻿using Abp.Application.Navigation;
+using Abp.Domain.Uow;
 using Abp.Localization;
 using DM.UBP.Authorization;
 using DM.UBP.Domain.Service.ReportManager;
+using DM.UBP.Domain.Service.ReportManager.Categories;
 using DM.UBP.Web.Navigation;
 
 namespace DM.UBP.Web.Areas.Mpa.Startup
 {
     public class UbpNavigationProvider : NavigationProvider
     {
+        private readonly IReportCategoryManager _reportCategoryManager;
+        public UbpNavigationProvider(IReportCategoryManager reportCategoryManager)
+        {
+            _reportCategoryManager = reportCategoryManager;
+        }
+
+        [UnitOfWork]
         public override void SetNavigation(INavigationProviderContext context)
         {
             var menu = context.Manager.Menus[MpaNavigationProvider.MenuName];
 
             if (menu != null)
             {
-                menu.AddItem(new MenuItemDefinition(
+                var reports = new MenuItemDefinition(
                    UbpMenu.Reports,
                    L("Reports"),
                    icon: "icon-globe",
                    requiredPermissionName: AppPermissions_ReportManager.Pages_Reports
-                   ));
+                   );
+
+                var categories = _reportCategoryManager.GetAllCategoriesAsync().Result;
+
+                categories.ForEach(category => {
+                    reports.AddItem(new MenuItemDefinition(
+                        UbpMenu.Reports + "." + category.CategoryName,
+                        L(category.CategoryName),
+                        url: "ReportManager/Category",
+                        icon: "icon-layers",
+                        requiredPermissionName: "Pages.ReportManager.Reports." + category.CategoryName
+                        ));
+                });
+
+                menu.AddItem(reports);
 
                 menu.AddItem(new MenuItemDefinition(
                    UbpMenu.ReportManager,

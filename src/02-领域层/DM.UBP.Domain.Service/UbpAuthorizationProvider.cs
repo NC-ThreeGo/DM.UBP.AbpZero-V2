@@ -1,9 +1,11 @@
 ﻿using Abp.Authorization;
 using Abp.Configuration.Startup;
+using Abp.Domain.Uow;
 using Abp.Localization;
 using DM.UBP.Authorization;
 using DM.UBP.Domain.Service.ReportManager;
 using DM.UBP.Domain.Service.ReportManager.Categories;
+using DM.UBP.Domain.Service.ReportManager.Templates;
 using System.Linq;
 
 namespace DM.UBP.Domain.Service
@@ -17,31 +19,46 @@ namespace DM.UBP.Domain.Service
     {
         private readonly bool _isMultiTenancyEnabled;
         private readonly IReportCategoryManager _reportCategoryManager;
+        private readonly IReportTemplateManager _reportTemplateManager;
 
-        public UbpAuthorizationProvider(bool isMultiTenancyEnabled, IReportCategoryManager reportCategoryManager)
+        public UbpAuthorizationProvider(bool isMultiTenancyEnabled,
+            IReportCategoryManager reportCategoryManager,
+            IReportTemplateManager reportTemplateManager)
         {
             _isMultiTenancyEnabled = isMultiTenancyEnabled;
             _reportCategoryManager = reportCategoryManager;
+            _reportTemplateManager = reportTemplateManager;
         }
 
-        public UbpAuthorizationProvider(IMultiTenancyConfig multiTenancyConfig)
+        public UbpAuthorizationProvider(IMultiTenancyConfig multiTenancyConfig, 
+            IReportCategoryManager reportCategoryManager,
+            IReportTemplateManager reportTemplateManager)
         {
             _isMultiTenancyEnabled = multiTenancyConfig.IsEnabled;
+            _reportCategoryManager = reportCategoryManager;
+            _reportTemplateManager = reportTemplateManager;
         }
 
+        [UnitOfWork]
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
             var pages = context.GetPermissionOrNull(AppPermissions.Pages);
 
             if (pages != null)
             {
-                //var reports = pages.CreateChildPermission(AppPermissions_ReportManager.Pages_Reports, L("Reports"));
+                var reports = pages.CreateChildPermission(AppPermissions_ReportManager.Pages_Reports, L("Reports"));
 
-                //var reportlCategories = _reportCategoryManager.GetAllCategoriesAsync().Result;
-                //reportlCategories.ForEach(category =>
-                //{
-                //    reports.CreateChildPermission(category.CategoryName, L(category.CategoryName));
-                //});
+                var reportlCategories = _reportCategoryManager.GetAllCategoriesAsync().Result;
+                reportlCategories.ForEach(category =>
+                {
+                    var report = reports.CreateChildPermission("Pages.ReportManager.Reports." + category.CategoryName, L(category.CategoryName));
+
+                    var templates = _reportTemplateManager.GetAllReportTemplatesAsync().Result.Where(t => t.CategoryId == category.Id);
+
+                    templates.OrderBy(t => t.Id).ToList().ForEach(template => {
+                        report.CreateChildPermission("Pages.ReportManager.Reports." + category.CategoryName + "." + template.TemplateName, L(template.TemplateName));
+                    });
+                });
 
                 var reportManager = pages.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager, L("ReportManager"));
 
@@ -57,21 +74,6 @@ namespace DM.UBP.Domain.Service
                 reportManagerTemplateFiles.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Templates_Edit, L("EditingTemplate"));
                 reportManagerTemplateFiles.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Templates_Delete, L("DeletingTemplate"));
     
-            }
-        }
-
-        public void SetPermissionsForReports(IPermissionDefinitionContext context)
-        {
-            var pages = context.GetPermissionOrNull(AppPermissions.Pages);
-            if (pages != null)
-            {
-                var reports = pages.CreateChildPermission(AppPermissions_ReportManager.Pages_Reports, L("Reports"));
-
-                var reportlCategories = _reportCategoryManager.GetAllCategoriesAsync().Result;
-                reportlCategories.ForEach(category =>
-                {
-                    reports.CreateChildPermission(category.CategoryName, L(category.CategoryName));
-                });
             }
         }
 

@@ -25,12 +25,12 @@ namespace DM.UBP.Domain.Service
                     ))
                 );
 
-            IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
+            
         }
 
         public override void Initialize()
         {
-            
+            IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
         }
 
         public override void PostInitialize()
