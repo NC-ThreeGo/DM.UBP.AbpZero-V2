@@ -1,12 +1,13 @@
 ﻿//------------------------------------------------------------
 // All Rights Reserved , Copyright (C)  
 // 版本：1.0
+//------------------------------------------------------------
+
+using System.Collections.Generic;
 /// <author>
 ///		<name></name>
 ///		<date>0001/1/1 0:00:00</date>
 /// </author>
-//------------------------------------------------------------
-
 namespace DM.UBP.Domain.Service.ReportManager
 {
     /// <summary>
@@ -14,6 +15,8 @@ namespace DM.UBP.Domain.Service.ReportManager
     /// <summary>
     public class AppPermissions_ReportManager
     {
+        public const string Pages_Reports = "Pages.Reports";
+
         public const string Pages_ReportManager = "Pages.ReportManager";
 
         public const string Pages_ReportManager_Categories = "Pages.ReportManager.Categories";

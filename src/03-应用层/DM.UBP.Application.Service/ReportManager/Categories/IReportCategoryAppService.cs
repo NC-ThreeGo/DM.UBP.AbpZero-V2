@@ -21,6 +21,8 @@ namespace DM.UBP.Application.Service.ReportManager.Categories
     /// <summary>
     public interface IReportCategoryAppService : IApplicationService
     {
+        Task<List<ComboboxItemDto>> GetCategoriesToItem(long selectValue);
+
         Task<PagedResultDto<ReportCategoryOutputDto>> GetCategories();
 
         Task<PagedResultDto<ReportCategoryOutputDto>> GetCategories(PagedAndSortedInputDto input);

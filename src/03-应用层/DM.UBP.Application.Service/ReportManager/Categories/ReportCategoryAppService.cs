@@ -37,6 +37,14 @@ namespace DM.UBP.Application.Service.ReportManager.Categories
             _CategoryManager = categorymanager;
         }
 
+        public async Task<List<ComboboxItemDto>> GetCategoriesToItem(long selectValue)
+        {
+            var entities = await _CategoryManager.GetAllCategoriesAsync();
+            var items = entities.Select(c => new ComboboxItemDto(c.Id.ToString(), c.CategoryName) { IsSelected = c.Id == selectValue }).ToList();
+
+            return items;
+        }
+
         public async Task<PagedResultDto<ReportCategoryOutputDto>> GetCategories()
         {
             var entities = await _CategoryManager.GetAllCategoriesAsync();

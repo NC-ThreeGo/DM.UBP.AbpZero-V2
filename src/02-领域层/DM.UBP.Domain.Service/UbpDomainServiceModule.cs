@@ -24,11 +24,13 @@ namespace DM.UBP.Domain.Service
                         Assembly.GetExecutingAssembly(), "DM.UBP.Domain.Service.Localization.UBP"
                     ))
                 );
+
+            IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
         }
 
         public override void Initialize()
         {
-            IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
+            
         }
 
         public override void PostInitialize()

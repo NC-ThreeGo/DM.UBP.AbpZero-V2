@@ -15,6 +15,13 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
             if (menu != null)
             {
                 menu.AddItem(new MenuItemDefinition(
+                   UbpMenu.Reports,
+                   L("Reports"),
+                   icon: "icon-globe",
+                   requiredPermissionName: AppPermissions_ReportManager.Pages_Reports
+                   ));
+
+                menu.AddItem(new MenuItemDefinition(
                    UbpMenu.ReportManager,
                    L("ReportManager"),
                    icon: "icon-globe",

@@ -1,7 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="zh-CN">
     <texts>
-        <text name="ReportManager" value="报表管理" />
-        <text name="DeleteRecordWarningMessage" value="当前记录将被删除." />
+      
+      <text name="DeleteRecordWarningMessage" value="当前记录将被删除." />
+      <text name="ReportManager" value="报表管理" />
+      <text name="Reports" value="报表" />
+        
+      <text name="Template" value="模板" />
+      <text name="ReportTemplates" value="报表模板" />
+      <text name="ReportManagerTemplates" value="报表模板管理" />
+      <text name="CreateNewTemplate" value="创建新模板" />
+      <text name="CreateReportTemplate" value="创建模板" />
+      <text name="EditReportTemplate" value="编辑模板" />
+      <text name="TemplateHeaderInfo" value="模板文件生成在TemplateFiles目录下" />
+      <text name="ReportTemplateInformations" value="报表模板信息" />
+      <text name="TemplateName" value="模板名称" />
+      <text name="Description" value="表述" />
+
+
+      <text name="Category" value="分类" />
+      <text name="ReportCategories" value="报表分类" />
+      <text name="ReportManagerCategories" value="报表分类管理" />
+      <text name="CreateNewCategory" value="创建新分类" />
+      <text name="CreateCategory" value="创建分类" />
+      <text name="EditCategory" value="编辑分类" />
+      <text name="CategoryHeaderInfo" value="使用该分类划分报表" />
+      <text name="CategoryInformations" value="编辑分类信息" />
+      <text name="CategoryName" value="分类名称" />
+      <text name="ParentId" value="父级ID" />
+
+      
+      
+      <text name="ReportManagerDesigner" value="报表设计管理" />
+
     </texts>
 </localizationDictionary>

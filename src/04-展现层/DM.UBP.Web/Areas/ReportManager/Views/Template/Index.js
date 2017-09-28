@@ -73,7 +73,6 @@
                     method: _appService.getReportTemplates
                 }
             },
-
             fields: {
                 id: {
                     key: true,
@@ -106,8 +105,8 @@
                     title: app.localize('TemplateName'),
                     width: '25%',
                 },
-                fileName: {
-                    title: app.localize('FileName'),
+                categoryName: {
+                    title: app.localize('CategoryName'),
                     width: '25%',
                 },
                 description: {

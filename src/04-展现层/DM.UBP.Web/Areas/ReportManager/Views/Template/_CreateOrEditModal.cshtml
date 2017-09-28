@@ -1,11 +1,11 @@
 ﻿@*//------------------------------------------------------------
-// All Rights Reserved , Copyright (C)  
-// 版本：1.0
-/// <author>
-///		<name></name>
-///		<date>0001/1/1 0:00:00</date>
-/// </author>
-//------------------------------------------------------------*@
+    // All Rights Reserved , Copyright (C)
+    // 版本：1.0
+    /// <author>
+    ///		<name></name>
+    ///		<date>0001/1/1 0:00:00</date>
+    /// </author>
+    //------------------------------------------------------------*@
 
 @using Abp.Extensions
 @using DM.UBP.Web.Areas.Mpa.Models.Common.Modals
@@ -21,42 +21,43 @@
 }
 
 <div class="modal-body">
-   <div class="tabbable-line">
-       <ul class="nav nav-tabs">
-           <li class="active">
-               <a href="#EntityInformationsTab" data-toggle="tab" aria-expanded="true">
-                   @L("ReportTemplateInformations")
-               </a>
-           </li>
-       </ul>
-       <div class="tab-content">
-           <div class="tab-pane active" id="EntityInformationsTab">
-               <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
-                   @if (Model.IsEditMode)
-                   {
-                       <input type="hidden" name="Id" value="@Model.Id" />
-                   }
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="TemplateName" class="form-control@(Model.TemplateName.IsNullOrEmpty() ? "" : " edited")" value="@Model.TemplateName" required>
-               <label>@L("TemplateName")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Filename" class="form-control@(Model.FileName.IsNullOrEmpty() ? "" : " edited")" value="@Model.FileName" required>
-               <label>@L("FileName")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="FilePath" class="form-control@(Model.FilePath.IsNullOrEmpty() ? "" : " edited")" value="@Model.FilePath" required>
-               <label>@L("FilePath")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Description" class="form-control@(Model.Description.IsNullOrEmpty() ? "" : " edited")" value="@Model.Description" >
-               <label>@L("Description")</label>
-           </div>
+    <div class="tabbable-line">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#EntityInformationsTab" data-toggle="tab" aria-expanded="true">
+                    @L("ReportTemplateInformations")
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="EntityInformationsTab">
+                <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
+                    @if (Model.IsEditMode)
+                    {
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                    }
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="TemplateName" class="form-control@(Model.TemplateName.IsNullOrEmpty() ? "" : " edited")" value="@Model.TemplateName" required>
+                        <label>@L("TemplateName")</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="CategoryId">@L("Category")</label>
+                        <select id="CategoryId" name="CategoryId" class="form-control bs-select" data-live-search="true">
+                            @foreach (var category in ViewBag.Categories)
+                            {
+                                <option data-icon="@category.Value" value="@category.Value" @(category.IsSelected ? "selected=\"selected\"" : "")><i class="@category.Value"></i>@category.DisplayText</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Description" class="form-control@(Model.Description.IsNullOrEmpty() ? "" : " edited")" value="@Model.Description">
+                        <label>@L("Description")</label>
+                    </div>
 
-               </form>
-           </div>
-       </div>
-   </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 @Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

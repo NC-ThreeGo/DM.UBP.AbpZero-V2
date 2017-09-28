@@ -21,6 +21,7 @@ namespace DM.UBP.Domain.EntityConfiguration.OracleDevart.ReportManager
         {
             this.ToTable("RPT_TEMPLATEFILE");
             this.Property(p => p.Id).HasColumnName("TEMPLATE_ID");
+            this.Property(p => p.CategoryId).HasColumnName("CATEGORY_ID");
         }
     }
 }

@@ -17,6 +17,13 @@
         this.init = function (modalManager) {
             _modalManager = modalManager;
 
+            _modalManager.getModal()
+                .find('#CategoryId')
+                .selectpicker({
+                    iconBase: "fa",
+                    tickIcon: "fa fa-check"
+                });
+
             _$formInfo = _modalManager.getModal().find('form[name=EntityOptInformationsForm]');
             _$formInfo.validate();
         };
@@ -31,7 +38,6 @@
             _modalManager.setBusy(true);
 
             if (input.Id > 0) {
-                alert(1);
                 //修改
                 _appService.updateReportTemplate(input)
                     .done(function () {
@@ -43,7 +49,6 @@
                     });
             }
             else {
-                alert(0);
                 //新建
                 _appService.createReportTemplate(input)
                     .done(function () {

@@ -21,17 +21,12 @@ namespace DM.UBP.Application.Dto.ReportManager.Templates
     [AutoMapTo(typeof(ReportTemplate))]
     public class ReportTemplateInputDto : EntityDto<long>
     {
+        [Required]
+        public long CategoryId { get; set; }
+
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
         [Required]
         public string TemplateName { get; set; }
-
-        [StringLength(StringMaxLengthConst.MaxStringLength100)]
-        [Required]
-        public string FileName { get; set; }
-
-        [StringLength(StringMaxLengthConst.MaxStringLength250)]
-        [Required]
-        public string FilePath { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength2000)]
         public string Description { get; set; }

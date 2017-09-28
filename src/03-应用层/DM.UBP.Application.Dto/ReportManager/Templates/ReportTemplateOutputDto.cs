@@ -21,6 +21,11 @@ namespace DM.UBP.Application.Dto.ReportManager.Templates
     [AutoMapFrom(typeof(ReportTemplate))]
     public class ReportTemplateOutputDto : FullAuditedEntityDto<long>
     {
+        public string CategoryName { get; set; }
+
+        [Required]
+        public long CategoryId { get; set; }
+
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
         [Required]
         public string TemplateName { get; set; }

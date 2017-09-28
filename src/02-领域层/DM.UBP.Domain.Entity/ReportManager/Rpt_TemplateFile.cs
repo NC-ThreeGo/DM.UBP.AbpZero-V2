@@ -20,6 +20,8 @@ namespace DM.UBP.Domain.Entity.ReportManager
     /// <summary>
     public class ReportTemplate : FullAuditedEntity<long>, IMayHaveTenant
     {
+        public long CategoryId { get; set; }
+
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
         public string TemplateName { get; set; }
 

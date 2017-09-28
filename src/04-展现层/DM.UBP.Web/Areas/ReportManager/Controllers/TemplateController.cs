@@ -17,6 +17,8 @@ using DM.UBP.Application.Dto.ReportManager.Templates;
 using DM.UBP.Application.Service.ReportManager.Templates;
 using DM.UBP.Domain.Service.ReportManager;
 using DM.UBP.Web.Controllers;
+using Abp.Application.Services.Dto;
+using DM.UBP.Application.Service.ReportManager.Categories;
 
 namespace DM.UBP.Web.Areas.ReportManager.Controllers
 {
@@ -27,12 +29,15 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
     public class TemplateController : UBPControllerBase
     {
         private IReportTemplateAppService _ReportTemplateAppService;
+        private IReportCategoryAppService _CategoryAppService;
         public TemplateController(
            ICacheManager cacheManager,
-           IReportTemplateAppService reporttemplateappservice
+           IReportTemplateAppService reporttemplateappservice,
+            IReportCategoryAppService categoryappservice
            )
         {
             _ReportTemplateAppService = reporttemplateappservice;
+            _CategoryAppService = categoryappservice;
         }
 
         public ActionResult Index()
@@ -41,13 +46,14 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
         }
 
         [AbpMvcAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Templates_Create)]
-        public PartialViewResult CreateModal()
+        public async Task<PartialViewResult> CreateModal()
         {
             var viewModel = new ReportTemplateOutputDto()
             {
                 //给属性赋值
             };
-
+            var categories = await _CategoryAppService.GetCategoriesToItem(0);
+            ViewBag.Categories = categories;
             return PartialView("_CreateOrEditModal", viewModel);
         }
 
@@ -55,6 +61,9 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
         public async Task<PartialViewResult> EditModal(long id)
         {
             var viewModel = await _ReportTemplateAppService.GetReportTemplateById(id);
+            var categories = await _CategoryAppService.GetCategoriesToItem(viewModel.CategoryId);
+            ViewBag.Categories = categories;
+
             return PartialView("_CreateOrEditModal", viewModel);
         }
 
