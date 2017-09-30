@@ -32,15 +32,27 @@
            </div>
        </div>
    </div>
-   <div class="col-xs-6 text-right">
-       @if (IsGranted(AppPermissions_ReportManager.Pages_ReportManager_Templates_Create))
-       {
-           <button id="CreateNewTemplateButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewTemplate")</button>
-       }
-   </div>
+   
 </div>
-<div class="portlet light margin-bottom-0">
+<div class="portlet light margin-bottom-0 col-xs-6">
+    <div class="text-right">
+        @if (IsGranted(AppPermissions_ReportManager.Pages_ReportManager_Templates_Create))
+        {
+            <button id="CreateNewTemplateButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewTemplate")</button>
+        }
+    </div>
    <div class="portlet-body">
        <div id="TemplateTable"></div>
    </div>
+</div>
+<div class="portlet light margin-bottom-0 col-xs-6">
+    <div class="text-right">
+        @if (IsGranted(AppPermissions_ReportManager.Pages_ReportManager_Templates_Create))
+        {
+            <button id="CreateNewTemplateButton2" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewTemplate")</button>
+        }
+    </div>
+    <div class="portlet-body">
+        <div id="TemplateTable2"></div>
+    </div>
 </div>

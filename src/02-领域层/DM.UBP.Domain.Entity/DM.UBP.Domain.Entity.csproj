@@ -46,7 +46,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportManager\Rpt_Category.cs" />
+    <Compile Include="ReportManager\Rpt_Parameter.cs" />
     <Compile Include="ReportManager\Rpt_TemplateFile.cs" />
+    <Compile Include="ReportManager\Rtp_DataSource.cs" />
     <Compile Include="StringMaxLengthConst.cs" />
     <Compile Include="UbpDomainEntityModule.cs" />
   </ItemGroup>

@@ -491,6 +491,10 @@
     <Content Include="Areas\ReportManager\Views\Category\Index.js" />
     <Content Include="Areas\ReportManager\Views\Category\_CreateOrEditModal.js" />
     <Content Include="Areas\ReportManager\Views\Designer\Index.js" />
+    <Content Include="Areas\ReportManager\Views\ReportDataSource\Index.js" />
+    <Content Include="Areas\ReportManager\Views\ReportDataSource\_CreateOrEditModal.js" />
+    <Content Include="Areas\ReportManager\Views\ReportParameter\Index.js" />
+    <Content Include="Areas\ReportManager\Views\ReportParameter\_CreateOrEditModal.js" />
     <Content Include="Areas\ReportManager\Views\Template\Index.js" />
     <Content Include="Areas\ReportManager\Views\Template\_CreateOrEditModal.js" />
     <Content Include="Areas\ReportManager\Views\WebReportDesigner\52d15d54.0.js" />
@@ -2264,6 +2268,10 @@
     <Content Include="Areas\ReportManager\Views\WebReportDesigner\offline.appcache" />
     <Content Include="Areas\ReportManager\Views\Template\Index.cshtml" />
     <Content Include="Areas\ReportManager\Views\Template\_CreateOrEditModal.cshtml" />
+    <Content Include="Areas\ReportManager\Views\ReportDataSource\Index.cshtml" />
+    <Content Include="Areas\ReportManager\Views\ReportDataSource\_CreateOrEditModal.cshtml" />
+    <Content Include="Areas\ReportManager\Views\ReportParameter\Index.cshtml" />
+    <Content Include="Areas\ReportManager\Views\ReportParameter\_CreateOrEditModal.cshtml" />
     <None Include="Properties\PublishProfiles\aspnetzero - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />

@@ -1,0 +1,66 @@
+﻿//------------------------------------------------------------
+// All Rights Reserved , Copyright (C)  
+// 版本：1.0
+/// <author>
+///		<name></name>
+///		<date>0001/1/1 0:00:00</date>
+/// </author>
+//------------------------------------------------------------
+
+@using Abp.Extensions
+@using DM.UBP.Web.Areas.Mpa.Models.Common.Modals
+
+@model DM.UBP.Application.Dto.ReportManager.ReportDataSources.ReportDataSourceOutputDto
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditReportDataSource") + ": " + Model.Name) : L("CreateReportDataSource")))
+@section Styles
+{
+}
+@section Scripts
+{
+}
+
+<div class="modal-body">
+   <div class="tabbable-line">
+       <ul class="nav nav-tabs">
+           <li class="active">
+               <a href="#EntityInformationsTab" data-toggle="tab" aria-expanded="true">
+                   @L("ReportDataSourceInformations")
+               </a>
+           </li>
+       </ul>
+       <div class="tab-content">
+           <div class="tab-pane active" id="EntityInformationsTab">
+               <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
+                   @if (Model.IsEditMode)
+                   {
+                       <input type="hidden" name="Id" value="@Model.Id" />
+                   }
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Template_Id" class="form-control@(Model.Template_Id.IsNullOrEmpty() ? "" : " edited")" value="@Model.Template_Id" required>
+               <label>@L("Template_Id")</label>
+           </div>
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Connkeyname" class="form-control@(Model.Connkeyname.IsNullOrEmpty() ? "" : " edited")" value="@Model.Connkeyname" required>
+               <label>@L("Connkeyname")</label>
+           </div>
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Tablename" class="form-control@(Model.Tablename.IsNullOrEmpty() ? "" : " edited")" value="@Model.Tablename" required>
+               <label>@L("Tablename")</label>
+           </div>
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Commandtype" class="form-control@(Model.Commandtype.IsNullOrEmpty() ? "" : " edited")" value="@Model.Commandtype" required>
+               <label>@L("Commandtype")</label>
+           </div>
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Commandtext" class="form-control@(Model.Commandtext.IsNullOrEmpty() ? "" : " edited")" value="@Model.Commandtext" required>
+               <label>@L("Commandtext")</label>
+           </div>
+
+               </form>
+           </div>
+       </div>
+   </div>
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

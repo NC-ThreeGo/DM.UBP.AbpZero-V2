@@ -12,24 +12,17 @@ using DM.UBP.Domain.Entity.ReportManager;
 
 namespace DM.UBP.EF
 {
-    /// <summary>
-    /// ReportManager的DbContext
-    /// <summary>
-    public partial class UbpDbContext
-    {
-        //TODO: Define an IDbSet for each Entity...
-        public virtual IDbSet<ReportCategory> Categories { get; set; }
-
-        public virtual IDbSet<ReportTemplate> ReportTemplates { get; set; }
+/// <summary>
+/// ReportManager的DbContext
+/// <summary>
+public partial class UbpDbContext
+{
+//TODO: Define an IDbSet for each Entity...
+public virtual IDbSet<ReportDataSource> ReportDataSources { get; set; }
 
 public virtual IDbSet<ReportDataSource> ReportDataSources { get; set; }
 
-public virtual IDbSet<ReportParameter> ReportParameters { get; set; }
-
 //@@Insert Position
 
-
-
-
-    }
+}
 }

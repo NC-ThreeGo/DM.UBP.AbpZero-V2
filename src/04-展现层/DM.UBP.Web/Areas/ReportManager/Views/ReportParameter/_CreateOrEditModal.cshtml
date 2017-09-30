@@ -1,0 +1,74 @@
+﻿//------------------------------------------------------------
+// All Rights Reserved , Copyright (C)  
+// 版本：1.0
+/// <author>
+///		<name></name>
+///		<date>0001/1/1 0:00:00</date>
+/// </author>
+//------------------------------------------------------------
+
+@using Abp.Extensions
+@using DM.UBP.Web.Areas.Mpa.Models.Common.Modals
+
+@model DM.UBP.Application.Dto.ReportManager.ReportParameters.ReportParameterOutputDto
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditReportParameter") + ": " + Model.Name) : L("CreateReportParameter")))
+@section Styles
+{
+}
+@section Scripts
+{
+}
+
+<div class="modal-body">
+   <div class="tabbable-line">
+       <ul class="nav nav-tabs">
+           <li class="active">
+               <a href="#EntityInformationsTab" data-toggle="tab" aria-expanded="true">
+                   @L("ReportParameterInformations")
+               </a>
+           </li>
+       </ul>
+       <div class="tab-content">
+           <div class="tab-pane active" id="EntityInformationsTab">
+               <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
+                   @if (Model.IsEditMode)
+                   {
+                       <input type="hidden" name="Id" value="@Model.Id" />
+                   }
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Template_Id" class="form-control@(Model.Template_Id.IsNullOrEmpty() ? "" : " edited")" value="@Model.Template_Id" required>
+               <label>@L("Template_Id")</label>
+           </div>
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Labelname" class="form-control@(Model.Labelname.IsNullOrEmpty() ? "" : " edited")" value="@Model.Labelname" required>
+               <label>@L("Labelname")</label>
+           </div>
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Parametername" class="form-control@(Model.Parametername.IsNullOrEmpty() ? "" : " edited")" value="@Model.Parametername" required>
+               <label>@L("Parametername")</label>
+           </div>
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Paramtertype" class="form-control@(Model.Paramtertype.IsNullOrEmpty() ? "" : " edited")" value="@Model.Paramtertype" required>
+               <label>@L("Paramtertype")</label>
+           </div>
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Uitype" class="form-control@(Model.Uitype.IsNullOrEmpty() ? "" : " edited")" value="@Model.Uitype" required>
+               <label>@L("Uitype")</label>
+           </div>
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Dynamicsql" class="form-control@(Model.Dynamicsql.IsNullOrEmpty() ? "" : " edited")" value="@Model.Dynamicsql" >
+               <label>@L("Dynamicsql")</label>
+           </div>
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Sortid" class="form-control@(Model.Sortid.IsNullOrEmpty() ? "" : " edited")" value="@Model.Sortid" required>
+               <label>@L("Sortid")</label>
+           </div>
+
+               </form>
+           </div>
+       </div>
+   </div>
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

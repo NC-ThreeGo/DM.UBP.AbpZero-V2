@@ -1,1 +1,593 @@
-﻿
+﻿DEBUG 2017-09-28 16:33:13,103 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-09-28 16:33:13,125 [1    ] Abp.Modules.AbpModuleManager             - Found 26 ABP modules in total.
+DEBUG 2017-09-28 16:33:13,135 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Web.UBPWebModule, DM.UBP.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,138 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,138 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,138 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,138 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,138 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpZeroOwinModule, Abp.Zero.Owin, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,139 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,139 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,139 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.EF.UbpEFModule, DM.UBP.EF, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,139 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,140 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,140 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,140 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Common.UbpCommonModule, DM.UBP.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,140 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.UBPCoreModule, DM.UBP.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,140 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,141 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,141 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Application.Service.UbpApplicationServiceModule, DM.UBP.Application.Service, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,141 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Domain.Service.UbpDomainServiceModule, DM.UBP.Domain.Service, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,141 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Domain.Entity.UbpDomainEntityModule, DM.UBP.Domain.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,141 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Application.Dto.UbpApplicationDtoModule, DM.UBP.Application.Dto, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,141 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.UBPApplicationModule, DM.UBP.Application, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,142 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.WebApi.UBPWebApiModule, DM.UBP.WebApi, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,142 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,142 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,142 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Runtime.Caching.Redis.AbpRedisCacheModule, Abp.RedisCache, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,142 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:13,147 [1    ] Abp.Modules.AbpModuleManager             - 26 modules loaded.
+DEBUG 2017-09-28 16:33:13,335 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-28 16:33:13,335 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-28 16:33:13,335 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-28 16:33:13,335 [1    ] o.Configuration.LanguageManagementConfig - Converted UBP (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-28 16:33:13,772 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: DM.UBP.EF.UbpDbContext, DM.UBP.EF, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-28 16:33:21,640 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-09-28 16:33:21,651 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-09-28 16:33:21,653 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-09-28 16:33:21,660 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-09-28 16:33:21,675 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: UBP
+DEBUG 2017-09-28 16:33:21,756 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-28 16:33:22,434 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2017-09-28 16:33:22,555 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 39 classes define auto mapping attributes
+DEBUG 2017-09-28 16:33:22,555 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Friendships.Cache.FriendCacheItem
+DEBUG 2017-09-28 16:33:22,559 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Application.Dto.ReportManager.Templates.ReportTemplateInputDto
+DEBUG 2017-09-28 16:33:22,559 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Application.Dto.ReportManager.Templates.ReportTemplateOutputDto
+DEBUG 2017-09-28 16:33:22,559 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Application.Dto.ReportManager.Categories.ReportCategoryInputDto
+DEBUG 2017-09-28 16:33:22,559 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Application.Dto.ReportManager.Categories.ReportCategoryOutputDto
+DEBUG 2017-09-28 16:33:22,559 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-09-28 16:33:22,559 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-09-28 16:33:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Organizations.Dto.OrganizationUnitDto
+DEBUG 2017-09-28 16:33:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Organizations.Dto.OrganizationUnitUserListDto
+DEBUG 2017-09-28 16:33:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Notifications.Dto.NotificationSubscriptionWithDisplayNameDto
+DEBUG 2017-09-28 16:33:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-09-28 16:33:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.MultiTenancy.Dto.TenantEditDto
+DEBUG 2017-09-28 16:33:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Localization.Dto.ApplicationLanguageEditDto
+DEBUG 2017-09-28 16:33:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Localization.Dto.ApplicationLanguageListDto
+DEBUG 2017-09-28 16:33:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Friendships.Dto.FriendDto
+DEBUG 2017-09-28 16:33:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Editions.Dto.EditionEditDto
+DEBUG 2017-09-28 16:33:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Editions.Dto.FlatFeatureDto
+DEBUG 2017-09-28 16:33:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Editions.Dto.EditionListDto
+DEBUG 2017-09-28 16:33:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Chat.Dto.ChatMessageDto
+DEBUG 2017-09-28 16:33:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Chat.Dto.ChatUserDto
+DEBUG 2017-09-28 16:33:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Chat.Dto.ChatUserWithMessagesDto
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Users.Profile.Dto.CurrentUserProfileEditDto
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Users.Dto.UserLoginAttemptDto
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Users.Dto.UserListDto
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Roles.Dto.RoleListDto
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Roles.Dto.RoleEditDto
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Permissions.Dto.FlatPermissionDto
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Permissions.Dto.FlatPermissionWithLevelDto
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Auditing.Dto.AuditLogListDto
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Users.Dto.UserListDto+UserListRoleDto
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.Users.UserPermissionsEditViewModel
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.Users.CreateOrEditUserModalViewModel
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.Profile.MySettingsViewModel
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.Editions.CreateOrEditEditionModalViewModel
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.Tenants.TenantFeaturesEditViewModel
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.Roles.CreateOrEditRoleModalViewModel
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.OrganizationUnits.EditOrganizationUnitModalViewModel
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.Languages.CreateOrEditLanguageModalViewModel
+DEBUG 2017-09-28 16:33:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-09-28 16:33:23,048 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2017-09-28 16:33:23,068 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2017-09-28 16:33:23,088 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Timing.ITimingAppService' with service name 'app/timing'.
+DEBUG 2017-09-28 16:33:23,090 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Tenants.Dashboard.ITenantDashboardAppService' with service name 'app/tenantDashboard'.
+DEBUG 2017-09-28 16:33:23,091 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-09-28 16:33:23,092 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Organizations.IOrganizationUnitAppService' with service name 'app/organizationUnit'.
+DEBUG 2017-09-28 16:33:23,093 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Notifications.INotificationAppService' with service name 'app/notification'.
+DEBUG 2017-09-28 16:33:23,094 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-09-28 16:33:23,095 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Logging.IWebLogAppService' with service name 'app/webLog'.
+DEBUG 2017-09-28 16:33:23,096 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Localization.ILanguageAppService' with service name 'app/language'.
+DEBUG 2017-09-28 16:33:23,097 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Friendships.IFriendshipAppService' with service name 'app/friendship'.
+DEBUG 2017-09-28 16:33:23,098 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Editions.IEditionAppService' with service name 'app/edition'.
+DEBUG 2017-09-28 16:33:23,099 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Configuration.Tenants.ITenantSettingsAppService' with service name 'app/tenantSettings'.
+DEBUG 2017-09-28 16:33:23,100 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2017-09-28 16:33:23,100 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2017-09-28 16:33:23,101 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Chat.IChatAppService' with service name 'app/chat'.
+DEBUG 2017-09-28 16:33:23,102 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Caching.ICachingAppService' with service name 'app/caching'.
+DEBUG 2017-09-28 16:33:23,103 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Authorization.Users.IUserLinkAppService' with service name 'app/userLink'.
+DEBUG 2017-09-28 16:33:23,104 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Authorization.Users.IUserLoginAppService' with service name 'app/userLogin'.
+DEBUG 2017-09-28 16:33:23,105 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Authorization.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-09-28 16:33:23,106 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Authorization.Users.Profile.IProfileAppService' with service name 'app/profile'.
+DEBUG 2017-09-28 16:33:23,107 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Authorization.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-09-28 16:33:23,108 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Authorization.Permissions.IPermissionAppService' with service name 'app/permission'.
+DEBUG 2017-09-28 16:33:23,109 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Auditing.IAuditLogAppService' with service name 'app/auditLog'.
+DEBUG 2017-09-28 16:33:23,109 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Application.Service.ReportManager.Templates.IReportTemplateAppService' with service name 'ReportManager/reportTemplate'.
+DEBUG 2017-09-28 16:33:23,110 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Application.Service.ReportManager.Categories.IReportCategoryAppService' with service name 'ReportManager/reportCategory'.
+WARN  2017-09-28 16:33:30,873 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'SysManage' in localization source 'UBP'!
+WARN  2017-09-28 16:33:33,930 [9    ] naries.DictionaryBasedLocalizationSource - Can not find 'SysManage' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,621 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test1' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,622 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test2' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,623 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test3' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,624 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test4' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,625 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test5' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,625 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test6' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,626 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test7' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,627 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test8' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,628 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test9' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,629 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test10' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,630 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test11' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,630 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test12' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,631 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test13' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,632 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test14' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,633 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test15' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,634 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test16' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,635 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test17' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,636 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test18' in localization source 'UBP'!
+WARN  2017-09-28 16:33:43,636 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'nchuang' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,758 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'SysManage' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,807 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test1' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,808 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test2' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,809 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test3' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,811 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test4' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,812 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test5' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,813 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test6' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,814 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test7' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,815 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test8' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,818 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test9' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,819 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test10' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,821 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test11' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,822 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test12' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,823 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test13' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,824 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test14' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,826 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test15' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,827 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test16' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,828 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test17' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,829 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'test18' in localization source 'UBP'!
+WARN  2017-09-28 16:33:44,831 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'nchuang' in localization source 'UBP'!
+DEBUG 2017-09-28 16:33:46,254 [6    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"e172b1a5-de27-4ba4-a13c-4c91468cd188","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-28T08:33:46.2330316Z","Properties":{}}
+DEBUG 2017-09-28 16:33:46,434 [6    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: e172b1a5-de27-4ba4-a13c-4c91468cd188
+WARN  2017-09-28 16:35:39,791 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test1' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,792 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test2' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,793 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test3' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,793 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test4' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,794 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test5' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,795 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test6' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,796 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test7' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,797 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test8' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,798 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test9' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,798 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test10' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,799 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test11' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,800 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test12' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,801 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test13' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,802 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test14' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,803 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test15' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,803 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test16' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,804 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test17' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,805 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'test18' in localization source 'UBP'!
+WARN  2017-09-28 16:35:39,806 [18   ] naries.DictionaryBasedLocalizationSource - Can not find 'nchuang' in localization source 'UBP'!
+DEBUG 2017-09-28 16:35:39,930 [26   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: e172b1a5-de27-4ba4-a13c-4c91468cd188
+WARN  2017-09-28 16:35:40,058 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'SysManage' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,086 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test1' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,087 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test2' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,088 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test3' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,089 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test4' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,090 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test5' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,091 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test6' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,092 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test7' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,093 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test8' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,094 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test9' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,095 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test10' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,096 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test11' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,097 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test12' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,098 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test13' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,099 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test14' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,100 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test15' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,101 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test16' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,103 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test17' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,104 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'test18' in localization source 'UBP'!
+WARN  2017-09-28 16:35:40,105 [23   ] naries.DictionaryBasedLocalizationSource - Can not find 'nchuang' in localization source 'UBP'!
+DEBUG 2017-09-28 16:35:41,049 [26   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"4f12ee75-d375-4226-9abe-beb408705efa","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-28T08:35:41.0494674Z","Properties":{}}
+DEBUG 2017-09-28 16:35:41,061 [18   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 4f12ee75-d375-4226-9abe-beb408705efa
+DEBUG 2017-09-28 17:06:37,881 [61   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 4f12ee75-d375-4226-9abe-beb408705efa
+DEBUG 2017-09-28 17:27:07,672 [163  ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-09-28 17:27:07,676 [163  ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-28 17:27:07,678 [163  ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-28 17:27:07,678 [163  ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-09-29 09:30:45,716 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-09-29 09:30:45,810 [1    ] Abp.Modules.AbpModuleManager             - Found 26 ABP modules in total.
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Web.UBPWebModule, DM.UBP.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpZeroOwinModule, Abp.Zero.Owin, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.EF.UbpEFModule, DM.UBP.EF, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Common.UbpCommonModule, DM.UBP.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.UBPCoreModule, DM.UBP.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Application.Service.UbpApplicationServiceModule, DM.UBP.Application.Service, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Domain.Service.UbpDomainServiceModule, DM.UBP.Domain.Service, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Domain.Entity.UbpDomainEntityModule, DM.UBP.Domain.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Application.Dto.UbpApplicationDtoModule, DM.UBP.Application.Dto, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.UBPApplicationModule, DM.UBP.Application, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.WebApi.UBPWebApiModule, DM.UBP.WebApi, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Runtime.Caching.Redis.AbpRedisCacheModule, Abp.RedisCache, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:45,825 [1    ] Abp.Modules.AbpModuleManager             - 26 modules loaded.
+DEBUG 2017-09-29 09:30:46,028 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-29 09:30:46,028 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-29 09:30:46,028 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-29 09:30:46,028 [1    ] o.Configuration.LanguageManagementConfig - Converted UBP (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-29 09:30:46,434 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: DM.UBP.EF.UbpDbContext, DM.UBP.EF, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 09:30:50,935 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-09-29 09:30:50,935 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-09-29 09:30:50,935 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-09-29 09:30:50,950 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-09-29 09:30:50,966 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: UBP
+DEBUG 2017-09-29 09:30:51,091 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-29 09:30:52,591 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 39 classes define auto mapping attributes
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Friendships.Cache.FriendCacheItem
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Application.Dto.ReportManager.Templates.ReportTemplateInputDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Application.Dto.ReportManager.Templates.ReportTemplateOutputDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Application.Dto.ReportManager.Categories.ReportCategoryInputDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Application.Dto.ReportManager.Categories.ReportCategoryOutputDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Organizations.Dto.OrganizationUnitDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Organizations.Dto.OrganizationUnitUserListDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Notifications.Dto.NotificationSubscriptionWithDisplayNameDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.MultiTenancy.Dto.TenantEditDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Localization.Dto.ApplicationLanguageEditDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Localization.Dto.ApplicationLanguageListDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Friendships.Dto.FriendDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Editions.Dto.EditionEditDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Editions.Dto.FlatFeatureDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Editions.Dto.EditionListDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Chat.Dto.ChatMessageDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Chat.Dto.ChatUserDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Chat.Dto.ChatUserWithMessagesDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Users.Profile.Dto.CurrentUserProfileEditDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Users.Dto.UserLoginAttemptDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Users.Dto.UserListDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Roles.Dto.RoleListDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Roles.Dto.RoleEditDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Permissions.Dto.FlatPermissionDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Permissions.Dto.FlatPermissionWithLevelDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Auditing.Dto.AuditLogListDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Authorization.Users.Dto.UserListDto+UserListRoleDto
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.Users.UserPermissionsEditViewModel
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.Users.CreateOrEditUserModalViewModel
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.Profile.MySettingsViewModel
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.Editions.CreateOrEditEditionModalViewModel
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.Tenants.TenantFeaturesEditViewModel
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.Roles.CreateOrEditRoleModalViewModel
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.OrganizationUnits.EditOrganizationUnitModalViewModel
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Areas.Mpa.Models.Languages.CreateOrEditLanguageModalViewModel
+DEBUG 2017-09-29 09:30:52,778 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DM.UBP.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-09-29 09:30:53,325 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2017-09-29 09:30:53,341 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2017-09-29 09:30:53,356 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Timing.ITimingAppService' with service name 'app/timing'.
+DEBUG 2017-09-29 09:30:53,356 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Tenants.Dashboard.ITenantDashboardAppService' with service name 'app/tenantDashboard'.
+DEBUG 2017-09-29 09:30:53,356 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-09-29 09:30:53,356 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Organizations.IOrganizationUnitAppService' with service name 'app/organizationUnit'.
+DEBUG 2017-09-29 09:30:53,356 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Notifications.INotificationAppService' with service name 'app/notification'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Logging.IWebLogAppService' with service name 'app/webLog'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Localization.ILanguageAppService' with service name 'app/language'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Friendships.IFriendshipAppService' with service name 'app/friendship'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Editions.IEditionAppService' with service name 'app/edition'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Configuration.Tenants.ITenantSettingsAppService' with service name 'app/tenantSettings'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Chat.IChatAppService' with service name 'app/chat'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Caching.ICachingAppService' with service name 'app/caching'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Authorization.Users.IUserLinkAppService' with service name 'app/userLink'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Authorization.Users.IUserLoginAppService' with service name 'app/userLogin'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Authorization.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Authorization.Users.Profile.IProfileAppService' with service name 'app/profile'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Authorization.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-09-29 09:30:53,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Authorization.Permissions.IPermissionAppService' with service name 'app/permission'.
+DEBUG 2017-09-29 09:30:53,388 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Auditing.IAuditLogAppService' with service name 'app/auditLog'.
+DEBUG 2017-09-29 09:30:53,388 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Application.Service.ReportManager.Templates.IReportTemplateAppService' with service name 'ReportManager/reportTemplate'.
+DEBUG 2017-09-29 09:30:53,388 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DM.UBP.Application.Service.ReportManager.Categories.IReportCategoryAppService' with service name 'ReportManager/reportCategory'.
+WARN  2017-09-29 09:30:54,450 [5    ] Abp.Logging.LogHelper                    - Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__19.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at Abp.Authorization.AuthorizationHelper.<CheckPermissions>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass15_0.<Run>b__0(Task t)
+   at System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.Run(Func`1 action)
+   at Abp.Threading.AsyncHelper.RunSync(Func`1 action)
+   at Abp.Authorization.AuthorizationHelperExtensions.Authorize(IAuthorizationHelper authorizationHelper, MethodInfo methodInfo, Type type)
+   at Abp.Web.Mvc.Authorization.AbpMvcAuthorizeFilter.OnAuthorization(AuthorizationContext filterContext)
+Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__19.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at Abp.Authorization.AuthorizationHelper.<CheckPermissions>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass15_0.<Run>b__0(Task t)
+   at System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.Run(Func`1 action)
+   at Abp.Threading.AsyncHelper.RunSync(Func`1 action)
+   at Abp.Authorization.AuthorizationHelperExtensions.Authorize(IAuthorizationHelper authorizationHelper, MethodInfo methodInfo, Type type)
+   at Abp.Web.Mvc.Authorization.AbpMvcAuthorizeFilter.OnAuthorization(AuthorizationContext filterContext)
+WARN  2017-09-29 09:31:01,778 [7    ] naries.DictionaryBasedLocalizationSource - Can not find 'SysManage' in localization source 'UBP'!
+WARN  2017-09-29 09:31:05,232 [7    ] naries.DictionaryBasedLocalizationSource - Can not find 'SysManage' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,207 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test1' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,208 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test2' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,209 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test3' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,211 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test4' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,212 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test5' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,214 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test6' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,215 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test7' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,217 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test8' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,218 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test9' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,219 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test10' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,221 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test11' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,222 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test12' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,223 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test13' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,224 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test14' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,225 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test15' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,226 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test16' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,228 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test17' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,229 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test18' in localization source 'UBP'!
+WARN  2017-09-29 09:31:20,230 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'nchuang' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,628 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'SysManage' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,691 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test1' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,691 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test2' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,691 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test3' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,691 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test4' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,691 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test5' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,691 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test6' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,706 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test7' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,706 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test8' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,706 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test9' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,706 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test10' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,722 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test11' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,722 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test12' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,722 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test13' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,722 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test14' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,722 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test15' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,722 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test16' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,722 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test17' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,738 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test18' in localization source 'UBP'!
+WARN  2017-09-29 09:31:23,738 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'nchuang' in localization source 'UBP'!
+DEBUG 2017-09-29 09:31:26,080 [12   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"3ec5102e-3cf1-430b-891b-993172a1ff3a","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-29T01:31:26.064587Z","Properties":{}}
+DEBUG 2017-09-29 09:31:26,314 [5    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 3ec5102e-3cf1-430b-891b-993172a1ff3a
+WARN  2017-09-29 09:32:15,645 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test1' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,645 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test2' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,645 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test3' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,645 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test4' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,645 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test5' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,645 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test6' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,645 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test7' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,645 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test8' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,645 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test9' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,645 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test10' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,645 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test11' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,661 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test12' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,661 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test13' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,661 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test14' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,661 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test15' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,661 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test16' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,661 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test17' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,661 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'test18' in localization source 'UBP'!
+WARN  2017-09-29 09:32:15,661 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'nchuang' in localization source 'UBP'!
+DEBUG 2017-09-29 09:32:15,833 [14   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 3ec5102e-3cf1-430b-891b-993172a1ff3a
+WARN  2017-09-29 09:32:16,505 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'SysManage' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,601 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test1' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,601 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test2' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,605 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test3' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,605 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test4' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,605 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test5' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,609 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test6' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,609 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test7' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,613 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test8' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,613 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test9' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,617 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test10' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,617 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test11' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,621 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test12' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,621 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test13' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,621 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test14' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,625 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test15' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,625 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test16' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,629 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test17' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,629 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'test18' in localization source 'UBP'!
+WARN  2017-09-29 09:32:16,633 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'nchuang' in localization source 'UBP'!
+DEBUG 2017-09-29 09:32:17,576 [5    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"d0da63ae-ccad-4787-9aa0-60dc9333fd43","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-29T01:32:17.5761131Z","Properties":{}}
+DEBUG 2017-09-29 09:32:17,591 [5    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: d0da63ae-ccad-4787-9aa0-60dc9333fd43
+DEBUG 2017-09-29 09:33:11,214 [5    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: d0da63ae-ccad-4787-9aa0-60dc9333fd43
+WARN  2017-09-29 09:33:12,558 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test1' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,574 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test2' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,574 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test3' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,574 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test4' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,574 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test5' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,574 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test6' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,574 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test7' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,574 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test8' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,574 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test9' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,574 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test10' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,574 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test11' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,574 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test12' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,574 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test13' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,574 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test14' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,574 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test15' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,589 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test16' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,589 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test17' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,589 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'test18' in localization source 'UBP'!
+WARN  2017-09-29 09:33:12,589 [15   ] naries.DictionaryBasedLocalizationSource - Can not find 'nchuang' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,008 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'SysManage' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,032 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test1' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,036 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test2' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,036 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test3' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,036 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test4' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,036 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test5' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,036 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test6' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,040 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test7' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,040 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test8' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,040 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test9' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,040 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test10' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,044 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test11' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,044 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test12' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,044 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test13' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,044 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test14' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,044 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test15' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,048 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test16' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,048 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test17' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,048 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test18' in localization source 'UBP'!
+WARN  2017-09-29 09:33:14,048 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'nchuang' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,437 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test1' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,453 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test2' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,453 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test3' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,453 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test4' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,453 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test5' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,453 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test6' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,453 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test7' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,453 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test8' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,453 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test9' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,453 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test10' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,453 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test11' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,453 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test12' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,453 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test13' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,453 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test14' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,469 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test15' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,469 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test16' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,469 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test17' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,469 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'test18' in localization source 'UBP'!
+WARN  2017-09-29 09:33:39,469 [11   ] naries.DictionaryBasedLocalizationSource - Can not find 'nchuang' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,853 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'SysManage' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,881 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test1' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,881 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test2' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,885 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test3' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,885 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test4' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,885 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test5' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,885 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test6' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,885 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test7' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,889 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test8' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,889 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test9' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,889 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test10' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,893 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test11' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,893 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test12' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,893 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test13' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,893 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test14' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,897 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test15' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,897 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test16' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,897 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test17' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,897 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'test18' in localization source 'UBP'!
+WARN  2017-09-29 09:33:40,901 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'nchuang' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,216 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test1' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,216 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test2' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,216 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test3' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,216 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test4' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,216 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test5' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,216 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test6' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,216 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test7' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,216 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test8' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,216 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test9' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,216 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test10' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,216 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test11' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,216 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test12' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,232 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test13' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,232 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test14' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,232 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test15' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,232 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test16' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,232 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test17' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,232 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'test18' in localization source 'UBP'!
+WARN  2017-09-29 09:34:02,232 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'nchuang' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,612 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'SysManage' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,648 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test1' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,648 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test2' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,652 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test3' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,652 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test4' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,652 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test5' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,652 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test6' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,656 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test7' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,656 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test8' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,656 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test9' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,656 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test10' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,656 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test11' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,660 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test12' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,660 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test13' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,660 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test14' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,660 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test15' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,660 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test16' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,664 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test17' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,664 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'test18' in localization source 'UBP'!
+WARN  2017-09-29 09:34:03,664 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'nchuang' in localization source 'UBP'!
+DEBUG 2017-09-29 09:34:38,736 [14   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"c3aa9941-c73d-4587-8667-a3ede694df81","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-09-29T01:34:38.7369237Z","Properties":{}}
+DEBUG 2017-09-29 09:34:38,736 [20   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: c3aa9941-c73d-4587-8667-a3ede694df81
+DEBUG 2017-09-29 10:17:56,586 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-09-29 10:17:57,411 [1    ] Abp.Modules.AbpModuleManager             - Found 26 ABP modules in total.
+DEBUG 2017-09-29 10:17:57,418 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Web.UBPWebModule, DM.UBP.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,420 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,421 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,421 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,421 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,421 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpZeroOwinModule, Abp.Zero.Owin, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,422 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,422 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,423 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.EF.UbpEFModule, DM.UBP.EF, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,423 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,424 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,424 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,424 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Common.UbpCommonModule, DM.UBP.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,425 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.UBPCoreModule, DM.UBP.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,425 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,426 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,426 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Application.Service.UbpApplicationServiceModule, DM.UBP.Application.Service, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,426 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Domain.Service.UbpDomainServiceModule, DM.UBP.Domain.Service, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,427 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Domain.Entity.UbpDomainEntityModule, DM.UBP.Domain.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,427 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.Application.Dto.UbpApplicationDtoModule, DM.UBP.Application.Dto, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,427 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.UBPApplicationModule, DM.UBP.Application, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,427 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DM.UBP.WebApi.UBPWebApiModule, DM.UBP.WebApi, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,428 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,428 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,428 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Runtime.Caching.Redis.AbpRedisCacheModule, Abp.RedisCache, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,429 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-29 10:17:57,434 [1    ] Abp.Modules.AbpModuleManager             - 26 modules loaded.
+DEBUG 2017-09-29 10:17:58,645 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-29 10:17:58,645 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-29 10:17:58,645 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-29 10:17:58,645 [1    ] o.Configuration.LanguageManagementConfig - Converted UBP (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-29 10:17:59,311 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: DM.UBP.EF.UbpDbContext, DM.UBP.EF, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null

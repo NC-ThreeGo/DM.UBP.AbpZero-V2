@@ -1,0 +1,46 @@
+﻿//------------------------------------------------------------
+// All Rights Reserved , Copyright (C)  
+// 版本：1.0
+/// <author>
+///		<name></name>
+///		<date>0001/1/1 0:00:00</date>
+/// </author>
+//------------------------------------------------------------
+
+@using Abp.Web.Mvc.Extensions
+@using DM.UBP.Web.Navigation
+@using DM.UBP.Domain.Service.ReportManager
+@{
+   ViewBag.CurrentPageName = UbpMenu.ReportManager;
+}
+@section Styles
+{
+   @*@Html.IncludeStyle("~/Areas/ReportManager/Views/ReportDataSource/Index.min.css")*@
+}
+@section Scripts
+{
+   @Html.IncludeScript("~/Areas/ReportManager/Views/ReportDataSource/Index.js")
+}
+
+<div class="row margin-bottom-5">
+   <div class="col-xs-6">
+       <div class="page-head">
+           <div class="page-title">
+               <h1>
+                   <span>@L("ReportDataSource") </span> <small>@L("ReportDataSourceHeaderInfo")</small>
+               </h1>
+           </div>
+       </div>
+   </div>
+   <div class="col-xs-6 text-right">
+       @if (IsGranted(AppPermissions_ReportManager.Pages_ReportManager_AppPermissions_ReportManager_Create))
+       {
+           <button id="CreateNewReportDataSourceButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewReportDataSource")</button>
+       }
+   </div>
+</div>
+<div class="portlet light margin-bottom-0">
+   <div class="portlet-body">
+       <div id="ReportDataSourceTable"></div>
+   </div>
+</div>

@@ -50,6 +50,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportManager\Categories\ReportCategoryInputDto.cs" />
     <Compile Include="ReportManager\Categories\ReportCategoryOutputDto.cs" />
+    <Compile Include="ReportManager\ReportDataSources\ReportDataSourceInputDto.cs" />
+    <Compile Include="ReportManager\ReportDataSources\ReportDataSourceOutputDto.cs" />
+    <Compile Include="ReportManager\ReportParameters\ReportParameterInputDto.cs" />
+    <Compile Include="ReportManager\ReportParameters\ReportParameterOutputDto.cs" />
     <Compile Include="ReportManager\Templates\ReportTemplateInputDto.cs" />
     <Compile Include="ReportManager\Templates\ReportTemplateListDto.cs" />
     <Compile Include="ReportManager\Templates\ReportTemplateOutputDto.cs" />
