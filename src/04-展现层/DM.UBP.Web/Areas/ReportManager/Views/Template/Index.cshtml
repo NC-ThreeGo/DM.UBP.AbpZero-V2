@@ -1,58 +1,112 @@
 ﻿@*//------------------------------------------------------------
-// All Rights Reserved , Copyright (C)  
-// 版本：1.0
-/// <author>
-///		<name></name>
-///		<date>0001/1/1 0:00:00</date>
-/// </author>
-//*@
+    // All Rights Reserved , Copyright (C)
+    // 版本：1.0
+    /// <author>
+    ///		<name></name>
+    ///		<date>0001/1/1 0:00:00</date>
+    /// </author>
+    //*@
 
 @using Abp.Web.Mvc.Extensions
 @using DM.UBP.Web.Navigation
 @using DM.UBP.Domain.Service.ReportManager
 @{
-   ViewBag.CurrentPageName = UbpMenu.ReportManagerTemplates;
+    ViewBag.CurrentPageName = UbpMenu.ReportManagerTemplates;
 }
 @section Styles
 {
-   @*@Html.IncludeStyle("~/Areas/ReportManager/Views/Template/Index.min.css")*@
+    @*@Html.IncludeStyle("~/Areas/ReportManager/Views/Template/Index.min.css")*@
+    @*<link href="~/libs/jquery-jtable/themes/metro/darkgray/jtable.css" rel="stylesheet" type="text/css" />*@
 }
 @section Scripts
 {
-   @Html.IncludeScript("~/Areas/ReportManager/Views/Template/Index.js")
+    @Html.IncludeScript("~/Areas/ReportManager/Views/Template/Index.js")
 }
 
 <div class="row margin-bottom-5">
-   <div class="col-xs-6">
-       <div class="page-head">
-           <div class="page-title">
-               <h1>
-                   <span>@L("Template") </span> <small>@L("TemplateHeaderInfo")</small>
-               </h1>
-           </div>
-       </div>
-   </div>
-   
-</div>
-<div class="portlet light margin-bottom-0 col-xs-6">
-    <div class="text-right">
-        @if (IsGranted(AppPermissions_ReportManager.Pages_ReportManager_Templates_Create))
-        {
-            <button id="CreateNewTemplateButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewTemplate")</button>
-        }
+    <div class="col-xs-6">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>@L("Template") </span> <small>@L("TemplateHeaderInfo")</small>
+                </h1>
+            </div>
+        </div>
     </div>
-   <div class="portlet-body">
-       <div id="TemplateTable"></div>
-   </div>
+
 </div>
-<div class="portlet light margin-bottom-0 col-xs-6">
-    <div class="text-right">
-        @if (IsGranted(AppPermissions_ReportManager.Pages_ReportManager_Templates_Create))
-        {
-            <button id="CreateNewTemplateButton2" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewTemplate")</button>
-        }
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase">
+                        @L("TemplateList")
+                    </span>
+                </div>
+                <div class="actions">
+                    @if (IsGranted(AppPermissions_ReportManager.Pages_ReportManager_Templates_Create))
+                    {
+                        <a id="CreateNewTemplateButton" class="btn btn-circle btn-default">
+                            <i class="fa fa-plus"></i> @L("CreateNewTemplate")
+                        </a>
+                    }
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="TemplateTable"></div>
+            </div>
+        </div>
     </div>
-    <div class="portlet-body">
-        <div id="TemplateTable2"></div>
+
+    <div class="col-lg-6">
+        <div class="tabbable-line portlet light margin-bottom-0">
+            <ul class="nav nav-tabs ">
+                <li class="active">
+                    <a href="#ReportDataSourcesTab" data-toggle="tab" aria-expanded="true">
+                        @L("ReportDataSources")
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#ReportPermissionsTab" data-toggle="tab" aria-expanded="false">
+                        @L("ReportPermissions")
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content" style="padding:10px 0">
+                <div class="tab-pane active" id="ReportDataSourcesTab">
+                    <div class="text-right">
+                        @if (IsGranted(AppPermissions_ReportManager.Pages_ReportManager_DataSources_Create))
+                        {
+                            <a id="CreateNewDataSourceButton" class="btn btn-circle btn-default">
+                                <i class="fa fa-plus"></i> @L("CreateNewDataSource")
+                            </a>
+                        }
+                    </div>
+                    <div class="portlet-body">
+                        <div id="DataSourceTable"></div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="ReportPermissionsTab">
+                    <div class="text-right">
+                        @if (IsGranted(AppPermissions_ReportManager.Pages_ReportManager_Parameters_Create))
+                        {
+                            <a id="CreateNewParameterButton" class="btn btn-circle btn-default">
+                                <i class="fa fa-plus"></i> @L("CreateNewParameter")
+                            </a>
+                        }
+                    </div>
+                    <div class="portlet-body">
+                        <div id="ParameterTable"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
+
+
+    

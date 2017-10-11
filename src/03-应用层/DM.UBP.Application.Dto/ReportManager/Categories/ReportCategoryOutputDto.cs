@@ -33,6 +33,8 @@ namespace DM.UBP.Application.Dto.ReportManager.Categories
         [Required]
         public string Code { get; set; }
 
+        public int? TenantId { get; set; }
+
         /// <summary>
         /// 是否处于修改状态，如果Id有值则表示修改否则表示新增。
         /// </summary>

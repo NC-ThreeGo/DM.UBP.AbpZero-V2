@@ -22,7 +22,7 @@ namespace DM.UBP.Application.Dto.ReportManager.Templates
     public class ReportTemplateInputDto : EntityDto<long>
     {
         [Required]
-        public long CategoryId { get; set; }
+        public long Category_Id { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
         [Required]

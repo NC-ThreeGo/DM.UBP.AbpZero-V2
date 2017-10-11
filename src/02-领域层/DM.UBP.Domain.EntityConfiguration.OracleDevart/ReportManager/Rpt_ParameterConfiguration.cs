@@ -12,16 +12,15 @@ using DM.UBP.Domain.Entity.ReportManager;
 
 namespace DM.UBP.Domain.EntityConfiguration.OracleDevart.ReportManager
 {
-/// <summary>
-/// 报表参数基于数据库—OracleDevart的映射
-/// <summary>
-public class ReportParameterConfiguration : EntityConfigurationBase<ReportParameter, long>
-{
-public ReportParameterConfiguration()
-{
-this.ToTable("RPT_PARAMETER");
-this.Property(p => p.Id).HasColumnName("PARAMETER_ID");
-this.Property(p => p.Id).HasColumnName("PARAMETER_ID");
-}
-}
+    /// <summary>
+    /// 报表参数基于数据库—OracleDevart的映射
+    /// <summary>
+    public class ReportParameterConfiguration : EntityConfigurationBase<ReportParameter, long>
+    {
+        public ReportParameterConfiguration()
+        {
+            this.ToTable("RPT_PARAMETER");
+            this.Property(p => p.Id).HasColumnName("PARAMETER_ID");
+        }
+    }
 }

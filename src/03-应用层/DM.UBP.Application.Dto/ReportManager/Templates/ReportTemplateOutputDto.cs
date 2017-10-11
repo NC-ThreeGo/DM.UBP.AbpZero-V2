@@ -24,7 +24,7 @@ namespace DM.UBP.Application.Dto.ReportManager.Templates
         public string CategoryName { get; set; }
 
         [Required]
-        public long CategoryId { get; set; }
+        public long Category_Id { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
         [Required]
@@ -41,7 +41,7 @@ namespace DM.UBP.Application.Dto.ReportManager.Templates
         [StringLength(StringMaxLengthConst.MaxStringLength2000)]
         public string Description { get; set; }
 
-        public int? Tenantid { get; set; }
+        public int? TenantId { get; set; }
 
         public bool IsEditMode
         {

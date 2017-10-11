@@ -41,8 +41,8 @@
                         <label>@L("TemplateName")</label>
                     </div>
                     <div class="form-group">
-                        <label for="CategoryId">@L("Category")</label>
-                        <select id="CategoryId" name="CategoryId" class="form-control bs-select" data-live-search="true">
+                        <label for="Category_Id">@L("Category")</label>
+                        <select id="Category_Id" name="Category_Id" class="form-control bs-select" data-live-search="true">
                             @foreach (var category in ViewBag.Categories)
                             {
                                 <option data-icon="@category.Value" value="@category.Value" @(category.IsSelected ? "selected=\"selected\"" : "")><i class="@category.Value"></i>@category.DisplayText</option>

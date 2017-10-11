@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using Abp.Domain.Services;
 using DM.UBP.Domain.Entity.ReportManager;
 
-namespace DM.UBP.Domain.Service.ReportManager.ReportParameters
+namespace DM.UBP.Domain.Service.ReportManager.Parameters
 {
     /// <summary>
     /// 报表参数的Domain.Service.Interface

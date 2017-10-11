@@ -22,11 +22,11 @@ namespace DM.UBP.EF
 
         public virtual IDbSet<ReportTemplate> ReportTemplates { get; set; }
 
-public virtual IDbSet<ReportDataSource> ReportDataSources { get; set; }
+        public virtual IDbSet<ReportDataSource> ReportDataSources { get; set; }
 
-public virtual IDbSet<ReportParameter> ReportParameters { get; set; }
+        public virtual IDbSet<ReportParameter> ReportParameters { get; set; }
 
-//@@Insert Position
+        //@@Insert Position
 
 
 

@@ -17,13 +17,6 @@
         this.init = function (modalManager) {
             _modalManager = modalManager;
 
-            _modalManager.getModal()
-                .find('#CategoryId')
-                .selectpicker({
-                    iconBase: "fa",
-                    tickIcon: "fa fa-check"
-                });
-
             _$formInfo = _modalManager.getModal().find('form[name=EntityOptInformationsForm]');
             _$formInfo.validate();
         };

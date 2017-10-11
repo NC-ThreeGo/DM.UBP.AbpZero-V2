@@ -23,15 +23,15 @@ namespace DM.UBP.Domain.Entity.ReportManager
         public long Template_Id { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
-        public string Connkeyname { get; set; }
+        public string ConnkeyName { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
-        public string Tablename { get; set; }
+        public string TableName { get; set; }
 
-        public int Commandtype { get; set; }
+        public int CommandType { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength2000)]
-        public string Commandtext { get; set; }
+        public string CommandText { get; set; }
 
         public int? TenantId { get; set; }
 

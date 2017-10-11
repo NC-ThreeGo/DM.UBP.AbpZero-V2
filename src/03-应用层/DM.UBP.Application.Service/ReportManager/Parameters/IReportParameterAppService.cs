@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
-using DM.UBP.Application.Dto.ReportManager.ReportParameters;
+using DM.UBP.Application.Dto.ReportManager.Parameters;
 using DM.UBP.Dto;
 
-namespace DM.UBP.Application.Service.ReportManager.ReportParameters
+namespace DM.UBP.Application.Service.ReportManager.Parameters
 {
     /// <summary>
     /// 报表参数的Application.Service.Interface
@@ -24,6 +24,8 @@ namespace DM.UBP.Application.Service.ReportManager.ReportParameters
         Task<PagedResultDto<ReportParameterOutputDto>> GetReportParameters();
 
         Task<PagedResultDto<ReportParameterOutputDto>> GetReportParameters(PagedAndSortedInputDto input);
+
+        Task<PagedResultDto<ReportParameterOutputDto>> GetReportParametersByTemplate(EntityDto input);
 
         Task<ReportParameterOutputDto> GetReportParameterById(long id);
 

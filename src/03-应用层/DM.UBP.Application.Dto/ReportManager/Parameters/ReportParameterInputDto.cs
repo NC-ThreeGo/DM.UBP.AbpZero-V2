@@ -13,40 +13,36 @@ using Abp.Application.Services.Dto;
 using DM.UBP.Domain.Entity;
 using DM.UBP.Domain.Entity.ReportManager;
 
-namespace DM.UBP.Application.Dto.ReportManager.ReportParameters
+namespace DM.UBP.Application.Dto.ReportManager.Parameters
 {
     /// <summary>
-    /// 报表参数的OutputDto
+    /// 报表参数的InputDto
     /// <summary>
-    [AutoMapFrom(typeof(ReportParameter))]
-    public class ReportParameterOutputDto : FullAuditedEntityDto<long>
+    [AutoMapTo(typeof(ReportParameter))]
+    public class ReportParameterInputDto : EntityDto<long>
     {
         [Required]
         public long Template_Id { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
         [Required]
-        public string Labelname { get; set; }
+        public string LabelName { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
         [Required]
-        public string Parametername { get; set; }
+        public string ParameterName { get; set; }
 
         [Required]
-        public int Paramtertype { get; set; }
+        public int ParamterType { get; set; }
 
         [Required]
-        public int Uitype { get; set; }
+        public int UiType { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength2000)]
-        public string Dynamicsql { get; set; }
+        public string DynamicSql { get; set; }
 
         [Required]
-        public int Sortid { get; set; }
+        public int SortId { get; set; }
 
-        public bool IsEditMode
-        {
-            get { return Id > 0; }
-        }
     }
 }

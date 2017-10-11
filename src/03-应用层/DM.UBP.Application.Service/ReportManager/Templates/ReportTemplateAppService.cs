@@ -25,6 +25,8 @@ using DM.UBP.Domain.Service.ReportManager.Categories;
 using System;
 using System.IO;
 using AutoMapper;
+using DM.UBP.Application.Dto.ReportManager.DataSources;
+using DM.UBP.Domain.Service.ReportManager.DataSources;
 
 namespace DM.UBP.Application.Service.ReportManager.Templates
 {
@@ -36,6 +38,7 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
     {
         private readonly IReportTemplateManager _ReportTemplateManager;
         private readonly IReportCategoryManager _ReportCategoryManager;
+
         public ReportTemplateAppService(
            IReportTemplateManager reporttemplatemanager,
             IReportCategoryManager reportcategorymanager
@@ -60,7 +63,7 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
             var templateEntities = await _ReportTemplateManager.GetAllReportTemplatesAsync();
             var categoryEntities = await _ReportCategoryManager.GetAllCategoriesAsync();
 
-            var entities = templateEntities.Join(categoryEntities, t => t.CategoryId, c => c.Id, (t, c) => new
+            var entities = templateEntities.Join(categoryEntities, t => t.Category_Id, c => c.Id, (t, c) => new
             ReportTemplateOutputDto
             {
                 CategoryName = c.CategoryName,
@@ -144,5 +147,7 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
             var entity = await _ReportTemplateManager.GetReportTemplateByIdAsync(input.Id);
             await _ReportTemplateManager.DeleteReportTemplateAsync(entity);
         }
+
+        
     }
 }

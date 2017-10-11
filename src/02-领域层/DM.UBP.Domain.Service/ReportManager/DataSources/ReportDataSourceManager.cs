@@ -16,7 +16,7 @@ using Abp.Domain.Services;
 using Abp.Domain.Repositories;
 using DM.UBP.Domain.Entity.ReportManager;
 
-namespace DM.UBP.Domain.Service.ReportManager.ReportDataSources
+namespace DM.UBP.Domain.Service.ReportManager.DataSources
 {
     /// <summary>
     /// 报表数据源的Domain.Service

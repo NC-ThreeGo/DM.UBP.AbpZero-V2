@@ -13,7 +13,7 @@ using Abp.Application.Services.Dto;
 using DM.UBP.Domain.Entity;
 using DM.UBP.Domain.Entity.ReportManager;
 
-namespace DM.UBP.Application.Dto.ReportManager.ReportDataSources
+namespace DM.UBP.Application.Dto.ReportManager.DataSources
 {
     /// <summary>
     /// 报表数据源的OutputDto
@@ -26,18 +26,20 @@ namespace DM.UBP.Application.Dto.ReportManager.ReportDataSources
 
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
         [Required]
-        public string Connkeyname { get; set; }
+        public string ConnkeyName { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
         [Required]
-        public string Tablename { get; set; }
+        public string TableName { get; set; }
 
         [Required]
-        public int Commandtype { get; set; }
+        public int CommandType { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength2000)]
         [Required]
-        public string Commandtext { get; set; }
+        public string CommandText { get; set; }
+
+        public int? TenantId { get; set; }
 
         public bool IsEditMode
         {

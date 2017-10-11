@@ -61,7 +61,7 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
         public async Task<PartialViewResult> EditModal(long id)
         {
             var viewModel = await _ReportTemplateAppService.GetReportTemplateById(id);
-            var categories = await _CategoryAppService.GetCategoriesToItem(viewModel.CategoryId);
+            var categories = await _CategoryAppService.GetCategoriesToItem(viewModel.Category_Id);
             ViewBag.Categories = categories;
 
             return PartialView("_CreateOrEditModal", viewModel);

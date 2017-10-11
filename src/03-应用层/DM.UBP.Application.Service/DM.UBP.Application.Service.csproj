@@ -121,10 +121,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportManager\Categories\ReportCategoryAppService.cs" />
     <Compile Include="ReportManager\Categories\IReportCategoryAppService.cs" />
-    <Compile Include="ReportManager\ReportDataSources\IReportDataSourceAppService.cs" />
-    <Compile Include="ReportManager\ReportDataSources\ReportDataSourceAppService.cs" />
-    <Compile Include="ReportManager\ReportParameters\IReportParameterAppService.cs" />
-    <Compile Include="ReportManager\ReportParameters\ReportParameterAppService.cs" />
+    <Compile Include="ReportManager\DataSources\IReportDataSourceAppService.cs" />
+    <Compile Include="ReportManager\DataSources\ReportDataSourceAppService.cs" />
+    <Compile Include="ReportManager\Parameters\IReportParameterAppService.cs" />
+    <Compile Include="ReportManager\Parameters\ReportParameterAppService.cs" />
     <Compile Include="ReportManager\Templates\IReportTemplateAppService.cs" />
     <Compile Include="ReportManager\Templates\ReportTemplateAppService.cs" />
     <Compile Include="UbpApplicationServiceModule.cs" />

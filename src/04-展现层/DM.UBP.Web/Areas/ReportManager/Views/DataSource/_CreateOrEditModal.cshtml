@@ -1,0 +1,69 @@
+﻿@using Abp.Extensions
+@using DM.UBP.Web.Areas.Mpa.Models.Common.Modals
+
+@model DM.UBP.Application.Dto.ReportManager.DataSources.ReportDataSourceOutputDto
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditReportDataSource") + ": " + Model.TableName) : L("CreateReportDataSource")))
+@section Styles
+{
+}
+@section Scripts
+{
+}
+
+<div class="modal-body">
+    <div class="tabbable-line">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#EntityInformationsTab" data-toggle="tab" aria-expanded="true">
+                    @L("ReportDataSourceInformations")
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="EntityInformationsTab">
+                <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
+                    @if (Model.IsEditMode)
+                    {
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                    }
+
+                    <input type="hidden" name="Template_Id" value="@Model.Template_Id" />
+
+                    <div class="form-group">
+                        <label for="ConnkeyName">@L("ConnkeyName")</label>
+                        <select id="ConnkeyName" name="ConnkeyName" class="form-control bs-select" data-live-search="true">
+                            @foreach (var item in ViewBag.Connkeys)
+                            {
+                                <option data-icon="@item.Value" value="@item.Value" @(item.IsSelected ? "selected=\"selected\"" : "")><i class="@item.Value"></i>@item.DisplayText</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Tablename" class="form-control@(Model.TableName.IsNullOrEmpty() ? "" : " edited")" value="@Model.TableName" required>
+                        <label>@L("TableName")</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="CommandType">@L("CommandType")</label>
+                        <select id="CommandType" name="CommandType" class="form-control bs-select" data-live-search="true">
+                            @foreach (var item in ViewBag.CommandTypes)
+                            {
+                                <option data-icon="@item.Value" value="@item.Value" @(item.IsSelected ? "selected=\"selected\"" : "")><i class="@item.Value"></i>@item.DisplayText</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <textarea class="form-control maxlength-handler edited" rows="4" type="text" name="CommandText" required>@Model.CommandText</textarea>
+                        <label>@L("CommandText")</label>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
-using DM.UBP.Application.Dto.ReportManager.ReportDataSources;
+using DM.UBP.Application.Dto.ReportManager.DataSources;
 using DM.UBP.Dto;
 
-namespace DM.UBP.Application.Service.ReportManager.ReportDataSources
+namespace DM.UBP.Application.Service.ReportManager.DataSources
 {
     /// <summary>
     /// 报表数据源的Application.Service.Interface
@@ -33,5 +33,10 @@ namespace DM.UBP.Application.Service.ReportManager.ReportDataSources
 
         Task DeleteReportDataSource(EntityDto input);
 
+        Task<PagedResultDto<ReportDataSourceOutputDto>> GetReportDataSourcesByTemplate(EntityDto input);
+
+        List<ComboboxItemDto> GetConnkeysToItem(string selectValue);
+
+        List<ComboboxItemDto> GetCommandTypesToItem(int selectValue);
     }
 }

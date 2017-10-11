@@ -53,7 +53,7 @@ namespace DM.UBP.Domain.Service
                 {
                     var report = reports.CreateChildPermission("Pages.ReportManager.Reports." + category.CategoryName, L(category.CategoryName));
 
-                    var templates = _reportTemplateManager.GetAllReportTemplatesAsync().Result.Where(t => t.CategoryId == category.Id);
+                    var templates = _reportTemplateManager.GetAllReportTemplatesAsync().Result.Where(t => t.Category_Id == category.Id);
 
                     templates.OrderBy(t => t.Id).ToList().ForEach(template => {
                         report.CreateChildPermission("Pages.ReportManager.Reports." + category.CategoryName + "." + template.TemplateName, L(template.TemplateName));
@@ -73,7 +73,18 @@ namespace DM.UBP.Domain.Service
                 reportManagerTemplateFiles.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Templates_Create, L("CreatingNewTemplate"));
                 reportManagerTemplateFiles.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Templates_Edit, L("EditingTemplate"));
                 reportManagerTemplateFiles.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Templates_Delete, L("DeletingTemplate"));
-    
+
+                var reportManagerDataSources = reportManager.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_DataSources, L("ReportManagerDataSources"));
+                reportManagerDataSources.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_DataSources_Create, L("CreatingNewDataSource"));
+                reportManagerDataSources.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_DataSources_Edit, L("EditingDataSource"));
+                reportManagerDataSources.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_DataSources_Delete, L("DeletingDataSource"));
+
+                var reportManagerParameters = reportManager.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Parameters, L("ReportManagerParameters"));
+                reportManagerParameters.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Parameters_Create, L("CreatingNewParameter"));
+                reportManagerParameters.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Parameters_Edit, L("EditingParameter"));
+                reportManagerParameters.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Parameters_Delete, L("DeletingParameter"));
+
+
             }
         }
 

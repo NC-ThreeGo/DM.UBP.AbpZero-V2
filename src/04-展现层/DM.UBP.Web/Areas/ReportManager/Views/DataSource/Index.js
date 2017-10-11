@@ -10,7 +10,7 @@
 (function () {
     $(function () {
         var _$entityTable = $('#ReportDataSourceTable');
-        var _appService = abp.services.ReportManager.reportdatasource;
+        var _appService = abp.services.ReportManager.reportDataSource;
 
         var _permissions = {
             create: abp.auth.hasPermission('Pages.ReportManager.ReportDataSources.Create'),
@@ -102,20 +102,20 @@
                         }
                     }]
                 },
-                connkeyname: {
-                    title: app.localize('connkeyname'),
+                connkeyName: {
+                    title: app.localize('ConnkeyName'),
                     width: '25%',
                 },
-                tablename: {
-                    title: app.localize('tablename'),
+                tableName: {
+                    title: app.localize('TableName'),
                     width: '25%',
                 },
-                commandtype: {
-                    title: app.localize('commandtype'),
+                commandType: {
+                    title: app.localize('CommandType'),
                     width: '25%',
                 },
-                commandtext: {
-                    title: app.localize('commandtext'),
+                commandText: {
+                    title: app.localize('CommandText'),
                     width: '25%',
                 },
             }

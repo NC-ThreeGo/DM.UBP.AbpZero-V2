@@ -12,16 +12,15 @@ using DM.UBP.Domain.Entity.ReportManager;
 
 namespace DM.UBP.Domain.EntityConfiguration.OracleDevart.ReportManager
 {
-/// <summary>
-/// 报表数据源基于数据库—OracleDevart的映射
-/// <summary>
-public class ReportDataSourceConfiguration : EntityConfigurationBase<ReportDataSource, long>
-{
-public ReportDataSourceConfiguration()
-{
-this.ToTable("RTP_DATASOURCE");
-this.Property(p => p.Id).HasColumnName("SOURCE_ID");
-this.Property(p => p.ID).HasColumnName("SOURCE_ID");
-}
-}
+    /// <summary>
+    /// 报表数据源基于数据库—OracleDevart的映射
+    /// <summary>
+    public class ReportDataSourceConfiguration : EntityConfigurationBase<ReportDataSource, long>
+    {
+        public ReportDataSourceConfiguration()
+        {
+            this.ToTable("RPT_DATASOURCE");
+            this.Property(p => p.Id).HasColumnName("SOURCE_ID");
+        }
+    }
 }

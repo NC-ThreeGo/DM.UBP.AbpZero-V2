@@ -14,19 +14,20 @@ using Abp.AutoMapper;
 using Abp.Authorization;
 using Abp.Application.Services.Dto;
 using DM.UBP.Domain.Entity.ReportManager;
-using DM.UBP.Domain.Service.ReportManager.ReportParameters;
+using DM.UBP.Domain.Service.ReportManager.Parameters;
 using DM.UBP.Domain.Service.ReportManager;
-using DM.UBP.Application.Dto.ReportManager.ReportParameters;
+using DM.UBP.Application.Dto.ReportManager.Parameters;
 using System.Linq;
 using System.Linq.Dynamic;
 using DM.UBP.Dto;
+using DM.UBP.Application.Service.ReportManager.Parameters;
 
-namespace DM.UBP.Application.Service.ReportManager.ReportParameters
+namespace DM.UBP.Application.Service.ReportManager.Parameters
 {
     /// <summary>
     /// 报表参数的Application.Service
     /// <summary>
-    [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_ReportParameters)]
+    [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Parameters)]
     public class ReportParameterAppService : IReportParameterAppService
     {
         private readonly IReportParameterManager _ReportParameterManager;
@@ -61,25 +62,39 @@ namespace DM.UBP.Application.Service.ReportManager.ReportParameters
             listDto
             );
         }
+        public async Task<PagedResultDto<ReportParameterOutputDto>> GetReportParametersByTemplate(EntityDto input)
+        {
+            var entities = await _ReportParameterManager.GetAllReportParametersAsync();
+
+            var parameters = await Task.FromResult(entities.Where(d => d.Template_Id == input.Id).OrderBy(d => d.Id));
+
+            var listDto = parameters.MapTo<List<ReportParameterOutputDto>>();
+
+            return new PagedResultDto<ReportParameterOutputDto>(
+            listDto.Count,
+            listDto
+            );
+        }
+
         public async Task<ReportParameterOutputDto> GetReportParameterById(long id)
         {
             var entity = await _ReportParameterManager.GetReportParameterByIdAsync(id);
             return entity.MapTo<ReportParameterOutputDto>();
         }
-        [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_ReportParameters_Create)]
+        [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Parameters_Create)]
         public async Task<bool> CreateReportParameter(ReportParameterInputDto input)
         {
             var entity = input.MapTo<ReportParameter>();
             return await _ReportParameterManager.CreateReportParameterAsync(entity);
         }
-        [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_ReportParameters_Edit)]
+        [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Parameters_Edit)]
         public async Task<bool> UpdateReportParameter(ReportParameterInputDto input)
         {
             var entity = await _ReportParameterManager.GetReportParameterByIdAsync(input.Id);
             input.MapTo(entity);
             return await _ReportParameterManager.UpdateReportParameterAsync(entity);
         }
-        [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_ReportParameters_Delete)]
+        [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Parameters_Delete)]
         public async Task DeleteReportParameter(EntityDto input)
         {
             var entity = await _ReportParameterManager.GetReportParameterByIdAsync(input.Id);

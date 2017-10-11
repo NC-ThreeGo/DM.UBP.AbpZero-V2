@@ -33,5 +33,7 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
 
         Task DeleteReportTemplate(EntityDto input);
 
+        
+
     }
 }

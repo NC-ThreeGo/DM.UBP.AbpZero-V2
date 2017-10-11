@@ -23,19 +23,19 @@ namespace DM.UBP.Domain.Entity.ReportManager
         public long Template_Id { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
-        public string Labelname { get; set; }
+        public string LabelName { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
-        public string Parametername { get; set; }
+        public string ParameterName { get; set; }
 
-        public int Paramtertype { get; set; }
+        public int ParamterType { get; set; }
 
-        public int Uitype { get; set; }
+        public int UiType { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength2000)]
-        public string Dynamicsql { get; set; }
+        public string DynamicSql { get; set; }
 
-        public int Sortid { get; set; }
+        public int SortId { get; set; }
 
         public int? TenantId { get; set; }
 

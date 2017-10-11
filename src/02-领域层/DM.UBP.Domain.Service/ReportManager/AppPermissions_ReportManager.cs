@@ -26,20 +26,20 @@ namespace DM.UBP.Domain.Service.ReportManager
 
         public const string Pages_ReportManager_Designer = "Pages.ReportManager.Designer";
 
-        public const string Pages_ReportManager_Templates = "Pages.ReportManager.ReportTemplates";
-        public const string Pages_ReportManager_Templates_Create = "Pages.ReportManager.ReportTemplates.Create";
-        public const string Pages_ReportManager_Templates_Edit = "Pages.ReportManager.ReportTemplates.Edit";
-        public const string Pages_ReportManager_Templates_Delete = "Pages.ReportManager.ReportTemplates.Delete";
+        public const string Pages_ReportManager_Templates = "Pages.ReportManager.Templates";
+        public const string Pages_ReportManager_Templates_Create = "Pages.ReportManager.Templates.Create";
+        public const string Pages_ReportManager_Templates_Edit = "Pages.ReportManager.Templates.Edit";
+        public const string Pages_ReportManager_Templates_Delete = "Pages.ReportManager.Templates.Delete";
 
-        public const string Pages_ReportManager_ReportDataSources = "Pages.ReportManager.ReportDataSources";
-        public const string Pages_ReportManager_ReportDataSources_Create = "Pages.ReportManager.ReportDataSources.Create";
-        public const string Pages_ReportManager_ReportDataSources_Edit = "Pages.ReportManager.ReportDataSources.Edit";
-        public const string Pages_ReportManager_ReportDataSources_Delete = "Pages.ReportManager.ReportDataSources.Delete";
+        public const string Pages_ReportManager_DataSources = "Pages.ReportManager.DataSources";
+        public const string Pages_ReportManager_DataSources_Create = "Pages.ReportManager.DataSources.Create";
+        public const string Pages_ReportManager_DataSources_Edit = "Pages.ReportManager.DataSources.Edit";
+        public const string Pages_ReportManager_DataSources_Delete = "Pages.ReportManager.DataSources.Delete";
 
-        public const string Pages_ReportManager_ReportParameters = "Pages.ReportManager.ReportParameters";
-        public const string Pages_ReportManager_ReportParameters_Create = "Pages.ReportManager.ReportParameters.Create";
-        public const string Pages_ReportManager_ReportParameters_Edit = "Pages.ReportManager.ReportParameters.Edit";
-        public const string Pages_ReportManager_ReportParameters_Delete = "Pages.ReportManager.ReportParameters.Delete";
+        public const string Pages_ReportManager_Parameters = "Pages.ReportManager.Parameters";
+        public const string Pages_ReportManager_Parameters_Create = "Pages.ReportManager.Parameters.Create";
+        public const string Pages_ReportManager_Parameters_Edit = "Pages.ReportManager.Parameters.Edit";
+        public const string Pages_ReportManager_Parameters_Delete = "Pages.ReportManager.Parameters.Delete";
 
         //@@Insert Position
 
