@@ -9,6 +9,7 @@ using DM.UBP.Authorization.Users;
 using System.Data;
 using System;
 using System.IO;
+using FastReport.Data;
 
 namespace DM.UBP.Web.Areas.ReportManager.Controllers
 {
@@ -45,6 +46,8 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
                 dt.Rows.Add(dr);
             }
             ds.Tables.Add(dt);
+
+            TableDataSource datasource = _webReport.Report.GetDataSource("protable") as TableDataSource;
 
             _webReport.Report.RegisterData(ds, "BaseUsers");
             _webReport.Report.Load(report_path + "/TemplateFile/getUsers.frx");
