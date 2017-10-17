@@ -9,7 +9,7 @@
 
 (function ($) {
     app.modals.CreateOrEditModal = function () {
-        var _appService = abp.services.ReportManager.reportparameter;
+        var _appService = abp.services.ReportManager.reportParameter;
 
         var _modalManager;
         var _$formInfo = null;
@@ -18,6 +18,7 @@
             _modalManager = modalManager;
 
             _$formInfo = _modalManager.getModal().find('form[name=EntityOptInformationsForm]');
+
             _$formInfo.validate();
         };
 

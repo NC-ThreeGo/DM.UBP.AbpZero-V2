@@ -35,5 +35,9 @@ namespace DM.UBP.Application.Service.ReportManager.Parameters
 
         Task DeleteReportParameter(EntityDto input);
 
+        List<ComboboxItemDto> GetParamterTypesToItem(int selectValue);
+
+        List<ComboboxItemDto> GetUiTypesToItem(int selectValue);
+
     }
 }

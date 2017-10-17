@@ -7,8 +7,11 @@
       <text name="Reports" value="报表" />
         
       <text name="Template" value="模板" />
+      <text name="TemplateList" value="模板列表" />
+      <text name="ReportTemplateTable" value="模板列表" />
       <text name="ReportTemplates" value="报表模板" />
       <text name="ReportManagerTemplates" value="报表模板管理" />
+      <text name="ReportManagerTemplateFiles" value="报表模板管理" />
       <text name="CreateNewTemplate" value="创建新模板" />
       <text name="CreateReportTemplate" value="创建模板" />
       <text name="EditReportTemplate" value="编辑模板" />
@@ -16,8 +19,12 @@
       <text name="ReportTemplateInformations" value="报表模板信息" />
       <text name="TemplateName" value="模板名称" />
       <text name="Description" value="表述" />
-
-
+      <text name="CreatingNewTemplate" value="创建新模板" />
+      <text name="EditingTemplate" value="编辑模板" />
+      <text name="DeletingTemplate" value="删除模板" />
+      
+      
+      
       <text name="Category" value="分类" />
       <text name="ReportCategories" value="报表分类" />
       <text name="ReportManagerCategories" value="报表分类管理" />
@@ -28,10 +35,58 @@
       <text name="CategoryInformations" value="编辑分类信息" />
       <text name="CategoryName" value="分类名称" />
       <text name="ParentId" value="父级ID" />
+      
+      <text name="CreatingNewCategory" value="创建新分类" />
+      <text name="EditingCategory" value="编辑分类" />
+      <text name="DeletingCategory" value="删除分类" />
 
+
+
+
+
+
+
+
+      <text name="ReportDataSources" value="报表数据源" />
+      <text name="ReportManagerDataSources" value="报表数据源" />
+      <text name="CreatingNewDataSource" value="创建新数据源" />
+      <text name="CreateReportDataSource" value="创建新数据源" />
+      <text name="EditingDataSource" value="编辑数据源" />
+      <text name="EditReportDataSource" value="编辑数据源" />
+      <text name="DeletingDataSource" value="删除数据源" />
+      <text name="CreateNewDataSource" value="创建新数据源" />
+      <text name="ConnkeyName" value="连接字符串" />
+      <text name="TableName" value="表名称" />
+      <text name="CommandType" value="Command类型" />
+      <text name="CommandText" value="Command文本" />
+      <text name="DataSourceTable" value="数据源列表" />
+
+
+
+      <text name="ReportParameters" value="报表参数" />
+      <text name="ReportManagerParameters" value="报表参数" />
+      <text name="CreatingNewParameter" value="创建新参数" />
+      <text name="EditingParameter" value="编辑参数" />
+      <text name="EditReportParameter" value="编辑参数" />
+      <text name="DeletingParameter" value="删除参数" />
+      <text name="CreateNewParameter" value="创建新参数" />
+      <text name="CreateReportParameter" value="创建新参数" />
+      <text name="ParameterName" value="参数名称" />
+      <text name="ParamterType" value="参数类型" />
+      <text name="UiType" value="显示类型" />
+      <text name="ParameterTable" value="参数列表" />
+      <text name="LabelName" value="Label名称" />
+      <text name="DynamicSql" value="动态SQL" />
+      <text name="SortId" value="排序ID" />
+      <text name="ReportParameterInformations" value="数据源参数信息" />
+      
       
       
       <text name="ReportManagerDesigner" value="报表设计管理" />
 
+
+      <text name="Design" value="设计" /> 
+      <text name="Preview" value="预览" />
+      
     </texts>
 </localizationDictionary>

@@ -3045,6 +3045,7 @@
     <Compile Include="Areas\ReportManager\Controllers\DesignerController.cs" />
     <Compile Include="Areas\ReportManager\Controllers\DataSourceController.cs" />
     <Compile Include="Areas\ReportManager\Controllers\ParameterController.cs" />
+    <Compile Include="Areas\ReportManager\Controllers\PreviewerController.cs" />
     <Compile Include="Areas\ReportManager\Controllers\TemplateController.cs" />
     <Compile Include="Areas\ReportManager\ReportManagerAreaRegistration.cs" />
     <Compile Include="Models\Layout\TenantCustomCssViewModel.cs" />

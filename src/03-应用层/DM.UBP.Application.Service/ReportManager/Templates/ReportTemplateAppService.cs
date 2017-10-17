@@ -103,7 +103,7 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
         {
             string newTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
             StringBuilder xmlSB = new StringBuilder();
-            xmlSB.Append("<?xml version=\"1.0\" encoding=\"utf - 8\"?>");
+            xmlSB.Append("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             xmlSB.AppendFormat("<Report ScriptLanguage=\"CSharp\" ReportInfo.Created=\"{0}\" ReportInfo.Modified=\"{0}\" ReportInfo.CreatorVersion=\"2017.1.16.0\">", newTime);
             xmlSB.Append("<Dictionary/>");
             xmlSB.Append("<ReportPage Name=\"Page1\">");

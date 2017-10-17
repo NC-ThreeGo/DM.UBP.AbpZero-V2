@@ -52,7 +52,7 @@
             scriptUrl: abp.appPath + 'Areas/ReportManager/Views/Parameter/_CreateOrEditModal.js',
             modalClass: 'CreateOrEditModal'
         });
-        
+
         var _editModal = new app.ModalManager({
             viewUrl: abp.appPath + 'ReportManager/Template/EditModal',
             scriptUrl: abp.appPath + 'Areas/ReportManager/Views/Template/_CreateOrEditModal.js',
@@ -65,10 +65,21 @@
             modalClass: 'CreateOrEditModal'
         });
 
-        var _parameterEditModal = new app.ModalManager({
-            viewUrl: abp.appPath + 'ReportManager/Parameter/EditModal',
-            scriptUrl: abp.appPath + 'Areas/ReportManager/Views/Parameter/_CreateOrEditModal.js',
-            modalClass: 'CreateOrEditModal'
+        function openwin(url) {
+            //window.open('about:blank', name, 'height=400, width=400, top=0, left=0, toolbar=yes, menubar=yes, scrollbars=yes, resizable=yes,location=yes, status=yes');
+            var a = document.createElement("a");
+            a.setAttribute("href", url);
+            a.setAttribute("target", "_blank");
+            a.setAttribute("id", "openwin");
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        var _previewModal = new app.ModalManager({
+            viewUrl: abp.appPath + 'ReportManager/Preview/Index',
+            scriptUrl: abp.appPath + 'Areas/ReportManager/Views/Preview/Index.js',
+            modalClass: 'Index'
         });
 
         function getEntities() {
@@ -83,8 +94,7 @@
                     _$dataSourceTable.jtable('load', { id: record.id });
                 });
             }
-            else
-            {
+            else {
                 _$dataSourceTable.jtable('load');
             }
         }
@@ -125,8 +135,7 @@
                         _dataSourceCreateModal.open({ template_Id: record.id });
                     });
                 }
-                else
-                {
+                else {
                     abp.message.warn(app.localize('PleaseCheckOneTemplate'));
                     return;
                 }
@@ -134,7 +143,7 @@
         });
 
         $('#CreateNewParameterButton').click(function () {
-            if (_appParameterService.create) {
+            if (_parameterPermissions.create) {
                 var $selectedRows = _$entityTable.jtable('selectedRows');
                 if ($selectedRows.length > 0) {
                     $selectedRows.each(function () {
@@ -186,8 +195,26 @@
             );
         };
 
+        function deleteParameter(entity) {
+            abp.message.confirm(
+                app.localize('DeleteRecordWarningMessage'),
+                function (isConfirmed) {
+                    if (isConfirmed) {
+                        _appParameterService.deleteReportParameter({
+                            id: entity.id
+                        }).done(function () {
+                            getEntities();
+                            getDataSources();
+                            getParameters();
+                            abp.notify.success(app.localize('SuccessfullyDeleted'));
+                        });
+                    }
+                }
+            );
+        };
+
         _$entityTable.jtable({
-            title: app.localize('ReportTemplates'),
+            title: app.localize('ReportTemplateTable'),
             paging: true,
             sorting: true,
             multiSorting: true,
@@ -207,13 +234,33 @@
                     type: 'record-actions',
                     cssClass: 'btn btn-xs btn-primary blue',
                     text: '<i class="fa fa-cog"></i> ' + app.localize('Actions') + ' <span class="caret"></span>',
-                    items: [{
+                    items: [
+                        {
                         text: app.localize('Edit'),
                         visible: function () {
                             return _permissions.edit;
                         },
                         action: function (data) {
                             _editModal.open({ id: data.record.id });
+                        }
+                    },
+                    {
+                        text: app.localize('Design'),
+                        visible: function () {
+                            return _permissions.edit;
+                        },
+                        action: function (data) {
+                            //_designModal.open({ id: data.record.id });
+                            openwin(abp.appPath + 'ReportManager/Designer/Index?id=' + data.record.id);
+                        }
+                    },
+                    {
+                        text: app.localize('Preview'),
+                        visible: function () {
+                            return _permissions.edit;
+                        },
+                        action: function (data) {
+                            openwin(abp.appPath + 'ReportManager/Designer/Index?id=4' + data.record.id);
                         }
                     },
                     {
@@ -289,6 +336,7 @@
             },
             selectionChanged: function () {
                 getDataSources();
+                getParameters();
             }
         });
         _$dataSourceTable.jtable({
@@ -362,6 +410,30 @@
                     key: true,
                     list: false
                 },
+                actions: {
+                    sorting: false,
+                    type: 'record-actions',
+                    cssClass: 'btn btn-xs btn-primary blue',
+                    text: '<i class="fa fa-cog"></i> ' + app.localize('Actions') + ' <span class="caret"></span>',
+                    items: [{
+                        text: app.localize('Edit'),
+                        visible: function () {
+                            return _parameterPermissions.edit;
+                        },
+                        action: function (data) {
+                            _parameterEditModal.open({ id: data.record.id });
+                        }
+                    },
+                    {
+                        text: app.localize('Delete'),
+                        visible: function (data) {
+                            return _parameterPermissions.delete;
+                        },
+                        action: function (data) {
+                            deleteParameter(data.record);
+                        }
+                    }]
+                },
                 parameterName: {
                     title: app.localize('ParameterName'),
                     width: '25%',
@@ -369,10 +441,12 @@
                 paramterType: {
                     title: app.localize('ParamterType'),
                     width: '50%',
+                    options: { '1': '字符型', '2': '整型', '3': '浮点型', '4': '日期型', '5': '布尔型', '6': 'Guid型' }
                 },
                 uiType: {
                     title: app.localize('UiType'),
                     width: '25%',
+                    options: { '1': '文本框', '2': '多行文本', '3': '整数型', '4': '小数型', '5': '日期型', '6': '日期时间型', '7': '下拉框', '8': '多选下拉框', '9': '自动搜素下拉框', '10': '自动多选搜索下拉框' }
                 }
             }
         });
@@ -380,5 +454,6 @@
         getEntities();
         getDataSources();
         getParameters();
+        InitModal1();
     });
 })();

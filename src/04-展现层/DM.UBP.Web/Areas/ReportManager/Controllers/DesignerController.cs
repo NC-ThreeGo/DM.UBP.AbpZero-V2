@@ -10,49 +10,55 @@ using System.Data;
 using System;
 using System.IO;
 using FastReport.Data;
+using DM.UBP.Application.Service.ReportManager.Templates;
+using DM.UBP.Application.Dto.ReportManager.Templates;
 
 namespace DM.UBP.Web.Areas.ReportManager.Controllers
 {
     [AbpMvcAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Designer)]
     public class DesignerController : UBPControllerBase
     {
-        private IReportCategoryAppService _CategoryAppService;
+        private IReportTemplateAppService _TemplateAppService;
         public DesignerController(
            ICacheManager cacheManager,
-           IReportCategoryAppService categoryappservice
+           IReportTemplateAppService templateAppService
            )
         {
-            _CategoryAppService = categoryappservice;
+
+            _TemplateAppService = templateAppService;
         }
 
         private WebReport _webReport = new WebReport();
 
-        public ActionResult Index()
+        public ActionResult Index(long id)
         {
-            string report_path = Request.PhysicalApplicationPath;
+            //string report_path = Request.PhysicalApplicationPath;
 
-            DataSet ds = new DataSet();
-            ds.DataSetName = "BaseUsers";
-            DataTable dt = new DataTable();
-            dt.TableName = "BaseUsers";
-            dt.Columns.Add("Id");
-            dt.Columns.Add("Name");
+            //DataSet ds = new DataSet();
+            //ds.DataSetName = "BaseUsers";
+            //DataTable dt = new DataTable();
+            //dt.TableName = "BaseUsers";
+            //dt.Columns.Add("Id");
+            //dt.Columns.Add("Name");
 
-            for (int i = 0; i < 100; i++)
-            {
-                DataRow dr = dt.NewRow();
-                dr["Id"] = i.ToString();
-                dr["Name"] = "test" + i.ToString();
-                dt.Rows.Add(dr);
-            }
-            ds.Tables.Add(dt);
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    DataRow dr = dt.NewRow();
+            //    dr["Id"] = i.ToString();
+            //    dr["Name"] = "test" + i.ToString();
+            //    dt.Rows.Add(dr);
+            //}
+            //ds.Tables.Add(dt);
 
-            TableDataSource datasource = _webReport.Report.GetDataSource("protable") as TableDataSource;
+            //TableDataSource datasource = _webReport.Report.GetDataSource("protable") as TableDataSource;
 
-            _webReport.Report.RegisterData(ds, "BaseUsers");
-            _webReport.Report.Load(report_path + "/TemplateFile/getUsers.frx");
+            //_webReport.Report.RegisterData(ds, "BaseUsers");
 
-            _webReport.Width = 500;
+            var tempalte = _TemplateAppService.GetReportTemplateById(id);
+
+           _webReport.Report.Load(tempalte.Result.FilePath);
+
+            _webReport.Width = 900;
             _webReport.Height = 600;
 
             #region 预览
@@ -66,15 +72,20 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
             _webReport.DesignScriptCode = false;
             _webReport.Debug = true;
             _webReport.DesignerPath = "~/Areas/ReportManager/Views/WebReportDesigner/index.html";
-            _webReport.DesignerSaveCallBack = "/ReportManager/Designer/SaveDesignedReport";
+            _webReport.DesignerSaveCallBack = "/Areas/ReportManager/Designer/SaveDesignedReport";
             _webReport.ID = "DesignReport";
             _webReport.XlsxPageBreaks = false;
             _webReport.XlsxSeamless = true;
             #endregion
 
             ViewBag.WebReport = _webReport;
+            
+            var viewModel = new ReportTemplateOutputDto()
+            {
+                //给属性赋值
+            };
 
-            return View();
+            return View(viewModel);
         }
 
         [HttpPost]

@@ -21,6 +21,7 @@ using System.Linq;
 using System.Linq.Dynamic;
 using DM.UBP.Dto;
 using DM.UBP.Application.Service.ReportManager.Parameters;
+using DM.UBP.Application.Dto.ReportManager;
 
 namespace DM.UBP.Application.Service.ReportManager.Parameters
 {
@@ -99,6 +100,30 @@ namespace DM.UBP.Application.Service.ReportManager.Parameters
         {
             var entity = await _ReportParameterManager.GetReportParameterByIdAsync(input.Id);
             await _ReportParameterManager.DeleteReportParameterAsync(entity);
+        }
+
+        public List<ComboboxItemDto> GetParamterTypesToItem(int selectValue)
+        {
+            List<ComboboxItemDto> listItem = new List<ComboboxItemDto>();
+
+            foreach (var item in ReportDefine.ParamterTypes)
+            {
+                ComboboxItemDto comboxItem = new ComboboxItemDto(item.Value.ToString(), item.Key) { IsSelected = item.Value == selectValue };
+                listItem.Add(comboxItem);
+            }
+            return listItem;
+        }
+
+        public List<ComboboxItemDto> GetUiTypesToItem(int selectValue)
+        {
+            List<ComboboxItemDto> listItem = new List<ComboboxItemDto>();
+
+            foreach (var item in ReportDefine.UiTypes)
+            {
+                ComboboxItemDto comboxItem = new ComboboxItemDto(item.Value.ToString(), item.Key) { IsSelected = item.Value == selectValue };
+                listItem.Add(comboxItem);
+            }
+            return listItem;
         }
     }
 }

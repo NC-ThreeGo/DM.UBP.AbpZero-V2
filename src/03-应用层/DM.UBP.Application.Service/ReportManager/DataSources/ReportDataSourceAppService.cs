@@ -26,6 +26,10 @@ using DM.UBP.Common.DbHelper;
 using DM.UBP.Application.Dto.ReportManager;
 using Devart.Data.Oracle;
 using System.Text.RegularExpressions;
+using System;
+using System.Xml;
+using DM.UBP.Domain.Service.ReportManager.Templates;
+using System.Data;
 
 namespace DM.UBP.Application.Service.ReportManager.DataSources
 {
@@ -36,10 +40,13 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
     public class ReportDataSourceAppService : IReportDataSourceAppService
     {
         private readonly IReportDataSourceManager _ReportDataSourceManager;
+        private readonly IReportTemplateManager _ReportTemplateManager;
         public ReportDataSourceAppService(
-           IReportDataSourceManager reportdatasourcemanager
+           IReportDataSourceManager reportdatasourcemanager,
+           IReportTemplateManager reporttemplatemanager
            )
         {
+            _ReportTemplateManager = reporttemplatemanager;
             _ReportDataSourceManager = reportdatasourcemanager;
         }
 
@@ -90,10 +97,16 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
         [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_DataSources_Create)]
         public async Task<bool> CreateReportDataSource(ReportDataSourceInputDto input)
         {
-            //throw new UserFriendlyException("SQL错误");
-            
-
             var entity = input.MapTo<ReportDataSource>();
+            try
+            {
+                SetReportColumns(input);
+            }
+            catch (Exception ex)
+            {
+                throw new UserFriendlyException(ex.Message);
+            }
+
             return await _ReportDataSourceManager.CreateReportDataSourceAsync(entity);
         }
         [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_DataSources_Edit)]
@@ -102,8 +115,53 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
             var entity = await _ReportDataSourceManager.GetReportDataSourceByIdAsync(input.Id);
             input.MapTo(entity);
 
-            string sql = input.CommandText;
+            try
+            {
+                SetReportColumns(input);
+            }
+            catch (Exception ex)
+            {
+                throw new UserFriendlyException(ex.Message);
+            }
+            
+            return await _ReportDataSourceManager.UpdateReportDataSourceAsync(entity);
+        }
 
+        private void SetReportColumns(ReportDataSourceInputDto input)
+        {
+            
+            var template = _ReportTemplateManager.GetReportTemplateByIdAsync(input.Template_Id);
+
+            XmlDocument xmlReport = new XmlDocument();
+            xmlReport.Load(template.Result.FilePath);
+            XmlNode nodeDictionary = xmlReport.SelectSingleNode("/Report/Dictionary");
+
+            DelNodeDataSource(nodeDictionary, input.TableName);
+
+            XmlNode nodeDataSource = xmlReport.CreateElement("TableDataSource");
+            SetAttribute(nodeDataSource, "Name", input.TableName);
+            SetAttribute(nodeDataSource, "ReferenceName", input.TableName);
+            SetAttribute(nodeDataSource, "DataType", "System.Int32");
+            SetAttribute(nodeDataSource, "Enabled", "true");
+
+            var columns = GetColumns(input);
+            foreach (DataColumn column in columns)
+            {
+                XmlNode nodeColumn = xmlReport.CreateElement("Column");
+                SetAttribute(nodeColumn, "Name", column.ColumnName);
+                SetAttribute(nodeColumn, "DataType", column.DataType.FullName);
+
+                nodeDataSource.AppendChild(nodeColumn);
+            }
+
+            nodeDictionary.AppendChild(nodeDataSource);
+
+            xmlReport.Save(template.Result.FilePath);
+        }
+
+        private DataColumnCollection GetColumns(ReportDataSourceInputDto input)
+        {
+            string sql = input.CommandText;
             string conn = ConfigurationManager.ConnectionStrings[input.ConnkeyName].ConnectionString;
 
             List<string> resultP = new List<string>();
@@ -124,13 +182,56 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
                 input.CommandType == 1 ? System.Data.CommandType.Text : System.Data.CommandType.StoredProcedure,
                 paras);
 
-
-            return await _ReportDataSourceManager.UpdateReportDataSourceAsync(entity);
+            return table.Tables[0].Columns;
         }
+
+        private void DelNodeDataSource(XmlNode nodeDictionary, string tableName)
+        {
+            XmlNodeList nodeDataSources = nodeDictionary.SelectNodes("TableDataSource");
+            foreach (XmlElement node in nodeDataSources)
+            {
+                if (node.Attributes["Name"].Value == tableName &&
+                    node.Attributes["ReferenceName"].Value == tableName)
+                {
+                    nodeDictionary.RemoveChild(node);
+                    return;
+                }
+            }
+        }
+
+        private void SetAttribute(XmlNode node, string AttName, string AttValue)
+        {
+            if (node.Attributes[AttName] != null)
+            {
+                node.Attributes[AttName].Value = AttValue;
+                return;
+            }
+            XmlDocument xmlReport = new XmlDocument();
+            XmlAttribute att = node.OwnerDocument.CreateAttribute(AttName);
+            att.Value = AttValue;
+            node.Attributes.Append(att);
+        }
+
         [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_DataSources_Delete)]
         public async Task DeleteReportDataSource(EntityDto input)
         {
             var entity = await _ReportDataSourceManager.GetReportDataSourceByIdAsync(input.Id);
+
+            try
+            {
+                var template = _ReportTemplateManager.GetReportTemplateByIdAsync(entity.Template_Id);
+
+                XmlDocument xmlReport = new XmlDocument();
+                xmlReport.Load(template.Result.FilePath);
+                XmlNode nodeDictionary = xmlReport.SelectSingleNode("/Report/Dictionary");
+
+                DelNodeDataSource(nodeDictionary, entity.TableName);
+            }
+            catch (Exception ex)
+            {
+                throw new UserFriendlyException(ex.Message);
+            }
+
             await _ReportDataSourceManager.DeleteReportDataSourceAsync(entity);
         }
 

@@ -63,14 +63,15 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                         icon: "icon-layers",
                         requiredPermissionName: AppPermissions_ReportManager.Pages_ReportManager_Templates
                         )
-                   ).AddItem(new MenuItemDefinition(
-                        UbpMenu.ReportManagerDesigner,
-                        L("ReportManagerDesigner"),
-                        url: "ReportManager/Designer",
-                        icon: "icon-layers",
-                        requiredPermissionName: AppPermissions_ReportManager.Pages_ReportManager_Designer
-                        )
                    )
+                   //.AddItem(new MenuItemDefinition(
+                   //     UbpMenu.ReportManagerDesigner,
+                   //     L("ReportManagerDesigner"),
+                   //     url: "ReportManager/Designer",
+                   //     icon: "icon-layers",
+                   //     requiredPermissionName: AppPermissions_ReportManager.Pages_ReportManager_Designer
+                   //     )
+                   //)
                );
             }
         }

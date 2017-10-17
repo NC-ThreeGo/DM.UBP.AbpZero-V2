@@ -41,12 +41,19 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
         }
 
         [AbpMvcAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Parameters_Create)]
-        public PartialViewResult CreateModal()
+        public PartialViewResult CreateModal(long template_Id)
         {
             var viewModel = new ReportParameterOutputDto()
             {
                 //给属性赋值
+                Template_Id = template_Id
             };
+
+            var paramterTypes = _ReportParameterAppService.GetParamterTypesToItem(0);
+            ViewBag.ParamterTypes = paramterTypes;
+
+            var uiTypes = _ReportParameterAppService.GetUiTypesToItem(0);
+            ViewBag.UiTypes = uiTypes;
 
             return PartialView("_CreateOrEditModal", viewModel);
         }
@@ -55,6 +62,13 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
         public async Task<PartialViewResult> EditModal(long id)
         {
             var viewModel = await _ReportParameterAppService.GetReportParameterById(id);
+
+            var paramterTypes = _ReportParameterAppService.GetParamterTypesToItem(viewModel.ParamterType);
+            ViewBag.ParamterTypes = paramterTypes;
+
+            var uiTypes = _ReportParameterAppService.GetUiTypesToItem(viewModel.UiType);
+            ViewBag.UiTypes = uiTypes;
+
             return PartialView("_CreateOrEditModal", viewModel);
         }
 
