@@ -25,7 +25,7 @@ namespace DM.UBP.Domain.Service.ReportManager
         public const string Pages_ReportManager_Categories_Delete = "Pages.ReportManager.Categories.Delete";
 
         public const string Pages_ReportManager_Designer = "Pages.ReportManager.Designer";
-        public const string Pages_ReportManager_Previewer = "Pages.ReportManager.Previewer";
+        //public const string Pages_ReportManager_Previewer = "Pages.ReportManager.Previewer";
 
         public const string Pages_ReportManager_Templates = "Pages.ReportManager.Templates";
         public const string Pages_ReportManager_Templates_Create = "Pages.ReportManager.Templates.Create";

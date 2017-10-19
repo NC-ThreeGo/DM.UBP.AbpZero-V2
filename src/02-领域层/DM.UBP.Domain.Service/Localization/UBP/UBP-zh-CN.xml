@@ -48,7 +48,7 @@
 
 
       <text name="ReportDataSources" value="报表数据源" />
-      <text name="ReportManagerDataSources" value="报表数据源" />
+      <text name="ReportManagerDataSources" value="数据源表名可以不在数据库中存在，但是请保持唯一。" />
       <text name="CreatingNewDataSource" value="创建新数据源" />
       <text name="CreateReportDataSource" value="创建新数据源" />
       <text name="EditingDataSource" value="编辑数据源" />
@@ -78,7 +78,7 @@
       <text name="LabelName" value="Label名称" />
       <text name="DynamicSql" value="动态SQL" />
       <text name="SortId" value="排序ID" />
-      <text name="ReportParameterInformations" value="数据源参数信息" />
+      <text name="ReportParameterInformations" value="参数大小写必须和数据源中的一致，并且需要加前缀“:”。参数名请保持唯一。" />
       
       
       

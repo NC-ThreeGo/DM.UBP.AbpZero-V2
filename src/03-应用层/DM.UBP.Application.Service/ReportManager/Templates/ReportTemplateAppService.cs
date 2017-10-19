@@ -27,6 +27,7 @@ using System.IO;
 using AutoMapper;
 using DM.UBP.Application.Dto.ReportManager.DataSources;
 using DM.UBP.Domain.Service.ReportManager.DataSources;
+using System.Xml;
 
 namespace DM.UBP.Application.Service.ReportManager.Templates
 {
@@ -101,30 +102,35 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
 
         private string WriteFrxXml(string fileName)
         {
-            string newTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
-            StringBuilder xmlSB = new StringBuilder();
-            xmlSB.Append("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
-            xmlSB.AppendFormat("<Report ScriptLanguage=\"CSharp\" ReportInfo.Created=\"{0}\" ReportInfo.Modified=\"{0}\" ReportInfo.CreatorVersion=\"2017.1.16.0\">", newTime);
-            xmlSB.Append("<Dictionary/>");
-            xmlSB.Append("<ReportPage Name=\"Page1\">");
-            xmlSB.Append("<ReportTitleBand Name=\"ReportTitle1\" Width=\"718.2\" Height=\"37.8\"/>");
-            xmlSB.Append("<PageHeaderBand Name=\"PageHeader1\" Top=\"41.8\" Width=\"718.2\" Height=\"28.35\"/>");
-            xmlSB.Append("<DataBand Name=\"Data1\" Top=\"74.15\" Width=\"718.2\" Height=\"75.6\"/>");
-            xmlSB.Append("<PageFooterBand Name=\"PageFooter1\" Top=\"153.75\" Width=\"718.2\" Height=\"18.9\"/>");
-            xmlSB.Append("</ReportPage>");
-            xmlSB.Append("</Report>");
-
             string dirPath = System.AppDomain.CurrentDomain.BaseDirectory + "TemplateFiles\\";
             if (!Directory.Exists(dirPath))
                 Directory.CreateDirectory(dirPath);
 
             string filePath = dirPath + fileName;
 
-            using (StreamWriter writer_CS = new StreamWriter(filePath, false, System.Text.Encoding.GetEncoding("UTF-8")))
-            {
-                writer_CS.Write(xmlSB.ToString());
-                writer_CS.Close();
-            }
+            XmlDocument xmlReport = new XmlDocument();
+            xmlReport.Load(dirPath + "\\BlankReport.frx");
+            xmlReport.Save(filePath);
+
+
+            //string newTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
+            //StringBuilder xmlSB = new StringBuilder();
+            //xmlSB.Append("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+            //xmlSB.AppendFormat("<Report ScriptLanguage=\"CSharp\" ReportInfo.Created=\"{0}\" ReportInfo.Modified=\"{0}\" ReportInfo.CreatorVersion=\"2017.1.16.0\">", newTime);
+            //xmlSB.Append("<Dictionary/>");
+            //xmlSB.Append("<ReportPage Name=\"Page1\">");
+            //xmlSB.Append("<ReportTitleBand Name=\"ReportTitle1\" Width=\"718.2\" Height=\"37.8\"/>");
+            //xmlSB.Append("<PageHeaderBand Name=\"PageHeader1\" Top=\"41.8\" Width=\"718.2\" Height=\"28.35\"/>");
+            //xmlSB.Append("<DataBand Name=\"Data1\" Top=\"74.15\" Width=\"718.2\" Height=\"75.6\"/>");
+            //xmlSB.Append("<PageFooterBand Name=\"PageFooter1\" Top=\"153.75\" Width=\"718.2\" Height=\"18.9\"/>");
+            //xmlSB.Append("</ReportPage>");
+            //xmlSB.Append("</Report>");
+
+            //using (StreamWriter writer_CS = new StreamWriter(filePath, false, System.Text.Encoding.GetEncoding("UTF-8")))
+            //{
+            //    writer_CS.Write(xmlSB.ToString());
+            //    writer_CS.Close();
+            //}
 
             return filePath;
         }

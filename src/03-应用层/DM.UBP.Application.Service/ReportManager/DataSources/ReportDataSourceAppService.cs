@@ -30,6 +30,7 @@ using System;
 using System.Xml;
 using DM.UBP.Domain.Service.ReportManager.Templates;
 using System.Data;
+using DM.UBP.Domain.Service.ReportManager.Parameters;
 
 namespace DM.UBP.Application.Service.ReportManager.DataSources
 {
@@ -41,13 +42,16 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
     {
         private readonly IReportDataSourceManager _ReportDataSourceManager;
         private readonly IReportTemplateManager _ReportTemplateManager;
+        private readonly IReportParameterManager _ReportParameterManager;
         public ReportDataSourceAppService(
            IReportDataSourceManager reportdatasourcemanager,
-           IReportTemplateManager reporttemplatemanager
+           IReportTemplateManager reporttemplatemanager,
+           IReportParameterManager reportParameterManager
            )
         {
             _ReportTemplateManager = reporttemplatemanager;
             _ReportDataSourceManager = reportdatasourcemanager;
+            _ReportParameterManager = reportParameterManager;
         }
 
         public async Task<PagedResultDto<ReportDataSourceOutputDto>> GetReportDataSources()
@@ -139,17 +143,17 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
             DelNodeDataSource(nodeDictionary, input.TableName);
 
             XmlNode nodeDataSource = xmlReport.CreateElement("TableDataSource");
-            SetAttribute(nodeDataSource, "Name", input.TableName);
-            SetAttribute(nodeDataSource, "ReferenceName", input.TableName);
-            SetAttribute(nodeDataSource, "DataType", "System.Int32");
-            SetAttribute(nodeDataSource, "Enabled", "true");
+            SetNodeAttribute(nodeDataSource, "Name", input.TableName);
+            SetNodeAttribute(nodeDataSource, "ReferenceName", "ds_" + input.TableName + "." + "dt_" + input.TableName);
+            SetNodeAttribute(nodeDataSource, "DataType", "System.Int32");
+            SetNodeAttribute(nodeDataSource, "Enabled", "true");
 
-            var columns = GetColumns(input);
+            var columns = GetColumnsByDataSource(input);
             foreach (DataColumn column in columns)
             {
                 XmlNode nodeColumn = xmlReport.CreateElement("Column");
-                SetAttribute(nodeColumn, "Name", column.ColumnName);
-                SetAttribute(nodeColumn, "DataType", column.DataType.FullName);
+                SetNodeAttribute(nodeColumn, "Name", column.ColumnName);
+                SetNodeAttribute(nodeColumn, "DataType", column.DataType.FullName);
 
                 nodeDataSource.AppendChild(nodeColumn);
             }
@@ -159,24 +163,17 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
             xmlReport.Save(template.Result.FilePath);
         }
 
-        private DataColumnCollection GetColumns(ReportDataSourceInputDto input)
+        private DataColumnCollection GetColumnsByDataSource(ReportDataSourceInputDto input)
         {
             string sql = input.CommandText;
             string conn = ConfigurationManager.ConnectionStrings[input.ConnkeyName].ConnectionString;
 
-            List<string> resultP = new List<string>();
-            Regex paramReg = new Regex(@"(?<!:)[^\w:]:(?!:)[\w:]+");
-            MatchCollection matches = paramReg.Matches(sql);
-            foreach (Match m in matches)
-            {
-                resultP.Add(m.Groups[0].Value.Substring(m.Groups[0].Value.IndexOf(":")));
-            }
+            List<string> resultP = GetParamsBySql(sql);
             OracleParameter[] paras = new OracleParameter[resultP.Count];
             for (int i = 0; i < resultP.Count; i++)
             {
                 paras[i] = new OracleParameter { ParameterName = resultP[i], Value = "" };
             }
-
             var table = OracleDbHelper.ExecuteDataset(conn,
                 sql,
                 input.CommandType == 1 ? System.Data.CommandType.Text : System.Data.CommandType.StoredProcedure,
@@ -191,7 +188,7 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
             foreach (XmlElement node in nodeDataSources)
             {
                 if (node.Attributes["Name"].Value == tableName &&
-                    node.Attributes["ReferenceName"].Value == tableName)
+                    node.Attributes["ReferenceName"].Value == "ds_" + tableName + "." + "dt_" + tableName)
                 {
                     nodeDictionary.RemoveChild(node);
                     return;
@@ -199,7 +196,7 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
             }
         }
 
-        private void SetAttribute(XmlNode node, string AttName, string AttValue)
+        private void SetNodeAttribute(XmlNode node, string AttName, string AttValue)
         {
             if (node.Attributes[AttName] != null)
             {
@@ -210,6 +207,18 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
             XmlAttribute att = node.OwnerDocument.CreateAttribute(AttName);
             att.Value = AttValue;
             node.Attributes.Append(att);
+        }
+
+        private List<string> GetParamsBySql(string sql)
+        {
+            List<string> resultP = new List<string>();
+            Regex paramReg = new Regex(@"(?<!:)[^\w:]:(?!:)[\w:]+");
+            MatchCollection matches = paramReg.Matches(sql);
+            foreach (Match m in matches)
+            {
+                resultP.Add(m.Groups[0].Value.Substring(m.Groups[0].Value.IndexOf(":")));
+            }
+            return resultP;
         }
 
         [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_DataSources_Delete)]
@@ -259,5 +268,95 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
             return listItem;
         }
 
+
+        public async Task<List<DataSet>> GetDataSource(long template_Id, Dictionary<string, string> dicParameters)
+        {
+            var entityParameters = await _ReportParameterManager.GetAllReportParametersAsync();
+            var parameters = entityParameters.Where(d => d.Template_Id == template_Id).OrderBy(d => d.Id);
+
+            var entityDataSources = await _ReportDataSourceManager.GetAllReportDataSourcesAsync();
+            var dataSources = entityDataSources.Where(d => d.Template_Id == template_Id).OrderBy(d => d.Id);
+
+            List<DataSet> listDs = new List<DataSet>();
+            foreach (var dataSource in dataSources)
+            {
+                string sql = dataSource.CommandText;
+                string conn = ConfigurationManager.ConnectionStrings[dataSource.ConnkeyName].ConnectionString;
+
+                List<string> resultP = GetParamsBySql(sql);
+
+                OracleParameter[] paras = new OracleParameter[resultP.Count];
+                for (int i = 0; i < resultP.Count; i++)
+                {
+                    var dataParam = parameters.Where(p => p.ParameterName.ToUpper() == resultP[i].ToUpper());
+                    if (dataParam.Count() == 0)
+                        continue;
+
+                    #region 判断类型
+                    switch (dataParam.First().ParamterType)
+                    {
+                        case 1:
+                            paras[i] = new OracleParameter
+                            {
+                                ParameterName = resultP[i],
+                                Value = dicParameters[resultP[i]]
+                            };
+                            break;
+                        case 2:
+                            paras[i] = new OracleParameter
+                            {
+                                ParameterName = resultP[i],
+                                Value = Convert.ToInt32(dicParameters[resultP[i]])
+                            };
+                            break;
+                        case 3:
+                            paras[i] = new OracleParameter
+                            {
+                                ParameterName = resultP[i],
+                                Value = Convert.ToDecimal(dicParameters[resultP[i]])
+                            };
+                            break;
+                        case 4:
+                            paras[i] = new OracleParameter
+                            {
+                                ParameterName = resultP[i],
+                                Value = Convert.ToDateTime(dicParameters[resultP[i]])
+                            };
+                            break;
+                        case 5:
+                            paras[i] = new OracleParameter
+                            {
+                                ParameterName = resultP[i],
+                                Value = Convert.ToBoolean(dicParameters[resultP[i]])
+                            };
+                            break;
+                        case 6:
+                            paras[i] = new OracleParameter
+                            {
+                                ParameterName = resultP[i],
+                                Value = new Guid(dicParameters[resultP[i]])
+                            };
+                            break;
+                        default:
+                            paras[i] = new OracleParameter
+                            {
+                                ParameterName = resultP[i],
+                                Value = dicParameters[resultP[i]]
+                            };
+                            break;
+                    }
+                    #endregion
+
+                }
+                var dataSet = OracleDbHelper.ExecuteDataset(conn,
+                    sql,
+                    dataSource.CommandType == 1 ? System.Data.CommandType.Text : System.Data.CommandType.StoredProcedure,
+                    paras);
+                dataSet.Tables[0].TableName = "dt_" + dataSource.TableName;
+                dataSet.DataSetName = "ds_" + dataSource.TableName;
+                listDs.Add(dataSet);
+            }
+            return await Task.FromResult(listDs);
+        }
     }
 }

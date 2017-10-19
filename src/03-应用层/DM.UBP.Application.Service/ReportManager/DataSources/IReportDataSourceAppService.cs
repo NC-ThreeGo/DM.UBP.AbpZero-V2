@@ -13,6 +13,7 @@ using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using DM.UBP.Application.Dto.ReportManager.DataSources;
 using DM.UBP.Dto;
+using System.Data;
 
 namespace DM.UBP.Application.Service.ReportManager.DataSources
 {
@@ -38,5 +39,7 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
         List<ComboboxItemDto> GetConnkeysToItem(string selectValue);
 
         List<ComboboxItemDto> GetCommandTypesToItem(int selectValue);
+
+        Task<List<DataSet>> GetDataSource(long template_Id, Dictionary<string, string> dicParameters);
     }
 }

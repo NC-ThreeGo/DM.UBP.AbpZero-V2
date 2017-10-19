@@ -56,9 +56,9 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
 
             var tempalte = _TemplateAppService.GetReportTemplateById(id);
 
-           _webReport.Report.Load(tempalte.Result.FilePath);
+            _webReport.Report.Load(tempalte.Result.FilePath);
 
-            _webReport.Width = 900;
+            _webReport.Width = 930;
             _webReport.Height = 600;
 
             #region 预览
@@ -72,14 +72,14 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
             _webReport.DesignScriptCode = false;
             _webReport.Debug = true;
             _webReport.DesignerPath = "~/Areas/ReportManager/Views/WebReportDesigner/index.html";
-            _webReport.DesignerSaveCallBack = "/Areas/ReportManager/Designer/SaveDesignedReport";
+            _webReport.DesignerSaveCallBack = "~/Areas/ReportManager/Designer/SaveDesignedReport";
             _webReport.ID = "DesignReport";
             _webReport.XlsxPageBreaks = false;
             _webReport.XlsxSeamless = true;
             #endregion
-
-            ViewBag.WebReport = _webReport;
             
+            ViewBag.WebReport = _webReport;
+
             var viewModel = new ReportTemplateOutputDto()
             {
                 //给属性赋值
@@ -87,6 +87,8 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
 
             return View(viewModel);
         }
+
+        //private void save
 
         [HttpPost]
         public ActionResult SaveDesignedReport(string reportID, string reportUUID)

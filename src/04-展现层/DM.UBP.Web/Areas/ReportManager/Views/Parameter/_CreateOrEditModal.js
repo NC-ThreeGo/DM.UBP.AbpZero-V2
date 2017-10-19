@@ -17,7 +17,7 @@
         this.init = function (modalManager) {
             _modalManager = modalManager;
 
-            _$formInfo = _modalManager.getModal().find('form[name=EntityOptInformationsForm]');
+            _$formInfo = _modalManager.getModal().find('form[name=ParameterForm]');
 
             _$formInfo.validate();
         };

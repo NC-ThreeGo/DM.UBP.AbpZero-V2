@@ -65,6 +65,12 @@
             modalClass: 'CreateOrEditModal'
         });
 
+        var _parameterEditModal = new app.ModalManager({
+            viewUrl: abp.appPath + 'ReportManager/Parameter/EditModal',
+            scriptUrl: abp.appPath + 'Areas/ReportManager/Views/Parameter/_CreateOrEditModal.js',
+            modalClass: 'CreateOrEditModal'
+        });
+
         function openwin(url) {
             //window.open('about:blank', name, 'height=400, width=400, top=0, left=0, toolbar=yes, menubar=yes, scrollbars=yes, resizable=yes,location=yes, status=yes');
             var a = document.createElement("a");
@@ -77,9 +83,9 @@
         }
 
         var _previewModal = new app.ModalManager({
-            viewUrl: abp.appPath + 'ReportManager/Preview/Index',
-            scriptUrl: abp.appPath + 'Areas/ReportManager/Views/Preview/Index.js',
-            modalClass: 'Index'
+            viewUrl: abp.appPath + 'ReportManager/Previewer/PreviewParameterModal',
+            scriptUrl: abp.appPath + 'Areas/ReportManager/Views/Previewer/_PreviewParameterModal.js',
+            modalClass: 'PreviewParameterModal'
         });
 
         function getEntities() {
@@ -260,7 +266,8 @@
                             return _permissions.edit;
                         },
                         action: function (data) {
-                            openwin(abp.appPath + 'ReportManager/Designer/Index?id=4' + data.record.id);
+                            _previewModal.open({ id: data.record.id });
+                            //openwin(abp.appPath + 'ReportManager/Previewer/Index?id=' + data.record.id);
                         }
                     },
                     {
