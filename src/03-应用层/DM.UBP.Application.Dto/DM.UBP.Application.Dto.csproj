@@ -55,6 +55,7 @@
     <Compile Include="ReportManager\Parameters\ReportParameterInputDto.cs" />
     <Compile Include="ReportManager\Parameters\ReportParameterOutputDto.cs" />
     <Compile Include="ReportManager\ReportDefine.cs" />
+    <Compile Include="ReportManager\Templates\ReportListInputDto.cs" />
     <Compile Include="ReportManager\Templates\ReportTemplateInputDto.cs" />
     <Compile Include="ReportManager\Templates\ReportTemplateOutputDto.cs" />
     <Compile Include="UbpApplicationDtoModule.cs" />

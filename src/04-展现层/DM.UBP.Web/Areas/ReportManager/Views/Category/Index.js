@@ -106,14 +106,14 @@
                     title: app.localize('CategoryName'),
                     width: '50%',
                 },
-                parentId: {
-                    title: app.localize('ParentId'),
-                    width: '25%',
-                },
-                code: {
-                    title: app.localize('Code'),
-                    width: '25%',
-                },
+                //parentId: {
+                //    title: app.localize('ParentId'),
+                //    width: '25%',
+                //},
+                //code: {
+                //    title: app.localize('Code'),
+                //    width: '25%',
+                //},
             }
         });
 

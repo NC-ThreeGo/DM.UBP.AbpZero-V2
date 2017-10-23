@@ -82,12 +82,16 @@ namespace DM.UBP.Application.Service.ReportManager.Categories
         [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Categories_Create)]
         public async Task<bool> CreateCategory(ReportCategoryInputDto input)
         {
+            input.ParentId = 0;
+            input.Code = "0000";
             var entity = input.MapTo<ReportCategory>();
             return await _CategoryManager.CreateCategoryAsync(entity);
         }
         [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Categories_Edit)]
         public async Task<bool> UpdateCategory(ReportCategoryInputDto input)
         {
+            input.ParentId = 0;
+            input.Code = "0000";
             var entity = await _CategoryManager.GetCategoryByIdAsync(input.Id);
             input.MapTo(entity);
             return await _CategoryManager.UpdateCategoryAsync(entity);

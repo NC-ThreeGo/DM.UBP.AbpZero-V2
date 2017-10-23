@@ -42,14 +42,14 @@
                         <input type="text" name="CategoryName" class="form-control@(Model.CategoryName.IsNullOrEmpty() ? "" : " edited")" value="@Model.CategoryName"  required maxlength="@StringMaxLengthConst.MaxStringLength100">
                         <label>@L("CategoryName")</label>
                     </div>
-                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                    @*<div class="form-group form-md-line-input form-md-floating-label no-hint">
                         <input type="text" name="ParentId" class="form-control@(Model.ParentId == 0 ? "" : " edited")" value="@Model.ParentId">
                         <label>@L("ParentId")</label>
                     </div>
                     <div class="form-group form-md-line-input form-md-floating-label no-hint">
                         <input type="text" name="Code" class="form-control@(Model.Code.IsNullOrEmpty() ? "" : " edited")" value="@Model.Code">
                         <label>@L("Code")</label>
-                    </div>
+                    </div>*@
 
                 </form>
             </div>

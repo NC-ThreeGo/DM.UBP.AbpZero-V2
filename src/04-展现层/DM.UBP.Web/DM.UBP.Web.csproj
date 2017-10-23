@@ -495,7 +495,9 @@
     <Content Include="Areas\ReportManager\Views\DataSource\_CreateOrEditModal.js" />
     <Content Include="Areas\ReportManager\Views\Parameter\Index.js" />
     <Content Include="Areas\ReportManager\Views\Parameter\_CreateOrEditModal.js" />
+    <Content Include="Areas\ReportManager\Views\Previewer\ReportList.cshtml" />
     <None Include="Areas\ReportManager\Views\Previewer\_PreviewParameterModal.cshtml" />
+    <Content Include="Areas\ReportManager\Views\Previewer\ReportList.js" />
     <Content Include="Areas\ReportManager\Views\Previewer\_PreviewParameterModal.js" />
     <Content Include="Areas\ReportManager\Views\Template\Index.js" />
     <Content Include="Areas\ReportManager\Views\Template\_CreateOrEditModal.js" />

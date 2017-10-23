@@ -25,6 +25,8 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
 
         Task<PagedResultDto<ReportTemplateOutputDto>> GetReportTemplates(PagedAndSortedInputDto input);
 
+        Task<PagedResultDto<ReportTemplateOutputDto>> GetReportList(ReportListInputDto input);
+
         Task<ReportTemplateOutputDto> GetReportTemplateById(long id);
 
         Task<bool> CreateReportTemplate(ReportTemplateInputDto input);

@@ -36,7 +36,7 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                     reports.AddItem(new MenuItemDefinition(
                         UbpMenu.Reports + "." + category.CategoryName,
                         L(category.CategoryName),
-                        url: "ReportManager/Category",
+                        url: "ReportManager/Previewer/ReportList?categoryId=" + category.Id,
                         icon: "icon-layers",
                         requiredPermissionName: "Pages.ReportManager.Reports." + category.CategoryName
                         ));

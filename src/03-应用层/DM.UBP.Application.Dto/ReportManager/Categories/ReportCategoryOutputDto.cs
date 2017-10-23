@@ -26,11 +26,9 @@ namespace DM.UBP.Application.Dto.ReportManager.Categories
         [Required]
         public string CategoryName { get; set; }
 
-        [Required]
         public long ParentId { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength1000)]
-        [Required]
         public string Code { get; set; }
 
         public int? TenantId { get; set; }

@@ -1,7 +1,9 @@
 ﻿using Abp.Runtime.Caching;
 using Abp.Web.Mvc.Authorization;
 using DM.Common.Extensions;
+using DM.UBP.Application.Dto.ReportManager.Categories;
 using DM.UBP.Application.Dto.ReportManager.Templates;
+using DM.UBP.Application.Service.ReportManager.Categories;
 using DM.UBP.Application.Service.ReportManager.DataSources;
 using DM.UBP.Application.Service.ReportManager.Parameters;
 using DM.UBP.Application.Service.ReportManager.Templates;
@@ -24,17 +26,20 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
         private IReportTemplateAppService _TemplateAppService;
         private IReportParameterAppService _ParameterAppService;
         private IReportDataSourceAppService _DataSourceAppService;
+        private IReportCategoryAppService _CategoryAppService;
         public PreviewerController(
            ICacheManager cacheManager,
            IReportTemplateAppService templateAppService,
            IReportParameterAppService parameterAppService,
-           IReportDataSourceAppService dataSourceAppService
+           IReportDataSourceAppService dataSourceAppService,
+           IReportCategoryAppService categoryAppService
            )
         {
 
             _TemplateAppService = templateAppService;
             _ParameterAppService = parameterAppService;
             _DataSourceAppService = dataSourceAppService;
+            _CategoryAppService = categoryAppService;
         }
 
         private WebReport _webReport = new WebReport();
@@ -128,5 +133,10 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
         }
 
 
+        public ActionResult ReportList(long categoryId)
+        {
+            var model = _CategoryAppService.GetCategoryById(categoryId).Result;
+            return View(model);
+        }
     }
 }

@@ -43,7 +43,7 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
         {
             var viewModel = new ReportCategoryOutputDto()
             {
-                //给属性赋值
+                
             };
 
             return PartialView("_CreateOrEditModal", viewModel);

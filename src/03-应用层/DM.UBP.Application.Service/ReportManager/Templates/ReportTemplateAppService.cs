@@ -86,6 +86,26 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
             pageEntities.ToList()
             );
         }
+
+        public async Task<PagedResultDto<ReportTemplateOutputDto>> GetReportList(ReportListInputDto input)
+        {
+            var templateEntities = await _ReportTemplateManager.GetAllReportTemplatesAsync();
+            var entities = await Task.FromResult(templateEntities.Where(t => t.Category_Id == input.CategoryId));
+
+
+            if (string.IsNullOrEmpty(input.Sorting))
+                input.Sorting = "Id";
+            var orderEntities = await Task.FromResult(entities.OrderBy(input.Sorting));
+            var pageEntities = await Task.FromResult(orderEntities.Skip(input.SkipCount).Take(input.MaxResultCount));
+
+            var listDto = pageEntities.MapTo<List<ReportTemplateOutputDto>>();
+
+            return new PagedResultDto<ReportTemplateOutputDto>(
+            orderEntities.Count(),
+            listDto.ToList()
+            );
+        }
+
         public async Task<ReportTemplateOutputDto> GetReportTemplateById(long id)
         {
             var entity = await _ReportTemplateManager.GetReportTemplateByIdAsync(id);
