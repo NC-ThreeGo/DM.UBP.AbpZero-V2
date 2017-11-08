@@ -1,83 +1,107 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="05/26/2017 09:35:51" ReportInfo.Modified="10/19/2017 17:18:02" ReportInfo.CreatorVersion="2017.1.16.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/26/2017 09:35:51" ReportInfo.Modified="10/30/2017 17:08:54" ReportInfo.CreatorVersion="2017.1.16.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void Text5_Click(object sender, EventArgs e)
+    {
+        TextObject tb = sender as TextObject;
+        //System.Diagnostics.Process.Start(&quot;http://www.baidu.com/&quot;);  
+        Decimal groupName = ((Decimal)Report.GetColumnValue(&quot;abpusers.ID&quot;));
+        //MessageBox.Show( tb.Text );
+        MessageBox.Show( groupName.ToString() );
+    }
+  }
+}
+</ScriptText>
   <Dictionary>
-    <TableDataSource Name=" abproles" ReferenceName="ds_ abproles.dt_ abproles" DataType="System.Int32" Enabled="true">
-      <Column Name="ID" DataType="System.Double" />
-      <Column Name="TENANTID" DataType="System.Double" />
-      <Column Name="NAME" DataType="System.String" />
-      <Column Name="DISPLAYNAME" DataType="System.String" />
-      <Column Name="ISSTATIC" DataType="System.Int32" />
-      <Column Name="ISDEFAULT" DataType="System.Int32" />
-      <Column Name="ISDELETED" DataType="System.Int32" />
-      <Column Name="DELETERUSERID" DataType="System.Decimal" />
-      <Column Name="DELETIONTIME" DataType="System.DateTime" />
-      <Column Name="LASTMODIFICATIONTIME" DataType="System.DateTime" />
-      <Column Name="LASTMODIFIERUSERID" DataType="System.Decimal" />
-      <Column Name="CREATIONTIME" DataType="System.DateTime" />
-      <Column Name="CREATORUSERID" DataType="System.Decimal" />
+    <TableDataSource Name="abpusers" ReferenceName="ds_abpusers.dt_abpusers" DataType="System.Int32" Enabled="true">
+      <Column Name="ID" DataType="System.Decimal"/>
+      <Column Name="PROFILEPICTUREID" DataType="System.Byte[]"/>
+      <Column Name="SHOULDCHANGEPWDONNEXTLOGIN" DataType="System.Int32"/>
+      <Column Name="AUTHENTICATIONSOURCE" DataType="System.String"/>
+      <Column Name="USERNAME" DataType="System.String"/>
+      <Column Name="TENANTID" DataType="System.Double"/>
+      <Column Name="EMAILADDRESS" DataType="System.String"/>
+      <Column Name="NAME" DataType="System.String"/>
+      <Column Name="SURNAME" DataType="System.String"/>
+      <Column Name="PASSWORD" DataType="System.String"/>
+      <Column Name="EMAILCONFIRMATIONCODE" DataType="System.String"/>
+      <Column Name="PASSWORDRESETCODE" DataType="System.String"/>
+      <Column Name="LOCKOUTENDDATEUTC" DataType="System.DateTime"/>
+      <Column Name="ACCESSFAILEDCOUNT" DataType="System.Double"/>
+      <Column Name="ISLOCKOUTENABLED" DataType="System.Int32"/>
+      <Column Name="PHONENUMBER" DataType="System.String"/>
+      <Column Name="ISPHONENUMBERCONFIRMED" DataType="System.Int32"/>
+      <Column Name="SECURITYSTAMP" DataType="System.String"/>
+      <Column Name="ISTWOFACTORENABLED" DataType="System.Int32"/>
+      <Column Name="ISEMAILCONFIRMED" DataType="System.Int32"/>
+      <Column Name="ISACTIVE" DataType="System.Int32"/>
+      <Column Name="LASTLOGINTIME" DataType="System.DateTime"/>
+      <Column Name="ISDELETED" DataType="System.Int32"/>
+      <Column Name="DELETERUSERID" DataType="System.Decimal"/>
+      <Column Name="DELETIONTIME" DataType="System.DateTime"/>
+      <Column Name="LASTMODIFICATIONTIME" DataType="System.DateTime"/>
+      <Column Name="LASTMODIFIERUSERID" DataType="System.Decimal"/>
+      <Column Name="CREATIONTIME" DataType="System.DateTime"/>
+      <Column Name="CREATORUSERID" DataType="System.Decimal"/>
     </TableDataSource>
     <TableDataSource Name="abproles" ReferenceName="ds_abproles.dt_abproles" DataType="System.Int32" Enabled="true">
-      <Column Name="ID" DataType="System.Double" />
-      <Column Name="TENANTID" DataType="System.Double" />
-      <Column Name="NAME" DataType="System.String" />
-      <Column Name="DISPLAYNAME" DataType="System.String" />
-      <Column Name="ISSTATIC" DataType="System.Int32" />
-      <Column Name="ISDEFAULT" DataType="System.Int32" />
-      <Column Name="ISDELETED" DataType="System.Int32" />
-      <Column Name="DELETERUSERID" DataType="System.Decimal" />
-      <Column Name="DELETIONTIME" DataType="System.DateTime" />
-      <Column Name="LASTMODIFICATIONTIME" DataType="System.DateTime" />
-      <Column Name="LASTMODIFIERUSERID" DataType="System.Decimal" />
-      <Column Name="CREATIONTIME" DataType="System.DateTime" />
-      <Column Name="CREATORUSERID" DataType="System.Decimal" />
-    </TableDataSource>
-    <TableDataSource Name="abpusers" ReferenceName="ds_abpusers.dt_abpusers" DataType="System.Int32" Enabled="true">
-      <Column Name="ID" DataType="System.Decimal" />
-      <Column Name="PROFILEPICTUREID" DataType="System.Byte[]" />
-      <Column Name="SHOULDCHANGEPWDONNEXTLOGIN" DataType="System.Int32" />
-      <Column Name="AUTHENTICATIONSOURCE" DataType="System.String" />
-      <Column Name="USERNAME" DataType="System.String" />
-      <Column Name="TENANTID" DataType="System.Double" />
-      <Column Name="EMAILADDRESS" DataType="System.String" />
-      <Column Name="NAME" DataType="System.String" />
-      <Column Name="SURNAME" DataType="System.String" />
-      <Column Name="PASSWORD" DataType="System.String" />
-      <Column Name="EMAILCONFIRMATIONCODE" DataType="System.String" />
-      <Column Name="PASSWORDRESETCODE" DataType="System.String" />
-      <Column Name="LOCKOUTENDDATEUTC" DataType="System.DateTime" />
-      <Column Name="ACCESSFAILEDCOUNT" DataType="System.Double" />
-      <Column Name="ISLOCKOUTENABLED" DataType="System.Int32" />
-      <Column Name="PHONENUMBER" DataType="System.String" />
-      <Column Name="ISPHONENUMBERCONFIRMED" DataType="System.Int32" />
-      <Column Name="SECURITYSTAMP" DataType="System.String" />
-      <Column Name="ISTWOFACTORENABLED" DataType="System.Int32" />
-      <Column Name="ISEMAILCONFIRMED" DataType="System.Int32" />
-      <Column Name="ISACTIVE" DataType="System.Int32" />
-      <Column Name="LASTLOGINTIME" DataType="System.DateTime" />
-      <Column Name="ISDELETED" DataType="System.Int32" />
-      <Column Name="DELETERUSERID" DataType="System.Decimal" />
-      <Column Name="DELETIONTIME" DataType="System.DateTime" />
-      <Column Name="LASTMODIFICATIONTIME" DataType="System.DateTime" />
-      <Column Name="LASTMODIFIERUSERID" DataType="System.Decimal" />
-      <Column Name="CREATIONTIME" DataType="System.DateTime" />
-      <Column Name="CREATORUSERID" DataType="System.Decimal" />
+      <Column Name="ID" DataType="System.Double"/>
+      <Column Name="TENANTID" DataType="System.Double"/>
+      <Column Name="NAME" DataType="System.String"/>
+      <Column Name="DISPLAYNAME" DataType="System.String"/>
+      <Column Name="ISSTATIC" DataType="System.Int32"/>
+      <Column Name="ISDEFAULT" DataType="System.Int32"/>
+      <Column Name="ISDELETED" DataType="System.Int32"/>
+      <Column Name="DELETERUSERID" DataType="System.Decimal"/>
+      <Column Name="DELETIONTIME" DataType="System.DateTime"/>
+      <Column Name="LASTMODIFICATIONTIME" DataType="System.DateTime"/>
+      <Column Name="LASTMODIFIERUSERID" DataType="System.Decimal"/>
+      <Column Name="CREATIONTIME" DataType="System.DateTime"/>
+      <Column Name="CREATORUSERID" DataType="System.Decimal"/>
     </TableDataSource>
   </Dictionary>
   <ReportPage Name="Page1">
     <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="75.6">
-      <TextObject Name="Text1" Left="236.25" Top="28.35" Width="179.55" Height="37.8" Text="用户列表" HorzAlign="Center" VertAlign="Center" Font="宋体, 16pt" />
+      <TextObject Name="Text8" Left="226.8" Top="28.35" Width="179.55" Height="37.8" Text="角色列表" HorzAlign="Center" VertAlign="Center" Font="宋体, 16pt"/>
     </ReportTitleBand>
     <PageHeaderBand Name="PageHeader1" Top="79.6" Width="718.2" Height="28.35">
-      <TextObject Name="Text2" Top="9.45" Width="94.5" Height="18.9" Text="用户ID" HorzAlign="Center" VertAlign="Center" />
-      <TextObject Name="Text3" Left="94.5" Top="9.45" Width="94.5" Height="18.9" Text="用户名称" HorzAlign="Center" VertAlign="Center" />
+      <TextObject Name="Text10" Left="132.3" Top="9.45" Width="94.5" Height="18.9" Text="DISPLAYNAME"/>
     </PageHeaderBand>
-    <DataBand Name="Data1" Top="111.95" Width="718.2" Height="75.6" DataSource="abpusers">
-      <TextObject Name="Text4" Width="94.5" Height="18.9" Text="[abpusers.ID]" HorzAlign="Center" VertAlign="Center" />
-      <TextObject Name="Text5" Left="94.5" Width="94.5" Height="18.9" Text="[abpusers.NAME]" HorzAlign="Center" VertAlign="Center" />
+    <DataBand Name="Data1" Top="111.95" Width="718.2" Height="75.6" DataSource="abproles">
+      <TextObject Name="Text9" Left="132.3" Width="94.5" Height="18.9" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.DetailPageName="Page2" Text="[abproles.DISPLAYNAME]" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
     </DataBand>
-    <DataBand Name="Data2" Top="191.55" Width="718.2" Height="37.8" DataSource="abproles">
-      <TextObject Name="Text6" Top="9.45" Width="94.5" Height="18.9" Text="[abproles.DISPLAYNAME]" HorzAlign="Center" VertAlign="Center" />
+    <PageFooterBand Name="PageFooter1" Top="191.55" Width="718.2" Height="18.9"/>
+  </ReportPage>
+  <ReportPage Name="Page2" Visible="false">
+    <ReportTitleBand Name="ReportTitle2" Width="718.2" Height="37.8">
+      <TextObject Name="Text1" Left="245.7" Width="179.55" Height="37.8" Text="用户列表" HorzAlign="Center" VertAlign="Center" Font="宋体, 16pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader2" Top="41.8" Width="718.2" Height="28.35">
+      <TextObject Name="Text2" Left="9.45" Top="9.45" Width="103.95" Height="18.9" Text="用户ID" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text3" Left="160.65" Top="9.45" Width="151.2" Height="18.9" Text="用户名称" HorzAlign="Center" VertAlign="Center"/>
+    </PageHeaderBand>
+    <DataBand Name="Data3" Top="74.15" Width="718.2" Height="75.6" DataSource="abpusers">
+      <TextObject Name="Text4" Left="9.45" Width="103.95" Height="18.9" Text="[abpusers.ID]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="160.65" Width="151.2" Height="18.9" ClickEvent="Text5_Click" Text="[abpusers.NAME]" HorzAlign="Center" VertAlign="Center"/>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="233.35" Width="718.2" Height="18.9" />
+    <PageFooterBand Name="PageFooter2" Top="153.75" Width="718.2" Height="18.9"/>
   </ReportPage>
 </Report>

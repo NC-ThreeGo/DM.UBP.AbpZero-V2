@@ -46,7 +46,7 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                         ScriptPaths.Toastr,
                         ScriptPaths.MomentJs,
                         ScriptPaths.MomentTimezoneJs,
-                        ScriptPaths.Bootstrap_DateRangePicker,
+                        ScriptPaths.Bootstrap_DateRangePicker,ScriptPaths.Bootstrap_DateTimePicker,
                         ScriptPaths.Bootstrap_Select,
                         ScriptPaths.Underscore,
                         ScriptPaths.Abp,
@@ -100,7 +100,7 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                     .Include(StylePaths.Morris)
                     .Include(StylePaths.SweetAlert)
                     .Include(StylePaths.Toastr)
-                    .Include(StylePaths.Bootstrap_DateRangePicker)
+                    .Include(StylePaths.Bootstrap_DateRangePicker).Include(StylePaths.Bootstrap_DateTimePicker)
                     .Include(StylePaths.Bootstrap_Switch)
                     .Include(StylePaths.Bootstrap_Select)
                     .Include(StylePaths.JQuery_Jcrop)

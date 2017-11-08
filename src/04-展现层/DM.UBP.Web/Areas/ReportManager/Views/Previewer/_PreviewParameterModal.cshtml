@@ -23,9 +23,11 @@
             <div class="tab-pane active" id="EntityInformationsTab">
                 <form name="PreviewerForm" role="form" novalidate class="form-validation">
                     <input type="hidden" id="templateFileId" value="@ViewBag.Id" />
-
                     @Html.Raw(ViewBag.FormHtml)
-
+                    @*<div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" class="form-control date-time-picker" name="dateTimeRange" id="dateTimeRange" value="" />
+                        <label>@L("Description")</label>
+                    </div>*@
                     @*<div class="form-group">
                         <label for="Category_Id">@L("Category")</label>
                         <select id="Category_Id" name="Category_Id" class="form-control bs-select" data-live-search="true">

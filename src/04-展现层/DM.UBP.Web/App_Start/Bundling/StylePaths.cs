@@ -15,6 +15,7 @@ namespace DM.UBP.Web.Bundling
         public const string JsTree = "~/libs/jstree/themes/default/style.css";
         public const string Angular_Ui_Grid = "~/libs/angular-ui-grid/ui-grid.min.css";//SPA!
         public const string Bootstrap_DateRangePicker = "~/libs/bootstrap-daterangepicker/daterangepicker.css";
+        public const string Bootstrap_DateTimePicker = "~/libs/bootstrap-datetimepicker/datetimepicker.min.css";
         public const string Bootstrap_Select = "~/libs/bootstrap-select/bootstrap-select.min.css";
         public const string Bootstrap_Switch = "~/libs/bootstrap-switch/css/bootstrap-switch.min.css";
         public const string JQuery_jTable_Theme = "~/libs/jquery-jtable/themes/metro/blue/jtable.min.css";

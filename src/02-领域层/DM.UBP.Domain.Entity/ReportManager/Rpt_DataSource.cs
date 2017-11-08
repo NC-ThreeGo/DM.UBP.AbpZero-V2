@@ -28,6 +28,9 @@ namespace DM.UBP.Domain.Entity.ReportManager
         [StringLength(StringMaxLengthConst.MaxStringLength100)]
         public string TableName { get; set; }
 
+        [StringLength(StringMaxLengthConst.MaxStringLength1000)]
+        public string DataParams { get; set; }
+
         public int CommandType { get; set; }
 
         [StringLength(StringMaxLengthConst.MaxStringLength2000)]

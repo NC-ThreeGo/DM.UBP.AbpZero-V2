@@ -121,10 +121,27 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
             StringBuilder html = new StringBuilder();
             foreach (var item in parametes.Items)
             {
-                html.AppendFormat("<div class=\"form-group form-md-line-input form-md-floating-label no-hint\">");
-                html.AppendFormat("<input type=\"text\" name=\"{0}\" class=\"form-control\" required>", item.ParameterName);
-                html.AppendFormat("<label>{0}</label>", item.LabelName);
-                html.AppendFormat("</div>");
+                if (item.UiType == 5)//日期型
+                {
+                    html.AppendFormat("<div class=\"form-group form-md-line-input form-md-floating-label no-hint\">");
+                    html.AppendFormat("<input type=\"text\" name=\"{0}\" class=\"form-control date-picker\">", item.ParameterName);
+                    html.AppendFormat("<label>{0}</label>", item.LabelName);
+                    html.AppendFormat("</div>");
+                }
+                else if (item.UiType == 6)//日期时间型
+                {
+                    html.AppendFormat("<div class=\"form-group form-md-line-input form-md-floating-label no-hint\">");
+                    html.AppendFormat("<input type=\"text\" name=\"{0}\" class=\"form-control date-time-picker\">", item.ParameterName);
+                    html.AppendFormat("<label>{0}</label>", item.LabelName);
+                    html.AppendFormat("</div>");
+                }
+                else
+                {
+                    html.AppendFormat("<div class=\"form-group form-md-line-input form-md-floating-label no-hint\">");
+                    html.AppendFormat("<input type=\"text\" name=\"{0}\" class=\"form-control\">", item.ParameterName);
+                    html.AppendFormat("<label>{0}</label>", item.LabelName);
+                    html.AppendFormat("</div>");
+                }
             }
             ViewBag.FormHtml = html.ToString();
             ViewBag.Id = id;

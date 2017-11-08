@@ -130,7 +130,10 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
             
             return await _ReportDataSourceManager.UpdateReportDataSourceAsync(entity);
         }
-
+        /// <summary>
+        /// 更新报表的数据列
+        /// </summary>
+        /// <param name="input"></param>
         private void SetReportColumns(ReportDataSourceInputDto input)
         {
             
@@ -163,12 +166,19 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
             xmlReport.Save(template.Result.FilePath);
         }
 
+        /// <summary>
+        /// 获取列
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         private DataColumnCollection GetColumnsByDataSource(ReportDataSourceInputDto input)
         {
             string sql = input.CommandText;
             string conn = ConfigurationManager.ConnectionStrings[input.ConnkeyName].ConnectionString;
 
-            List<string> resultP = GetParamsBySql(sql);
+            //List<string> resultP = GetParamsBySql(sql);
+            List<string> resultP = GetParamsByStr(input.DataParams);
+
             OracleParameter[] paras = new OracleParameter[resultP.Count];
             for (int i = 0; i < resultP.Count; i++)
             {
@@ -182,6 +192,11 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
             return table.Tables[0].Columns;
         }
 
+        /// <summary>
+        /// 删除数据源节点
+        /// </summary>
+        /// <param name="nodeDictionary"></param>
+        /// <param name="tableName"></param>
         private void DelNodeDataSource(XmlNode nodeDictionary, string tableName)
         {
             XmlNodeList nodeDataSources = nodeDictionary.SelectNodes("TableDataSource");
@@ -209,6 +224,11 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
             node.Attributes.Append(att);
         }
 
+        /// <summary>
+        /// 根据SQL提取参数
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
         private List<string> GetParamsBySql(string sql)
         {
             List<string> resultP = new List<string>();
@@ -219,6 +239,28 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
                 resultP.Add(m.Groups[0].Value.Substring(m.Groups[0].Value.IndexOf(":")));
             }
             return resultP;
+        }
+        /// <summary>
+        /// 根据参数字符串提取参数
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        private List<string> GetParamsByStr(string str)
+        {
+            List<string> resilt = new List<string>();
+
+            if (string.IsNullOrWhiteSpace(str))
+                return resilt;
+
+            string[] strArr = str.Split(',');
+           
+            foreach (var item in strArr)
+            {
+                if (string.IsNullOrWhiteSpace(item))
+                    continue;
+                resilt.Add(item);
+            }
+            return resilt;
         }
 
         [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_DataSources_Delete)]
@@ -235,6 +277,8 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
                 XmlNode nodeDictionary = xmlReport.SelectSingleNode("/Report/Dictionary");
 
                 DelNodeDataSource(nodeDictionary, entity.TableName);
+
+                xmlReport.Save(template.Result.FilePath);
             }
             catch (Exception ex)
             {
@@ -283,7 +327,8 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
                 string sql = dataSource.CommandText;
                 string conn = ConfigurationManager.ConnectionStrings[dataSource.ConnkeyName].ConnectionString;
 
-                List<string> resultP = GetParamsBySql(sql);
+                //List<string> resultP = GetParamsBySql(sql);
+                List<string> resultP = GetParamsByStr(dataSource.DataParams); 
 
                 OracleParameter[] paras = new OracleParameter[resultP.Count];
                 for (int i = 0; i < resultP.Count; i++)

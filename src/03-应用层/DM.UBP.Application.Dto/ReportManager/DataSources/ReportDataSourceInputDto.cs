@@ -32,6 +32,9 @@ namespace DM.UBP.Application.Dto.ReportManager.DataSources
         [Required]
         public string TableName { get; set; }
 
+        [StringLength(StringMaxLengthConst.MaxStringLength1000)]
+        public string DataParams { get; set; }
+
         [Required]
         public int CommandType { get; set; }
 

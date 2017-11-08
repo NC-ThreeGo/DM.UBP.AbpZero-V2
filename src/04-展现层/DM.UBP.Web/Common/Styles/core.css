@@ -45,7 +45,7 @@
 }
 /* DateRangePicker */
 .daterangepicker_input .input-mini {
-  width: 120px !important;
+  /*width: 120px !important;*/
 }
 /* Portlets */
 .portlet.light > .portlet-title.portlet-title-filter {

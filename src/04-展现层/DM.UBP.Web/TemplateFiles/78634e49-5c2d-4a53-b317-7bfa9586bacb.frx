@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/26/2017 09:35:51" ReportInfo.Modified="10/30/2017 15:40:52" ReportInfo.CreatorVersion="2017.1.16.0">
+  <Dictionary>
+    <TableDataSource Name="abpusers" ReferenceName="ds_abpusers.dt_abpusers" DataType="System.Int32" Enabled="true">
+      <Column Name="ID" DataType="System.Decimal" />
+      <Column Name="PROFILEPICTUREID" DataType="System.Byte[]" />
+      <Column Name="SHOULDCHANGEPWDONNEXTLOGIN" DataType="System.Int32" />
+      <Column Name="AUTHENTICATIONSOURCE" DataType="System.String" />
+      <Column Name="USERNAME" DataType="System.String" />
+      <Column Name="TENANTID" DataType="System.Double" />
+      <Column Name="EMAILADDRESS" DataType="System.String" />
+      <Column Name="NAME" DataType="System.String" />
+      <Column Name="SURNAME" DataType="System.String" />
+      <Column Name="PASSWORD" DataType="System.String" />
+      <Column Name="EMAILCONFIRMATIONCODE" DataType="System.String" />
+      <Column Name="PASSWORDRESETCODE" DataType="System.String" />
+      <Column Name="LOCKOUTENDDATEUTC" DataType="System.DateTime" />
+      <Column Name="ACCESSFAILEDCOUNT" DataType="System.Double" />
+      <Column Name="ISLOCKOUTENABLED" DataType="System.Int32" />
+      <Column Name="PHONENUMBER" DataType="System.String" />
+      <Column Name="ISPHONENUMBERCONFIRMED" DataType="System.Int32" />
+      <Column Name="SECURITYSTAMP" DataType="System.String" />
+      <Column Name="ISTWOFACTORENABLED" DataType="System.Int32" />
+      <Column Name="ISEMAILCONFIRMED" DataType="System.Int32" />
+      <Column Name="ISACTIVE" DataType="System.Int32" />
+      <Column Name="LASTLOGINTIME" DataType="System.DateTime" />
+      <Column Name="ISDELETED" DataType="System.Int32" />
+      <Column Name="DELETERUSERID" DataType="System.Decimal" />
+      <Column Name="DELETIONTIME" DataType="System.DateTime" />
+      <Column Name="LASTMODIFICATIONTIME" DataType="System.DateTime" />
+      <Column Name="LASTMODIFIERUSERID" DataType="System.Decimal" />
+      <Column Name="CREATIONTIME" DataType="System.DateTime" />
+      <Column Name="CREATORUSERID" DataType="System.Decimal" />
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8" />
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="47.25">
+      <TextObject Name="Text2" Left="18.9" Top="18.9" Width="94.5" Height="18.9" Text="用户名" />
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="93.05" Width="718.2" Height="75.6" DataSource="abpusers">
+      <TextObject Name="Text1" Left="18.9" Top="9.45" Width="94.5" Height="18.9" Text="[abpusers.USERNAME]" />
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="172.65" Width="718.2" Height="18.9" />
+  </ReportPage>
+</Report>
