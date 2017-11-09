@@ -17,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace DM.UBP.Web.Areas.ReportManager.Controllers
 {
@@ -83,8 +84,8 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
 
             _webReport.Report.Load(tempalte.Result.FilePath);
 
-            _webReport.Width = 900;
-            _webReport.Height = 600;
+            _webReport.Width = Unit.Percentage(100);
+            _webReport.Height = Unit.Percentage(100);
 
             #region 预览
             _webReport.ToolbarIconsStyle = ToolbarIconsStyle.Black;

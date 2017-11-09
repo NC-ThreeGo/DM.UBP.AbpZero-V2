@@ -12,6 +12,7 @@ using System.IO;
 using FastReport.Data;
 using DM.UBP.Application.Service.ReportManager.Templates;
 using DM.UBP.Application.Dto.ReportManager.Templates;
+using System.Web.UI.WebControls;
 
 namespace DM.UBP.Web.Areas.ReportManager.Controllers
 {
@@ -58,8 +59,8 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
 
             _webReport.Report.Load(tempalte.Result.FilePath);
 
-            _webReport.Width = 930;
-            _webReport.Height = 600;
+            _webReport.Width = Unit.Percentage(100);
+            _webReport.Height = Unit.Percentage(100);
 
             #region 预览
             //_webReport.ToolbarIconsStyle = ToolbarIconsStyle.Black;
@@ -68,12 +69,16 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
             #endregion
 
             #region 设计
+            
             _webReport.DesignReport = true;
-            _webReport.DesignScriptCode = false;
+            _webReport.DesignScriptCode = true;
             _webReport.Debug = true;
-            _webReport.DesignerPath = "~/Areas/ReportManager/Views/WebReportDesigner/index.html";
-            _webReport.DesignerSaveCallBack = "~/Areas/ReportManager/Designer/SaveDesignedReport";
-            _webReport.ID = "DesignReport";
+            //_webReport.DesignerPath = "~/Areas/ReportManager/Views/WebReportDesigner/index.html";
+            _webReport.DesignerPath = "~/WebReportDesigner/index.html";
+            _webReport.DesignerSaveCallBack = "~/ReportManager/Designer/SaveDesignedReport";
+            _webReport.DesignerSavePath = "~/App_Data/DesignedReports";
+            //_webReport.DesignerLocale = "cn";
+            _webReport.ID = id.ToString();
             _webReport.XlsxPageBreaks = false;
             _webReport.XlsxSeamless = true;
             #endregion
@@ -88,23 +93,32 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
             return View(viewModel);
         }
 
-        //private void save
+       
 
-        [HttpPost]
+        //[HttpPost]
         public ActionResult SaveDesignedReport(string reportID, string reportUUID)
         {
             ViewBag.Message = String.Format("Confirmed {0} {1}", reportID, reportUUID);
-            if (reportID == "DesignReport")
-            {
-                // do something with designed report, for example
-                Stream reportForSave = Request.InputStream;
-                string pathToSave = Server.MapPath("/TemplateFile/getUsers.frx");
-                using (FileStream file = new FileStream(pathToSave, FileMode.Create))
-                {
-                    reportForSave.CopyTo(file);
-                }
-            }
-            return View();
+
+            //Stream reportForSave = Request.InputStream;
+            //string pathToSave = Server.MapPath("/TemplateFiles/getUsers.frx");
+            //using (FileStream file = new FileStream(pathToSave, FileMode.Create))
+            //{
+            //    reportForSave.CopyTo(file);
+            //}
+
+            var tempalte = _TemplateAppService.GetReportTemplateById(int.Parse(reportID));
+            var tempFile = Server.MapPath("~/App_Data/DesignedReports/") + reportUUID;
+
+            _webReport.Report.Load(tempFile);
+            _webReport.Report.Save(tempalte.Result.FilePath);
+
+            FileInfo file = new FileInfo(tempFile);
+            if (file.Exists)
+                file.Delete();
+
+
+            return PartialView("SaveDesignedReport");
         }
     }
 }
