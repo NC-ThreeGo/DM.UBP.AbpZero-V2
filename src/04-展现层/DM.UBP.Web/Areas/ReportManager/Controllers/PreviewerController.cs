@@ -88,9 +88,12 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
             _webReport.Height = Unit.Percentage(100);
 
             #region 预览
+            _webReport.CurrentTab.Name = tempalte.Result.TemplateName;
             _webReport.ToolbarIconsStyle = ToolbarIconsStyle.Black;
             _webReport.ShowToolbar = true;
             _webReport.SinglePage = true;
+            _webReport.ShowTabCloseButton = true;
+            _webReport.TabPosition = TabPosition.InsideToolbar;
             #endregion
 
             #region 设计
