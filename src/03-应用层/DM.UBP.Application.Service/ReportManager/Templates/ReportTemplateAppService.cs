@@ -132,6 +132,7 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
             xmlReport.Load(dirPath + "\\BlankReport.frx");
             xmlReport.Save(filePath);
 
+            return "TemplateFiles\\" + fileName;
 
             //string newTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
             //StringBuilder xmlSB = new StringBuilder();
@@ -152,7 +153,7 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
             //    writer_CS.Close();
             //}
 
-            return filePath;
+            //return filePath;
         }
 
         private string CreateFrxFileName()

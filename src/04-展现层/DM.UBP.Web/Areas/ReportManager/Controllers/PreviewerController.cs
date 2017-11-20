@@ -48,6 +48,10 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
 
         public ActionResult Index(long id)
         {
+            var tempalte = _TemplateAppService.GetReportTemplateById(id);
+
+            _webReport.Report.Load(System.AppDomain.CurrentDomain.BaseDirectory + tempalte.Result.FilePath);
+
             var dicParameter = Request["parameterValues"].ToObject<Dictionary<string, string>>();
 
             var listDs = _DataSourceAppService.GetDataSource(id, dicParameter).Result;
@@ -56,33 +60,6 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
             {
                 _webReport.Report.RegisterData(ds, ds.DataSetName);
             }
-
-            //DataSet ds = new DataSet();
-            //ds.DataSetName = "BaseUsers";
-            //DataTable dt = new DataTable();
-            //dt.TableName = "BaseUsers";
-            //dt.Columns.Add("Id");
-            //dt.Columns.Add("Name");
-
-            //for (int i = 0; i < 100; i++)
-            //{
-            //    DataRow dr = dt.NewRow();
-            //    dr["Id"] = i.ToString();
-            //    dr["Name"] = "test" + i.ToString();
-            //    dt.Rows.Add(dr);
-            //}
-            //ds.Tables.Add(dt);
-
-            //TableDataSource datasource = _webReport.Report.GetDataSource("protable") as TableDataSource;
-
-            
-
-            //string dirPath = System.AppDomain.CurrentDomain.BaseDirectory + "TemplateFiles\\";
-            //string report_path = dirPath + "\\getUsers.frx";
-
-            var tempalte = _TemplateAppService.GetReportTemplateById(id);
-
-            _webReport.Report.Load(tempalte.Result.FilePath);
 
             _webReport.Width = Unit.Percentage(100);
             _webReport.Height = Unit.Percentage(100);

@@ -57,7 +57,7 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
 
             var tempalte = _TemplateAppService.GetReportTemplateById(id);
 
-            _webReport.Report.Load(tempalte.Result.FilePath);
+            _webReport.Report.Load(System.AppDomain.CurrentDomain.BaseDirectory + tempalte.Result.FilePath);
 
             _webReport.Width = Unit.Percentage(100);
             _webReport.Height = Unit.Percentage(100);
@@ -111,7 +111,7 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
             var tempFile = Server.MapPath("~/App_Data/DesignedReports/") + reportUUID;
 
             _webReport.Report.Load(tempFile);
-            _webReport.Report.Save(tempalte.Result.FilePath);
+            _webReport.Report.Save(System.AppDomain.CurrentDomain.BaseDirectory + tempalte.Result.FilePath);
 
             FileInfo file = new FileInfo(tempFile);
             if (file.Exists)
