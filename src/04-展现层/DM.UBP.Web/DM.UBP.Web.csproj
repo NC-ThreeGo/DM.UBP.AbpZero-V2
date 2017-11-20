@@ -529,7 +529,7 @@
     <Content Include="WebReportDesigner\index.html" />
     <Content Include="WebReportDesigner\README.txt" />
     <Content Include="WebReportDesigner\svg\fontawesome-webfont.912ec66d7572ff821749319396470bde.svg" />
-    <None Include="Areas\ReportManager\Views\Previewer\_PreviewParameterModal.cshtml" />
+    <Content Include="Areas\ReportManager\Views\Previewer\_PreviewParameterModal.cshtml" />
     <Content Include="Areas\ReportManager\Views\Previewer\ReportList.js" />
     <Content Include="Areas\ReportManager\Views\Previewer\_PreviewParameterModal.js" />
     <Content Include="Areas\ReportManager\Views\Template\Index.js" />

@@ -48,7 +48,9 @@
 
 
       <text name="ReportDataSources" value="报表数据源" />
-      <text name="ReportManagerDataSources" value="数据源表名可以不在数据库中存在，但是请保持唯一。" />
+      <text name="ReportManagerDataSources" value="报表数据源管理" />
+      <text name="ReportDataSourceInformations" value="数据源表名可以不在数据库中存在，但是请保持唯一。" />
+      
       <text name="CreatingNewDataSource" value="创建新数据源" />
       <text name="CreateReportDataSource" value="创建新数据源" />
       <text name="EditingDataSource" value="编辑数据源" />
@@ -64,7 +66,7 @@
 
 
       <text name="ReportParameters" value="报表参数" />
-      <text name="ReportManagerParameters" value="报表参数" />
+      <text name="ReportManagerParameters" value="报表参数管理" />
       <text name="CreatingNewParameter" value="创建新参数" />
       <text name="EditingParameter" value="编辑参数" />
       <text name="EditReportParameter" value="编辑参数" />

@@ -28,7 +28,7 @@ namespace DM.UBP.Application.Service.ReportManager.Parameters
     /// <summary>
     /// 报表参数的Application.Service
     /// <summary>
-    [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Parameters)]
+    [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Parameters, AppPermissions_ReportManager.Pages_Reports)]
     public class ReportParameterAppService : IReportParameterAppService
     {
         private readonly IReportParameterManager _ReportParameterManager;

@@ -34,7 +34,7 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
     /// <summary>
     /// 报表模板的Application.Service
     /// <summary>
-    [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Templates)]
+    [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Templates, AppPermissions_ReportManager.Pages_Reports)]
     public class ReportTemplateAppService : IReportTemplateAppService
     {
         private readonly IReportTemplateManager _ReportTemplateManager;

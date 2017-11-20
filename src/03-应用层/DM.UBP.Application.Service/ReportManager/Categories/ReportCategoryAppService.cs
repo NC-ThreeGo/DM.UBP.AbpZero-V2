@@ -26,7 +26,7 @@ namespace DM.UBP.Application.Service.ReportManager.Categories
     /// <summary>
     /// 报表分类的Application.Service
     /// <summary>
-    [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Categories)]
+    [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_Categories, AppPermissions_ReportManager.Pages_Reports)]
     public class ReportCategoryAppService : IReportCategoryAppService
     {
         private readonly IReportCategoryManager _CategoryManager;

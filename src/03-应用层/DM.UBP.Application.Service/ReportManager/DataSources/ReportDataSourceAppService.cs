@@ -37,7 +37,7 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
     /// <summary>
     /// 报表数据源的Application.Service
     /// <summary>
-    [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_DataSources)]
+    [AbpAuthorize(AppPermissions_ReportManager.Pages_ReportManager_DataSources, AppPermissions_ReportManager.Pages_Reports)]
     public class ReportDataSourceAppService : IReportDataSourceAppService
     {
         private readonly IReportDataSourceManager _ReportDataSourceManager;
