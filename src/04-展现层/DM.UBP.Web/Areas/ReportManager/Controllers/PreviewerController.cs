@@ -71,6 +71,17 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
             _webReport.SinglePage = true;
             _webReport.ShowTabCloseButton = true;
             _webReport.TabPosition = TabPosition.InsideToolbar;
+            
+            #endregion
+            #region 导出
+            //_webReport.Export();
+            //FastReport.Cloud.StorageClient.Ftp.FtpStorageClient ftp = new FastReport.Cloud.StorageClient.Ftp.FtpStorageClient();
+            //FastReport.Export.Pdf.PDFExport pdf = new FastReport.Export.Pdf.PDFExport();
+            //ftp.Server = "10.50.239.68";
+            //ftp.Username = "administrator";
+            //ftp.Password = "111.aaa";
+            //_webReport.Report.Prepare();
+            //ftp.SaveReport(_webReport.Report, pdf);
             #endregion
 
             #region 设计

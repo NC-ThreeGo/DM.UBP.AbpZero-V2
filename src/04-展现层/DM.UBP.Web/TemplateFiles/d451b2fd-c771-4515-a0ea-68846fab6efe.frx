@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="05/26/2017 09:35:51" ReportInfo.Modified="11/20/2017 10:40:14" ReportInfo.CreatorVersion="2017.1.16.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/26/2017 09:35:51" ReportInfo.Modified="11/22/2017 15:56:06" ReportInfo.CreatorVersion="2017.1.16.0">
   <Dictionary>
     <TableDataSource Name="proc_report_wl_hisTotal" ReferenceName="ds_proc_report_wl_hisTotal.dt_proc_report_wl_hisTotal" DataType="System.Int32" Enabled="true">
       <Column Name="PASS_DATE" DataType="System.String"/>
@@ -46,40 +46,42 @@
     </TableDataSource>
     <Parameter Name="Detail" DataType="System.String"/>
   </Dictionary>
-  <ReportPage Name="Page1" Landscape="true" PaperWidth="325" PaperHeight="210">
-    <ReportTitleBand Name="ReportTitle1" Width="1152.9" Height="75.6">
-      <TextObject Name="Text1" Width="1115.1" Height="75.6" Text="江西五十铃历史10天数据统计表" HorzAlign="Center" VertAlign="Center" Font="宋体, 22pt, style=Bold"/>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="340" PaperHeight="210">
+    <ReportTitleBand Name="ReportTitle1" Width="1209.6" Height="75.6">
+      <TextObject Name="Text1" Width="1152.9" Height="75.6" Text="江西五十铃历史10天数据统计表" HorzAlign="Center" VertAlign="Center" Font="宋体, 22pt, style=Bold"/>
     </ReportTitleBand>
-    <PageHeaderBand Name="PageHeader1" Top="79.6" Width="1152.9" Height="75.6">
+    <PageHeaderBand Name="PageHeader1" Top="79.6" Width="1209.6" Height="75.6">
       <TextObject Name="Text2" Width="94.5" Height="75.6" Border.Lines="Left, Top, Bottom" Text="日期" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text3" Left="94.5" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Hyperlink.Kind="DetailPage" Text="焊装&#13;&#10;上线" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text6" Left="132.3" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="焊装&#13;&#10;下线" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text7" Left="170.1" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="焊装&#13;&#10;在制" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text3" Left="94.5" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Hyperlink.Kind="DetailPage" Text="焊装上线" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="132.3" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="焊装下线" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="170.1" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="焊装在制" HorzAlign="Center" VertAlign="Center"/>
       <TextObject Name="Text8" Left="207.9" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="WBS" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text9" Left="245.7" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="涂装&#13;&#10;上线" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text10" Left="283.5" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="涂装&#13;&#10;下线" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text11" Left="321.3" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="涂装&#13;&#10;在制" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text12" Left="359.1" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="涂总&#13;&#10;通廊 " HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text13" Left="434.7" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="PBS&#13;&#10;固化" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text14" Left="396.9" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="入出&#13;&#10;PBS" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text15" Left="472.5" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="底盘&#13;&#10;上线" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text16" Left="510.3" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="整车&#13;&#10;下线" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text17" Left="548.1" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="总装&#13;&#10;在制" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text18" Left="585.9" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="总装&#13;&#10;一返" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text19" Left="623.7" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="入&#13;&#10;V0库" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text34" Left="661.5" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="V0&#13;&#10;库存" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text35" Left="699.3" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="入ZCBL&#13;&#10;04" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text36" Left="737.1" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="备料库&#13;&#10;ZCBL&#13;&#10;04" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text40" Left="774.9" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="退库车&#13;&#10;ZCTK&#13;&#10;04" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text41" Left="812.7" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="订单&#13;&#10;DMS" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text42" Left="850.5" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="未发运&#13;&#10;DMS" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text43" Left="888.3" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="已发运&#13;&#10;DMS" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text45" Left="926.1" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="在途&#13;&#10;DMS" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text46" Left="963.9" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="抵达&#13;&#10;DMS" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text47" Left="1001.7" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="经销商库存&#13;&#10;DMS" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text49" Left="1039.5" Width="37.8" Height="75.6" Border.Lines="All" Text="终端客户&#13;&#10;DMS" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="245.7" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="涂装上线" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="283.5" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="涂装下线" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="321.3" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="涂装在制" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="359.1" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="涂总通廊 " HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text13" Left="434.7" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="PBS固化" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text14" Left="396.9" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="入出PBS" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text15" Left="472.5" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="底盘上线" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text16" Left="510.3" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="整车下线" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text17" Left="548.1" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="总装在制" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text18" Left="585.9" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="总装一返" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text19" Left="623.7" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="入V0库" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text34" Left="661.5" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="V0库存" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text36" Left="699.3" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="备料库ZCBL04" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text40" Left="737.1" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="商品车ZCWW04" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text41" Left="888.3" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="DMS订单" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text42" Left="926.1" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="DMS未发运" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text43" Left="963.9" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="DMS发运" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text45" Left="1001.7" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="DMS在途" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text46" Left="1039.5" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="DMS抵达" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text47" Left="1077.3" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="DMS经销商库存" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text49" Left="1115.1" Width="37.8" Height="75.6" Border.Lines="All" Text="DMS终端客户" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text79" Left="774.9" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="项目车XPZC04" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text80" Left="812.7" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="借用车ZFZC04" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text81" Left="850.5" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="退库车ZCTK04+ZCSG04&#13;&#10;" HorzAlign="Center" VertAlign="Center"/>
     </PageHeaderBand>
-    <DataBand Name="Data1" Top="159.2" Width="1152.9" Height="18.9" DataSource="proc_report_wl_hisTotal">
+    <DataBand Name="Data1" Top="159.2" Width="1209.6" Height="18.9" DataSource="proc_report_wl_hisTotal">
       <TextObject Name="Text4" Width="94.5" Height="18.9" Border.Lines="Left, Bottom" Text="[proc_report_wl_hisTotal.PASS_DATE]" HorzAlign="Center" VertAlign="Center"/>
       <TextObject Name="Text5" Left="94.5" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;焊装上线&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_7001]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
       <TextObject Name="Text20" Left="132.3" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;焊装下线&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_9009]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
@@ -96,20 +98,22 @@
       <TextObject Name="Text31" Left="548.1" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;总装在制&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_C01_FL19]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
       <TextObject Name="Text32" Left="585.9" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;总装一返&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_FL19_TL15]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
       <TextObject Name="Text33" Left="623.7" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;入VO库&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_TL15]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
-      <TextObject Name="Text50" Left="661.5" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Text="[proc_report_wl_hisTotal.C_TL15_ZCBL04]" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text51" Left="699.3" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Text="[proc_report_wl_hisTotal.C_ZCBL04]" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text52" Left="737.1" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Text="[proc_report_wl_hisTotal.C_ZCBL04]" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text56" Left="774.9" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Text="[proc_report_wl_hisTotal.C_ZCKC_TK]" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text57" Left="812.7" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;DMS订单&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_DMS_DD]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
-      <TextObject Name="Text58" Left="850.5" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;DMS未发运&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_DMS_WFY]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
-      <TextObject Name="Text59" Left="888.3" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;DMS发运&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_DMS_YFY]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
-      <TextObject Name="Text61" Left="926.1" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;DMS在途&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_DMS_ZT]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
-      <TextObject Name="Text62" Left="963.9" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;DMS抵达&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_DMS_YDD]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
-      <TextObject Name="Text63" Left="1001.7" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Text="[proc_report_wl_hisTotal.C_DMS_JXS]" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text64" Left="1039.5" Width="37.8" Height="18.9" Border.Lines="Left, Right, Bottom" Text="[proc_report_wl_hisTotal.C_DMS_ZD]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text50" Left="661.5" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;V0库存&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_TL15_ZCBL04]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
+      <TextObject Name="Text52" Left="699.3" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;备料库ZCBL04&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_ZCBL04]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
+      <TextObject Name="Text56" Left="737.1" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;商品车ZCWW04&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_ZCKC_SPJY]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
+      <TextObject Name="Text57" Left="888.3" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;DMS订单&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_DMS_DD]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
+      <TextObject Name="Text58" Left="926.1" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;DMS未发运&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_DMS_WFY]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
+      <TextObject Name="Text59" Left="963.9" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;DMS发运&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_DMS_YFY]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
+      <TextObject Name="Text61" Left="1001.7" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;DMS在途&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_DMS_ZT]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
+      <TextObject Name="Text62" Left="1039.5" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;DMS抵达&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_DMS_YDD]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
+      <TextObject Name="Text63" Left="1077.3" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;DMS经销商库存&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_DMS_JXS]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
+      <TextObject Name="Text64" Left="1115.1" Width="37.8" Height="18.9" Border.Lines="Left, Right, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;DMS终端客户&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_DMS_ZD]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
+      <TextObject Name="Text82" Left="774.9" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;项目车XPZC04&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_ZCKC_XM]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
+      <TextObject Name="Text83" Left="812.7" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;借用车ZFZC04&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_ZCKC_JY]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
+      <TextObject Name="Text84" Left="850.5" Width="37.8" Height="18.9" Border.Lines="Left, Bottom" Cursor="Hand" Hyperlink.Kind="DetailPage" Hyperlink.Expression="&quot;退库车ZCTK04+ZCSG04&quot;+[proc_report_wl_hisTotal.PASS_DATE]" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="Detail" Text="[proc_report_wl_hisTotal.C_ZCKC_TK]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Underline" TextFill.Color="Blue"/>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="182.1" Width="1152.9" Height="47.25">
-      <TextObject Name="Text76" Left="982.8" Top="28.35" Width="94.5" Height="18.9" Text="[PageN]"/>
+    <PageFooterBand Name="PageFooter1" Top="182.1" Width="1209.6" Height="47.25">
+      <TextObject Name="Text76" Left="1058.4" Top="28.35" Width="94.5" Height="18.9" Text="[PageN]"/>
     </PageFooterBand>
   </ReportPage>
   <ReportPage Name="Page2" Visible="false" Landscape="true" PaperWidth="325" PaperHeight="210">
