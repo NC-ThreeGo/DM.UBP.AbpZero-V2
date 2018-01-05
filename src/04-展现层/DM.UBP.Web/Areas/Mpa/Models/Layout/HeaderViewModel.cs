@@ -34,7 +34,8 @@ namespace DM.UBP.Web.Areas.Mpa.Models.Layout
         {
             if (!IsMultiTenancyEnabled || LoginInformations.Tenant?.LogoId == null)
             {
-                return appPath + "Common/Images/app-logo-on-light.png";
+                //return appPath + "Common/Images/app-logo-on-light.png";
+                return appPath + "Common/Images/isuzu_white_168_33.png";
             }
 
             return appPath + "TenantCustomization/GetLogo?id=" + LoginInformations.Tenant.LogoId;

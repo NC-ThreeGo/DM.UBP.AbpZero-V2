@@ -26,7 +26,7 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                 var reports = new MenuItemDefinition(
                    UbpMenu.Reports,
                    L("Reports"),
-                   icon: "icon-globe",
+                   icon: "icon-docs",
                    requiredPermissionName: AppPermissions_ReportManager.Pages_Reports
                    );
 
@@ -37,7 +37,7 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                         UbpMenu.Reports + "." + category.CategoryName,
                         L(category.CategoryName),
                         url: "ReportManager/Previewer/ReportList?categoryId=" + category.Id,
-                        icon: "icon-layers",
+                        icon: "icon-doc",
                         requiredPermissionName: "Pages.ReportManager.Reports." + category.CategoryName
                         ));
                 });
@@ -47,20 +47,20 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                 menu.AddItem(new MenuItemDefinition(
                    UbpMenu.ReportManager,
                    L("ReportManager"),
-                   icon: "icon-globe",
+                   icon: "icon-graph",
                    requiredPermissionName: AppPermissions_ReportManager.Pages_ReportManager
                    ).AddItem(new MenuItemDefinition(
                         UbpMenu.ReportManagerCategories,
                         L("ReportManagerCategories"),
                         url: "ReportManager/Category",
-                        icon: "icon-layers",
+                        icon: "icon-grid",
                         requiredPermissionName: AppPermissions_ReportManager.Pages_ReportManager_Categories
                         )
                    ).AddItem(new MenuItemDefinition(
                         UbpMenu.ReportManagerTemplates,
                         L("ReportManagerTemplates"),
                         url: "ReportManager/Template",
-                        icon: "icon-layers",
+                        icon: "icon-grid",
                         requiredPermissionName: AppPermissions_ReportManager.Pages_ReportManager_Templates
                         )
                    )

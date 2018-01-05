@@ -733,7 +733,8 @@ namespace DM.UBP.Web.Controllers
             var tenancyName = _tenancyNameFinder.GetCurrentTenancyNameOrNull();
             if (string.IsNullOrEmpty(tenancyName))
             {
-                ViewBag.TenantCustomLogoUrl = appPath + "Common/Images/app-logo-on-dark.png";
+                //ViewBag.TenantCustomLogoUrl = appPath + "Common/Images/app-logo-on-dark.png";
+                ViewBag.TenantCustomLogoUrl = appPath + "Common/Images/isuzu_white_149_35.png";
             }
             else
             {
@@ -742,9 +743,12 @@ namespace DM.UBP.Web.Controllers
                     using (_unitOfWorkManager.Current.SetTenantId(null))
                     {
                         var tenant = _tenantManager.FindByTenancyName(tenancyName);
+                        //ViewBag.TenantCustomLogoUrl = tenant != null && tenant.LogoId.HasValue
+                        //    ? appPath + "TenantCustomization/GetLogo"
+                        //    : appPath + "Common/Images/app-logo-on-dark.png";
                         ViewBag.TenantCustomLogoUrl = tenant != null && tenant.LogoId.HasValue
                             ? appPath + "TenantCustomization/GetLogo"
-                            : appPath + "Common/Images/app-logo-on-dark.png";
+                            : appPath + "Common/Images/isuzu_white_149_35.png";
                     }
                 }
             }

@@ -497,6 +497,8 @@
     <Content Include="Areas\ReportManager\Views\Parameter\_CreateOrEditModal.js" />
     <Content Include="Areas\ReportManager\Views\Previewer\ReportList.cshtml" />
     <Content Include="Areas\ReportManager\Views\Designer\SaveDesignedReport.cshtml" />
+    <Content Include="Common\Images\isuzu_white_149_35.png" />
+    <Content Include="Common\Images\isuzu_white_168_33.png" />
     <Content Include="WebReportDesigner\40bc55c6.0.js" />
     <Content Include="WebReportDesigner\40bc55c6.1.js" />
     <Content Include="WebReportDesigner\40bc55c6.10.js" />
