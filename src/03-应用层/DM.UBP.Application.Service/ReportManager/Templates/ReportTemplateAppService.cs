@@ -116,7 +116,7 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
         {
             var entity = input.MapTo<ReportTemplate>();
             entity.FileName = CreateFrxFileName();
-            entity.FilePath = WriteFrxXml(entity.FileName);
+            entity.FilePath = WriteFrxXml(System.AppDomain.CurrentDomain.BaseDirectory + entity.FileName);
             return await _ReportTemplateManager.CreateReportTemplateAsync(entity);
         }
 

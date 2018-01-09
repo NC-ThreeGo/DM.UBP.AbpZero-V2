@@ -392,11 +392,11 @@
                 },
                 tableName: {
                     title: app.localize('TableName'),
-                    width: '50%'
+                    width: '40%'
                 },
                 commandType: {
                     title: app.localize('CommandType'),
-                    width: '25%',
+                    width: '35%',
                     options: { '1': 'SQL语句', '2': '存储过程' }
                 }
             }
@@ -447,12 +447,12 @@
                 },
                 paramterType: {
                     title: app.localize('ParamterType'),
-                    width: '50%',
+                    width: '40%',
                     options: { '1': '字符型', '2': '整型', '3': '浮点型', '4': '日期型', '5': '布尔型', '6': 'Guid型' }
                 },
                 uiType: {
                     title: app.localize('UiType'),
-                    width: '25%',
+                    width: '35%',
                     options: { '1': '文本框', '2': '多行文本', '3': '整数型', '4': '小数型', '5': '日期型', '6': '日期时间型', '7': '下拉框', '8': '多选下拉框', '9': '自动搜素下拉框', '10': '自动多选搜索下拉框' }
                 }
             }

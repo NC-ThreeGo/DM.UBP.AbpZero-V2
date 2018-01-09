@@ -1,7 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="05/26/2017 09:35:51" ReportInfo.Modified="11/22/2017 15:56:06" ReportInfo.CreatorVersion="2017.1.16.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/26/2017 09:35:51" ReportInfo.Modified="01/09/2018 15:35:49" ReportInfo.CreatorVersion="2017.1.16.0">
   <Dictionary>
+    <TableDataSource Name="proc_report_wl_hisDetail" ReferenceName="ds_proc_report_wl_hisDetail.dt_proc_report_wl_hisDetail" DataType="System.Int32" Enabled="true">
+      <Column Name="PASS_DATE" DataType="System.String"/>
+      <Column Name="PASS_TIME" DataType="System.DateTime"/>
+      <Column Name="ORDER_NO" DataType="System.String"/>
+      <Column Name="VIN" DataType="System.String"/>
+      <Column Name="MATERIAL_NO" DataType="System.String"/>
+      <Column Name="MATERIAL_DESC" DataType="System.String"/>
+      <Column Name="BODY_NO" DataType="System.String"/>
+      <Column Name="ULOC" DataType="System.String"/>
+      <Column Name="TYPE" DataType="System.String"/>
+    </TableDataSource>
     <TableDataSource Name="proc_report_wl_hisTotal" ReferenceName="ds_proc_report_wl_hisTotal.dt_proc_report_wl_hisTotal" DataType="System.Int32" Enabled="true">
+      <Column Name="RPT_TITLE" DataType="System.String"/>
       <Column Name="PASS_DATE" DataType="System.String"/>
       <Column Name="C_7001" DataType="System.Int32"/>
       <Column Name="C_9009" DataType="System.Int32"/>
@@ -33,22 +45,11 @@
       <Column Name="C_DMS_JXS" DataType="System.Int32"/>
       <Column Name="C_DMS_ZD" DataType="System.Int32"/>
     </TableDataSource>
-    <TableDataSource Name="proc_report_wl_hisDetail" ReferenceName="ds_proc_report_wl_hisDetail.dt_proc_report_wl_hisDetail" DataType="System.Int32" Enabled="true">
-      <Column Name="PASS_DATE" DataType="System.String"/>
-      <Column Name="PASS_TIME" DataType="System.DateTime"/>
-      <Column Name="ORDER_NO" DataType="System.String"/>
-      <Column Name="VIN" DataType="System.String"/>
-      <Column Name="MATERIAL_NO" DataType="System.String"/>
-      <Column Name="MATERIAL_DESC" DataType="System.String"/>
-      <Column Name="BODY_NO" DataType="System.String"/>
-      <Column Name="ULOC" DataType="System.String"/>
-      <Column Name="TYPE" DataType="System.String"/>
-    </TableDataSource>
     <Parameter Name="Detail" DataType="System.String"/>
   </Dictionary>
   <ReportPage Name="Page1" Landscape="true" PaperWidth="340" PaperHeight="210">
     <ReportTitleBand Name="ReportTitle1" Width="1209.6" Height="75.6">
-      <TextObject Name="Text1" Width="1152.9" Height="75.6" Text="江西五十铃历史10天数据统计表" HorzAlign="Center" VertAlign="Center" Font="宋体, 22pt, style=Bold"/>
+      <TextObject Name="Text1" Width="1152.9" Height="75.6" Text="[proc_report_wl_hisTotal.RPT_TITLE]" HorzAlign="Center" VertAlign="Center" Font="宋体, 22pt, style=Bold"/>
     </ReportTitleBand>
     <PageHeaderBand Name="PageHeader1" Top="79.6" Width="1209.6" Height="75.6">
       <TextObject Name="Text2" Width="94.5" Height="75.6" Border.Lines="Left, Top, Bottom" Text="日期" HorzAlign="Center" VertAlign="Center"/>
@@ -79,7 +80,7 @@
       <TextObject Name="Text49" Left="1115.1" Width="37.8" Height="75.6" Border.Lines="All" Text="DMS终端客户" HorzAlign="Center" VertAlign="Center"/>
       <TextObject Name="Text79" Left="774.9" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="项目车XPZC04" HorzAlign="Center" VertAlign="Center"/>
       <TextObject Name="Text80" Left="812.7" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="借用车ZFZC04" HorzAlign="Center" VertAlign="Center"/>
-      <TextObject Name="Text81" Left="850.5" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="退库车ZCTK04+ZCSG04&#13;&#10;" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text81" Left="850.5" Width="37.8" Height="75.6" Border.Lines="Left, Top, Bottom" Text="退库车ZCTK04+ZCSG04" HorzAlign="Center" VertAlign="Center"/>
     </PageHeaderBand>
     <DataBand Name="Data1" Top="159.2" Width="1209.6" Height="18.9" DataSource="proc_report_wl_hisTotal">
       <TextObject Name="Text4" Width="94.5" Height="18.9" Border.Lines="Left, Bottom" Text="[proc_report_wl_hisTotal.PASS_DATE]" HorzAlign="Center" VertAlign="Center"/>

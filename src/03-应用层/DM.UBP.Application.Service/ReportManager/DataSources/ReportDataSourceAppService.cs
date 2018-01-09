@@ -140,7 +140,7 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
             var template = _ReportTemplateManager.GetReportTemplateByIdAsync(input.Template_Id);
 
             XmlDocument xmlReport = new XmlDocument();
-            xmlReport.Load(template.Result.FilePath);
+            xmlReport.Load(System.AppDomain.CurrentDomain.BaseDirectory + template.Result.FilePath);
             XmlNode nodeDictionary = xmlReport.SelectSingleNode("/Report/Dictionary");
 
             DelNodeDataSource(nodeDictionary, input.TableName);
@@ -163,7 +163,7 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
 
             nodeDictionary.AppendChild(nodeDataSource);
 
-            xmlReport.Save(template.Result.FilePath);
+            xmlReport.Save(System.AppDomain.CurrentDomain.BaseDirectory + template.Result.FilePath);
         }
 
         /// <summary>
@@ -273,12 +273,12 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
                 var template = _ReportTemplateManager.GetReportTemplateByIdAsync(entity.Template_Id);
 
                 XmlDocument xmlReport = new XmlDocument();
-                xmlReport.Load(template.Result.FilePath);
+                xmlReport.Load(System.AppDomain.CurrentDomain.BaseDirectory + template.Result.FilePath);
                 XmlNode nodeDictionary = xmlReport.SelectSingleNode("/Report/Dictionary");
 
                 DelNodeDataSource(nodeDictionary, entity.TableName);
 
-                xmlReport.Save(template.Result.FilePath);
+                xmlReport.Save(System.AppDomain.CurrentDomain.BaseDirectory + template.Result.FilePath);
             }
             catch (Exception ex)
             {
