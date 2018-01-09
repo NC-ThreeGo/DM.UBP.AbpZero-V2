@@ -25,22 +25,26 @@
                     <input type="hidden" id="templateFileId" value="@ViewBag.Id" />
                     @Html.Raw(ViewBag.FormHtml)
                     @*<div class="form-group form-md-line-input form-md-floating-label no-hint">
-                        <input type="text" class="form-control date-time-picker" name="dateTimeRange" id="dateTimeRange" value="" />
-                        <label>@L("Description")</label>
-                    </div>*@
-                    @*<div class="form-group">
-                        <label for="Category_Id">@L("Category")</label>
-                        <select id="Category_Id" name="Category_Id" class="form-control bs-select" data-live-search="true">
-                            @foreach (var category in ViewBag.Categories)
-                            {
-                            <option data-icon="@category.Value" value="@category.Value" @(category.IsSelected ? "selected=\" selected\"" : "" )><i class="@category.Value"></i>@category.DisplayText</option>
-                            }
-                        </select>
-                    </div>
-                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                        <input type="text" name="Description" class="form-control@(Model.Description.IsNullOrEmpty() ? " " : " edited")" value="@Model.Description">
-                        <label>@L("Description")</label>
-                    </div>*@
+                            <input type="text" class="form-control date-picker" name="dateTimeRange" id="dateTimeRange" value="" />
+                            <label>@L("Description")</label>
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                            <input type="text" class="form-control date-time-picker" name="dateTimeRange" id="dateTimeRange" value="" />
+                            <label>@L("Description")</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="Category_Id">@L("Category")</label>
+                            <select id="Category_Id" name="Category_Id" class="form-control bs-select" data-live-search="true">
+                                @foreach (var category in ViewBag.Categories)
+                                {
+                                <option data-icon="@category.Value" value="@category.Value" @(category.IsSelected ? "selected=\" selected\"" : "" )><i class="@category.Value"></i>@category.DisplayText</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                            <input type="text" name="Description" class="form-control@(Model.Description.IsNullOrEmpty() ? " " : " edited")" value="@Model.Description">
+                            <label>@L("Description")</label>
+                        </div>*@
 
                 </form>
             </div>
@@ -48,4 +52,9 @@
     </div>
 </div>
 
-@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+<div class="modal-footer">
+    <button type="button" class="btn default close-button" data-dismiss="modal">@L("Cancel")</button>
+    <button type="button" class="btn blue save-button"><i class="fa fa-save"></i> <span>@L("Confirm")</span></button>
+</div>
+
+@*@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")*@

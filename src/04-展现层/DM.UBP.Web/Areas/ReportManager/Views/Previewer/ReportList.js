@@ -24,9 +24,10 @@
         }
 
         _$entityTable.jtable({
-            title: app.localize('ReportTable'),
+            title: app.localize('ReportList'),
             paging: true,
             sorting: true,
+            //selecting: true,
             multiSorting: true,
             actions: {
                 listAction: {
@@ -38,32 +39,53 @@
                     key: true,
                     list: false
                 },
-                actions: {
-                    sorting: false,
-                    type: 'record-actions',
-                    cssClass: 'btn btn-xs btn-primary blue',
-                    text: '<i class="fa fa-cog"></i> ' + app.localize('Actions') + ' <span class="caret"></span>',
-                    items: [
-                        {
-                            text: app.localize('Preview'),
-                            visible: function () {
-                                return true;
-                            },
-                            action: function (data) {
-                                _previewModal.open({ id: data.record.id });
-                            }
-                        }]
-                },
+                //actions: {
+                //    sorting: false,
+                //    type: 'record-actions',
+                //    cssClass: 'btn btn-xs btn-primary blue',
+                //    text: '<i class="fa fa-cog"></i> ' + app.localize('Actions') + ' <span class="caret"></span>',
+                //    items: [
+                //        {
+                //            text: app.localize('Preview'),
+                //            visible: function () {
+                //                return true;
+                //            },
+                //            action: function (data) {
+                //                _previewModal.open({ id: data.record.id });
+                //            }
+                //        }]
+                //},
                 templateName: {
-                    title: app.localize('TemplateName'),
+                    title: app.localize('ReportName'),
                     width: '25%',
+                    display: function (data) {
+
+                        var $btn = $('<a></a>');
+                        $btn.append(data.record.templateName);
+                        //$btn.attr("onclick", "alert('" + data.record.templateName + "')");
+                        //$btn.attr("onclick", "_previewModal.open({ id: 62 })");
+                        $btn.click(function () {
+                            _previewModal.open({ id: data.record.id });
+                        });
+                        return $btn;
+                    }
                 },
                 description: {
                     title: app.localize('Description'),
-                    width: '50%',
+                    width: '75%'
                 }
             },
+             //selectionChanged: function () {
+             //    var $selectedRows = _$entityTable.jtable('selectedRows');
+             //    if ($selectedRows.length > 0) {
+             //        var record = $($selectedRows[0]).data('record');
+             //        //alert(record.templateName);
+             //        _previewModal.open({ id: record.id });
+             //    }
+             //}
         });
+
+        
 
         getEntities();
     });

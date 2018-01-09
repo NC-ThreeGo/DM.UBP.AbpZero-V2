@@ -90,5 +90,8 @@
       <text name="Design" value="设计" /> 
       <text name="Preview" value="预览" />
       
+      <text name="ReportList" value="报表列表" />    
+      <text name="ReportName" value="报表名称" /> 
+      <text name="Confirm" value="确定" /> 
     </texts>
 </localizationDictionary>
