@@ -55,9 +55,29 @@
                 </div>
             </div>
             <div class="portlet-body">
+                <div class="input-group margin-bottom-10">
+                    <input id="TemplateTableFilter" class="form-control" placeholder="@L("SearchWithThreeDot")" type="text" value="">
+                    <span class="input-group-btn">
+                        <button id="GetTemplateButton" class="btn default" type="button"><i class="icon-magnifier"></i></button>
+                    </span>
+                </div>
+                <div class="row margin-bottom-10">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <select id="CategorySelectionCombo" name="CategorySelectionCombo" class="form-control selectpicker" data-none-selected-text="@L("FilterByCategory")"  data-live-search="true">
+                                <option value=""></option>
+                                @foreach (var category in ViewBag.Categories)
+                                {
+                                    <option data-icon="@category.Value" value="@category.Value" @(category.IsSelected ? "selected=\"selected\"" : "")><i class="@category.Value"></i>@category.DisplayText</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <div id="TemplateTable"></div>
             </div>
         </div>
+
     </div>
 
     <div class="col-lg-6">
@@ -109,4 +129,4 @@
 
 
 
-    
+

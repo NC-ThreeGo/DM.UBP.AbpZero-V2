@@ -59,9 +59,15 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
             listDto
             );
         }
-        public async Task<PagedResultDto<ReportTemplateOutputDto>> GetReportTemplates(PagedAndSortedInputDto input)
+        public async Task<PagedResultDto<ReportTemplateOutputDto>> GetReportTemplates(ReportTemplatesFilterDto input)
         {
             var templateEntities = await _ReportTemplateManager.GetAllReportTemplatesAsync();
+
+            if(!string.IsNullOrWhiteSpace(input.Filter))
+                templateEntities = templateEntities.Where(t => t.TemplateName.Contains(input.Filter)).ToList();
+            if(input.Category.HasValue)
+                templateEntities = templateEntities.Where(t => t.Category_Id == input.Category.Value).ToList();
+
             var categoryEntities = await _ReportCategoryManager.GetAllCategoriesAsync();
 
             var entities = templateEntities.Join(categoryEntities, t => t.Category_Id, c => c.Id, (t, c) => new
@@ -73,7 +79,7 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
                 Description = t.Description
             });
 
-
+            
             if (string.IsNullOrEmpty(input.Sorting))
                 input.Sorting = "Id";
             var orderEntities = await Task.FromResult(entities.OrderBy(input.Sorting));
@@ -116,7 +122,7 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
         {
             var entity = input.MapTo<ReportTemplate>();
             entity.FileName = CreateFrxFileName();
-            entity.FilePath = WriteFrxXml(System.AppDomain.CurrentDomain.BaseDirectory + entity.FileName);
+            entity.FilePath = WriteFrxXml(entity.FileName);
             return await _ReportTemplateManager.CreateReportTemplateAsync(entity);
         }
 

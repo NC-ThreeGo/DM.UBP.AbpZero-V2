@@ -23,7 +23,7 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
     {
         Task<PagedResultDto<ReportTemplateOutputDto>> GetReportTemplates();
 
-        Task<PagedResultDto<ReportTemplateOutputDto>> GetReportTemplates(PagedAndSortedInputDto input);
+        Task<PagedResultDto<ReportTemplateOutputDto>> GetReportTemplates(ReportTemplatesFilterDto input);
 
         Task<PagedResultDto<ReportTemplateOutputDto>> GetReportList(ReportListInputDto input);
 

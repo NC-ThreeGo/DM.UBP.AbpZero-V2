@@ -92,6 +92,9 @@
       
       <text name="ReportList" value="报表列表" />    
       <text name="ReportName" value="报表名称" /> 
-      <text name="Confirm" value="确定" /> 
+      <text name="Confirm" value="确定" />
+
+      <text name="PleaseCheckOneTemplate" value="请选中一个模板" />
+      <text name="FilterByCategory" value="按分类筛选" />
     </texts>
 </localizationDictionary>

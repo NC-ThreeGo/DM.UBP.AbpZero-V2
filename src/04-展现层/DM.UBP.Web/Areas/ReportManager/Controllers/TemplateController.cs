@@ -42,6 +42,8 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
 
         public ActionResult Index()
         {
+            var categories = _CategoryAppService.GetCategoriesToItem(0);
+            ViewBag.Categories = categories.Result;
             return View();
         }
 

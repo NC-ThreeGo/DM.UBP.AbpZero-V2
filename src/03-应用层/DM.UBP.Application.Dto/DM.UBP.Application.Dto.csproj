@@ -58,6 +58,7 @@
     <Compile Include="ReportManager\Templates\ReportListInputDto.cs" />
     <Compile Include="ReportManager\Templates\ReportTemplateInputDto.cs" />
     <Compile Include="ReportManager\Templates\ReportTemplateOutputDto.cs" />
+    <Compile Include="ReportManager\Templates\ReportTemplatesFilterDto.cs" />
     <Compile Include="UbpApplicationDtoModule.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -89,7 +89,10 @@
         });
 
         function getEntities() {
-            _$entityTable.jtable('load');
+            _$entityTable.jtable('load', {
+                filter: $('#TemplateTableFilter').val(),
+                category: $("#CategorySelectionCombo").val()
+            });
         }
 
         function getDataSources() {
@@ -458,9 +461,18 @@
             }
         });
 
+        $('#GetTemplateButton').click(function () {
+            //abp.message.info('内容', '抬头');
+            
+            getEntities();
+            getDataSources();
+            getParameters();
+        });
+
         getEntities();
         getDataSources();
         getParameters();
-        InitModal1();
+
+        $('#TemplateTableFilter').focus();
     });
 })();
