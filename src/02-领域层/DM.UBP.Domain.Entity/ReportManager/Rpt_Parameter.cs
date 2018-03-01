@@ -32,6 +32,9 @@ namespace DM.UBP.Domain.Entity.ReportManager
 
         public int UiType { get; set; }
 
+        [StringLength(StringMaxLengthConst.MaxStringLength100)]
+        public string DynamicDataSource { get; set; }
+
         [StringLength(StringMaxLengthConst.MaxStringLength2000)]
         public string DynamicSql { get; set; }
 

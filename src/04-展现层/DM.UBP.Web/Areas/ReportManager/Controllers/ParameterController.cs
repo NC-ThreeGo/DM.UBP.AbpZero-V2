@@ -17,6 +17,7 @@ using DM.UBP.Application.Dto.ReportManager.Parameters;
 using DM.UBP.Application.Service.ReportManager.Parameters;
 using DM.UBP.Domain.Service.ReportManager;
 using DM.UBP.Web.Controllers;
+using DM.UBP.Application.Service.ReportManager.DataSources;
 
 namespace DM.UBP.Web.Areas.ReportManager.Controllers
 {
@@ -27,12 +28,16 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
     public class ParameterController : UBPControllerBase
     {
         private IReportParameterAppService _ReportParameterAppService;
+        private IReportDataSourceAppService _ReportDataSourceAppService;
+
         public ParameterController(
            ICacheManager cacheManager,
-           IReportParameterAppService reportparameterappservice
+           IReportParameterAppService reportparameterappservice,
+           IReportDataSourceAppService reportdatasourceappservice
            )
         {
             _ReportParameterAppService = reportparameterappservice;
+            _ReportDataSourceAppService = reportdatasourceappservice;
         }
 
         public ActionResult Index()
@@ -55,6 +60,10 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
             var uiTypes = _ReportParameterAppService.GetUiTypesToItem(0);
             ViewBag.UiTypes = uiTypes;
 
+            var connkeys = _ReportDataSourceAppService.GetConnkeysToItem(string.Empty);
+            connkeys.Insert(0, new Abp.Application.Services.Dto.ComboboxItemDto("", ""));
+            ViewBag.DynamicDataSources = connkeys;
+
             return PartialView("_CreateOrEditModal", viewModel);
         }
 
@@ -68,6 +77,10 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
 
             var uiTypes = _ReportParameterAppService.GetUiTypesToItem(viewModel.UiType);
             ViewBag.UiTypes = uiTypes;
+
+            var connkeys = _ReportDataSourceAppService.GetConnkeysToItem(viewModel.DynamicDataSource);
+            connkeys.Insert(0, new Abp.Application.Services.Dto.ComboboxItemDto("", ""));
+            ViewBag.DynamicDataSources = connkeys;
 
             return PartialView("_CreateOrEditModal", viewModel);
         }

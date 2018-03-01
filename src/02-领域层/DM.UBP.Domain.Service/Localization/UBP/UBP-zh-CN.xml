@@ -80,7 +80,7 @@
       <text name="LabelName" value="Label名称" />
       <text name="DynamicSql" value="动态SQL" />
       <text name="SortId" value="排序ID" />
-      <text name="ReportParameterInformations" value="参数大小写必须和数据源中的一致，并且需要加前缀“:”。参数名请保持唯一。" />
+      <text name="ReportParameterInformations" value="参数大小写必须和数据源中的一致，参数名请保持唯一。" />
       
       
       
@@ -96,5 +96,6 @@
 
       <text name="PleaseCheckOneTemplate" value="请选中一个模板" />
       <text name="FilterByCategory" value="按分类筛选" />
+      <text name="DynamicDataSource" value="动态数据源" />
     </texts>
 </localizationDictionary>

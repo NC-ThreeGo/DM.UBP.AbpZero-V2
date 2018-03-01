@@ -38,6 +38,9 @@ namespace DM.UBP.Application.Dto.ReportManager.Parameters
         [Required]
         public int UiType { get; set; }
 
+        [StringLength(StringMaxLengthConst.MaxStringLength100)]
+        public string DynamicDataSource { get; set; }
+
         [StringLength(StringMaxLengthConst.MaxStringLength2000)]
         public string DynamicSql { get; set; }
 

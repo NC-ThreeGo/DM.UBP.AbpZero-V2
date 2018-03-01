@@ -7,11 +7,13 @@ using DM.UBP.Application.Service.ReportManager.Categories;
 using DM.UBP.Application.Service.ReportManager.DataSources;
 using DM.UBP.Application.Service.ReportManager.Parameters;
 using DM.UBP.Application.Service.ReportManager.Templates;
+using DM.UBP.Common.DbHelper;
 using DM.UBP.Domain.Service.ReportManager;
 using DM.UBP.Web.Controllers;
 using FastReport.Web;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -126,6 +128,27 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
                     html.AppendFormat("<input type=\"text\" name=\"{0}\" class=\"form-control date-time-picker\">", item.ParameterName);
                     html.AppendFormat("<label>{0}</label>", item.LabelName);
                     html.AppendFormat("</div>");
+                }
+                else if (item.UiType == 7 
+                    && !string.IsNullOrWhiteSpace(item.DynamicDataSource)
+                    && !string.IsNullOrWhiteSpace(item.DynamicSql))//下拉型
+                {
+                    string conn = ConfigurationManager.ConnectionStrings[item.DynamicDataSource].ConnectionString;
+
+                    var table = OracleDbHelper.ExecuteDataset(conn, item.DynamicSql, System.Data.CommandType.Text).Tables[0];
+
+                    html.AppendFormat("<div class=\"form-group\">");
+                    html.AppendFormat("<label for=\"{0}\">{1}</label>", item.ParameterName, item.LabelName);
+                    html.AppendFormat("<select id=\"{0}\" name=\"{1}\" class=\"form-control bs-select\" data-live-search=\"true\">", item.ParameterName, item.ParameterName);
+                    foreach (DataRow row in table.Rows)
+                    {
+                        html.AppendFormat("<option data-icon=\"{0}\" value=\"{1}\")><i class=\"{2}\"></i>{3}</option>",
+                            row["value"].ToString(),
+                            row["value"].ToString(),
+                            row["value"].ToString(),
+                            row["text"].ToString());
+                    }
+                    html.AppendFormat("</select>");
                 }
                 else
                 {
