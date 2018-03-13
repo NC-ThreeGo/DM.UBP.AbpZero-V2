@@ -115,6 +115,13 @@
     <Compile Include="ReportManager\Parameters\ReportParameterManager.cs" />
     <Compile Include="ReportManager\Templates\IReportTemplateManager.cs" />
     <Compile Include="ReportManager\Templates\ReportTemplateManager.cs" />
+    <Compile Include="TriggerManager\AppPermissions_TriggerManager.cs" />
+    <Compile Include="TriggerManager\TriggerDays\ITriggerDayManager.cs" />
+    <Compile Include="TriggerManager\TriggerDays\TriggerDayManager.cs" />
+    <Compile Include="TriggerManager\TriggerMonths\ITriggerMonthManager.cs" />
+    <Compile Include="TriggerManager\TriggerMonths\TriggerMonthManager.cs" />
+    <Compile Include="TriggerManager\TriggerWeeks\ITriggerWeekManager.cs" />
+    <Compile Include="TriggerManager\TriggerWeeks\TriggerWeekManager.cs" />
     <Compile Include="UbpAuthorizationProvider.cs" />
     <Compile Include="UbpDomainServiceConsts.cs" />
     <Compile Include="UbpDomainServiceModule.cs" />

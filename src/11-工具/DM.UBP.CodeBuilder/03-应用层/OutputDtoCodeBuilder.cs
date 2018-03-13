@@ -27,6 +27,7 @@ namespace DM.UBP.CodeBuilder
             CodeText.AppendLine("using Abp.AutoMapper;");
             CodeText.AppendLine("using Abp.Application.Services.Dto;");
             CodeText.AppendLine("using DM.UBP.Domain.Entity;");
+            CodeText.AppendLine("using System;");
             CodeText.AppendLine("using " + EntityCodeBuilder.FullNameSpace + ";");
             CodeText.AppendLine("");
         }

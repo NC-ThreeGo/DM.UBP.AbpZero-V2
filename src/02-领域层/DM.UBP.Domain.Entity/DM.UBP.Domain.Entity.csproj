@@ -50,6 +50,9 @@
     <Compile Include="ReportManager\Rpt_TemplateFile.cs" />
     <Compile Include="ReportManager\Rpt_DataSource.cs" />
     <Compile Include="StringMaxLengthConst.cs" />
+    <Compile Include="TriggerManager\Trig_Day.cs" />
+    <Compile Include="TriggerManager\Trig_Month.cs" />
+    <Compile Include="TriggerManager\Trig_Week.cs" />
     <Compile Include="UbpDomainEntityModule.cs" />
   </ItemGroup>
   <ItemGroup>

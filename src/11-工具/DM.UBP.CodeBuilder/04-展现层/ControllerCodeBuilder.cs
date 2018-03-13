@@ -12,7 +12,7 @@ namespace DM.UBP.CodeBuilder
     {
         public override string SubCodePath { get => _RelativePath; set => _RelativePath = value; }
 
-        public override bool AutoMakeDir { get => false;}
+        //public override bool AutoMakeDir { get => false;}
 
         public string _RelativePath = @"04-展现层\DM.UBP.Web\Areas\";
         public string SubNameSpace = "Web.Areas";

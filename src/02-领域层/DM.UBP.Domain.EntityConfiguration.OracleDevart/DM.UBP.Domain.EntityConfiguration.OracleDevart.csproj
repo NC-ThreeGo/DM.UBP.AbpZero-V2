@@ -59,6 +59,9 @@
     <Compile Include="ReportManager\Rpt_ParameterConfiguration.cs" />
     <Compile Include="ReportManager\Rpt_TemplateFileConfiguration.cs" />
     <Compile Include="ReportManager\Rpt_DataSourceConfiguration.cs" />
+    <Compile Include="TriggerManager\Trig_DayConfiguration.cs" />
+    <Compile Include="TriggerManager\Trig_MonthConfiguration.cs" />
+    <Compile Include="TriggerManager\Trig_WeekConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp\Abp.csproj">

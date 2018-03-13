@@ -78,25 +78,29 @@ namespace DM.UBP.CodeBuilder
         {
             if (!String.IsNullOrEmpty(MenuPermValue))
             {
-                MenuPermKey = "Pages_" + ModuleName + "_" + ClassName;
+                //MenuPermKey = "Pages_" + ModuleName + "_" + ClassName;
+                MenuPermKey = MenuPermValue.Replace('.', '_');
                 CodeText.AppendLine("public const string " + MenuPermKey + " = \"" + MenuPermValue + "\";");
             }
 
             if (!String.IsNullOrEmpty(PermCreateValue))
             {
-                PermCreateKey = "Pages_" + ModuleName + "_" + ClassName + "_Create";
+                //PermCreateKey = "Pages_" + ModuleName + "_" + ClassName + "_Create";
+                PermCreateKey = PermCreateValue.Replace('.', '_');
                 CodeText.AppendLine("public const string " + PermCreateKey + " = \"" + PermCreateValue + "\";");
             }
 
             if (!String.IsNullOrEmpty(PermEditValue))
             {
-                PermEditKey = "Pages_" + ModuleName + "_" + ClassName + "_Edit";
+                //PermEditKey = "Pages_" + ModuleName + "_" + ClassName + "_Edit";
+                PermEditKey = PermEditValue.Replace('.', '_');
                 CodeText.AppendLine("public const string " + PermEditKey + " = \"" + PermEditValue + "\";");
             }
 
             if (!String.IsNullOrEmpty(PermDeleteValue))
             {
-                PermDeleteKey = "Pages_" + ModuleName + "_" + ClassName + "_Delete";
+                //PermDeleteKey = "Pages_" + ModuleName + "_" + ClassName + "_Delete";
+                PermDeleteKey = PermDeleteValue.Replace('.', '_');
                 CodeText.AppendLine("public const string " + PermDeleteKey + " = \"" + PermDeleteValue + "\";");
             }
 
