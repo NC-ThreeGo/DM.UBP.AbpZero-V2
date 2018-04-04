@@ -118,14 +118,14 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
                 if (item.UiType == 5)//日期型
                 {
                     html.AppendFormat("<div class=\"form-group form-md-line-input no-hint\">");
-                    html.AppendFormat("<input type=\"text\" name=\"{0}\" class=\"form-control date-picker\">", item.ParameterName);
+                    html.AppendFormat("<input type=\"text\" name=\"{0}\" class=\"form-control date-picker\" required>", item.ParameterName);
                     html.AppendFormat("<label>{0}</label>", item.LabelName);
                     html.AppendFormat("</div>");
                 }
                 else if (item.UiType == 6)//日期时间型
                 {
                     html.AppendFormat("<div class=\"form-group form-md-line-input no-hint\">");
-                    html.AppendFormat("<input type=\"text\" name=\"{0}\" class=\"form-control date-time-picker\">", item.ParameterName);
+                    html.AppendFormat("<input type=\"text\" name=\"{0}\" class=\"form-control date-time-picker\" required>", item.ParameterName);
                     html.AppendFormat("<label>{0}</label>", item.LabelName);
                     html.AppendFormat("</div>");
                 }

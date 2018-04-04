@@ -16,7 +16,6 @@ using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OpenIdConnect;
 using Microsoft.Owin.Security.Twitter;
 using Microsoft.Owin.Security.WsFederation;
-using DM.UBP.Authorization;
 using DM.UBP.Web;
 using DM.UBP.Web.Auth;
 using DM.UBP.WebApi.Controllers;
@@ -85,10 +84,20 @@ namespace DM.UBP.Web
 
             app.MapSignalR();
 
+            app.QuartzServerStartUp();
+
             //Enable it to use HangFire dashboard (uncomment only if it's enabled in UBPWebModule)
             //app.UseHangfireDashboard("/hangfire", new DashboardOptions
             //{
             //    Authorization = new[] { new AbpHangfireAuthorizationFilter(AppPermissions.Pages_Administration_HangfireDashboard) }
+            //});
+
+            //开启Hangfire服务，UBPHangfireModule中配置SQL链接
+            //app.UseHangfireServer();
+            //app.UseHangfireDashboard();
+            //app.UseHangfireDashboard("/hangfire", new DashboardOptions
+            //{
+            //    Authorization = new[] { new AbpHangfireAuthorizationFilter() }
             //});
         }
 

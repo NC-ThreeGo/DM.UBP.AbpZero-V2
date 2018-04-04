@@ -39,14 +39,17 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
     {
         private readonly IReportTemplateManager _ReportTemplateManager;
         private readonly IReportCategoryManager _ReportCategoryManager;
+        private readonly IPermissionChecker _PermissionChecker;
 
         public ReportTemplateAppService(
            IReportTemplateManager reporttemplatemanager,
-            IReportCategoryManager reportcategorymanager
+            IReportCategoryManager reportcategorymanager,
+            IPermissionChecker permissionChecker
            )
         {
             _ReportTemplateManager = reporttemplatemanager;
             _ReportCategoryManager = reportcategorymanager;
+            _PermissionChecker = permissionChecker;
         }
 
         public async Task<PagedResultDto<ReportTemplateOutputDto>> GetReportTemplates()
@@ -96,7 +99,12 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
         public async Task<PagedResultDto<ReportTemplateOutputDto>> GetReportList(ReportListInputDto input)
         {
             var templateEntities = await _ReportTemplateManager.GetAllReportTemplatesAsync();
-            var entities = await Task.FromResult(templateEntities.Where(t => t.Category_Id == input.CategoryId));
+
+            var categoryEntity = await _ReportCategoryManager.GetCategoryByIdAsync(input.CategoryId);
+
+            var entities = await Task.FromResult(templateEntities.Where(t => t.Category_Id == input.CategoryId
+            && _PermissionChecker.IsGranted("Pages.ReportManager.Reports." + categoryEntity.CategoryName + "." + t.TemplateName)
+            ));
 
 
             if (string.IsNullOrEmpty(input.Sorting))

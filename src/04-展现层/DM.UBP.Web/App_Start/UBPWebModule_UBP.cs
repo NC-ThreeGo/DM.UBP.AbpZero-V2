@@ -25,6 +25,7 @@ using DM.UBP.Web.Routing;
 using DM.UBP.WebApi;
 using DM.UBP.EF;
 using DM.UBP.Application.Service;
+using DM.UBP.Application.Quartz;
 
 namespace DM.UBP.Web
 {
@@ -40,7 +41,9 @@ namespace DM.UBP.Web
         typeof(UBPWebApiModule),
         typeof(AbpWebSignalRModule),
         typeof(AbpRedisCacheModule), //AbpRedisCacheModule dependency can be removed if not using Redis cache
-        typeof(AbpHangfireModule))] //AbpHangfireModule dependency can be removed if not using Hangfire
+        typeof(AbpHangfireModule),
+        typeof(UbpAppQuartzModule)//AbpHangfireModule dependency can be removed if not using Hangfire
+        )] 
     public class UBPWebModule : AbpModule
     {
         public override void PreInitialize()

@@ -27,7 +27,8 @@
     <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,6 +56,9 @@
     </Reference>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core.4.0.0.0.Fakes">
+      <HintPath>FakesAssemblies\Castle.Core.4.0.0.0.Fakes.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Facilities.Logging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Castle.LoggingFacility.4.0.0\lib\net45\Castle.Facilities.Logging.dll</HintPath>
@@ -166,6 +170,9 @@
     </Reference>
     <Reference Include="Microsoft.Owin.StaticFiles, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Microsoft.Owin.StaticFiles.3.1.0\lib\net45\Microsoft.Owin.StaticFiles.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
@@ -287,6 +294,7 @@
       <HintPath>..\..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Formatters, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\System.Runtime.Serialization.Formatters.4.3.0\lib\net46\System.Runtime.Serialization.Formatters.dll</HintPath>
@@ -3166,6 +3174,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Navigation\UbpMenu.cs" />
+    <Compile Include="App_Start\UBPQuartzOwinAppBuilderExtensions.cs" />
     <Compile Include="Areas\Mpa\Startup\UbpNavigationProvider.cs" />
     <Compile Include="Areas\ReportManager\Controllers\CategoryController.cs" />
     <Compile Include="Areas\ReportManager\Controllers\DesignerController.cs" />
@@ -3505,6 +3514,10 @@
       <Project>{dabc038b-55be-4e93-8600-5cebd1bc642e}</Project>
       <Name>Abp.Owin</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp.Quartz\Abp.Quartz.csproj">
+      <Project>{A25F9573-74CC-4B81-B854-75D6D1048BE0}</Project>
+      <Name>Abp.Quartz</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp.RedisCache\Abp.RedisCache.csproj">
       <Project>{612df432-2d46-46b2-a294-7d403fe611eb}</Project>
       <Name>Abp.RedisCache</Name>
@@ -3600,6 +3613,10 @@
     <ProjectReference Include="..\..\03-应用层\DM.UBP.Application.Dto\DM.UBP.Application.Dto.csproj">
       <Project>{0e684037-fae4-4f67-9c4c-b68dbb215d8d}</Project>
       <Name>DM.UBP.Application.Dto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\03-应用层\DM.UBP.Application.Quartz\DM.UBP.Application.Quartz.csproj">
+      <Project>{8ad53561-4689-4c69-b684-9a1ddf7feab9}</Project>
+      <Name>DM.UBP.Application.Quartz</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\03-应用层\DM.UBP.Application.Service\DM.UBP.Application.Service.csproj">
       <Project>{10e6adbf-9f47-4b9e-918a-e0d2960599b6}</Project>
