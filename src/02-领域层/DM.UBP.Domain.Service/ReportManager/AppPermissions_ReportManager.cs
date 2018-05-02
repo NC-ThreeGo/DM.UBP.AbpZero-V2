@@ -43,9 +43,5 @@ namespace DM.UBP.Domain.Service.ReportManager
         public const string Pages_ReportManager_Parameters_Delete = "Pages.ReportManager.Parameters.Delete";
 
         //@@Insert Position
-
-
-
-
     }
 }

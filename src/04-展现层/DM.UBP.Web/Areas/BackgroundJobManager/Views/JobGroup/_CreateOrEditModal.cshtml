@@ -1,0 +1,57 @@
+﻿@using Abp.Extensions
+@using DM.UBP.Web.Areas.Mpa.Models.Common.Modals
+
+@model DM.UBP.Application.Dto.BackgroundJobManager.JobGroups.JobGroupOutputDto
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditingJobGroup") + ": " + Model.JobGroupName) : L("CreatingNewJobGroup")))
+@section Styles
+{
+}
+@section Scripts
+{
+}
+
+<div class="modal-body">
+   <div class="tabbable-line">
+       <ul class="nav nav-tabs">
+           <li class="active">
+               <a href="#EntityInformationsTab" data-toggle="tab" aria-expanded="true">
+                   @L("JobGroupInformations")
+               </a>
+           </li>
+       </ul>
+       <div class="tab-content">
+           <div class="tab-pane active" id="EntityInformationsTab">
+               <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
+                   @if (Model.IsEditMode)
+                   {
+                       <input type="hidden" name="Id" value="@Model.Id" />
+                   }
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Jobgroupname" class="form-control@(Model.JobGroupName.IsNullOrEmpty() ? "" : " edited")" value="@Model.JobGroupName" required>
+               <label>@L("JobGroupName")</label>
+           </div>
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Assemblyname" class="form-control@(Model.AssemblyName.IsNullOrEmpty() ? "" : " edited")" value="@Model.AssemblyName" required>
+               <label>@L("AssemblyName")</label>
+           </div>
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Classname" class="form-control@(Model.ClassName.IsNullOrEmpty() ? "" : " edited")" value="@Model.ClassName" required>
+               <label>@L("ClassName")</label>
+           </div>
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Description" class="form-control@(Model.Description.IsNullOrEmpty() ? "" : " edited")" value="@Model.Description" >
+               <label>@L("Description")</label>
+           </div>
+           <div class="form-group form-md-line-input form-md-floating-label no-hint">
+               <input type="text" name="Typetable" class="form-control@(Model.TypeTable.IsNullOrEmpty() ? "" : " edited")" value="@Model.TypeTable" required>
+               <label>@L("TypeTable")</label>
+           </div>
+
+               </form>
+           </div>
+       </div>
+   </div>
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

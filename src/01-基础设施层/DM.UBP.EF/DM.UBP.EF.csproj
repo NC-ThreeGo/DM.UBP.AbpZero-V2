@@ -113,6 +113,7 @@
     <Compile Include="DatabaseInitializer.cs" />
     <Compile Include="DbContextInitializerBase.cs" />
     <Compile Include="DbContextManager.cs" />
+    <Compile Include="DbContext\UbpDbContext.BackgroundJobManager.cs" />
     <Compile Include="DbContext\UbpDbContext.cs" />
     <Compile Include="DbContext\UbpDbContext.ReportManager.cs" />
     <Compile Include="EntityConfigurationBase.cs" />

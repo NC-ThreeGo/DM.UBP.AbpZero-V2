@@ -41,12 +41,6 @@
       <text name="DeletingCategory" value="删除分类" />
 
 
-
-
-
-
-
-
       <text name="ReportDataSources" value="报表数据源" />
       <text name="ReportManagerDataSources" value="报表数据源管理" />
       <text name="ReportDataSourceInformations" value="数据源表名可以不在数据库中存在，但是请保持唯一。" />
@@ -97,5 +91,45 @@
       <text name="PleaseCheckOneTemplate" value="请选中一个模板" />
       <text name="FilterByCategory" value="按分类筛选" />
       <text name="DynamicDataSource" value="动态数据源" />
+      
+      
+      <text name="BackgroundJobManager" value="后台作业管理" />
+      
+      <text name="JobGroupManager" value="工作组管理" />
+      <text name="CreatingNewJobGroup" value="新建工作组" />
+      <text name="EditingJobGroup" value="修改工作组" />
+      <text name="DeletingJobGroup" value="删除工作组" />
+      <text name="JobGroupName" value="工作组名称" />
+      <text name="AssemblyName" value="程序集命名空间" />
+      <text name="ClassName" value="程序类名称" />
+      <text name="TypeTable" value="关联表名称" />
+      <text name="JobGroups" value="工作组" />
+      <text name="JobGroup" value="工作组" />
+      <text name="JobGroupHeaderInfo" value="同一类工作可以归为一个工作组" />
+      <text name="JobGroupInformations" value="工作组信息" />
+      
+      
+      
+      
+      <text name="Job_RPTEmailManager" value="报表邮件工作管理" />
+      <text name="CreatingNewJob_RPTEmail" value="新建报表邮件" />
+      <text name="EditingJob_RPTEmail" value="修改报表邮件" />
+      <text name="DeletingJob_RPTEmail" value="删除报表邮件" />
+
+      <text name="ScheduleManager" value="调度管理" />
+      <text name="CreatingNewScheduler" value="新建调度" />
+      <text name="EditingScheduler" value="修改调度" />
+      <text name="DeletingScheduler" value="删除调度" />
+
+      <text name="TriggerManager" value="触发器管理" />
+      <text name="CreatingNewTrigger" value="新建触发器" />
+      <text name="EditingTrigger" value="修改触发器" />
+      <text name="DeletingTrigger" value="删除触发器" />
+      <text name="TriggerName" value="触发器名称" />
+      <text name="CronStr" value="Cron表达式" />
+      <text name="TriggerInformations" value="触发器信息" />
+      <text name="Triggers" value="触发器" />
+      <text name="TriggerHeaderInfo" value="不同的任务可以在调度中使用同一个触发器" />
+      
     </texts>
 </localizationDictionary>

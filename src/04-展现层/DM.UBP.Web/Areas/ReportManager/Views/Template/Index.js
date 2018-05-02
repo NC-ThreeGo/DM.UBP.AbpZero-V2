@@ -13,9 +13,9 @@
         var _$dataSourceTable = $('#DataSourceTable');
         var _$parameterTable = $('#ParameterTable');
 
-        var _appService = abp.services.ReportManager.reportTemplate;
-        var _appDataSourceService = abp.services.ReportManager.reportDataSource;
-        var _appParameterService = abp.services.ReportManager.reportParameter;
+        var _appService = abp.services.ubp.reportTemplate;
+        var _appDataSourceService = abp.services.ubp.reportDataSource;
+        var _appParameterService = abp.services.ubp.reportParameter;
 
         var _permissions = {
             create: abp.auth.hasPermission('Pages.ReportManager.Templates.Create'),

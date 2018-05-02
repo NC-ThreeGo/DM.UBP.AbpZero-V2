@@ -9,7 +9,7 @@
 
 (function ($) {
     app.modals.PreviewParameterModal = function () {
-        var _appService = abp.services.ReportManager.reportTemplate;
+        var _appService = abp.services.ubp.reportTemplate;
 
         var _modalManager;
         var _$formInfo = null;

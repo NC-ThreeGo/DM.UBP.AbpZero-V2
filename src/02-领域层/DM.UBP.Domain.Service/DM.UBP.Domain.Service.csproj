@@ -105,6 +105,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundJobManager\JobGroups\IJobGroupManager.cs" />
+    <Compile Include="BackgroundJobManager\JobGroups\JobGroupManager.cs" />
+    <Compile Include="BackgroundJobManager\Job_RPTEmails\IJob_RPTEmailManager.cs" />
+    <Compile Include="BackgroundJobManager\Job_RPTEmails\Job_RPTEmailManager.cs" />
+    <Compile Include="BackgroundJobManager\Schedulers\ISchedulerManager.cs" />
+    <Compile Include="BackgroundJobManager\Schedulers\SchedulerManager.cs" />
+    <Compile Include="BackgroundJobManager\Triggers\ITriggerManager.cs" />
+    <Compile Include="BackgroundJobManager\Triggers\TriggerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportManager\AppPermissions_ReportManager.cs" />
     <Compile Include="ReportManager\Categories\ReportCategoryManager.cs" />
@@ -115,13 +123,7 @@
     <Compile Include="ReportManager\Parameters\ReportParameterManager.cs" />
     <Compile Include="ReportManager\Templates\IReportTemplateManager.cs" />
     <Compile Include="ReportManager\Templates\ReportTemplateManager.cs" />
-    <Compile Include="TriggerManager\AppPermissions_TriggerManager.cs" />
-    <Compile Include="TriggerManager\TriggerDays\ITriggerDayManager.cs" />
-    <Compile Include="TriggerManager\TriggerDays\TriggerDayManager.cs" />
-    <Compile Include="TriggerManager\TriggerMonths\ITriggerMonthManager.cs" />
-    <Compile Include="TriggerManager\TriggerMonths\TriggerMonthManager.cs" />
-    <Compile Include="TriggerManager\TriggerWeeks\ITriggerWeekManager.cs" />
-    <Compile Include="TriggerManager\TriggerWeeks\TriggerWeekManager.cs" />
+    <Compile Include="BackgroundJobManager\AppPermissions_BackgroundJobManager.cs" />
     <Compile Include="UbpAuthorizationProvider.cs" />
     <Compile Include="UbpDomainServiceConsts.cs" />
     <Compile Include="UbpDomainServiceModule.cs" />
@@ -193,7 +195,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Localization\UBP\UBP-zh-CN.xml" />
+    <EmbeddedResource Include="Localization\UBP\UBP-zh-CN.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Localization\UBP\UBP.xml">

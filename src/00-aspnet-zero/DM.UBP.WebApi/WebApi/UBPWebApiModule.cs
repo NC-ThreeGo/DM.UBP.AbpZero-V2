@@ -27,7 +27,7 @@ namespace DM.UBP.WebApi
                 .Build();
 
             Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
-                .ForAll<IApplicationService>(typeof(UbpApplicationServiceModule).Assembly, "ReportManager")
+                .ForAll<IApplicationService>(typeof(UbpApplicationServiceModule).Assembly, "ubp")
                 .Build();
 
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));

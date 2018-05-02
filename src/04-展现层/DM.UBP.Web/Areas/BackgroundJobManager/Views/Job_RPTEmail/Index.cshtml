@@ -1,0 +1,37 @@
+﻿@using Abp.Web.Mvc.Extensions
+@using DM.UBP.Web.Navigation
+@using DM.UBP.Domain.Service.BackgroundJobManager
+@{
+   ViewBag.CurrentPageName = UbpMenu.BackgroundJobManager;
+}
+@section Styles
+{
+   @*@Html.IncludeStyle("~/Areas/BackgroundJobManager/Views/Job_RPTEmail/Index.min.css")*@
+}
+@section Scripts
+{
+   @Html.IncludeScript("~/Areas/BackgroundJobManager/Views/Job_RPTEmail/Index.js")
+}
+
+<div class="row margin-bottom-5">
+   <div class="col-xs-6">
+       <div class="page-head">
+           <div class="page-title">
+               <h1>
+                   <span>@L("Job_RPTEmails") </span> <small>@L("Job_RPTEmailHeaderInfo")</small>
+               </h1>
+           </div>
+       </div>
+   </div>
+   <div class="col-xs-6 text-right">
+       @if (IsGranted(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_RPTEmails_Create))
+       {
+           <button id="CreateNewJob_RPTEmailButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewJob_RPTEmail")</button>
+       }
+   </div>
+</div>
+<div class="portlet light margin-bottom-0">
+   <div class="portlet-body">
+       <div id="Job_RPTEmailTable"></div>
+   </div>
+</div>

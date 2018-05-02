@@ -10,7 +10,7 @@
 (function () {
     $(function () {
         var _$entityTable = $('#ReportParameterTable');
-        var _appService = abp.services.ReportManager.reportparameter;
+        var _appService = abp.services.ubp.reportparameter;
 
         var _permissions = {
             create: abp.auth.hasPermission('Pages.ReportManager.ReportParameters.Create'),

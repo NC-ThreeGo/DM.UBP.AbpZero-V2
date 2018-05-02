@@ -44,15 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundJobManager\BGJM_JobGroup.cs" />
+    <Compile Include="BackgroundJobManager\BGJM_Job_RPTEmail.cs" />
+    <Compile Include="BackgroundJobManager\BGJM_Scheduler.cs" />
+    <Compile Include="BackgroundJobManager\BGJM_Trigger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportManager\Rpt_Category.cs" />
     <Compile Include="ReportManager\Rpt_Parameter.cs" />
     <Compile Include="ReportManager\Rpt_TemplateFile.cs" />
     <Compile Include="ReportManager\Rpt_DataSource.cs" />
     <Compile Include="StringMaxLengthConst.cs" />
-    <Compile Include="TriggerManager\Trig_Day.cs" />
-    <Compile Include="TriggerManager\Trig_Month.cs" />
-    <Compile Include="TriggerManager\Trig_Week.cs" />
     <Compile Include="UbpDomainEntityModule.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 using Abp.Domain.Uow;
 using Abp.Localization;
 using DM.UBP.Authorization;
+using DM.UBP.Domain.Service.BackgroundJobManager;
 using DM.UBP.Domain.Service.ReportManager;
 using DM.UBP.Domain.Service.ReportManager.Categories;
 using DM.UBP.Web.Navigation;
@@ -32,7 +33,8 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
 
                 var categories = _reportCategoryManager.GetAllCategoriesAsync().Result;
 
-                categories.ForEach(category => {
+                categories.ForEach(category =>
+                {
                     reports.AddItem(new MenuItemDefinition(
                         UbpMenu.Reports + "." + category.CategoryName,
                         L(category.CategoryName),
@@ -64,15 +66,51 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                         requiredPermissionName: AppPermissions_ReportManager.Pages_ReportManager_Templates
                         )
                    )
-                   //.AddItem(new MenuItemDefinition(
-                   //     UbpMenu.ReportManagerDesigner,
-                   //     L("ReportManagerDesigner"),
-                   //     url: "ReportManager/Designer",
-                   //     icon: "icon-layers",
-                   //     requiredPermissionName: AppPermissions_ReportManager.Pages_ReportManager_Designer
-                   //     )
-                   //)
+               //.AddItem(new MenuItemDefinition(
+               //     UbpMenu.ReportManagerDesigner,
+               //     L("ReportManagerDesigner"),
+               //     url: "ReportManager/Designer",
+               //     icon: "icon-layers",
+               //     requiredPermissionName: AppPermissions_ReportManager.Pages_ReportManager_Designer
+               //     )
+               //)
                );
+
+                menu.AddItem(new MenuItemDefinition(
+                   UbpMenu.BackgroundJobManager,
+                   L("BackgroundJobManager"),
+                   icon: "icon-calendar",
+                   requiredPermissionName: AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager
+                   ).AddItem(new MenuItemDefinition(
+                        UbpMenu.BackgroundJobManagerJobGroups,
+                        L("JobGroupManager"),
+                        url: "BackgroundJobManager/JobGroup",
+                        icon: "icon-film",
+                        requiredPermissionName: AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_JobGroups
+                        )
+                   ).AddItem(new MenuItemDefinition(
+                        UbpMenu.BackgroundJobManagerJob_RPTEmails,
+                        L("Job_RPTEmailManager"),
+                        url: "BackgroundJobManager/Job_RPTEmail",
+                        icon: "icon-directions",
+                        requiredPermissionName: AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_RPTEmails
+                        )
+                    ).AddItem(new MenuItemDefinition(
+                        UbpMenu.BackgroundJobManagerSchedulers,
+                        L("ScheduleManager"),
+                        url: "BackgroundJobManager/Scheduler",
+                        icon: "icon-bell",
+                        requiredPermissionName: AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Schedulers
+                        )
+                    ).AddItem(new MenuItemDefinition(
+                        UbpMenu.BackgroundJobManagerTriggers,
+                        L("TriggerManager"),
+                        url: "BackgroundJobManager/Trigger",
+                        icon: "icon-clock",
+                        requiredPermissionName: AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Triggers
+                        )
+                    )
+                );
             }
         }
 

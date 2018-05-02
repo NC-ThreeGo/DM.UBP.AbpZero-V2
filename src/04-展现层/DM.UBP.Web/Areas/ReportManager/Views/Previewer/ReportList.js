@@ -10,7 +10,7 @@
 (function () {
     $(function () {
         var _$entityTable = $('#ReportListTable');
-        var _appService = abp.services.ReportManager.reportTemplate;
+        var _appService = abp.services.ubp.reportTemplate;
 
         var _previewModal = new app.ModalManager({
             viewUrl: abp.appPath + 'ReportManager/Previewer/PreviewParameterModal',

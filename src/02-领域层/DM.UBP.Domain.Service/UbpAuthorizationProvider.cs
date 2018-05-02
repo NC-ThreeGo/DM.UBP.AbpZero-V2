@@ -3,6 +3,7 @@ using Abp.Configuration.Startup;
 using Abp.Domain.Uow;
 using Abp.Localization;
 using DM.UBP.Authorization;
+using DM.UBP.Domain.Service.BackgroundJobManager;
 using DM.UBP.Domain.Service.ReportManager;
 using DM.UBP.Domain.Service.ReportManager.Categories;
 using DM.UBP.Domain.Service.ReportManager.Templates;
@@ -84,6 +85,27 @@ namespace DM.UBP.Domain.Service
                 reportManagerParameters.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Parameters_Delete, L("DeletingParameter"));
 
 
+                var backgroundJobManager = pages.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager, L("BackgroundJobManager"));
+
+                var jobGroupManager = backgroundJobManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_JobGroups, L("JobGroupManager"));
+                jobGroupManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_JobGroups_Create, L("CreatingNewJobGroup"));
+                jobGroupManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_JobGroups_Edit, L("EditingJobGroup"));
+                jobGroupManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_JobGroups_Delete, L("DeletingJobGroup"));
+
+                var job_RPTEmailManager = backgroundJobManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_RPTEmails, L("Job_RPTEmailManager"));
+                job_RPTEmailManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_RPTEmails_Create, L("CreatingNewJob_RPTEmail"));
+                job_RPTEmailManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_RPTEmails_Edit, L("EditingJob_RPTEmail"));
+                job_RPTEmailManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_RPTEmails_Delete, L("DeletingJob_RPTEmail"));
+
+                var scheduleManager = backgroundJobManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Schedulers, L("ScheduleManager"));
+                scheduleManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Schedulers_Create, L("CreatingNewScheduler"));
+                scheduleManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Schedulers_Edit, L("EditingScheduler"));
+                scheduleManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Schedulers_Delete, L("DeletingScheduler"));
+
+                var triggerManager = backgroundJobManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Triggers, L("TriggerManager"));
+                triggerManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Triggers_Create, L("CreatingNewTrigger"));
+                triggerManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Triggers_Edit, L("EditingTrigger"));
+                triggerManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Triggers_Delete, L("DeletingTrigger"));
             }
         }
 

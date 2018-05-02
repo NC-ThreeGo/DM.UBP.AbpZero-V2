@@ -1,0 +1,37 @@
+﻿@using Abp.Web.Mvc.Extensions
+@using DM.UBP.Web.Navigation
+@using DM.UBP.Domain.Service.BackgroundJobManager
+@{
+   ViewBag.CurrentPageName = UbpMenu.BackgroundJobManagerJobGroups;
+}
+@section Styles
+{
+   @*@Html.IncludeStyle("~/Areas/BackgroundJobManager/Views/JobGroup/Index.min.css")*@
+}
+@section Scripts
+{
+   @Html.IncludeScript("~/Areas/BackgroundJobManager/Views/JobGroup/Index.js")
+}
+
+<div class="row margin-bottom-5">
+   <div class="col-xs-6">
+       <div class="page-head">
+           <div class="page-title">
+               <h1>
+                   <span>@L("JobGroups") </span> <small>@L("JobGroupHeaderInfo")</small>
+               </h1>
+           </div>
+       </div>
+   </div>
+   <div class="col-xs-6 text-right">
+       @if (IsGranted(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_JobGroups_Create))
+       {
+           <button id="CreateNewJobGroupButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreatingNewJobGroup")</button>
+       }
+   </div>
+</div>
+<div class="portlet light margin-bottom-0">
+   <div class="portlet-body">
+       <div id="JobGroupTable"></div>
+   </div>
+</div>

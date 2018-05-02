@@ -10,7 +10,7 @@
 (function () {
     $(function () {
         var _$entityTable = $('#CategoryTable');
-        var _appService = abp.services.ReportManager.reportCategory;
+        var _appService = abp.services.ubp.reportCategory;
 
         var _permissions = {
             create: abp.auth.hasPermission('Pages.ReportManager.Categories.Create'),

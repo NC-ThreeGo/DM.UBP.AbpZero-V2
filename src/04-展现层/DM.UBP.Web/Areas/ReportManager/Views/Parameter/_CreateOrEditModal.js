@@ -9,7 +9,7 @@
 
 (function ($) {
     app.modals.CreateOrEditModal = function () {
-        var _appService = abp.services.ReportManager.reportParameter;
+        var _appService = abp.services.ubp.reportParameter;
 
         var _modalManager;
         var _$formInfo = null;

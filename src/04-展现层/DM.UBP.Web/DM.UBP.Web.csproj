@@ -496,6 +496,14 @@
     </Content>
     <Content Include="App\host\views\tenants\featuresModal.js" />
     <Content Include="App_Data\Logs\Logs.txt" />
+    <Content Include="Areas\BackgroundJobManager\Views\JobGroup\Index.js" />
+    <Content Include="Areas\BackgroundJobManager\Views\JobGroup\_CreateOrEditModal.js" />
+    <Content Include="Areas\BackgroundJobManager\Views\Job_RPTEmail\Index.js" />
+    <Content Include="Areas\BackgroundJobManager\Views\Job_RPTEmail\_CreateOrEditModal.js" />
+    <Content Include="Areas\BackgroundJobManager\Views\Scheduler\Index.js" />
+    <Content Include="Areas\BackgroundJobManager\Views\Scheduler\_CreateOrEditModal.js" />
+    <Content Include="Areas\BackgroundJobManager\Views\Trigger\Index.js" />
+    <Content Include="Areas\BackgroundJobManager\Views\Trigger\_CreateOrEditModal.js" />
     <Content Include="Areas\Mpa\Common\Scripts\readme.txt" />
     <Content Include="Areas\ReportManager\Views\Category\Index.js" />
     <Content Include="Areas\ReportManager\Views\Category\_CreateOrEditModal.js" />
@@ -2368,6 +2376,16 @@
     <Content Include="Areas\ReportManager\Views\Parameter\Index.cshtml" />
     <Content Include="Areas\ReportManager\Views\Parameter\_CreateOrEditModal.cshtml" />
     <Content Include="Areas\ReportManager\Views\Previewer\Index.cshtml" />
+    <Content Include="Areas\BackgroundJobManager\Views\web.config" />
+    <Content Include="Areas\BackgroundJobManager\Views\JobGroup\Index.cshtml" />
+    <Content Include="Areas\BackgroundJobManager\Views\JobGroup\_CreateOrEditModal.cshtml" />
+    <Content Include="Areas\BackgroundJobManager\Views\Job_RPTEmail\Index.cshtml" />
+    <Content Include="Areas\BackgroundJobManager\Views\Job_RPTEmail\_CreateOrEditModal.cshtml" />
+    <Content Include="Areas\BackgroundJobManager\Views\Scheduler\Index.cshtml" />
+    <Content Include="Areas\BackgroundJobManager\Views\Scheduler\_CreateOrEditModal.cshtml" />
+    <Content Include="Areas\BackgroundJobManager\Views\Trigger\Index.cshtml" />
+    <Content Include="Areas\BackgroundJobManager\Views\Trigger\_CreateOrEditModal.cshtml" />
+    <Content Include="Areas\BackgroundJobManager\Views\_ViewStart.cshtml" />
     <None Include="Properties\PublishProfiles\aspnetzero - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
@@ -3175,6 +3193,11 @@
   <ItemGroup>
     <Compile Include="App_Start\Navigation\UbpMenu.cs" />
     <Compile Include="App_Start\UBPQuartzOwinAppBuilderExtensions.cs" />
+    <Compile Include="Areas\BackgroundJobManager\BackgroundJobManagerAreaRegistration.cs" />
+    <Compile Include="Areas\BackgroundJobManager\Controllers\JobGroupController.cs" />
+    <Compile Include="Areas\BackgroundJobManager\Controllers\Job_RPTEmailController.cs" />
+    <Compile Include="Areas\BackgroundJobManager\Controllers\SchedulerController.cs" />
+    <Compile Include="Areas\BackgroundJobManager\Controllers\TriggerController.cs" />
     <Compile Include="Areas\Mpa\Startup\UbpNavigationProvider.cs" />
     <Compile Include="Areas\ReportManager\Controllers\CategoryController.cs" />
     <Compile Include="Areas\ReportManager\Controllers\DesignerController.cs" />
@@ -3628,6 +3651,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\DesignedReports\" />
+    <Folder Include="Areas\BackgroundJobManager\Models\" />
+    <Folder Include="Areas\BackgroundJobManager\Views\Shared\" />
     <Folder Include="Areas\ReportManager\Models\" />
     <Folder Include="libs\jquery-jtable\dev\" />
     <Folder Include="libs\jquery-jtable\lib\" />

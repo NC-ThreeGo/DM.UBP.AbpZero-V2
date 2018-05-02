@@ -47,6 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundJobManager\BGJM_JobGroupConfiguration.cs" />
+    <Compile Include="BackgroundJobManager\BGJM_Job_RPTEmailConfiguration.cs" />
+    <Compile Include="BackgroundJobManager\BGJM_SchedulerConfiguration.cs" />
+    <Compile Include="BackgroundJobManager\BGJM_TriggerConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AbpZero\Authorization\UserConfiguration.cs" />
     <Compile Include="AbpZero\BackgroundJob\BackgroundJobConfiguration.cs" />
@@ -59,9 +63,6 @@
     <Compile Include="ReportManager\Rpt_ParameterConfiguration.cs" />
     <Compile Include="ReportManager\Rpt_TemplateFileConfiguration.cs" />
     <Compile Include="ReportManager\Rpt_DataSourceConfiguration.cs" />
-    <Compile Include="TriggerManager\Trig_DayConfiguration.cs" />
-    <Compile Include="TriggerManager\Trig_MonthConfiguration.cs" />
-    <Compile Include="TriggerManager\Trig_WeekConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp\Abp.csproj">

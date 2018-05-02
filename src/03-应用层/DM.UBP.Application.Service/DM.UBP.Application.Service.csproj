@@ -119,6 +119,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundJobManager\JobGroups\IJobGroupAppService.cs" />
+    <Compile Include="BackgroundJobManager\JobGroups\JobGroupAppService.cs" />
+    <Compile Include="BackgroundJobManager\Job_RPTEmails\IJob_RPTEmailAppService.cs" />
+    <Compile Include="BackgroundJobManager\Job_RPTEmails\Job_RPTEmailAppService.cs" />
+    <Compile Include="BackgroundJobManager\Schedulers\ISchedulerAppService.cs" />
+    <Compile Include="BackgroundJobManager\Schedulers\SchedulerAppService.cs" />
+    <Compile Include="BackgroundJobManager\Triggers\ITriggerAppService.cs" />
+    <Compile Include="BackgroundJobManager\Triggers\TriggerAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportManager\Categories\ReportCategoryAppService.cs" />
     <Compile Include="ReportManager\Categories\IReportCategoryAppService.cs" />
@@ -128,12 +136,6 @@
     <Compile Include="ReportManager\Parameters\ReportParameterAppService.cs" />
     <Compile Include="ReportManager\Templates\IReportTemplateAppService.cs" />
     <Compile Include="ReportManager\Templates\ReportTemplateAppService.cs" />
-    <Compile Include="TriggerManager\TriggerDays\ITriggerDayAppService.cs" />
-    <Compile Include="TriggerManager\TriggerDays\TriggerDayAppService.cs" />
-    <Compile Include="TriggerManager\TriggerMonths\ITriggerMonthAppService.cs" />
-    <Compile Include="TriggerManager\TriggerMonths\TriggerMonthAppService.cs" />
-    <Compile Include="TriggerManager\TriggerWeeks\ITriggerWeekAppService.cs" />
-    <Compile Include="TriggerManager\TriggerWeeks\TriggerWeekAppService.cs" />
     <Compile Include="UbpApplicationServiceModule.cs" />
   </ItemGroup>
   <ItemGroup>

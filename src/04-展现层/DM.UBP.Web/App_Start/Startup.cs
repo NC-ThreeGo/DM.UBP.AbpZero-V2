@@ -84,7 +84,7 @@ namespace DM.UBP.Web
 
             app.MapSignalR();
 
-            app.QuartzServerStartUp();
+            //app.QuartzServerStartUp();
 
             //Enable it to use HangFire dashboard (uncomment only if it's enabled in UBPWebModule)
             //app.UseHangfireDashboard("/hangfire", new DashboardOptions

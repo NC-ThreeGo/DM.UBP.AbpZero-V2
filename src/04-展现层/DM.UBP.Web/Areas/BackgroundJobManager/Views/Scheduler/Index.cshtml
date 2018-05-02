@@ -1,0 +1,46 @@
+﻿//------------------------------------------------------------
+// All Rights Reserved , Copyright (C)  
+// 版本：1.0
+/// <author>
+///		<name></name>
+///		<date>0001/1/1 0:00:00</date>
+/// </author>
+//------------------------------------------------------------
+
+@using Abp.Web.Mvc.Extensions
+@using DM.UBP.Web.Navigation
+@using DM.UBP.Domain.Service.BackgroundJobManager
+@{
+   ViewBag.CurrentPageName = UbpMenu.BackgroundJobManager;
+}
+@section Styles
+{
+   @*@Html.IncludeStyle("~/Areas/BackgroundJobManager/Views/Scheduler/Index.min.css")*@
+}
+@section Scripts
+{
+   @Html.IncludeScript("~/Areas/BackgroundJobManager/Views/Scheduler/Index.js")
+}
+
+<div class="row margin-bottom-5">
+   <div class="col-xs-6">
+       <div class="page-head">
+           <div class="page-title">
+               <h1>
+                   <span>@L("Scheduler") </span> <small>@L("SchedulerHeaderInfo")</small>
+               </h1>
+           </div>
+       </div>
+   </div>
+   <div class="col-xs-6 text-right">
+       @if (IsGranted(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Schedulers_Create))
+       {
+           <button id="CreateNewSchedulerButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewScheduler")</button>
+       }
+   </div>
+</div>
+<div class="portlet light margin-bottom-0">
+   <div class="portlet-body">
+       <div id="SchedulerTable"></div>
+   </div>
+</div>

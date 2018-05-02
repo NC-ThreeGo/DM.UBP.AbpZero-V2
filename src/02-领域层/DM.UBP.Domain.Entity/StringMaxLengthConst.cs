@@ -11,6 +11,8 @@ namespace DM.UBP.Domain.Entity
     /// </summary>
     public class StringMaxLengthConst
     {
+        public const int MaxStringLength10 = 10;
+
         public const int MaxStringLength20 = 20;
 
         public const int MaxStringLength50 = 50;
