@@ -15,7 +15,7 @@ namespace DM.Common.Extensions
     /// </summary>
     public static class Json
     {
-        public static object ToJson(this string Json)
+        public static object ToObject(this string Json)
         {
             return Json == null ? null : JsonConvert.DeserializeObject(Json);
         }

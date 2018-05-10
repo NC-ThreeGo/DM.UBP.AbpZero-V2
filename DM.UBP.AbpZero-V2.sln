@@ -166,6 +166,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DM.UBP.Application.Service"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DM.UBP.Application.Quartz", "src\03-应用层\DM.UBP.Application.Quartz\DM.UBP.Application.Quartz.csproj", "{8AD53561-4689-4C69-B684-9A1DDF7FEAB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DM.UBP.CreateRSAKey", "src\11-工具\DM.UBP.CreateRSAKey\DM.UBP.CreateRSAKey.csproj", "{7FEC4112-75D3-4EC6-8B69-DE6F9C260187}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -367,6 +369,10 @@ Global
 		{8AD53561-4689-4C69-B684-9A1DDF7FEAB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AD53561-4689-4C69-B684-9A1DDF7FEAB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AD53561-4689-4C69-B684-9A1DDF7FEAB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FEC4112-75D3-4EC6-8B69-DE6F9C260187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FEC4112-75D3-4EC6-8B69-DE6F9C260187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FEC4112-75D3-4EC6-8B69-DE6F9C260187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FEC4112-75D3-4EC6-8B69-DE6F9C260187}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -440,6 +446,7 @@ Global
 		{0E684037-FAE4-4F67-9C4C-B68DBB215D8D} = {E355610D-69AE-459B-A8D6-A915192729D5}
 		{10E6ADBF-9F47-4B9E-918A-E0D2960599B6} = {E355610D-69AE-459B-A8D6-A915192729D5}
 		{8AD53561-4689-4C69-B684-9A1DDF7FEAB9} = {E355610D-69AE-459B-A8D6-A915192729D5}
+		{7FEC4112-75D3-4EC6-8B69-DE6F9C260187} = {983F449C-0BB5-4294-A15D-AF9027DBF8D9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {315918BC-1793-481C-9E37-532E9FB86077}
