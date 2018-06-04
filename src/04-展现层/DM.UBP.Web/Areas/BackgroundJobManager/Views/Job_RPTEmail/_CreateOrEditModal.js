@@ -9,7 +9,7 @@
 
 (function ($) {
     app.modals.CreateOrEditModal = function () {
-        var _appService = abp.services.BackgroundJobManager.job_rptemail;
+        var _appService = abp.services.ubp.job_RPTEmail;
 
         var _modalManager;
         var _$formInfo = null;
@@ -20,7 +20,7 @@
             _$formInfo = _modalManager.getModal().find('form[name=EntityOptInformationsForm]');
             _$formInfo.validate();
         };
-
+        
         this.save = function () {
             if (!_$formInfo.valid()) {
                 return;

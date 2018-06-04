@@ -35,7 +35,7 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
 
         Task DeleteReportTemplate(EntityDto input);
 
-        
+        Task<List<ComboboxItemDto>> GetReportTemplatesToItem(long selectValue);
 
     }
 }

@@ -24,7 +24,7 @@ namespace DM.UBP.Domain.Entity.BackgroundJobManager
         /// 调度名称
         /// <summary>
         [Display(Name = "调度名称")]
-        [StringLength(StringMaxLengthConst.MaxStringLength10)]
+        [StringLength(StringMaxLengthConst.MaxStringLength50)]
         public string SchedulerName { get; set; }
 
         /// <summary>

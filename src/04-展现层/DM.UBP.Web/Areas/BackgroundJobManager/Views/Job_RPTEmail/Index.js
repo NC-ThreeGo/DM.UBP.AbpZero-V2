@@ -102,30 +102,26 @@
                         }
                     }]
                 },
-                job_RptEmailname: {
-                    title: app.localize('job_RptEmailName'),
+                job_RPTEmailName: {
+                    title: app.localize('Job_RptEmailName'),
                     width: '20%',
                 },
-                bgjm_Jobgroup_Id: {
-                    title: app.localize('bgjm_Jobgroup_Id'),
+                jobGroupName: {
+                    title: app.localize('Bgjm_Jobgroup_Id'),
                     width: '20%',
                 },
                 emails: {
-                    title: app.localize('emails'),
+                    title: app.localize('Emails'),
                     width: '15%',
                 },
-                template_Id: {
-                    title: app.localize('template_Id'),
+                templateName: {
+                    title: app.localize('Template_Id'),
                     width: '15%',
                 },
                 parameters: {
-                    title: app.localize('parameters'),
+                    title: app.localize('Parameters'),
                     width: '15%',
-                },
-                description: {
-                    title: app.localize('description'),
-                    width: '15%',
-                },
+                }
             }
         });
 

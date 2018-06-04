@@ -189,6 +189,12 @@ namespace DM.UBP.Application.Service.ReportManager.Templates
             await _ReportTemplateManager.DeleteReportTemplateAsync(entity);
         }
 
-        
+        public async Task<List<ComboboxItemDto>> GetReportTemplatesToItem(long selectValue)
+        {
+            var entities = await _ReportTemplateManager.GetAllReportTemplatesAsync();
+            var items = entities.Select(c => new ComboboxItemDto(c.Id.ToString(), c.TemplateName) { IsSelected = c.Id == selectValue }).ToList();
+
+            return items;
+        }
     }
 }

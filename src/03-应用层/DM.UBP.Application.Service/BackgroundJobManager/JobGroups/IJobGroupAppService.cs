@@ -33,5 +33,9 @@ namespace DM.UBP.Application.Service.BackgroundJobManager.JobGroups
 
         Task DeleteJobGroup(EntityDto input);
 
+
+        Task<List<ComboboxItemDto>> GetJobGroupsToItem(long selectValue);
+
+        Task<List<ComboboxItemDto>> GetJobsToItem(long selectValue);
     }
 }

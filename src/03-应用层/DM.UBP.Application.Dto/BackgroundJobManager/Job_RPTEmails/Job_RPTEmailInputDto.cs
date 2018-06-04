@@ -23,7 +23,7 @@ namespace DM.UBP.Application.Dto.BackgroundJobManager.Job_RPTEmails
     public class Job_RPTEmailInputDto : EntityDto<long>
     {
         [Display(Name = "工作名称")]
-        [StringLength(StringMaxLengthConst.MaxStringLength10)]
+        [StringLength(StringMaxLengthConst.MaxStringLength50)]
         [Required]
         public string Job_RPTEmailName { get; set; }
 

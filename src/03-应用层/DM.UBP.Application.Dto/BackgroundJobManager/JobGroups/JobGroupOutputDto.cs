@@ -23,7 +23,7 @@ namespace DM.UBP.Application.Dto.BackgroundJobManager.JobGroups
     public class JobGroupOutputDto : FullAuditedEntityDto<long>
     {
         [Display(Name = "组名称")]
-        [StringLength(StringMaxLengthConst.MaxStringLength10)]
+        [StringLength(StringMaxLengthConst.MaxStringLength50)]
         [Required]
         public string JobGroupName { get; set; }
 

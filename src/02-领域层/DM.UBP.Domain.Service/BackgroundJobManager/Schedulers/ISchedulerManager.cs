@@ -28,6 +28,5 @@ namespace DM.UBP.Domain.Service.BackgroundJobManager.Schedulers
         Task<bool> UpdateSchedulerAsync(Scheduler scheduler);
 
         Task DeleteSchedulerAsync(Scheduler scheduler);
-
     }
 }

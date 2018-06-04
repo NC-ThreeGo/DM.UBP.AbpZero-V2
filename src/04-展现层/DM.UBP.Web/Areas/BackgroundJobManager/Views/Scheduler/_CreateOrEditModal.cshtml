@@ -1,18 +1,9 @@
-﻿//------------------------------------------------------------
-// All Rights Reserved , Copyright (C)  
-// 版本：1.0
-/// <author>
-///		<name></name>
-///		<date>0001/1/1 0:00:00</date>
-/// </author>
-//------------------------------------------------------------
-
-@using Abp.Extensions
+﻿@using Abp.Extensions
 @using DM.UBP.Web.Areas.Mpa.Models.Common.Modals
 
 @model DM.UBP.Application.Dto.BackgroundJobManager.Schedulers.SchedulerOutputDto
 
-@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditScheduler") + ": " + Model.Name) : L("CreateScheduler")))
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditScheduler") + ": " + Model.SchedulerName) : L("CreateScheduler")))
 @section Styles
 {
 }
@@ -21,54 +12,79 @@
 }
 
 <div class="modal-body">
-   <div class="tabbable-line">
-       <ul class="nav nav-tabs">
-           <li class="active">
-               <a href="#EntityInformationsTab" data-toggle="tab" aria-expanded="true">
-                   @L("SchedulerInformations")
-               </a>
-           </li>
-       </ul>
-       <div class="tab-content">
-           <div class="tab-pane active" id="EntityInformationsTab">
-               <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
-                   @if (Model.IsEditMode)
-                   {
-                       <input type="hidden" name="Id" value="@Model.Id" />
-                   }
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Schedulername" class="form-control@(Model.Schedulername.IsNullOrEmpty() ? "" : " edited")" value="@Model.Schedulername" required>
-               <label>@L("Schedulername")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Jobgroup_Id" class="form-control@(Model.Jobgroup_Id.IsNullOrEmpty() ? "" : " edited")" value="@Model.Jobgroup_Id" required>
-               <label>@L("Jobgroup_Id")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Job_Id" class="form-control@(Model.Job_Id.IsNullOrEmpty() ? "" : " edited")" value="@Model.Job_Id" required>
-               <label>@L("Job_Id")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Trigger_Id" class="form-control@(Model.Trigger_Id.IsNullOrEmpty() ? "" : " edited")" value="@Model.Trigger_Id" required>
-               <label>@L("Trigger_Id")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Status" class="form-control@(Model.Status.IsNullOrEmpty() ? "" : " edited")" value="@Model.Status" required>
-               <label>@L("Status")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Lastexttime" class="form-control@(Model.Lastexttime.IsNullOrEmpty() ? "" : " edited")" value="@Model.Lastexttime" >
-               <label>@L("Lastexttime")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Description" class="form-control@(Model.Description.IsNullOrEmpty() ? "" : " edited")" value="@Model.Description" >
-               <label>@L("Description")</label>
-           </div>
+    <div class="tabbable-line">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#EntityInformationsTab" data-toggle="tab" aria-expanded="true">
+                    @L("SchedulerInformations")
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="EntityInformationsTab">
+                <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
+                    @if (Model.IsEditMode)
+                    {
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                    }
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="SchedulerName" class="form-control@(Model.SchedulerName.IsNullOrEmpty() ? "" : " edited")" value="@Model.SchedulerName" required>
+                        <label>@L("SchedulerName")</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="JobGroup_Id">@L("JobGroup_Id")</label>
+                        <select id="JobGroup_Id" name="JobGroup_Id" class="form-control bs-select" data-live-search="true">
+                            @foreach (var jobGroup in ViewBag.JobGroups)
+                            {
+                                <option data-icon="@jobGroup.Value" value="@jobGroup.Value" @(jobGroup.IsSelected ? "selected=\"selected\"" : "")><i class="@jobGroup.Value"></i>@jobGroup.DisplayText</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Job_Id">@L("Job_Id")</label>
+                        <select id="Job_Id" name="Job_Id" class="form-control bs-select" data-live-search="true" required>
+                            @if (ViewBag.Jobs != null)
+                            {
+                                foreach (var job in ViewBag.Jobs)
+                                {
+                                    <option data-icon="@job.Value" value="@job.Value" @(job.IsSelected ? "selected=\"selected\"" : "")><i class="@job.Value"></i>@job.DisplayText</option>
+                                }
+                            }
+                        </select>
+                    </div>
 
-               </form>
-           </div>
-       </div>
-   </div>
+                    <div class="form-group">
+                        <label for="Trigger_Id">@L("Trigger_Id")</label>
+                        <select id="Trigger_Id" name="Trigger_Id" class="form-control bs-select" data-live-search="true">
+                            @foreach (var trigger in ViewBag.Triggers)
+                            {
+                                <option data-icon="@trigger.Value" value="@trigger.Value" @(trigger.IsSelected ? "selected=\"selected\"" : "")><i class="@trigger.Value"></i>@trigger.DisplayText</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="md-checkbox">
+                        <input id="Status" class="md-check" type="checkbox" name="Status" value="true" @Html.Raw(Model.Status ? "checked=\"checked\"" : "")>
+                        <label for="Status" data-toggle="tooltip" title="@L("Status")">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span>
+                            @L("Status")
+                        </label>
+                    </div>
+                    @*
+                        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                            <input type="text" name="LastExtTime" class="form-control" value="@Model.LastExtTime">
+                            <label>@L("LastExtTime")</label>
+                        </div>*@
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Description" class="form-control@(Model.Description.IsNullOrEmpty() ? "" : " edited")" value="@Model.Description">
+                        <label>@L("Description")</label>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 @Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

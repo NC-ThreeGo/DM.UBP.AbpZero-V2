@@ -85,5 +85,12 @@ namespace DM.UBP.Application.Service.BackgroundJobManager.Triggers
             var entity = await _TriggerManager.GetTriggerByIdAsync(input.Id);
             await _TriggerManager.DeleteTriggerAsync(entity);
         }
+
+        public async Task<List<ComboboxItemDto>> GetTriggersToItem(long selectValue)
+        {
+            var entities = await _TriggerManager.GetAllTriggersAsync();
+            var items = entities.Select(c => new ComboboxItemDto(c.Id.ToString(), c.TriggerName) { IsSelected = c.Id == selectValue }).ToList();
+            return items;
+        }
     }
 }

@@ -1,18 +1,9 @@
-﻿//------------------------------------------------------------
-// All Rights Reserved , Copyright (C)  
-// 版本：1.0
-/// <author>
-///		<name></name>
-///		<date>0001/1/1 0:00:00</date>
-/// </author>
-//------------------------------------------------------------
-
-@using Abp.Extensions
+﻿@using Abp.Extensions
 @using DM.UBP.Web.Areas.Mpa.Models.Common.Modals
 
-@model DM.UBP.Application.Dto.BackgroundJobManager.Job_RPTEmail.Job_RPTEmailOutputDto
+@model DM.UBP.Application.Dto.BackgroundJobManager.Job_RPTEmails.Job_RPTEmailOutputDto
 
-@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditJob_RPTEmail") + ": " + Model.Name) : L("CreateJob_RPTEmail")))
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditJob_RPTEmail") + ": " + Model.Job_RPTEmailName) : L("CreateJob_RPTEmail")))
 @section Styles
 {
 }
@@ -21,50 +12,60 @@
 }
 
 <div class="modal-body">
-   <div class="tabbable-line">
-       <ul class="nav nav-tabs">
-           <li class="active">
-               <a href="#EntityInformationsTab" data-toggle="tab" aria-expanded="true">
-                   @L("Job_RPTEmailInformations")
-               </a>
-           </li>
-       </ul>
-       <div class="tab-content">
-           <div class="tab-pane active" id="EntityInformationsTab">
-               <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
-                   @if (Model.IsEditMode)
-                   {
-                       <input type="hidden" name="Id" value="@Model.Id" />
-                   }
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Job_Rptemailname" class="form-control@(Model.Job_Rptemailname.IsNullOrEmpty() ? "" : " edited")" value="@Model.Job_Rptemailname" required>
-               <label>@L("Job_Rptemailname")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Bgjm_Jobgroup_Id" class="form-control@(Model.Bgjm_Jobgroup_Id.IsNullOrEmpty() ? "" : " edited")" value="@Model.Bgjm_Jobgroup_Id" required>
-               <label>@L("Bgjm_Jobgroup_Id")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Emails" class="form-control@(Model.Emails.IsNullOrEmpty() ? "" : " edited")" value="@Model.Emails" required>
-               <label>@L("Emails")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Template_Id" class="form-control@(Model.Template_Id.IsNullOrEmpty() ? "" : " edited")" value="@Model.Template_Id" required>
-               <label>@L("Template_Id")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Parameters" class="form-control@(Model.Parameters.IsNullOrEmpty() ? "" : " edited")" value="@Model.Parameters" >
-               <label>@L("Parameters")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Description" class="form-control@(Model.Description.IsNullOrEmpty() ? "" : " edited")" value="@Model.Description" >
-               <label>@L("Description")</label>
-           </div>
+    <div class="tabbable-line">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#EntityInformationsTab" data-toggle="tab" aria-expanded="true">
+                    @L("Job_RPTEmailInformations")
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="EntityInformationsTab">
+                <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
+                    @if (Model.IsEditMode)
+                    {
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                    }
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Job_Rptemailname" class="form-control@(Model.Job_RPTEmailName.IsNullOrEmpty() ? "" : " edited")" value="@Model.Job_RPTEmailName" required>
+                        <label>@L("Job_RptEmailName")</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="BGJM_JobGroup_Id">@L("Bgjm_Jobgroup_Id")</label>
+                        <select disabled="disabled" id="BGJM_JobGroup_Id" name="BGJM_JobGroup_Id" class="form-control bs-select" data-live-search="true">
+                            @foreach (var jobGroup in ViewBag.JobGroups)
+                            {
+                                <option data-icon="@jobGroup.Value" value="@jobGroup.Value" @(jobGroup.IsSelected ? "selected=\"selected\"" : "")><i class="@jobGroup.Value"></i>@jobGroup.DisplayText</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Emails" class="form-control@(Model.Emails.IsNullOrEmpty() ? "" : " edited")" value="@Model.Emails" required>
+                        <label>@L("Emails")</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="Template_Id">@L("Template_Id")</label>
+                        <select id="Template_Id" name="Template_Id" class="form-control bs-select" data-live-search="true">
+                            @foreach (var reportTemplates in ViewBag.ReportTemplates)
+                            {
+                                <option data-icon="@reportTemplates.Value" value="@reportTemplates.Value" @(reportTemplates.IsSelected ? "selected=\"selected\"" : "")><i class="@reportTemplates.Value"></i>@reportTemplates.DisplayText</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Parameters" class="form-control@(Model.Parameters.IsNullOrEmpty() ? "" : " edited")" value="@Model.Parameters">
+                        <label>@L("Parameters")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Description" class="form-control@(Model.Description.IsNullOrEmpty() ? "" : " edited")" value="@Model.Description">
+                        <label>@L("Description")</label>
+                    </div>
 
-               </form>
-           </div>
-       </div>
-   </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 @Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

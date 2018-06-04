@@ -33,5 +33,6 @@ namespace DM.UBP.Application.Service.BackgroundJobManager.Triggers
 
         Task DeleteTrigger(EntityDto input);
 
+        Task<List<ComboboxItemDto>> GetTriggersToItem(long selectValue);
     }
 }

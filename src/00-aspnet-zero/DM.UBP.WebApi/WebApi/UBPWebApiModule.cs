@@ -7,6 +7,8 @@ using Abp.Modules;
 using Abp.WebApi;
 using Swashbuckle.Application;
 using DM.UBP.Application.Service;
+using DM.UBP.Application.Quartz;
+using DM.UBP.Application.Quartz.Servers;
 
 namespace DM.UBP.WebApi
 {
@@ -14,7 +16,7 @@ namespace DM.UBP.WebApi
     /// Web API layer of the application.
     /// </summary>
     [DependsOn(typeof(AbpWebApiModule), typeof(UBPApplicationModule))]
-    [DependsOn(typeof(UbpApplicationServiceModule))]
+    [DependsOn(typeof(UbpApplicationServiceModule), typeof(UbpAppQuartzModule))]
     public class UBPWebApiModule : AbpModule
     {
         public override void Initialize()
@@ -29,6 +31,12 @@ namespace DM.UBP.WebApi
             Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
                 .ForAll<IApplicationService>(typeof(UbpApplicationServiceModule).Assembly, "ubp")
                 .Build();
+
+            Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
+               .ForAll<IApplicationService>(typeof(UbpAppQuartzModule).Assembly, "quartz")
+               .WithConventionalVerbs()
+               .Build();
+
 
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
 

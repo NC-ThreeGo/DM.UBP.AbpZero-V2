@@ -33,5 +33,6 @@ namespace DM.UBP.Application.Service.BackgroundJobManager.Job_RPTEmails
 
         Task DeleteJob_RPTEmail(EntityDto input);
 
+        Task<List<ComboboxItemDto>> GetJobRPTEmailsToItem(long selectValue);
     }
 }

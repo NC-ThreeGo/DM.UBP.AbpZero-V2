@@ -123,13 +123,50 @@
 
       <text name="TriggerManager" value="触发器管理" />
       <text name="CreatingNewTrigger" value="新建触发器" />
+      <text name="CreateNewTrigger" value="新建触发器" />
+      <text name="CreateTrigger" value="新建触发器" />
       <text name="EditingTrigger" value="修改触发器" />
+      <text name="EditTrigger" value="修改触发器" />
       <text name="DeletingTrigger" value="删除触发器" />
       <text name="TriggerName" value="触发器名称" />
       <text name="CronStr" value="Cron表达式" />
       <text name="TriggerInformations" value="触发器信息" />
       <text name="Triggers" value="触发器" />
       <text name="TriggerHeaderInfo" value="不同的任务可以在调度中使用同一个触发器" />
-      
+      <text name="Second" value="秒" />
+      <text name="Minute" value="分" />
+      <text name="Hour" value="时" />
+      <text name="Day" value="天" />
+      <text name="Month" value="月" />
+      <text name="Week" value="周" />
+      <text name="Year" value="年" />
+
+
+      <text name="Job_RPTEmails" value="报表邮件任务" />
+      <text name="Job_RPTEmailHeaderInfo" value="后台发送报表邮件功能" />
+      <text name="CreateNewJob_RPTEmail" value="创建报表邮件任务" />
+      <text name="Job_RptEmailName" value="任务名称" />
+      <text name="Bgjm_Jobgroup_Id" value="所属任务组" />
+      <text name="Emails" value="邮件" />
+      <text name="Template_Id" value="报表" />
+      <text name="Parameters" value="报表参数" />
+      <text name="CreateJob_RPTEmail" value="创建报表邮件任务" />
+      <text name="EditJob_RPTEmail" value="修改报表邮件任务" />
+      <text name="Job_RPTEmailInformations" value="报表邮件任务信息" />
+
+      <text name="Schedulers" value="调度" />
+      <text name="Scheduler" value="调度" />
+      <text name="SchedulerHeaderInfo" value="后台任务调度信息" />
+      <text name="SchedulerInformations" value="调度信息" />
+      <text name="CreateNewScheduler" value="创建新的调度" />
+      <text name="SchedulerName" value="调度名称" />
+      <text name="Status" value="是否启用" />
+      <text name="LastExtTime" value="最后一次执行时间" />
+      <text name="JobGroup_Id" value="任务组" />
+      <text name="Trigger_Id" value="触发器" />
+      <text name="Job_Id" value="任务" />
+      <text name="CreateScheduler" value="创建新的调度" />
+      <text name="EditScheduler" value="修改调度" />
+
     </texts>
 </localizationDictionary>

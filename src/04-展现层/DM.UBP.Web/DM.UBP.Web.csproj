@@ -496,6 +496,16 @@
     </Content>
     <Content Include="App\host\views\tenants\featuresModal.js" />
     <Content Include="App_Data\Logs\Logs.txt" />
+    <Content Include="Areas\BackgroundJobManager\Views\EasyUiTrigger\cron.js" />
+    <Content Include="Areas\BackgroundJobManager\Views\EasyUiTrigger\icon.css" />
+    <Content Include="Areas\BackgroundJobManager\Views\EasyUiTrigger\jquery-1.6.2.min.js" />
+    <Content Include="Areas\BackgroundJobManager\Views\EasyUiTrigger\jquery.easyui.min.js" />
+    <Content Include="Areas\BackgroundJobManager\Views\EasyUiTrigger\themes\bootstrap\easyui.css" />
+    <Content Include="Areas\BackgroundJobManager\Views\EasyUiTrigger\themes\bootstrap\easyui.min.css" />
+    <Content Include="Areas\BackgroundJobManager\Views\EasyUiTrigger\themes\bootstrap\images\panel_tools.png" />
+    <Content Include="Areas\BackgroundJobManager\Views\EasyUiTrigger\themes\bootstrap\images\spinner_arrows.png" />
+    <Content Include="Areas\BackgroundJobManager\Views\EasyUiTrigger\themes\bootstrap\images\tabs_icons.png" />
+    <Content Include="Areas\BackgroundJobManager\Views\EasyUiTrigger\themes\icon.css" />
     <Content Include="Areas\BackgroundJobManager\Views\JobGroup\Index.js" />
     <Content Include="Areas\BackgroundJobManager\Views\JobGroup\_CreateOrEditModal.js" />
     <Content Include="Areas\BackgroundJobManager\Views\Job_RPTEmail\Index.js" />
@@ -515,6 +525,7 @@
     <Content Include="Areas\ReportManager\Views\Designer\SaveDesignedReport.cshtml" />
     <Content Include="Common\Images\isuzu_white_149_35.png" />
     <Content Include="Common\Images\isuzu_white_168_33.png" />
+    <Content Include="libs\quartz-cron\cron.js" />
     <Content Include="WebReportDesigner\40bc55c6.0.js" />
     <Content Include="WebReportDesigner\40bc55c6.1.js" />
     <Content Include="WebReportDesigner\40bc55c6.10.js" />

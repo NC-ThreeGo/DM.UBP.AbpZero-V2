@@ -1,7 +1,11 @@
-﻿using Abp.Modules;
+﻿using Abp.Dependency;
+using Abp.Modules;
 using Abp.Quartz.Quartz;
+using Abp.Quartz.Quartz.Configuration;
 using DM.UBP.Application.Quartz.Managers;
 using DM.UBP.Application.Quartz.Servers;
+using DM.UBP.Domain.Service;
+using Quartz;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,18 +15,33 @@ using System.Threading.Tasks;
 
 namespace DM.UBP.Application.Quartz
 {
-    [DependsOn(typeof(AbpQuartzModule))]
+    [DependsOn(typeof(AbpQuartzModule),
+        typeof(UbpDomainServiceModule),
+        typeof(UBPApplicationModule))]
     public class UbpAppQuartzModule: AbpModule
     {
         public override void PreInitialize()
         {
-            IocManager.Register<ITriggerServer, TriggerServer>();
-            IocManager.Register<IUBPQuartzScheduleJobManager, UBPQuartzScheduleJobManager>();
+            //IocManager.Register<IQuartzServer, QuartzServer>();
+            //IocManager.Register<IUBPQuartzScheduleJobManager, UBPQuartzScheduleJobManager>();
         }
 
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
+        }
+
+        public override void PostInitialize()
+        {
+            if (IocManager.IsRegistered<IJobListener>())
+            {
+                IocManager.Release(IocManager.Resolve<IJobListener>());
+            }
+
+            IocManager.RegisterIfNot<IJobListener, UBPQuartzJobListener>();
+
+            Configuration.Modules.AbpQuartz().Scheduler.ListenerManager.AddJobListener(IocManager.Resolve<IJobListener>());
+
         }
     }
 }

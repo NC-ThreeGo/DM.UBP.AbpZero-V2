@@ -4,6 +4,7 @@ using DM.UBP.Application.Quartz.Servers;
 using Owin;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -13,15 +14,25 @@ namespace DM.UBP.Web
     {
         public static void QuartzServerStartUp(this IAppBuilder app)
         {
-            if (!IocManager.Instance.IsRegistered<ITriggerServer>())
+            if (!IocManager.Instance.IsRegistered<IQuartzServer>())
             {
-                throw new AbpException("ITriggerServer is not registered!");
+                throw new AbpException("IQuartzServer is not registered!");
             }
 
-            var triggerServer = IocManager.Instance.Resolve<ITriggerServer>();
+            var triggerServer = IocManager.Instance.Resolve<IQuartzServer>();
 
-            triggerServer.StartUp();
 
+            //读取配置文件中的EnabledCodeFirst
+            if (ConfigurationManager.AppSettings["EnabledQuartzServer"] == null)
+            {
+                triggerServer.StartUp();
+                return;
+            }
+            if (Boolean.Parse(ConfigurationManager.AppSettings["EnabledQuartzServer"]))
+            {
+                triggerServer.StartUp();
+                return;
+            }
         }
     }
 }

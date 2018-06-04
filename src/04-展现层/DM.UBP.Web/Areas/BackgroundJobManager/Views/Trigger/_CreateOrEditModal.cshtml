@@ -1,49 +1,1137 @@
 ﻿@using Abp.Extensions
 @using DM.UBP.Web.Areas.Mpa.Models.Common.Modals
+@using Abp.Web.Mvc.Extensions
 
 @model DM.UBP.Application.Dto.BackgroundJobManager.Triggers.TriggerOutputDto
-
+@Html.IncludeScript("~/libs/quartz-cron/cron.js")
 @Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditTrigger") + ": " + Model.TriggerName) : L("CreateTrigger")))
 @section Styles
 {
 }
 @section Scripts
 {
+    @*@Html.IncludeScript("~/libs/quartz-cron/cron.js")*@
 }
 
-<div class="modal-body">
-   <div class="tabbable-line">
-       <ul class="nav nav-tabs">
-           <li class="active">
-               <a href="#EntityInformationsTab" data-toggle="tab" aria-expanded="true">
-                   @L("TriggerInformations")
-               </a>
-           </li>
-       </ul>
-       <div class="tab-content">
-           <div class="tab-pane active" id="EntityInformationsTab">
-               <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
-                   @if (Model.IsEditMode)
-                   {
-                       <input type="hidden" name="Id" value="@Model.Id" />
-                   }
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Triggername" class="form-control@(Model.TriggerName.IsNullOrEmpty() ? "" : " edited")" value="@Model.TriggerName" required>
-               <label>@L("TriggerName")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Cronstr" class="form-control@(Model.CronStr.IsNullOrEmpty() ? "" : " edited")" value="@Model.CronStr" required>
-               <label>@L("CronStr")</label>
-           </div>
-           <div class="form-group form-md-line-input form-md-floating-label no-hint">
-               <input type="text" name="Description" class="form-control@(Model.Description.IsNullOrEmpty() ? "" : " edited")" value="@Model.Description" >
-               <label>@L("Description")</label>
-           </div>
+<style>
+    .secondList,
+    .minList,
+    .hourList,
+    .dayList,
+    .monthList,
+    .weekList {
+        margin-left: 45px
+    }
 
-               </form>
-           </div>
-       </div>
-   </div>
+    .CronCol {
+        width: 68px;
+        margin-left: 1px;
+    }
+
+    .cronNumber {
+        width: 60px;
+    }
+</style>
+
+<div class="modal-body">
+    <div class="tabbable-line">
+
+        <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
+        @if (Model.IsEditMode)
+        {
+            <input type="hidden" name="Id" value="@Model.Id" />
+        }
+
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#SecondTab" data-toggle="tab" aria-expanded="true">
+                        @L("Second")
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#MinuteTab" data-toggle="tab" aria-expanded="false">
+                        @L("Minute")
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#HourTab" data-toggle="tab" aria-expanded="false">
+                        @L("Hour")
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#DayTab" data-toggle="tab" aria-expanded="false">
+                        @L("Day")
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#MonthTab" data-toggle="tab" aria-expanded="false">
+                        @L("Month")
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#WeekTab" data-toggle="tab" aria-expanded="false">
+                        @L("Week")
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#YearTab" data-toggle="tab" aria-expanded="false">
+                        @L("Year")
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+
+                <div class="tab-pane active" id="SecondTab">
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" checked="checked" name="second" onclick="everyTime(this)">
+                        </label>
+                        每秒 允许的通配符[, - * /]
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="second" onclick="cycle(this)">
+                        </label>
+                        周期从
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="58" id="secondStart_0">
+                        -
+                        <input type="number" class="cronNumber" value="2" size="16" min="2" max="59" id="secondEnd_0">
+                        秒
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="second" onclick="startOn(this)">
+                        </label>
+                        从
+                        <input type="number" class="cronNumber" value="0" size="16" min="0" max="59" id="secondStart_1">
+                        秒开始,每间隔
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="59" id="secondEnd_1">
+                        秒执行一次
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="second" id="sencond_appoint" onclick="appoint(this)">
+                        </label>
+                        指定
+
+                        <div class="secondList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="0"> 00
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="1"> 01
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="2"> 02
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="3"> 03
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="4"> 04
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="5"> 05
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="6"> 06
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="7"> 07
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="8"> 08
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="9"> 09
+                            </label>
+                        </div>
+
+                        <div class="secondList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="10"> 10
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="11"> 11
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="12"> 12
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="13"> 13
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="14"> 14
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="15"> 15
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="16"> 16
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="17"> 17
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="18"> 18
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="19"> 19
+                            </label>
+                        </div>
+
+                        <div class="secondList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="20"> 20
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="22"> 22
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="22"> 22
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="23"> 23
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="24"> 24
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="25"> 25
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="26"> 26
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="27"> 27
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="28"> 28
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="29"> 29
+                            </label>
+                        </div>
+
+                        <div class="secondList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="30"> 30
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="31"> 31
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="32"> 32
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="33"> 33
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="34"> 34
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="35"> 35
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="36"> 36
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="37"> 37
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="38"> 38
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="39"> 39
+                            </label>
+                        </div>
+
+                        <div class="secondList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="40"> 40
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="44"> 44
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="44"> 44
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="43"> 43
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="44"> 44
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="45"> 45
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="46"> 46
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="47"> 47
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="48"> 48
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="secondList" value="49"> 49
+                            </label>
+                        </div>
+
+                        <div class="secondList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="secondList" value="50"> 50
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="secondList" value="55"> 55
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="secondList" value="55"> 55
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="secondList" value="53"> 53
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="secondList" value="54"> 54
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="secondList" value="55"> 55
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="secondList" value="56"> 56
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="secondList" value="57"> 57
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="secondList" value="58"> 58
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="secondList" value="59"> 59
+                            </label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tab-pane" id="MinuteTab">
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" checked="checked" name="min" onclick="everyTime(this)">
+                        </label>
+                        分钟 允许的通配符[, - * /]
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="min" onclick="cycle(this)">
+                        </label>
+                        周期从
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="58" id="minStart_0">
+                        -
+                        <input type="number" class="cronNumber" value="2" size="16" min="2" max="59" id="minEnd_0">
+                        分钟
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="min" onclick="startOn(this)">
+                        </label>
+                        从
+                        <input type="number" class="cronNumber" value="0" size="16" min="0" max="59" id="minStart_1">
+                        分钟开始,每间隔
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="59" id="minEnd_1">
+                        分钟执行一次
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="min" id="min_appoint" onclick="appoint(this)">
+                        </label>
+                        指定
+
+                        <div class="minList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="0"> 00
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="1"> 01
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="2"> 02
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="3"> 03
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="4"> 04
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="5"> 05
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="6"> 06
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="7"> 07
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="8"> 08
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="9"> 09
+                            </label>
+                        </div>
+
+                        <div class="minList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="10"> 10
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="11"> 11
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="12"> 12
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="13"> 13
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="14"> 14
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="15"> 15
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="16"> 16
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="17"> 17
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="18"> 18
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="19"> 19
+                            </label>
+                        </div>
+
+                        <div class="minList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="20"> 20
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="22"> 22
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="22"> 22
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="23"> 23
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="24"> 24
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="25"> 25
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="26"> 26
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="27"> 27
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="28"> 28
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="29"> 29
+                            </label>
+                        </div>
+
+                        <div class="minList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="30"> 30
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="31"> 31
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="32"> 32
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="33"> 33
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="34"> 34
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="35"> 35
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="36"> 36
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="37"> 37
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="38"> 38
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="39"> 39
+                            </label>
+                        </div>
+
+                        <div class="minList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="40"> 40
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="44"> 44
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="44"> 44
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="43"> 43
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="44"> 44
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="45"> 45
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="46"> 46
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="47"> 47
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="48"> 48
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="minList" value="49"> 49
+                            </label>
+                        </div>
+
+                        <div class="minList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="minList" value="50"> 50
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="minList" value="55"> 55
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="minList" value="55"> 55
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="minList" value="53"> 53
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="minList" value="54"> 54
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="minList" value="55"> 55
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="minList" value="56"> 56
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="minList" value="57"> 57
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="minList" value="58"> 58
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="minList" value="59"> 59
+                            </label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tab-pane" id="HourTab">
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" checked="checked" name="hour" onclick="everyTime(this)">
+                        </label>
+                        小时 允许的通配符[, - * /]
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="hour" onclick="cycle(this)">
+                        </label>
+                        周期从
+                        <input type="number" class="cronNumber" value="0" size="16" min="0" max="23" id="hourStart_0">
+                        -
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="23" id="hourEnd_0">
+                        小时
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="hour" onclick="startOn(this)">
+                        </label>
+                        从
+                        <input type="number" class="cronNumber" value="0" size="16" min="0" max="23" id="hourStart_1">
+                        小时开始,每间隔
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="23" id="hourEnd_1">
+                        小时执行一次
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="hour" id="hour_appoint" onclick="appoint(this)">
+                        </label>
+                        指定
+
+                        <div class="hourList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="0"> 00
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="1"> 01
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="2"> 02
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="3"> 03
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="4"> 04
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="5"> 05
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="6"> 06
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="7"> 07
+                            </label>
+                        </div>
+
+                        <div class="hourList">
+
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="8"> 08
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="9"> 09
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="10"> 10
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="11"> 11
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="12"> 12
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="13"> 13
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="14"> 14
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="15"> 15
+                            </label>
+
+                        </div>
+
+                        <div class="hourList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="16"> 16
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="17"> 17
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="18"> 18
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="19"> 19
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="20"> 20
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="22"> 22
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="22"> 22
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hourList" value="23"> 23
+                            </label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tab-pane" id="DayTab">
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" checked="checked" name="day" onclick="everyTime(this)">
+                        </label>
+                        日 允许的通配符[, - * / L W ?]
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="day" id="day_unAppoint" onclick="unAppoint(this)">
+                        </label>
+                        不指定
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="day" onclick="cycle(this)">
+                        </label>
+                        周期从
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="31" id="dayStart_0">
+                        -
+                        <input type="number" class="cronNumber" value="2" size="16" min="2" max="31" id="dayEnd_0">
+                        日
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="day" onclick="startOn(this)">
+                        </label>
+                        从
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="31" id="dayStart_1">
+                        日开始,每间隔
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="31" id="dayEnd_1">
+                        天执行一次
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="day" onclick="workDay(this)">
+                        </label>
+                        每月
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="31" id="dayStart_2">
+                        号最近的那个工作日
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="day" onclick="lastDay(this)">
+                        </label>
+                        本月最后一天
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="day" id="day_appoint" onclick="appoint(this)">
+                        </label>
+                        指定
+
+                        <div class="dayList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="1"> 01
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="2"> 02
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="3"> 03
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="4"> 04
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="5"> 05
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="6"> 06
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="7"> 07
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="8"> 08
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="9"> 09
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="10"> 10
+                            </label>
+                        </div>
+
+                        <div class="dayList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="11"> 11
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="12"> 12
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="13"> 13
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="14"> 14
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="15"> 15
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="16"> 16
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="17"> 17
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="18"> 18
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="19"> 19
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="20"> 20
+                            </label>
+                        </div>
+
+                        <div class="dayList">
+
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="22"> 22
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="22"> 22
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="23"> 23
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="24"> 24
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="25"> 25
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="26"> 26
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="27"> 27
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="28"> 28
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="29"> 29
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="30"> 30
+                            </label>
+                        </div>
+
+                        <div class="dayList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="dayList" value="31"> 31
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane" id="MonthTab">
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" checked="checked" name="month" onclick="everyTime(this)">
+                        </label>
+                        月 允许的通配符[, - * /]
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="month" onclick="cycle(this)">
+                        </label>
+                        周期从
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="12" id="monthStart_0">
+                        -
+                        <input type="number" class="cronNumber" value="2" size="16" min="2" max="12" id="monthEnd_0">
+                        月
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="month" onclick="startOn(this)">
+                        </label>
+                        从
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="12" id="monthStart_1">
+                        月开始,每间隔
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="12" id="monthEnd_1">
+                        月执行
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="month" id="month_appoint" onclick="appoint(this)">
+                        </label>
+                        指定
+
+                        <div class="monthList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="monthList" value="1"> 01
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="monthList" value="2"> 02
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="monthList" value="3"> 03
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="monthList" value="4"> 04
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="monthList" value="5"> 05
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="monthList" value="6"> 06
+                            </label>
+                        </div>
+
+                        <div class="monthList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="monthList" value="7"> 07
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="monthList" value="8"> 08
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="monthList" value="9"> 09
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="monthList" value="10"> 10
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="monthList" value="11"> 11
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="monthList" value="12"> 12
+                            </label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tab-pane" id="WeekTab">
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" checked="checked" name="week" onclick="everyTime(this)">
+                        </label>
+                        周 允许的通配符[, - * / L # ?]
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="week" id="week_unAppoint" onclick="unAppoint(this)">
+                        </label>
+                        不指定
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="week" onclick="cycle(this)">
+                        </label>
+                        周期 从星期
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="7" id="weekStart_0">
+                        -
+                        <input type="number" class="cronNumber" value="2" size="16" min="2" max="7" id="weekEnd_0">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="week" onclick="startOn(this)">
+                        </label>
+                        从星期
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="7" id="weekStart_1">
+                        开始,每间隔
+                        <input type="number" class="cronNumber" value="2" size="16" min="2" max="7" id="weekEnd_1">
+                        天执行一次
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="week" onclick="weekOfDay(this)">
+                        </label>
+                        第
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="5" id="weekStart_2">
+                        周 的星期
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="7" id="weekEnd_2">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="week" onclick="lastWeek(this)">
+                        </label>
+                        本月最后一个星期
+                        <input type="number" class="cronNumber" value="1" size="16" min="1" max="7" id="weekStart_3">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="week" id="week_appoint" onclick="appoint(this)">
+                        </label>
+                        指定
+
+                        <div class="weekList">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="weekList" value="1"> 1
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="weekList" value="2"> 2
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="weekList" value="3"> 3
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="weekList" value="4"> 4
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="weekList" value="5"> 5
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="weekList" value="6"> 6
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="weekList" value="7"> 7
+                            </label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tab-pane" id="YearTab">
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" checked="checked" name="year" onclick="everyTime(this)">
+                        </label>
+                        允许的通配符[, - * /]
+                    </div>
+
+                    <div class="form-group">
+                        <label class="btn btn-info">
+                            <input type="radio" name="year" onclick="cycle(this)">
+                        </label>
+                        周期 从
+                        <input type="number" class="cronNumber" value="2018" size="16" min="2000" max="3000" id="yearStart_0">
+                        -
+                        <input type="number" class="cronNumber" value="2019" size="16" min="2001" max="3000" id="yearEnd_0">
+                        年
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <input type="text" name="Triggername" class="form-control@(Model.TriggerName.IsNullOrEmpty() ? "" : " edited")" value="@Model.TriggerName" required>
+                <label>@L("TriggerName")</label>
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <input type="text" name="Description" class="form-control@(Model.Description.IsNullOrEmpty() ? "" : " edited")" value="@Model.Description">
+                <label>@L("Description")</label>
+            </div>
+
+            <fieldset style="border-radius: 3px;">
+                <legend>表达式</legend>
+                <table style="height: 100px;">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td align="center">
+                                秒
+                            </td>
+                            <td align="center">
+                                分钟
+                            </td>
+                            <td align="center">
+                                小时
+                            </td>
+                            <td align="center">
+                                日
+                            </td>
+                            <td align="center">
+                                月<br />
+                            </td>
+                            <td align="center">
+                                星期
+                            </td>
+                            <td align="center">
+                                年
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                表达式字段:
+                            </td>
+                            <td>
+                                <input type="text" name="v_second" class="CronCol" value="*" readonly="readonly" />
+                            </td>
+                            <td>
+                                <input type="text" name="v_min" class="CronCol" value="*" readonly="readonly" />
+                            </td>
+                            <td>
+                                <input type="text" name="v_hour" class="CronCol" value="*" readonly="readonly" />
+                            </td>
+                            <td>
+                                <input type="text" name="v_day" class="CronCol" value="*" readonly="readonly" />
+                            </td>
+                            <td>
+                                <input type="text" name="v_month" class="CronCol" value="*" readonly="readonly" />
+                            </td>
+                            <td>
+                                <input type="text" name="v_week" class="CronCol" value="?" readonly="readonly" />
+                            </td>
+                            <td>
+                                <input type="text" name="v_year" class="CronCol" value="*" readonly="readonly" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cron 表达式:</td>
+                            <td colspan="7" style="margin-top:1px;">
+                                <input type="text" name="Cronstr" id="Cronstr" readonly="readonly" style="width: 100%; margin-left:1px" value="@(Model.CronStr.IsNullOrEmpty() ? "* * * * * ? *" : Model.CronStr)" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="8">最近5次运行时间:</td>
+                        </tr>
+                        <tr>
+                            <td colspan="8" id="runTime"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+
+        </form>
+    </div>
 </div>
 
 @Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

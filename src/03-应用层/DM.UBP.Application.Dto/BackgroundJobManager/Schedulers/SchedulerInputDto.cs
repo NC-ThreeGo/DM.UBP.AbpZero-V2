@@ -23,7 +23,7 @@ namespace DM.UBP.Application.Dto.BackgroundJobManager.Schedulers
     public class SchedulerInputDto : EntityDto<long>
     {
         [Display(Name = "调度名称")]
-        [StringLength(StringMaxLengthConst.MaxStringLength10)]
+        [StringLength(StringMaxLengthConst.MaxStringLength50)]
         [Required]
         public string SchedulerName { get; set; }
 

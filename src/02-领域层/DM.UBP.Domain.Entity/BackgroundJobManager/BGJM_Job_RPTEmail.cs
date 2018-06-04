@@ -24,7 +24,7 @@ namespace DM.UBP.Domain.Entity.BackgroundJobManager
         /// 工作名称
         /// <summary>
         [Display(Name = "工作名称")]
-        [StringLength(StringMaxLengthConst.MaxStringLength10)]
+        [StringLength(StringMaxLengthConst.MaxStringLength50)]
         public string Job_RPTEmailName { get; set; }
 
         /// <summary>

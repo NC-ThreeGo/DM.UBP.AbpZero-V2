@@ -20,6 +20,8 @@ using DM.UBP.Application.Dto.BackgroundJobManager.JobGroups;
 using System.Linq;
 using System.Linq.Dynamic;
 using DM.UBP.Dto;
+using DM.UBP.Domain.Service.BackgroundJobManager.Job_RPTEmails;
+using DM.UBP.Application.Service.BackgroundJobManager.Job_RPTEmails;
 
 namespace DM.UBP.Application.Service.BackgroundJobManager.JobGroups
 {
@@ -30,10 +32,14 @@ namespace DM.UBP.Application.Service.BackgroundJobManager.JobGroups
     public class JobGroupAppService : IJobGroupAppService
     {
         private readonly IJobGroupManager _JobGroupManager;
+        private readonly IJob_RPTEmailAppService _Job_RPTEmailAppManager;
+
         public JobGroupAppService(
-           IJobGroupManager jobgroupmanager
+           IJobGroupManager jobgroupmanager,
+           IJob_RPTEmailAppService job_rptemailmanager
            )
         {
+            _Job_RPTEmailAppManager = job_rptemailmanager;
             _JobGroupManager = jobgroupmanager;
         }
 
@@ -85,5 +91,27 @@ namespace DM.UBP.Application.Service.BackgroundJobManager.JobGroups
             var entity = await _JobGroupManager.GetJobGroupByIdAsync(input.Id);
             await _JobGroupManager.DeleteJobGroupAsync(entity);
         }
+
+
+        public async Task<List<ComboboxItemDto>> GetJobGroupsToItem(long selectValue)
+        {
+            var entities = await _JobGroupManager.GetAllJobGroupsAsync();
+            var items = entities.Select(c => new ComboboxItemDto(c.Id.ToString(), c.JobGroupName) { IsSelected = c.Id == selectValue }).ToList();
+            return items;
+        }
+
+        public async Task<List<ComboboxItemDto>> GetJobsToItem(long selectValue)
+        {
+            var entity = await _JobGroupManager.GetJobGroupByIdAsync(selectValue);
+            if (entity.TypeTable == "BGJM_JOB_RPTEMAIL")
+            {
+                return await _Job_RPTEmailAppManager.GetJobRPTEmailsToItem(0);
+            }
+            else
+            {
+                return new List<ComboboxItemDto>();
+            }
+        }
+        
     }
 }

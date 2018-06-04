@@ -328,7 +328,7 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
                 string conn = ConfigurationManager.ConnectionStrings[dataSource.ConnkeyName].ConnectionString;
 
                 //List<string> resultP = GetParamsBySql(sql);
-                List<string> resultP = GetParamsByStr(dataSource.DataParams); 
+                List<string> resultP = GetParamsByStr(dataSource.DataParams);
 
                 OracleParameter[] paras = new OracleParameter[resultP.Count];
                 for (int i = 0; i < resultP.Count; i++)
@@ -337,6 +337,11 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
                     if (dataParam.Count() == 0)
                         continue;
 
+                    string val = dicParameters[resultP[i]];
+
+                    if (!dicParameters.Keys.Contains(resultP[i]))
+                        val = string.Empty;
+
                     #region 判断类型
                     switch (dataParam.First().ParamterType)
                     {
@@ -344,49 +349,49 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
-                                Value = dicParameters[resultP[i]]
+                                Value = val
                             };
                             break;
                         case 2:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
-                                Value = Convert.ToInt32(dicParameters[resultP[i]])
+                                Value = Convert.ToInt32(val)
                             };
                             break;
                         case 3:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
-                                Value = Convert.ToDecimal(dicParameters[resultP[i]])
+                                Value = Convert.ToDecimal(val)
                             };
                             break;
                         case 4:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
-                                Value = Convert.ToDateTime(dicParameters[resultP[i]])
+                                Value = val == "#sysDate#" ? DateTime.Now : Convert.ToDateTime(val)
                             };
                             break;
                         case 5:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
-                                Value = Convert.ToBoolean(dicParameters[resultP[i]])
+                                Value = Convert.ToBoolean(val)
                             };
                             break;
                         case 6:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
-                                Value = new Guid(dicParameters[resultP[i]])
+                                Value = new Guid(val)
                             };
                             break;
                         default:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
-                                Value = dicParameters[resultP[i]]
+                                Value = val
                             };
                             break;
                     }

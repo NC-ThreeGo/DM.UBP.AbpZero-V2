@@ -63,6 +63,5 @@ namespace DM.UBP.Domain.Service.BackgroundJobManager.Schedulers
         {
             await _schedulerRepository.DeleteAsync(scheduler);
         }
-
     }
 }
