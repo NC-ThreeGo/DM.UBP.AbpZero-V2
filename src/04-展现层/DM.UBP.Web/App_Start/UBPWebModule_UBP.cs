@@ -41,8 +41,8 @@ namespace DM.UBP.Web
         typeof(UBPWebApiModule),
         typeof(AbpWebSignalRModule),
         typeof(AbpRedisCacheModule), //AbpRedisCacheModule dependency can be removed if not using Redis cache
-        typeof(AbpHangfireModule),
-        typeof(UbpAppQuartzModule)//AbpHangfireModule dependency can be removed if not using Hangfire
+        typeof(AbpHangfireModule),//AbpHangfireModule dependency can be removed if not using Hangfire
+        typeof(UbpAppQuartzModule)
         )] 
     public class UBPWebModule : AbpModule
     {
