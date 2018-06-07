@@ -56,6 +56,24 @@
     <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Windsor.4.0.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="Devart.Data, Version=5.0.1611.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Devart\dotConnect\Oracle\Devart.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Devart.Data.Oracle, Version=9.2.187.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Devart\dotConnect\Oracle\Devart.Data.Oracle.dll</HintPath>
+    </Reference>
+    <Reference Include="Devart.Data.Oracle.Entity.EF6, Version=9.2.187.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Devart\dotConnect\Oracle\Entity\EF6\Devart.Data.Oracle.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -68,25 +86,145 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UBPConsoleApplication.cs" />
     <Compile Include="UBPConsoleModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="log4net.config" />
     <None Include="packages.config" />
+    <Content Include="ubp.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\aspnetboilerplate\src\Abp.AutoMapper\Abp.AutoMapper.csproj">
+      <Project>{7334aff5-cf42-4922-8f79-e74fcd8693a5}</Project>
+      <Name>Abp.AutoMapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\aspnetboilerplate\src\Abp.Castle.Log4Net\Abp.Castle.Log4Net.csproj">
       <Project>{e0e1cdb0-c268-42e9-8fde-9ec3b7acb72e}</Project>
       <Name>Abp.Castle.Log4Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\aspnetboilerplate\src\Abp.EntityFramework.Common\Abp.EntityFramework.Common.csproj">
+      <Project>{fc01fb44-e3c9-4270-bd40-ae4951b55ebc}</Project>
+      <Name>Abp.EntityFramework.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\aspnetboilerplate\src\Abp.EntityFramework\Abp.EntityFramework.csproj">
+      <Project>{325015f8-fb13-402e-99b5-f5b8ff462c17}</Project>
+      <Name>Abp.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\aspnetboilerplate\src\Abp.Quartz\Abp.Quartz.csproj">
+      <Project>{a25f9573-74cc-4b81-b854-75d6d1048be0}</Project>
+      <Name>Abp.Quartz</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\aspnetboilerplate\src\Abp.RedisCache.ProtoBuf\Abp.RedisCache.ProtoBuf.csproj">
+      <Project>{79c26dd6-4b32-4367-b5a2-d25289cb51af}</Project>
+      <Name>Abp.RedisCache.ProtoBuf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\aspnetboilerplate\src\Abp.RedisCache\Abp.RedisCache.csproj">
+      <Project>{612df432-2d46-46b2-a294-7d403fe611eb}</Project>
+      <Name>Abp.RedisCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\aspnetboilerplate\src\Abp.Web.Api\Abp.Web.Api.csproj">
+      <Project>{2977fbe3-08df-4275-ab2b-2db63b29e538}</Project>
+      <Name>Abp.Web.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\aspnetboilerplate\src\Abp.Web.Mvc\Abp.Web.Mvc.csproj">
+      <Project>{53c6938f-d370-40f0-8870-182b40cc06e8}</Project>
+      <Name>Abp.Web.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\aspnetboilerplate\src\Abp.Web.SignalR\Abp.Web.SignalR.csproj">
+      <Project>{60aa0965-cc14-4779-88ee-e13d6078d40c}</Project>
+      <Name>Abp.Web.SignalR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\aspnetboilerplate\src\Abp.Web\Abp.Web.csproj">
+      <Project>{f443cab0-11b3-4fb5-9782-f8779aae34f7}</Project>
+      <Name>Abp.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\aspnetboilerplate\src\Abp\Abp.csproj">
       <Project>{be9aca26-9c1b-4975-9aad-bdd48de84eb8}</Project>
       <Name>Abp</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\module-zero\src\Abp.Zero.Common\Abp.Zero.Common.csproj">
+      <Project>{362af84e-4d6b-4a8b-a111-91620c1f1e50}</Project>
+      <Name>Abp.Zero.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\module-zero\src\Abp.Zero.EntityFrameworkCore\Abp.Zero.EntityFrameworkCore.csproj">
+      <Project>{58a7db68-6213-47cd-bb09-d550d85e8128}</Project>
+      <Name>Abp.Zero.EntityFrameworkCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\module-zero\src\Abp.Zero.EntityFramework\Abp.Zero.EntityFramework.csproj">
+      <Project>{e35a1703-64c2-4c81-82e5-4da2c79b4b5c}</Project>
+      <Name>Abp.Zero.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\module-zero\src\Abp.Zero.Ldap\Abp.Zero.Ldap.csproj">
+      <Project>{38828888-4227-4c85-a751-11370197bc22}</Project>
+      <Name>Abp.Zero.Ldap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\module-zero\src\Abp.Zero.Owin\Abp.Zero.Owin.csproj">
+      <Project>{728a3287-ac8e-4121-99af-1b4a5d9ca3a8}</Project>
+      <Name>Abp.Zero.Owin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\module-zero\src\Abp.Zero\Abp.Zero.csproj">
+      <Project>{6d8ad002-4071-4094-803a-c25eb7e9c786}</Project>
+      <Name>Abp.Zero</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\00-aspnet-zero\DM.UBP.Application\DM.UBP.Application.csproj">
+      <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
+      <Name>DM.UBP.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\00-aspnet-zero\DM.UBP.Core\DM.UBP.Core.csproj">
+      <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
+      <Name>DM.UBP.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\00-aspnet-zero\DM.UBP.WebApi\DM.UBP.WebApi.csproj">
+      <Project>{5eb52d3d-09fd-463a-b02a-8d9856bd3724}</Project>
+      <Name>DM.UBP.WebApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\01-基础设施层\DM.Common\DM.Common.csproj">
+      <Project>{d3c43dfa-4bc8-4daa-83a4-51d0000e788c}</Project>
+      <Name>DM.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\01-基础设施层\DM.UBP.Common\DM.UBP.Common.csproj">
+      <Project>{4fe341bf-8422-4df3-8efa-dd5187032f70}</Project>
+      <Name>DM.UBP.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\01-基础设施层\DM.UBP.EF.OracleDevart\DM.UBP.EF.OracleDevart.csproj">
+      <Project>{034bc5c8-35b6-412e-9440-431b3997b2ab}</Project>
+      <Name>DM.UBP.EF.OracleDevart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\01-基础设施层\DM.UBP.EF.SqlServer\DM.UBP.EF.SqlServer.csproj">
+      <Project>{2d5f00c2-a81f-46b9-aa79-7023b0188761}</Project>
+      <Name>DM.UBP.EF.SqlServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\01-基础设施层\DM.UBP.EF\DM.UBP.EF.csproj">
+      <Project>{3979f157-deb0-4878-ab1d-4cef6b5a1300}</Project>
+      <Name>DM.UBP.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\02-领域层\DM.UBP.Domain.EntityConfiguration.OracleDevart\DM.UBP.Domain.EntityConfiguration.OracleDevart.csproj">
+      <Project>{e4ce48f2-d1df-4d9d-b419-8adcf3be5866}</Project>
+      <Name>DM.UBP.Domain.EntityConfiguration.OracleDevart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\02-领域层\DM.UBP.Domain.Entity\DM.UBP.Domain.Entity.csproj">
+      <Project>{d0f6b7da-08a0-472b-ad15-3f9878439467}</Project>
+      <Name>DM.UBP.Domain.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\02-领域层\DM.UBP.Domain.Service\DM.UBP.Domain.Service.csproj">
+      <Project>{c0160fe5-83cd-4025-8f78-2100b02ebc5d}</Project>
+      <Name>DM.UBP.Domain.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\03-应用层\DM.UBP.Application.Dto\DM.UBP.Application.Dto.csproj">
+      <Project>{0e684037-fae4-4f67-9c4c-b68dbb215d8d}</Project>
+      <Name>DM.UBP.Application.Dto</Name>
+    </ProjectReference>
     <ProjectReference Include="..\src\03-应用层\DM.UBP.Application.Quartz\DM.UBP.Application.Quartz.csproj">
       <Project>{8ad53561-4689-4c69-b684-9a1ddf7feab9}</Project>
       <Name>DM.UBP.Application.Quartz</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\03-应用层\DM.UBP.Application.Service\DM.UBP.Application.Service.csproj">
+      <Project>{10e6adbf-9f47-4b9e-918a-e0d2960599b6}</Project>
+      <Name>DM.UBP.Application.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -33,15 +33,16 @@ namespace DM.UBP.EF
 
             //根据ubp配置，获取DbContextInitializer，并初始化
             UbpConfig config = UbpConfig.Instance;
+
+            //根据ubp配置，获得基于当前数据库的IAbpZeroDbMigrator实现类，并向IocManager注册。
+            IocManager.IocContainer.Register(Component.For(typeof(IAbpZeroDbMigrator)).ImplementedBy(config.AbpZeroDbMigratorConfig.AbpZeroDbMigratorType));
+
             IDatabaseInitializer databaseInitializer = IocManager.Resolve<IDatabaseInitializer>();
             if (!_databaseInitialized && databaseInitializer != null)
             {
                 databaseInitializer.Initialize(config.DbContextInitializerConfig);
                 _databaseInitialized = true;
             }
-
-            //根据ubp配置，获得基于当前数据库的IAbpZeroDbMigrator实现类，并向IocManager注册。
-            IocManager.IocContainer.Register(Component.For(typeof(IAbpZeroDbMigrator)).ImplementedBy(config.AbpZeroDbMigratorConfig.AbpZeroDbMigratorType));
         }
     }
 }
