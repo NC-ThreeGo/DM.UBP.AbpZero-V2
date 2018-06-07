@@ -105,6 +105,7 @@ namespace DM.UBP.EF
 
             #region EF预热，为集合中的单个容器映射创建（范围、生成的视图）字典，提高EF的性能
             TDbContext context = new TDbContext();
+            //TDbContext context = (TDbContext)Activator.CreateInstance(TDbContext.GetType, ""); ;
             ObjectContext objectContext = ((IObjectContextAdapter)context).ObjectContext;
             StorageMappingItemCollection mappingItemCollection = (StorageMappingItemCollection)objectContext.ObjectStateManager
                 .MetadataWorkspace.GetItemCollection(DataSpace.CSSpace);
