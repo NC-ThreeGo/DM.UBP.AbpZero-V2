@@ -44,8 +44,6 @@ namespace DM.UBP.Application.Quartz.Servers
                             .Build();
                     });
             });
-
-
             _jobManager.Start();
         }
 

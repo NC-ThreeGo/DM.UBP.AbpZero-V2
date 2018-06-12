@@ -34,13 +34,13 @@ namespace DM.UBP.Application.Quartz.Managers
             configureTrigger(triggerToBuild);
             var trigger = triggerToBuild.Build();
 
-            if (!_quartzConfiguration.Scheduler.CheckExists(job.Key))
+            if (_quartzConfiguration.Scheduler.CheckExists(job.Key))
             {
-                _quartzConfiguration.Scheduler.ScheduleJob(job, trigger);
-                return;
+                _quartzConfiguration.Scheduler.DeleteJob(job.Key);
             }
-            ResumeJob(job.Key.Name,job.Key.Group);
-            _quartzConfiguration.Scheduler.RescheduleJob(trigger.Key, trigger);
+            _quartzConfiguration.Scheduler.ScheduleJob(job, trigger);
+            //return;
+            //ResumeJob(job.Key.Name,job.Key.Group);
         }
 
         public void DeleteJob(string jobName, String groupName)

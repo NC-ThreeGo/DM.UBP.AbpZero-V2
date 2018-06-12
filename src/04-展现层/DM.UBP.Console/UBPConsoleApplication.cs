@@ -2,6 +2,7 @@
 using Abp.Castle.Logging.Log4Net;
 using Abp.Modules;
 using Castle.Facilities.Logging;
+using DM.UBP.Application.Quartz.Servers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,14 +18,21 @@ namespace DM.UBP.Console
 
         public void Application_Start()
         {
-            AbpBootstrapper.Initialize();
-
             AbpBootstrapper.IocManager.IocContainer.AddFacility<LoggingFacility>(
                 f => f.UseAbpLog4Net().WithConfig("log4net.config")
             );
+
+            AbpBootstrapper.Initialize();
+
+            if (!Abp.Dependency.IocManager.Instance.IsRegistered<IQuartzServer>())
+            {
+                throw new AbpException("IQuartzServer is not registered!");
+            }
+
+            var triggerServer = Abp.Dependency.IocManager.Instance.Resolve<IQuartzServer>();
+
+            triggerServer.StartUp();
         }
-
-
 
         public void Application_End()
         {

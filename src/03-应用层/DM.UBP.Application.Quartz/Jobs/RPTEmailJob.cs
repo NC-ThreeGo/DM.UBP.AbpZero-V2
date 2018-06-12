@@ -79,18 +79,18 @@ namespace DM.UBP.Application.Quartz.Jobs
             string fileName = "ExportReport\\" + DateTime.Now.ToString("yyyyMMddHHmmss") + job_RPTEmailName;
 
 
-            string csvFile = System.AppDomain.CurrentDomain.BaseDirectory + fileName + ".csv";
-            using (FastReport.Export.Csv.CSVExport csv = new FastReport.Export.Csv.CSVExport())
-            {
-                csv.Export(_webReport.Report, csvFile);
-            }
+            //string csvFile = System.AppDomain.CurrentDomain.BaseDirectory + fileName + ".csv";
+            //using (FastReport.Export.Csv.CSVExport csv = new FastReport.Export.Csv.CSVExport())
+            //{
+            //    csv.Export(_webReport.Report, csvFile);
+            //}
             string pdfFile = System.AppDomain.CurrentDomain.BaseDirectory + fileName + ".pdf";
             using (FastReport.Export.Pdf.PDFExport pdf = new FastReport.Export.Pdf.PDFExport())
             {
                 pdf.Export(_webReport.Report, pdfFile);
             }
 
-            List<string> pathList = new List<string>() { pdfFile, csvFile };
+            List<string> pathList = new List<string>() { pdfFile };
             return pathList;
 
 
