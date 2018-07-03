@@ -21,6 +21,7 @@ using DM.UBP.Application.Service.BackgroundJobManager.JobGroups;
 using DM.UBP.Application.Service.BackgroundJobManager.Triggers;
 using DM.UBP.Application.Service.BackgroundJobManager.Job_RPTEmails;
 using System;
+using DM.UBP.Application.Service.BackgroundJobManager.Job_Sqls;
 
 namespace DM.UBP.Web.Areas.BackgroundJobManager.Controllers
 {
@@ -34,19 +35,22 @@ namespace DM.UBP.Web.Areas.BackgroundJobManager.Controllers
         private IJobGroupAppService _JobGroupAppService;
         private IJob_RPTEmailAppService _Job_RPTEmailAppService;
         private ITriggerAppService _TriggerAppService;
+        private IJob_SqlAppService _Job_SqlAppService;
 
         public SchedulerController(
            ICacheManager cacheManager,
            ISchedulerAppService schedulerappservice,
            IJobGroupAppService jobgroupappservice,
            IJob_RPTEmailAppService job_rptemailappservice,
-           ITriggerAppService triggerappservice
+           ITriggerAppService triggerappservice,
+           IJob_SqlAppService job_sqlappservice
            )
         {
             _SchedulerAppService = schedulerappservice;
             _JobGroupAppService = jobgroupappservice;
             _Job_RPTEmailAppService = job_rptemailappservice;
             _TriggerAppService = triggerappservice;
+            _Job_SqlAppService = job_sqlappservice;
         }
 
         public ActionResult Index()
@@ -73,7 +77,10 @@ namespace DM.UBP.Web.Areas.BackgroundJobManager.Controllers
             {
                 ViewBag.Jobs = await _Job_RPTEmailAppService.GetJobRPTEmailsToItem(0);
             }
-
+            if (jobGroupEntity.TypeTable == "BGJM_JOB_SQL")
+            {
+                ViewBag.Jobs = await _Job_SqlAppService.GetJobSqlToItem(viewModel.Job_Id);
+            }
             return PartialView("_CreateOrEditModal", viewModel);
         }
 
@@ -92,6 +99,10 @@ namespace DM.UBP.Web.Areas.BackgroundJobManager.Controllers
             if (jobGroupEntity.TypeTable == "BGJM_JOB_RPTEMAIL")
             {
                 ViewBag.Jobs = await _Job_RPTEmailAppService.GetJobRPTEmailsToItem(viewModel.Job_Id);
+            }
+            if (jobGroupEntity.TypeTable == "BGJM_JOB_SQL")
+            {
+                ViewBag.Jobs = await _Job_SqlAppService.GetJobSqlToItem(viewModel.Job_Id);
             }
 
             return PartialView("_CreateOrEditModal", viewModel);

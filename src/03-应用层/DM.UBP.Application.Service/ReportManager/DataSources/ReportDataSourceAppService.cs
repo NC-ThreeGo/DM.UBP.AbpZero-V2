@@ -304,9 +304,11 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
         {
             List<ComboboxItemDto> listItem = new List<ComboboxItemDto>();
 
-            foreach (var item in ReportDefine.CommandTypes)
+            foreach (int v in Enum.GetValues(typeof(ReportDefine.CommandTypes)))
             {
-                ComboboxItemDto comboxItem = new ComboboxItemDto(item.Value.ToString(), item.Key) { IsSelected = item.Value == selectValue };
+                string key = Enum.GetName(typeof(ReportDefine.CommandTypes), v);
+
+                ComboboxItemDto comboxItem = new ComboboxItemDto(v.ToString(), key) { IsSelected = v == selectValue };
                 listItem.Add(comboxItem);
             }
             return listItem;
@@ -345,42 +347,42 @@ namespace DM.UBP.Application.Service.ReportManager.DataSources
                     #region 判断类型
                     switch (dataParam.First().ParamterType)
                     {
-                        case 1:
+                        case (int)ReportDefine.ParamterTypes.字符型:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
                                 Value = val
                             };
                             break;
-                        case 2:
+                        case (int)ReportDefine.ParamterTypes.整型:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
                                 Value = Convert.ToInt32(val)
                             };
                             break;
-                        case 3:
+                        case (int)ReportDefine.ParamterTypes.浮点型:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
                                 Value = Convert.ToDecimal(val)
                             };
                             break;
-                        case 4:
+                        case (int)ReportDefine.ParamterTypes.日期型:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
                                 Value = val == "#sysDate#" ? DateTime.Now : Convert.ToDateTime(val)
                             };
                             break;
-                        case 5:
+                        case (int)ReportDefine.ParamterTypes.布尔型:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
                                 Value = Convert.ToBoolean(val)
                             };
                             break;
-                        case 6:
+                        case (int)ReportDefine.ParamterTypes.Guid型:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],

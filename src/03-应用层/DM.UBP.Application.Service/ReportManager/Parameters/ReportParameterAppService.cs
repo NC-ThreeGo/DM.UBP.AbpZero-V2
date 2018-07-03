@@ -22,6 +22,7 @@ using System.Linq.Dynamic;
 using DM.UBP.Dto;
 using DM.UBP.Application.Service.ReportManager.Parameters;
 using DM.UBP.Application.Dto.ReportManager;
+using System;
 
 namespace DM.UBP.Application.Service.ReportManager.Parameters
 {
@@ -106,11 +107,14 @@ namespace DM.UBP.Application.Service.ReportManager.Parameters
         {
             List<ComboboxItemDto> listItem = new List<ComboboxItemDto>();
 
-            foreach (var item in ReportDefine.ParamterTypes)
+            foreach (int v in Enum.GetValues(typeof(ReportDefine.ParamterTypes)))
             {
-                ComboboxItemDto comboxItem = new ComboboxItemDto(item.Value.ToString(), item.Key) { IsSelected = item.Value == selectValue };
+                string key = Enum.GetName(typeof(ReportDefine.ParamterTypes), v);
+
+                ComboboxItemDto comboxItem = new ComboboxItemDto(v.ToString(), key) { IsSelected = v == selectValue };
                 listItem.Add(comboxItem);
             }
+
             return listItem;
         }
 
@@ -118,11 +122,14 @@ namespace DM.UBP.Application.Service.ReportManager.Parameters
         {
             List<ComboboxItemDto> listItem = new List<ComboboxItemDto>();
 
-            foreach (var item in ReportDefine.UiTypes)
+            foreach (int v in Enum.GetValues(typeof(ReportDefine.UiTypes)))
             {
-                ComboboxItemDto comboxItem = new ComboboxItemDto(item.Value.ToString(), item.Key) { IsSelected = item.Value == selectValue };
+                string key = Enum.GetName(typeof(ReportDefine.UiTypes), v);
+
+                ComboboxItemDto comboxItem = new ComboboxItemDto(v.ToString(), key) { IsSelected = v == selectValue };
                 listItem.Add(comboxItem);
             }
+
             return listItem;
         }
     }

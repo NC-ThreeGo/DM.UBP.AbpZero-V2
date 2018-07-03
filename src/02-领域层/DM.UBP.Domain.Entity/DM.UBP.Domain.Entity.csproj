@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="BackgroundJobManager\BGJM_JobGroup.cs" />
     <Compile Include="BackgroundJobManager\BGJM_Job_RPTEmail.cs" />
+    <Compile Include="BackgroundJobManager\Bgjm_Job_Sql.cs" />
     <Compile Include="BackgroundJobManager\BGJM_Scheduler.cs" />
     <Compile Include="BackgroundJobManager\BGJM_Trigger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

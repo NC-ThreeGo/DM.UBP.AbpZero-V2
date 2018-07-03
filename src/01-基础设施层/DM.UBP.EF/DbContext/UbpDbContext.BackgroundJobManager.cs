@@ -15,5 +15,10 @@ namespace DM.UBP.EF
         public virtual IDbSet<Scheduler> Schedulers { get; set; }
         public virtual IDbSet<Trigger> Triggers { get; set; }
 
+        public virtual IDbSet<Job_Sql> Job_Sql { get; set; }
+
+//@@Insert Position
+
+
     }
 }

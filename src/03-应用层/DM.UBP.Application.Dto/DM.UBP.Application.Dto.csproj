@@ -51,6 +51,8 @@
     <Compile Include="BackgroundJobManager\JobGroups\JobGroupOutputDto.cs" />
     <Compile Include="BackgroundJobManager\Job_RPTEmails\Job_RPTEmailInputDto.cs" />
     <Compile Include="BackgroundJobManager\Job_RPTEmails\Job_RPTEmailOutputDto.cs" />
+    <Compile Include="BackgroundJobManager\Job_Sqls\Job_SqlInputDto.cs" />
+    <Compile Include="BackgroundJobManager\Job_Sqls\Job_SqlOutputDto.cs" />
     <Compile Include="BackgroundJobManager\Schedulers\SchedulerInputDto.cs" />
     <Compile Include="BackgroundJobManager\Schedulers\SchedulerOutputDto.cs" />
     <Compile Include="BackgroundJobManager\Triggers\TriggerInputDto.cs" />

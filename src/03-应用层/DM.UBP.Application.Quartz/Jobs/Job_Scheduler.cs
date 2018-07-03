@@ -5,6 +5,7 @@ using Devart.Data.Oracle;
 using DM.UBP.Application.Quartz.Managers;
 using DM.UBP.Common.DbHelper;
 using DM.UBP.Domain.Service.BackgroundJobManager.Job_RPTEmails;
+using DM.UBP.Domain.Service.BackgroundJobManager.Job_Sqls;
 using DM.UBP.Domain.Service.BackgroundJobManager.JobGroups;
 using DM.UBP.Domain.Service.BackgroundJobManager.Schedulers;
 using DM.UBP.Domain.Service.BackgroundJobManager.Triggers;
@@ -24,6 +25,7 @@ namespace DM.UBP.Application.Quartz.Jobs
         private readonly ISchedulerManager _SchedulerManager;
         private readonly IJobGroupManager _JobGroupManager;
         private readonly IJob_RPTEmailManager _Job_RPTEmailManager;
+        private readonly IJob_SqlManager _Job_SqlManager;
         private readonly ITriggerManager _TriggerManager;
 
         private readonly IUBPQuartzScheduleJobManager _jobManager;
@@ -31,12 +33,14 @@ namespace DM.UBP.Application.Quartz.Jobs
         public Job_Scheduler(ISchedulerManager schedulermanager,
             IJobGroupManager jobgroupmanager,
             IJob_RPTEmailManager job_rptemailmanager,
+            IJob_SqlManager job_sqlmanager,
             ITriggerManager triggermanager,
             IUBPQuartzScheduleJobManager jobManager)
         {
             _SchedulerManager = schedulermanager;
             _JobGroupManager = jobgroupmanager;
             _Job_RPTEmailManager = job_rptemailmanager;
+            _Job_SqlManager = job_sqlmanager;
             _TriggerManager = triggermanager;
 
             _jobManager = jobManager;
@@ -83,6 +87,27 @@ namespace DM.UBP.Application.Quartz.Jobs
                             jobDM.Add("job_RPTEmailName", jobEmail.Job_RPTEmailName);
 
                             _jobManager.RunJob<RPTEmailJob>(
+                                job =>
+                                {
+                                    job.WithIdentity(jobName, "BackgroundJobManager").SetJobData(jobDM);
+                                },
+                                trigger =>
+                                {
+                                    trigger.StartNow()
+                                    .WithIdentity(jobName, "BackgroundJobManager")
+                                    .WithCronSchedule(scheduler.CronStr);
+                                });
+                        }
+                        if (scheduler.TypeTable == "BGJM_JOB_SQL")
+                        {
+                            var jobSql = await _Job_SqlManager.GetJob_SqlByIdAsync(scheduler.Job_Id);
+                            JobDataMap jobDM = new JobDataMap();
+                            jobDM.Add("connkeyName", jobSql.ConnkeyName);
+                            jobDM.Add("commandType", jobSql.CommandType);
+                            jobDM.Add("commandText", jobSql.CommandText);
+                            jobDM.Add("paramters", jobSql.Paramters);
+
+                            _jobManager.RunJob<SQLJob>(
                                 job =>
                                 {
                                     job.WithIdentity(jobName, "BackgroundJobManager").SetJobData(jobDM);

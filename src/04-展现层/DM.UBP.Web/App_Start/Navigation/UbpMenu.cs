@@ -18,6 +18,7 @@ namespace DM.UBP.Web.Navigation
 
         public const string BackgroundJobManager = "BackgroundJobManager";
         public const string BackgroundJobManagerJob_RPTEmails = "BackgroundJobManager.Job_RPTEmails";
+        public const string BackgroundJobManagerJob_Sql = "BackgroundJobManager.Job_Sql";
         public const string BackgroundJobManagerJobGroups = "BackgroundJobManager.JobGroups";
         public const string BackgroundJobManagerSchedulers = "BackgroundJobManager.Schedulers";
         public const string BackgroundJobManagerTriggers = "BackgroundJobManager.Triggers";

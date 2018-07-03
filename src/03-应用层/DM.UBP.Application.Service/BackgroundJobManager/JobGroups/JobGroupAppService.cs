@@ -20,8 +20,8 @@ using DM.UBP.Application.Dto.BackgroundJobManager.JobGroups;
 using System.Linq;
 using System.Linq.Dynamic;
 using DM.UBP.Dto;
-using DM.UBP.Domain.Service.BackgroundJobManager.Job_RPTEmails;
 using DM.UBP.Application.Service.BackgroundJobManager.Job_RPTEmails;
+using DM.UBP.Application.Service.BackgroundJobManager.Job_Sqls;
 
 namespace DM.UBP.Application.Service.BackgroundJobManager.JobGroups
 {
@@ -33,14 +33,17 @@ namespace DM.UBP.Application.Service.BackgroundJobManager.JobGroups
     {
         private readonly IJobGroupManager _JobGroupManager;
         private readonly IJob_RPTEmailAppService _Job_RPTEmailAppManager;
+        private readonly IJob_SqlAppService _Job_SqlAppService;
 
         public JobGroupAppService(
            IJobGroupManager jobgroupmanager,
-           IJob_RPTEmailAppService job_rptemailmanager
+           IJob_RPTEmailAppService job_rptemailmanager,
+           IJob_SqlAppService job_sqlappservice
            )
         {
             _Job_RPTEmailAppManager = job_rptemailmanager;
             _JobGroupManager = jobgroupmanager;
+            _Job_SqlAppService = job_sqlappservice;
         }
 
         public async Task<PagedResultDto<JobGroupOutputDto>> GetJobGroups()
@@ -107,10 +110,13 @@ namespace DM.UBP.Application.Service.BackgroundJobManager.JobGroups
             {
                 return await _Job_RPTEmailAppManager.GetJobRPTEmailsToItem(0);
             }
-            else
+            if (entity.TypeTable == "BGJM_JOB_SQL")
             {
-                return new List<ComboboxItemDto>();
+                return await _Job_SqlAppService.GetJobSqlToItem(0);
             }
+
+            return new List<ComboboxItemDto>();
+
         }
         
     }

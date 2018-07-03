@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Jobs\Job_Scheduler.cs" />
     <Compile Include="Jobs\RPTEmailJob.cs" />
+    <Compile Include="Jobs\SQLJob.cs" />
     <Compile Include="Managers\IUBPQuartzScheduleJobManager.cs" />
     <Compile Include="Managers\UBPQuartzJobListener.cs" />
     <Compile Include="Managers\UBPQuartzScheduleJobManager.cs" />
@@ -104,6 +105,10 @@
     <ProjectReference Include="..\..\02-领域层\DM.UBP.Domain.Service\DM.UBP.Domain.Service.csproj">
       <Project>{c0160fe5-83cd-4025-8f78-2100b02ebc5d}</Project>
       <Name>DM.UBP.Domain.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DM.UBP.Application.Dto\DM.UBP.Application.Dto.csproj">
+      <Project>{0e684037-fae4-4f67-9c4c-b68dbb215d8d}</Project>
+      <Name>DM.UBP.Application.Dto</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

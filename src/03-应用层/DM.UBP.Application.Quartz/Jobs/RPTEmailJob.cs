@@ -6,6 +6,7 @@ using Abp.Quartz.Quartz;
 using Abp.Runtime.Security;
 using Devart.Data.Oracle;
 using DM.Common.Extensions;
+using DM.UBP.Application.Dto.ReportManager;
 using DM.UBP.Common.DbHelper;
 using DM.UBP.Configuration.Host.Dto;
 using DM.UBP.Domain.Service.ReportManager.DataSources;
@@ -47,7 +48,7 @@ namespace DM.UBP.Application.Quartz.Jobs
             JobDataMap jobDM = context.JobDetail.JobDataMap;
             long rptId = Convert.ToInt64(jobDM["rptId"]);
             string emails = jobDM["emails"].ToString();
-            string parameters = jobDM["parameters"].ToString();
+            string parameters = jobDM["parameters"] == null ? string.Empty : jobDM["parameters"].ToString();
             string job_RPTEmailName = jobDM["job_RPTEmailName"].ToString();
 
             var pathList = ExportReport(rptId, parameters, job_RPTEmailName);
@@ -55,6 +56,13 @@ namespace DM.UBP.Application.Quartz.Jobs
 
         }
 
+        /// <summary>
+        /// 生成报表 保存在ExportReport目录下面
+        /// </summary>
+        /// <param name="rptId">报表模板ID</param>
+        /// <param name="parameters">报表参数</param>
+        /// <param name="job_RPTEmailName">生成报表名称前面会加时间</param>
+        /// <returns></returns>
         private List<string> ExportReport(long rptId, string parameters,string job_RPTEmailName)
         {
             var tempalte = _ReportTemplateManager.GetReportTemplateByIdAsync(rptId).Result;
@@ -130,13 +138,14 @@ namespace DM.UBP.Application.Quartz.Jobs
             mail.IsBodyHtml = false;
 
             //发件人邮箱  
-            mail.From = new MailAddress(emailSetting.DefaultFromAddress);
+            mail.From = new MailAddress(emailSetting.DefaultFromAddress, emailSetting.DefaultFromDisplayName);
 
+            //收件人邮箱
             foreach (string eamil in emails.Split(';'))
             {
                 if (string.IsNullOrEmpty(eamil))
                     continue;
-                mail.To.Add(eamil);
+                mail.To.Add(eamil);//收件人地址和收件人邮箱显示的中文名称
             }
 
             //邮件主题和内容
@@ -204,45 +213,46 @@ namespace DM.UBP.Application.Quartz.Jobs
                     if (dicParameters.Keys.Contains(resultP[i]))
                         val = dicParameters[resultP[i]];
 
+
                     #region 判断类型
                     switch (dataParam.First().ParamterType)
                     {
-                        case 1:
+                        case (int)ReportDefine.ParamterTypes.字符型:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
                                 Value = val
                             };
                             break;
-                        case 2:
+                        case (int)ReportDefine.ParamterTypes.整型:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
                                 Value = Convert.ToInt32(val)
                             };
                             break;
-                        case 3:
+                        case (int)ReportDefine.ParamterTypes.浮点型:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
                                 Value = Convert.ToDecimal(val)
                             };
                             break;
-                        case 4:
+                        case (int)ReportDefine.ParamterTypes.日期型:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
                                 Value = val == "#sysDate#" ? DateTime.Now : Convert.ToDateTime(val)
                             };
                             break;
-                        case 5:
+                        case (int)ReportDefine.ParamterTypes.布尔型:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],
                                 Value = Convert.ToBoolean(val)
                             };
                             break;
-                        case 6:
+                        case (int)ReportDefine.ParamterTypes.Guid型:
                             paras[i] = new OracleParameter
                             {
                                 ParameterName = resultP[i],

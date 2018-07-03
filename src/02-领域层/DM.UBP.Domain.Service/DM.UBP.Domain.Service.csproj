@@ -109,6 +109,8 @@
     <Compile Include="BackgroundJobManager\JobGroups\JobGroupManager.cs" />
     <Compile Include="BackgroundJobManager\Job_RPTEmails\IJob_RPTEmailManager.cs" />
     <Compile Include="BackgroundJobManager\Job_RPTEmails\Job_RPTEmailManager.cs" />
+    <Compile Include="BackgroundJobManager\Job_Sqls\IJob_SqlManager.cs" />
+    <Compile Include="BackgroundJobManager\Job_Sqls\Job_SqlManager.cs" />
     <Compile Include="BackgroundJobManager\Schedulers\ISchedulerManager.cs" />
     <Compile Include="BackgroundJobManager\Schedulers\SchedulerManager.cs" />
     <Compile Include="BackgroundJobManager\Triggers\ITriggerManager.cs" />

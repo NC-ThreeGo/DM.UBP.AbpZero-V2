@@ -1,6 +1,7 @@
 ﻿using Abp.Runtime.Caching;
 using Abp.Web.Mvc.Authorization;
 using DM.Common.Extensions;
+using DM.UBP.Application.Dto.ReportManager;
 using DM.UBP.Application.Dto.ReportManager.Categories;
 using DM.UBP.Application.Dto.ReportManager.Templates;
 using DM.UBP.Application.Service.ReportManager.Categories;
@@ -115,23 +116,23 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
             StringBuilder html = new StringBuilder();
             foreach (var item in parametes.Items)
             {
-                if (item.UiType == 5)//日期型
+                if (item.UiType == (int)ReportDefine.UiTypes.日期型)
                 {
                     html.AppendFormat("<div class=\"form-group form-md-line-input no-hint\">");
                     html.AppendFormat("<input type=\"text\" name=\"{0}\" class=\"form-control date-picker\" required>", item.ParameterName);
                     html.AppendFormat("<label>{0}</label>", item.LabelName);
                     html.AppendFormat("</div>");
                 }
-                else if (item.UiType == 6)//日期时间型
+                else if (item.UiType == (int)ReportDefine.UiTypes.日期时间型)
                 {
                     html.AppendFormat("<div class=\"form-group form-md-line-input no-hint\">");
                     html.AppendFormat("<input type=\"text\" name=\"{0}\" class=\"form-control date-time-picker\" required>", item.ParameterName);
                     html.AppendFormat("<label>{0}</label>", item.LabelName);
                     html.AppendFormat("</div>");
                 }
-                else if (item.UiType == 7 
+                else if (item.UiType == (int)ReportDefine.UiTypes.下拉框
                     && !string.IsNullOrWhiteSpace(item.DynamicDataSource)
-                    && !string.IsNullOrWhiteSpace(item.DynamicSql))//下拉型
+                    && !string.IsNullOrWhiteSpace(item.DynamicSql))
                 {
                     string conn = ConfigurationManager.ConnectionStrings[item.DynamicDataSource].ConnectionString;
 

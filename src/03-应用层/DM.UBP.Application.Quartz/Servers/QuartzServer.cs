@@ -1,4 +1,5 @@
 ﻿using Devart.Data.Oracle;
+using DM.UBP.Application.Dto.ReportManager;
 using DM.UBP.Application.Quartz.Jobs;
 using DM.UBP.Application.Quartz.Managers;
 using DM.UBP.Common.DbHelper;
@@ -25,6 +26,9 @@ namespace DM.UBP.Application.Quartz.Servers
             _jobManager = jobManager;
         }
 
+        /// <summary>
+        /// 开启ubp.quartz服务
+        /// </summary>
         public void StartUp()
         {
             _jobManager.ScheduleAsync<Job_Scheduler>(

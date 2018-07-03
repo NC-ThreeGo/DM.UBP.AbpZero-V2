@@ -106,6 +106,11 @@ namespace DM.UBP.Domain.Service
                 triggerManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Triggers_Create, L("CreatingNewTrigger"));
                 triggerManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Triggers_Edit, L("EditingTrigger"));
                 triggerManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Triggers_Delete, L("DeletingTrigger"));
+
+                var job_SqlManager = backgroundJobManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_Sql, L("Job_SqlManager"));
+                job_SqlManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_Sql_Create, L("CreatingNewJob_Sql"));
+                job_SqlManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_Sql_Edit, L("EditingJob_Sql"));
+                job_SqlManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_Sql_Delete, L("DeletingJob_Sql"));
             }
         }
 

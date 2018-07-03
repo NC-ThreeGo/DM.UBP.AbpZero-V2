@@ -96,6 +96,13 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                         requiredPermissionName: AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_RPTEmails
                         )
                     ).AddItem(new MenuItemDefinition(
+                        UbpMenu.BackgroundJobManagerJob_Sql,
+                        L("Job_SqlManager"),
+                        url: "BackgroundJobManager/Job_Sql",
+                        icon: "icon-bag",
+                        requiredPermissionName: AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_Sql
+                        )
+                    ).AddItem(new MenuItemDefinition(
                         UbpMenu.BackgroundJobManagerSchedulers,
                         L("ScheduleManager"),
                         url: "BackgroundJobManager/Scheduler",

@@ -55,7 +55,7 @@
                     </div>
                     <div class="form-group form-md-line-input form-md-floating-label no-hint">
                         <input type="text" name="Parameters" class="form-control@(Model.Parameters.IsNullOrEmpty() ? "" : " edited")" value="@Model.Parameters">
-                        <label>@L("Parameters")</label>
+                        <label>@L("Parameters")  例如：{'参数名称':'参数值'}  #sysDate#可以表示当前时间</label>
                     </div>
                     <div class="form-group form-md-line-input form-md-floating-label no-hint">
                         <input type="text" name="Description" class="form-control@(Model.Description.IsNullOrEmpty() ? "" : " edited")" value="@Model.Description">

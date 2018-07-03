@@ -167,6 +167,17 @@
       <text name="Job_Id" value="任务" />
       <text name="CreateScheduler" value="创建新的调度" />
       <text name="EditScheduler" value="修改调度" />
-
+      
+      <text name="Job_SqlManager" value="SQL工作管理" />
+      <text name="CreatingNewJob_Sql" value="创建SQL任务" />
+      <text name="CreateJob_Sql" value="创建SQL任务" />
+      <text name="EditingJob_Sql" value="修改SQL任务" />
+      <text name="DeletingJob_Sql" value="删除SQL任务" />
+      <text name="Job_SqlInformations" value="SQL任务信息" />
+      <text name="Job_SqlName" value="任务名称" />
+      <text name="Paramters" value="参数" />
+      <text name="Job_Sql" value="SQL任务" />
+      <text name="Job_SqlHeaderInfo" value="SQL任务信息" />
+      <text name="CreateNewJob_Sql" value="创建SQL任务" />
     </texts>
 </localizationDictionary>

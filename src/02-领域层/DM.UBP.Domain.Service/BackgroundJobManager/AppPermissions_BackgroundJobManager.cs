@@ -33,7 +33,16 @@ namespace DM.UBP.Domain.Service.BackgroundJobManager
         public const string Pages_BackgroundJobManager_Schedulers_Edit = "Pages.BackgroundJobManager.Schedulers.Edit";
         public const string Pages_BackgroundJobManager_Schedulers_Delete = "Pages.BackgroundJobManager.Schedulers.Delete";
 
+        public const string Pages_BackgroundJobManager_Job_Sql = "Pages.BackgroundJobManager.Job_Sql";
+        public const string Pages_BackgroundJobManager_Job_Sql_Create = "Pages.BackgroundJobManager.Job_Sql.Create";
+        public const string Pages_BackgroundJobManager_Job_Sql_Edit = "Pages.BackgroundJobManager.Job_Sql.Edit";
+        public const string Pages_BackgroundJobManager_Job_Sql_Delete = "Pages.BackgroundJobManager.Job_Sql.Delete";
+
+
         //@@Insert Position
+
+
+
 
     }
 }
