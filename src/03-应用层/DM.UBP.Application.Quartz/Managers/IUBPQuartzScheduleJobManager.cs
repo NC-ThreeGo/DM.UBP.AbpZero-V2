@@ -12,8 +12,6 @@ namespace DM.UBP.Application.Quartz.Managers
     {
         void RunJob<TJob>(Action<JobBuilder> configureJob, Action<TriggerBuilder> configureTrigger) where TJob : IJob;
 
-        void DeleteJob(string jobName, String groupName);
-
-        void PauseJob(string jobName, String groupName);
+        void DeleteJob(string jobName, string groupName);
     }
 }

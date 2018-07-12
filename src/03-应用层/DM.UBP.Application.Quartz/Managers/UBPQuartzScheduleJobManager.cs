@@ -36,6 +36,9 @@ namespace DM.UBP.Application.Quartz.Managers
 
             if (_quartzConfiguration.Scheduler.CheckExists(job.Key))
             {
+                //_quartzConfiguration.Scheduler.UnscheduleJob
+                //var aa = _quartzConfiguration.Scheduler.GetTriggerState(trigger.Key);
+
                 _quartzConfiguration.Scheduler.DeleteJob(job.Key);
             }
             _quartzConfiguration.Scheduler.ScheduleJob(job, trigger);
@@ -43,7 +46,7 @@ namespace DM.UBP.Application.Quartz.Managers
             //ResumeJob(job.Key.Name,job.Key.Group);
         }
 
-        public void DeleteJob(string jobName, String groupName)
+        public void DeleteJob(string jobName, string groupName)
         {
             JobKey jk = new JobKey(jobName, groupName);
             if (!_quartzConfiguration.Scheduler.CheckExists(jk))
@@ -51,7 +54,12 @@ namespace DM.UBP.Application.Quartz.Managers
             _quartzConfiguration.Scheduler.DeleteJob(jk);
         }
 
-        public void PauseJob(string jobName, String groupName)
+        /// <summary>
+        /// 暂停
+        /// </summary>
+        /// <param name="jobName"></param>
+        /// <param name="groupName"></param>
+        public void PauseJob(string jobName, string groupName)
         {
             JobKey jk = new JobKey(jobName, groupName);
             if (!_quartzConfiguration.Scheduler.CheckExists(jk))
@@ -59,7 +67,12 @@ namespace DM.UBP.Application.Quartz.Managers
             _quartzConfiguration.Scheduler.PauseJob(jk);
         }
 
-        private void ResumeJob(string jobName, String groupName)
+        /// <summary>
+        /// 重新开始
+        /// </summary>
+        /// <param name="jobName"></param>
+        /// <param name="groupName"></param>
+        private void ResumeJob(string jobName, string groupName)
         {
             JobKey jk = new JobKey(jobName, groupName);
             if (!_quartzConfiguration.Scheduler.CheckExists(jk))

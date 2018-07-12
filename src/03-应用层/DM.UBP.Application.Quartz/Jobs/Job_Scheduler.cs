@@ -45,7 +45,7 @@ namespace DM.UBP.Application.Quartz.Jobs
 
             _jobManager = jobManager;
         }
-        
+
 
         [UnitOfWork]
 
@@ -59,72 +59,67 @@ namespace DM.UBP.Application.Quartz.Jobs
                 .Join(triggerEnities, a => a.a.Trigger_Id, c => c.Id, (a, c) => new
                 {
                     Id = a.a.Id,
-                    IsDeleted = a.a.IsDeleted,
                     Status = a.a.Status,
                     TypeTable = a.b.TypeTable,
                     Job_Id = a.a.Job_Id,
                     CronStr = c.CronStr
                 });
-
+            
             foreach (var scheduler in schedulers)
             {
                 var jobName = "Scheduler_" + scheduler.Id;
-                if (scheduler.IsDeleted)
+                var groupName = "BackgroundJobManager";
+
+                if (scheduler.Status)
                 {
-                    _jobManager.DeleteJob(jobName, "BackgroundJobManager");
+                    if (scheduler.TypeTable == "BGJM_JOB_RPTEMAIL")
+                    {
+                        var jobEmail = await _Job_RPTEmailManager.GetJob_RPTEmailByIdAsync(scheduler.Job_Id);
+                        JobDataMap jobDM = new JobDataMap();
+                        jobDM.Add("rptId", jobEmail.Template_Id);
+                        jobDM.Add("emails", jobEmail.Emails);
+                        jobDM.Add("paramters", jobEmail.Parameters);
+                        jobDM.Add("job_RPTEmailName", jobEmail.Job_RPTEmailName);
+
+                        _jobManager.RunJob<RPTEmailJob>(
+                            job =>
+                            {
+                                job.WithIdentity(jobName, groupName).SetJobData(jobDM);
+                            },
+                            trigger =>
+                            {
+                                trigger.StartNow()
+                                .WithIdentity(jobName, groupName)
+                                .WithCronSchedule(scheduler.CronStr);
+                            });
+                    }
+                    if (scheduler.TypeTable == "BGJM_JOB_SQL")
+                    {
+                        var jobSql = await _Job_SqlManager.GetJob_SqlByIdAsync(scheduler.Job_Id);
+                        JobDataMap jobDM = new JobDataMap();
+                        jobDM.Add("connkeyName", jobSql.ConnkeyName);
+                        jobDM.Add("commandType", jobSql.CommandType);
+                        jobDM.Add("commandText", jobSql.CommandText);
+                        jobDM.Add("paramters", jobSql.Paramters);
+
+                        _jobManager.RunJob<SQLJob>(
+                            job =>
+                            {
+                                job.WithIdentity(jobName, groupName).SetJobData(jobDM);
+                            },
+                            trigger =>
+                            {
+                                trigger.StartNow()
+                                .WithIdentity(jobName, groupName)
+                                .WithCronSchedule(scheduler.CronStr);
+                            });
+                    }
                 }
                 else
                 {
-                    if (scheduler.Status)
-                    {
-                        if (scheduler.TypeTable == "BGJM_JOB_RPTEMAIL")
-                        {
-                            var jobEmail = await _Job_RPTEmailManager.GetJob_RPTEmailByIdAsync(scheduler.Job_Id);
-                            JobDataMap jobDM = new JobDataMap();
-                            jobDM.Add("rptId", jobEmail.Template_Id);
-                            jobDM.Add("emails", jobEmail.Emails);
-                            jobDM.Add("parameters", jobEmail.Parameters);
-                            jobDM.Add("job_RPTEmailName", jobEmail.Job_RPTEmailName);
-
-                            _jobManager.RunJob<RPTEmailJob>(
-                                job =>
-                                {
-                                    job.WithIdentity(jobName, "BackgroundJobManager").SetJobData(jobDM);
-                                },
-                                trigger =>
-                                {
-                                    trigger.StartNow()
-                                    .WithIdentity(jobName, "BackgroundJobManager")
-                                    .WithCronSchedule(scheduler.CronStr);
-                                });
-                        }
-                        if (scheduler.TypeTable == "BGJM_JOB_SQL")
-                        {
-                            var jobSql = await _Job_SqlManager.GetJob_SqlByIdAsync(scheduler.Job_Id);
-                            JobDataMap jobDM = new JobDataMap();
-                            jobDM.Add("connkeyName", jobSql.ConnkeyName);
-                            jobDM.Add("commandType", jobSql.CommandType);
-                            jobDM.Add("commandText", jobSql.CommandText);
-                            jobDM.Add("paramters", jobSql.Paramters);
-
-                            _jobManager.RunJob<SQLJob>(
-                                job =>
-                                {
-                                    job.WithIdentity(jobName, "BackgroundJobManager").SetJobData(jobDM);
-                                },
-                                trigger =>
-                                {
-                                    trigger.StartNow()
-                                    .WithIdentity(jobName, "BackgroundJobManager")
-                                    .WithCronSchedule(scheduler.CronStr);
-                                });
-                        }
-                    }
-                    else
-                    {
-                        _jobManager.PauseJob(jobName, "BackgroundJobManager");
-                    }
+                    _jobManager.DeleteJob(jobName, groupName);
                 }
+
             }
         }
     }

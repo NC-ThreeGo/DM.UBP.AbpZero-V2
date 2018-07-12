@@ -33,14 +33,17 @@ namespace DM.UBP.Application.Quartz
 
         public override void PostInitialize()
         {
-            if (IocManager.IsRegistered<IJobListener>())
-            {
-                IocManager.Release(IocManager.Resolve<IJobListener>());
-            }
+            //if (IocManager.IsRegistered<IJobListener>())
+            //{
+            //    IocManager.Release(IocManager.Resolve<IJobListener>());
+            //}
+            //IocManager.RegisterIfNot<IJobListener, UBPQuartzJobListener>();
 
-            IocManager.RegisterIfNot<IJobListener, UBPQuartzJobListener>();
 
-            Configuration.Modules.AbpQuartz().Scheduler.ListenerManager.AddJobListener(IocManager.Resolve<IJobListener>());
+            ///删除ABP的JobListener
+            Configuration.Modules.AbpQuartz().Scheduler.ListenerManager.RemoveJobListener("AbpJobListener");
+            ///使用UBP的JobListener
+            Configuration.Modules.AbpQuartz().Scheduler.ListenerManager.AddJobListener(new UBPQuartzJobListener());
 
         }
     }

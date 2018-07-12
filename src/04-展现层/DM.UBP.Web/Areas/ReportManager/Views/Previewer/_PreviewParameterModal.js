@@ -76,7 +76,7 @@
             _modalManager.setBusy(true);
 
             var templateFileId = _$formInfo.find('#templateFileId').val();
-            var url = abp.appPath + 'ReportManager/Previewer/Index?id=' + templateFileId + "&parameterValues=" + JSON.stringify(input);
+            var url = abp.appPath + 'ReportManager/Previewer/Index?id=' + templateFileId + "&parameterValues=" + encodeURI(JSON.stringify(input));
 
             openwin(url);
 

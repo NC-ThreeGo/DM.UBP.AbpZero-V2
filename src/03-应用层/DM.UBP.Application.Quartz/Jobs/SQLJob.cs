@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DM.UBP.Application.Quartz.Jobs
@@ -32,9 +33,9 @@ namespace DM.UBP.Application.Quartz.Jobs
             string connkeyName = jobDM["connkeyName"] == null ? string.Empty : jobDM["connkeyName"].ToString();
             string commandType = jobDM["commandType"] == null ? string.Empty : jobDM["commandType"].ToString();
             string commandText = jobDM["commandText"] == null ? string.Empty : jobDM["commandText"].ToString();
-            string parameters = jobDM["parameters"] == null ? string.Empty : jobDM["parameters"].ToString();
+            string paramters = jobDM["paramters"] == null ? string.Empty : jobDM["paramters"].ToString();
 
-            var dicParameter = parameters.ToObject<Dictionary<string, string>>();
+            var dicParameter = paramters.ToObject<Dictionary<string, string>>();
 
             OracleParameter[] paras = new OracleParameter[dicParameter == null ? 0 : dicParameter.Count()];
 

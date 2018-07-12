@@ -48,10 +48,10 @@ namespace DM.UBP.Application.Quartz.Jobs
             JobDataMap jobDM = context.JobDetail.JobDataMap;
             long rptId = Convert.ToInt64(jobDM["rptId"]);
             string emails = jobDM["emails"].ToString();
-            string parameters = jobDM["parameters"] == null ? string.Empty : jobDM["parameters"].ToString();
+            string paramters = jobDM["paramters"] == null ? string.Empty : jobDM["paramters"].ToString();
             string job_RPTEmailName = jobDM["job_RPTEmailName"].ToString();
 
-            var pathList = ExportReport(rptId, parameters, job_RPTEmailName);
+            var pathList = ExportReport(rptId, paramters, job_RPTEmailName);
             SendEmail(DateTime.Now.ToString("yyyy-MM-dd") + job_RPTEmailName, "", emails, pathList);
 
         }
@@ -60,16 +60,16 @@ namespace DM.UBP.Application.Quartz.Jobs
         /// 生成报表 保存在ExportReport目录下面
         /// </summary>
         /// <param name="rptId">报表模板ID</param>
-        /// <param name="parameters">报表参数</param>
+        /// <param name="paramters">报表参数</param>
         /// <param name="job_RPTEmailName">生成报表名称前面会加时间</param>
         /// <returns></returns>
-        private List<string> ExportReport(long rptId, string parameters,string job_RPTEmailName)
+        private List<string> ExportReport(long rptId, string paramters, string job_RPTEmailName)
         {
             var tempalte = _ReportTemplateManager.GetReportTemplateByIdAsync(rptId).Result;
 
             WebReport _webReport = new WebReport();
             _webReport.Report.Load(System.AppDomain.CurrentDomain.BaseDirectory + tempalte.FilePath);
-            var dicParameter = parameters.ToObject<Dictionary<string, string>>();
+            var dicParameter = paramters.ToObject<Dictionary<string, string>>();
 
             //var listDs = _DataSourceAppService.GetDataSource(jobId, dicParameter).Result;
             var listDs = GetDataSource(rptId, dicParameter).Result;
@@ -184,10 +184,10 @@ namespace DM.UBP.Application.Quartz.Jobs
             };
         }
 
-        public async Task<List<DataSet>> GetDataSource(long template_Id, Dictionary<string, string> dicParameters)
+        public async Task<List<DataSet>> GetDataSource(long template_Id, Dictionary<string, string> dicparamters)
         {
-            var entityParameters = await _ReportParameterManager.GetAllReportParametersAsync();
-            var parameters = entityParameters.Where(d => d.Template_Id == template_Id).OrderBy(d => d.Id);
+            var entityparamters = await _ReportParameterManager.GetAllReportParametersAsync();
+            var paramters = entityparamters.Where(d => d.Template_Id == template_Id).OrderBy(d => d.Id);
 
             var entityDataSources = await _ReportDataSourceManager.GetAllReportDataSourcesAsync();
             var dataSources = entityDataSources.Where(d => d.Template_Id == template_Id).OrderBy(d => d.Id);
@@ -204,14 +204,14 @@ namespace DM.UBP.Application.Quartz.Jobs
                 OracleParameter[] paras = new OracleParameter[resultP.Count];
                 for (int i = 0; i < resultP.Count; i++)
                 {
-                    var dataParam = parameters.Where(p => p.ParameterName.ToUpper() == resultP[i].ToUpper());
+                    var dataParam = paramters.Where(p => p.ParameterName.ToUpper() == resultP[i].ToUpper());
                     if (dataParam.Count() == 0)
                         continue;
 
                     string val = string.Empty;
 
-                    if (dicParameters.Keys.Contains(resultP[i]))
-                        val = dicParameters[resultP[i]];
+                    if (dicparamters.Keys.Contains(resultP[i]))
+                        val = dicparamters[resultP[i]];
 
 
                     #region 判断类型
