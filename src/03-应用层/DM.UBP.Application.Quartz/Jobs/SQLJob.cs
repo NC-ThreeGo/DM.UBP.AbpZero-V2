@@ -35,6 +35,8 @@ namespace DM.UBP.Application.Quartz.Jobs
             string commandText = jobDM["commandText"] == null ? string.Empty : jobDM["commandText"].ToString();
             string paramters = jobDM["paramters"] == null ? string.Empty : jobDM["paramters"].ToString();
 
+            //Thread.Sleep(999);
+
             var dicParameter = paramters.ToObject<Dictionary<string, string>>();
 
             OracleParameter[] paras = new OracleParameter[dicParameter == null ? 0 : dicParameter.Count()];

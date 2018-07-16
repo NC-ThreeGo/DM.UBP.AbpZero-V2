@@ -36,14 +36,16 @@ namespace DM.UBP.Application.Quartz.Managers
 
             if (_quartzConfiguration.Scheduler.CheckExists(job.Key))
             {
-                //_quartzConfiguration.Scheduler.UnscheduleJob
-                //var aa = _quartzConfiguration.Scheduler.GetTriggerState(trigger.Key);
+                //判断不了是否正在执行，原因不清楚
+                //var t = _quartzConfiguration.Scheduler.GetTriggersOfJob(job.Key).First();
+                //if (t != null)
+                //{
+                //    var aa = _quartzConfiguration.Scheduler.GetTriggerState(t.Key);
+                //}
 
                 _quartzConfiguration.Scheduler.DeleteJob(job.Key);
             }
             _quartzConfiguration.Scheduler.ScheduleJob(job, trigger);
-            //return;
-            //ResumeJob(job.Key.Name,job.Key.Group);
         }
 
         public void DeleteJob(string jobName, string groupName)

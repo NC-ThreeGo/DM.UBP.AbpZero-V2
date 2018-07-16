@@ -14,10 +14,8 @@ namespace DM.UBP.Console
             UBPConsoleApplication<UBPConsoleModule> application = new UBPConsoleApplication<UBPConsoleModule>();
             try
             {
-                application.Application_Start();
-
                 System.Console.WriteLine("Ubp Quartz 后台任务启动成功! ");
-
+                application.Application_Start();
                 System.Console.ReadKey();
 
             }

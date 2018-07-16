@@ -39,9 +39,9 @@ namespace DM.UBP.Application.Quartz
             //}
             //IocManager.RegisterIfNot<IJobListener, UBPQuartzJobListener>();
 
+            ///删除ABP的JobListener 删除ABP的Listener 在UBP的JobListener 用Logger写日志失败
+            //Configuration.Modules.AbpQuartz().Scheduler.ListenerManager.RemoveJobListener("AbpJobListener");
 
-            ///删除ABP的JobListener
-            Configuration.Modules.AbpQuartz().Scheduler.ListenerManager.RemoveJobListener("AbpJobListener");
             ///使用UBP的JobListener
             Configuration.Modules.AbpQuartz().Scheduler.ListenerManager.AddJobListener(new UBPQuartzJobListener());
 

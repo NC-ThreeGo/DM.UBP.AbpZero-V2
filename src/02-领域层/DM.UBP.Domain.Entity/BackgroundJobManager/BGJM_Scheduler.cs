@@ -57,6 +57,12 @@ namespace DM.UBP.Domain.Entity.BackgroundJobManager
         [Display(Name = "最后执行时间")]
         public DateTime? LastExtTime { get; set; }
 
+        ///// <summary>
+        ///// 最后执行结果 1：正常，2：正在执行，99：异常
+        ///// </summary>
+        //[Display(Name = "最后执行结果")]
+        //public int LastExtState { get; set; }
+
         public int? TenantId { get; set; }
 
         /// <summary>

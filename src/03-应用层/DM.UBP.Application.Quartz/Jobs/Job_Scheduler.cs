@@ -59,6 +59,7 @@ namespace DM.UBP.Application.Quartz.Jobs
                 .Join(triggerEnities, a => a.a.Trigger_Id, c => c.Id, (a, c) => new
                 {
                     Id = a.a.Id,
+                    Name = a.a.SchedulerName,
                     Status = a.a.Status,
                     TypeTable = a.b.TypeTable,
                     Job_Id = a.a.Job_Id,
@@ -69,6 +70,7 @@ namespace DM.UBP.Application.Quartz.Jobs
             {
                 var jobName = "Scheduler_" + scheduler.Id;
                 var groupName = "BackgroundJobManager";
+                var schedulerName = scheduler.Name;
 
                 if (scheduler.Status)
                 {
@@ -76,6 +78,7 @@ namespace DM.UBP.Application.Quartz.Jobs
                     {
                         var jobEmail = await _Job_RPTEmailManager.GetJob_RPTEmailByIdAsync(scheduler.Job_Id);
                         JobDataMap jobDM = new JobDataMap();
+                        jobDM.Add("schedulerName", schedulerName);
                         jobDM.Add("rptId", jobEmail.Template_Id);
                         jobDM.Add("emails", jobEmail.Emails);
                         jobDM.Add("paramters", jobEmail.Parameters);
@@ -97,6 +100,7 @@ namespace DM.UBP.Application.Quartz.Jobs
                     {
                         var jobSql = await _Job_SqlManager.GetJob_SqlByIdAsync(scheduler.Job_Id);
                         JobDataMap jobDM = new JobDataMap();
+                        jobDM.Add("schedulerName", schedulerName);
                         jobDM.Add("connkeyName", jobSql.ConnkeyName);
                         jobDM.Add("commandType", jobSql.CommandType);
                         jobDM.Add("commandText", jobSql.CommandText);

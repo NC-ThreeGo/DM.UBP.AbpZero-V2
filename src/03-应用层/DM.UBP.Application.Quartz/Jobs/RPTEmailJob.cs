@@ -52,7 +52,7 @@ namespace DM.UBP.Application.Quartz.Jobs
             string job_RPTEmailName = jobDM["job_RPTEmailName"].ToString();
 
             var pathList = ExportReport(rptId, paramters, job_RPTEmailName);
-            SendEmail(DateTime.Now.ToString("yyyy-MM-dd") + job_RPTEmailName, "", emails, pathList);
+            SendEmail(DateTime.Now.ToString("yyyy-MM-dd") + job_RPTEmailName, createEmailBody(), emails, pathList);
 
         }
 
@@ -135,7 +135,7 @@ namespace DM.UBP.Application.Quartz.Jobs
             mail.Priority = MailPriority.Normal;
 
             //以HTML格式发送邮件,为false则发送纯文本邮箱
-            mail.IsBodyHtml = false;
+            mail.IsBodyHtml = true;
 
             //发件人邮箱  
             mail.From = new MailAddress(emailSetting.DefaultFromAddress, emailSetting.DefaultFromDisplayName);
@@ -297,6 +297,48 @@ namespace DM.UBP.Application.Quartz.Jobs
                 resilt.Add(item);
             }
             return resilt;
+        }
+
+        private string createEmailBody()
+        {
+            string html = @"<html>
+                            <head>
+                                <meta http-equiv=""Content-Type"" content=""text/html; charset=gb2312"">
+                                <style>
+                                    body {
+                                        line-height: 1.5;
+                                    }
+
+                                    body {
+                                        font-size: 10.5pt;
+                                        font-family: 宋体;
+                                        color: rgb(0, 0, 0);
+                                        line-height: 1.5;
+                                    }
+                                </style>
+                            </head>
+                            <body>
+                                <div><span></span>各位：</div>
+                                <div>&nbsp;&nbsp;本邮件内容系系统自动发送，无需回复。无权限申请本附件内容禁止外传。</div>
+                                <div><br></div>
+                                <hr style=""width: 350px; height: 1px;"" color=""#b5c4df"" size=""1"" align=""left"">
+                                <div>
+                                    <div style=""margin: 10px; font-family: 仿宋; font-size: 12pt; color: rgb(0, 0, 128); font-weight: bold;"">
+                                        <div>
+                                            <span>经营数据分析平台</span>
+                                        </div>
+                                        <div>
+                                            <span></span>
+                                        </div>
+                                        <div>
+                                            <span>平台地址：<a href=""http://10.50.239.55:88/"">http://10.50.239.55:88/</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </body>
+                            </html>";
+
+            return html;
         }
     }
 }
