@@ -143,9 +143,9 @@ namespace DM.UBP.Application.Quartz.Jobs
             //收件人邮箱
             foreach (string eamil in emails.Split(';'))
             {
-                if (string.IsNullOrEmpty(eamil))
+                if (string.IsNullOrEmpty(eamil.Trim()))
                     continue;
-                mail.To.Add(eamil);//收件人地址和收件人邮箱显示的中文名称
+                mail.To.Add(eamil.Trim());//收件人地址和收件人邮箱显示的中文名称
             }
 
             //邮件主题和内容
@@ -319,7 +319,8 @@ namespace DM.UBP.Application.Quartz.Jobs
                             </head>
                             <body>
                                 <div><span></span>各位：</div>
-                                <div>&nbsp;&nbsp;本邮件内容系系统自动发送，无需回复。无权限申请本附件内容禁止外传。</div>
+                                <div>&nbsp;&nbsp;本邮件内容是由系统自动发送，无需回复。如无权限申请许可，本附件内容禁止外传。</div>
+                                <div>&nbsp;&nbsp;これはシステムの自動的に送信するメールですので、返信は不要。審査許可はなければ、当添付資料の無断転送を禁じます。 </div>
                                 <div><br></div>
                                 <hr style=""width: 350px; height: 1px;"" color=""#b5c4df"" size=""1"" align=""left"">
                                 <div>
@@ -328,10 +329,16 @@ namespace DM.UBP.Application.Quartz.Jobs
                                             <span>经营数据分析平台</span>
                                         </div>
                                         <div>
-                                            <span></span>
+                                            <span>平台地址：<a href=""http://10.50.239.55:88/"">http://10.50.239.55:88/</a></span>
                                         </div>
                                         <div>
-                                            <span>平台地址：<a href=""http://10.50.239.55:88/"">http://10.50.239.55:88/</a></span>
+                                            <br>
+                                        </div>
+                                        <div>
+                                            <span>経営データの分析プラットフォーム </span>
+                                        </div>
+                                        <div>
+                                            <span>サイト：<a href=""http://10.50.239.55:88/"">http://10.50.239.55:88/</a></span>
                                         </div>
                                     </div>
                                 </div>

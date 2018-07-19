@@ -31,7 +31,7 @@ namespace DM.UBP.Application.Dto.BackgroundJobManager.Job_RPTEmails
         [Required]
         public long BGJM_JobGroup_Id { get; set; }
 
-        [StringLength(StringMaxLengthConst.MaxStringLength1000)]
+        [StringLength(StringMaxLengthConst.MaxStringLength2000)]
         [Required]
         public string Emails { get; set; }
 

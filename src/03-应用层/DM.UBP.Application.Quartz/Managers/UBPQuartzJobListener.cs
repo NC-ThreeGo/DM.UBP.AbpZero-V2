@@ -28,8 +28,6 @@ namespace DM.UBP.Application.Quartz.Managers
 
         public virtual void JobToBeExecuted(IJobExecutionContext context)
         {
-            //Logger.Debug($"Job {context.JobDetail.JobType.Name} executing...");
-            
             if (context.JobDetail.JobType.Name == "Job_Scheduler")
                 return;
 
@@ -41,29 +39,20 @@ namespace DM.UBP.Application.Quartz.Managers
 
         public virtual void JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException)
         {
+            if (context.JobDetail.JobType.Name == "Job_Scheduler")
+                return;
+
+            var schedulerName = context.JobDetail.JobDataMap["schedulerName"];
+            if (schedulerName == null)
+                return;
+
             if (jobException == null)
             {
-                //Logger.Debug($"Job {context.JobDetail.JobType.Name} sucessfully executed.");
-
-                if (context.JobDetail.JobType.Name == "Job_Scheduler")
-                    return;
-
-                var schedulerName = context.JobDetail.JobDataMap["schedulerName"];
-                if (schedulerName == null)
-                    return;
                 System.Console.WriteLine($"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}：{schedulerName.ToString()} 结束调度！");
             }
             else
             {
-                //Logger.Error($"Job {context.JobDetail.JobType.Name} failed with exception: {jobException}");
-
-                if (context.JobDetail.JobType.Name == "Job_Scheduler")
-                    return;
-
-                var schedulerName = context.JobDetail.JobDataMap["schedulerName"];
-                if (schedulerName == null)
-                    return;
-                System.Console.WriteLine($"{DateTime.Now.ToString("yyyyMMddHHmmss")}：{schedulerName.ToString()} 调度任务异常！异常信息：{jobException}");
+                System.Console.WriteLine($"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}：{schedulerName.ToString()} 调度任务异常！异常信息：{jobException}");
             }
         }
     }

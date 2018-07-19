@@ -110,10 +110,10 @@
                     title: app.localize('Bgjm_Jobgroup_Id'),
                     width: '20%',
                 },
-                emails: {
-                    title: app.localize('Emails'),
-                    width: '15%',
-                },
+                //emails: {
+                //    title: app.localize('Emails'),
+                //    width: '15%',
+                //},
                 templateName: {
                     title: app.localize('Template_Id'),
                     width: '15%',

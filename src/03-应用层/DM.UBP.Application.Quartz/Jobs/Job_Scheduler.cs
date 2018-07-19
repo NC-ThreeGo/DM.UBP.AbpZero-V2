@@ -71,6 +71,7 @@ namespace DM.UBP.Application.Quartz.Jobs
                 var jobName = "Scheduler_" + scheduler.Id;
                 var groupName = "BackgroundJobManager";
                 var schedulerName = scheduler.Name;
+                var schedulerId = scheduler.Id;
 
                 if (scheduler.Status)
                 {
@@ -79,6 +80,8 @@ namespace DM.UBP.Application.Quartz.Jobs
                         var jobEmail = await _Job_RPTEmailManager.GetJob_RPTEmailByIdAsync(scheduler.Job_Id);
                         JobDataMap jobDM = new JobDataMap();
                         jobDM.Add("schedulerName", schedulerName);
+                        jobDM.Add("schedulerId", schedulerId);
+
                         jobDM.Add("rptId", jobEmail.Template_Id);
                         jobDM.Add("emails", jobEmail.Emails);
                         jobDM.Add("paramters", jobEmail.Parameters);
@@ -101,6 +104,8 @@ namespace DM.UBP.Application.Quartz.Jobs
                         var jobSql = await _Job_SqlManager.GetJob_SqlByIdAsync(scheduler.Job_Id);
                         JobDataMap jobDM = new JobDataMap();
                         jobDM.Add("schedulerName", schedulerName);
+                        jobDM.Add("schedulerId", schedulerId);
+
                         jobDM.Add("connkeyName", jobSql.ConnkeyName);
                         jobDM.Add("commandType", jobSql.CommandType);
                         jobDM.Add("commandText", jobSql.CommandText);

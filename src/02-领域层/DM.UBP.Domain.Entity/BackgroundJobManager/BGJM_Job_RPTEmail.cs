@@ -33,7 +33,7 @@ namespace DM.UBP.Domain.Entity.BackgroundJobManager
         [Display(Name = "工作组ID")]
         public long BGJM_JobGroup_Id { get; set; }
 
-        [StringLength(StringMaxLengthConst.MaxStringLength1000)]
+        [StringLength(StringMaxLengthConst.MaxStringLength2000)]
         public string Emails { get; set; }
 
         /// <summary>

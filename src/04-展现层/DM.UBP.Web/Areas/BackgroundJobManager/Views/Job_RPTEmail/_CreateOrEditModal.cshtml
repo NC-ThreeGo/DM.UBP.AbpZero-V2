@@ -41,7 +41,7 @@
                         </select>
                     </div>
                     <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                        <input type="text" name="Emails" class="form-control@(Model.Emails.IsNullOrEmpty() ? "" : " edited")" value="@Model.Emails" required>
+                        <textarea name="Emails" rows="5" class="form-control@(Model.Emails.IsNullOrEmpty() ? "" : " edited")" required>@Model.Emails</textarea>
                         <label>@L("Emails")</label>
                     </div>
                     <div class="form-group">

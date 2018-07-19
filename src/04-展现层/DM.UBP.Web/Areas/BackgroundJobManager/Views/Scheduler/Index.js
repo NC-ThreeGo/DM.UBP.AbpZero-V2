@@ -117,10 +117,10 @@
                         }
                     }
                 },
-                lastExtTime: {
-                    title: app.localize('LastExtTime'),
-                    width: '20%',
-                },
+                //lastExtTime: {
+                //    title: app.localize('LastExtTime'),
+                //    width: '20%',
+                //},
                 description: {
                     title: app.localize('Description'),
                     width: '50%',
