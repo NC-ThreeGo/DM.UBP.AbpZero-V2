@@ -9,6 +9,9 @@ namespace DM.UBP.Application.Quartz.Servers
 {
     public interface IQuartzServer: IApplicationService
     {
+        /// <summary>
+        /// 开启自动调度
+        /// </summary>
         void StartUp();
 
         /// <summary>
@@ -18,5 +21,7 @@ namespace DM.UBP.Application.Quartz.Servers
         /// <param name="numTimes">运行次数</param>
         /// <returns>运行时间段</returns>
         List<string> GetTaskFireTime(string CronExpressionString, int numTimes);
+
+        Task ExecJob(long groupId, long id);
     }
 }

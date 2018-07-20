@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="zh-CN">
     <texts>
+      <text name="Exec" value="执行" />
+      <text name="ExecJobMessage" value="请确认该任务的参数和属性，您确定要立即执行该任务吗？" />
+      <text name="SuccessfullyExec" value="成功运行任务！详情查看日志。" />
       
       <text name="DeleteRecordWarningMessage" value="当前记录将被删除." />
       <text name="ReportManager" value="报表管理" />
