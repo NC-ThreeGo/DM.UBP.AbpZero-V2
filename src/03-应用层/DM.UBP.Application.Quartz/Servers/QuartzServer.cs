@@ -26,16 +26,19 @@ namespace DM.UBP.Application.Quartz.Servers
         private readonly IJobGroupManager _JobGroupManager;
         private readonly IJob_RPTEmailManager _Job_RPTEmailManager;
         private readonly IJob_SqlManager _Job_SqlManager;
+        private readonly Job_Scheduler _Job_Scheduler;
 
         public QuartzServer(IUBPQuartzScheduleJobManager jobManager,
             IJobGroupManager jobgroupmanager,
             IJob_RPTEmailManager job_rptemailmanager,
-            IJob_SqlManager job_sqlmanager)
+            IJob_SqlManager job_sqlmanager,
+            Job_Scheduler job_Scheduler)
         {
             _jobManager = jobManager;
             _JobGroupManager = jobgroupmanager;
             _Job_RPTEmailManager = job_rptemailmanager;
             _Job_SqlManager = job_sqlmanager;
+            _Job_Scheduler = job_Scheduler;
         }
 
         /// <summary>
@@ -92,12 +95,14 @@ namespace DM.UBP.Application.Quartz.Servers
 
         public async Task ExecJob(long groupId, long id)
         {
-            var jobGroup = await _JobGroupManager.GetJobGroupByIdAsync(groupId);
-            if (jobGroup.TypeTable == "")
-            {
+            var quartzJobName = "Scheduler_0";
+            var quartzGroupName = "BackgroundJobManager";
+            var quartzCronStr = "* * * * * ? *";
 
-            }
-            
+            var jobGroup = await _JobGroupManager.GetJobGroupByIdAsync(groupId);
+            if (jobGroup == null)
+                return;
+            _Job_Scheduler.execScheduler(quartzJobName, quartzGroupName, quartzCronStr, jobGroup.TypeTable, id, 0);
         }
     }
 }

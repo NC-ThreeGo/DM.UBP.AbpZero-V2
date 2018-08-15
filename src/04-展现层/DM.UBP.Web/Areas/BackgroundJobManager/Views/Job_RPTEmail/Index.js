@@ -11,6 +11,7 @@
     $(function () {
         var _$entityTable = $('#Job_RPTEmailTable');
         var _appService = abp.services.ubp.job_RPTEmail;
+        var _quartzService = abp.services.quartz.quartzServer;
 
         var _permissions = {
             create: abp.auth.hasPermission('Pages.BackgroundJobManager.Job_RPTEmails.Create'),
@@ -61,6 +62,22 @@
                 }
             );
         };
+        function execJob(entity) {
+            abp.message.confirm(
+                app.localize('ExecJobMessage'),
+                function (isConfirmed) {
+                    if (isConfirmed) {
+                        _quartzService.execJob(
+                            entity.bgjM_JobGroup_Id, entity.id)
+                            .done(function () {
+                                getEntities();
+                                abp.notify.success(app.localize('SuccessfullyExec'));
+                            });
+                    }
+                }
+            );
+        };
+
 
 
         _$entityTable.jtable({
@@ -99,6 +116,15 @@
                         },
                         action: function (data) {
                             deleteEntity(data.record);
+                        }
+                    },
+                    {
+                        text: app.localize('Exec'),
+                        visible: function (data) {
+                            return true;
+                        },
+                        action: function (data) {
+                            execJob(data.record);
                         }
                     }]
                 },

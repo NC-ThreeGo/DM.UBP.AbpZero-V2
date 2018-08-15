@@ -263,3 +263,4 @@ paket-files/
 __pycache__/
 *.pyc
 *.frx
+/src/04-展现层/DM.UBP.Web/ExportReport

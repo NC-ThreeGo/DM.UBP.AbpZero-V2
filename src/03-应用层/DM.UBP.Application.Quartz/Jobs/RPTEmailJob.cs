@@ -47,9 +47,9 @@ namespace DM.UBP.Application.Quartz.Jobs
         {
             JobDataMap jobDM = context.JobDetail.JobDataMap;
             long rptId = Convert.ToInt64(jobDM["rptId"]);
-            string emails = jobDM["emails"].ToString();
+            string emails = jobDM["emails"] == null ? string.Empty : jobDM["emails"].ToString();
             string paramters = jobDM["paramters"] == null ? string.Empty : jobDM["paramters"].ToString();
-            string job_RPTEmailName = jobDM["job_RPTEmailName"].ToString();
+            string job_RPTEmailName =  jobDM["job_RPTEmailName"] == null ? string.Empty : jobDM["job_RPTEmailName"].ToString();
 
             var pathList = ExportReport(rptId, paramters, job_RPTEmailName);
             SendEmail(DateTime.Now.ToString("yyyy-MM-dd") + job_RPTEmailName, createEmailBody(), emails, pathList);
@@ -86,19 +86,40 @@ namespace DM.UBP.Application.Quartz.Jobs
             _webReport.Report.Prepare();
             string fileName = "ExportReport\\" + DateTime.Now.ToString("yyyyMMddHHmmss") + job_RPTEmailName;
 
-
+           
             //string csvFile = System.AppDomain.CurrentDomain.BaseDirectory + fileName + ".csv";
             //using (FastReport.Export.Csv.CSVExport csv = new FastReport.Export.Csv.CSVExport())
             //{
             //    csv.Export(_webReport.Report, csvFile);
             //}
-            string pdfFile = System.AppDomain.CurrentDomain.BaseDirectory + fileName + ".pdf";
-            using (FastReport.Export.Pdf.PDFExport pdf = new FastReport.Export.Pdf.PDFExport())
+
+
+            //string excelFile = System.AppDomain.CurrentDomain.BaseDirectory + fileName + ".xls";
+            //using (FastReport.Export.BIFF8.Excel2003Document excel = new FastReport.Export.BIFF8.Excel2003Document())
+            //{
+            //    excel.Export(_webReport.Report, excelFile);
+            //}
+
+
+            string xmlFile = System.AppDomain.CurrentDomain.BaseDirectory + fileName + ".xls";
+            using (FastReport.Export.Xml.XMLExport xml = new FastReport.Export.Xml.XMLExport())
             {
-                pdf.Export(_webReport.Report, pdfFile);
+                xml.Export(_webReport.Report, xmlFile);
             }
 
-            List<string> pathList = new List<string>() { pdfFile };
+            //string htmlFile = System.AppDomain.CurrentDomain.BaseDirectory + fileName + ".html";
+            //using (FastReport.Export.Html.HTMLExport html = new FastReport.Export.Html.HTMLExport())
+            //{
+            //    html.Export(_webReport.Report, htmlFile);
+            //}
+
+            //string pdfFile = System.AppDomain.CurrentDomain.BaseDirectory + fileName + ".pdf";
+            //using (FastReport.Export.Pdf.PDFExport pdf = new FastReport.Export.Pdf.PDFExport())
+            //{
+            //    pdf.Export(_webReport.Report, pdfFile);
+            //}
+
+            List<string> pathList = new List<string>() { xmlFile };
             return pathList;
 
 
@@ -347,5 +368,6 @@ namespace DM.UBP.Application.Quartz.Jobs
 
             return html;
         }
+
     }
 }
