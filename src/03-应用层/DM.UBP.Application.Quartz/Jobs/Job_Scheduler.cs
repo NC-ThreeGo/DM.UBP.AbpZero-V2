@@ -72,7 +72,7 @@ namespace DM.UBP.Application.Quartz.Jobs
                 var quartzGroupName = "BackgroundJobManager";
                 if (scheduler.Status)
                 {
-                    execScheduler(quartzJobName, quartzJobName, scheduler.CronStr, scheduler.TypeTable, scheduler.Job_Id, -1);
+                    execScheduler(quartzJobName, quartzGroupName, scheduler.CronStr, scheduler.TypeTable, scheduler.Job_Id, -1);
                 }
                 else
                 {
