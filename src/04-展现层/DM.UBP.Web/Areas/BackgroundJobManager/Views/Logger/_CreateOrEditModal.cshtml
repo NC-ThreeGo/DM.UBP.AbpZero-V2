@@ -1,0 +1,59 @@
+﻿@using Abp.Extensions
+@using DM.UBP.Web.Areas.Mpa.Models.Common.Modals
+
+@model DM.UBP.Application.Dto.BackgroundJobManager.Loggers.LoggerOutputDto
+
+@section Styles
+{
+}
+@section Scripts
+{
+}
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+    <h4 class="modal-title">
+        <span><i class="@(Model.IsException == true ? "fa fa-warning font-yellow-gold" : "fa fa-check-circle font-green")"></i></span><span style="margin-left:20px">@Model.JobName</span>
+    </h4>
+</div>
+
+<div class="modal-body">
+    <div class="tab-content">
+        <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
+            @if (Model.IsEditMode)
+            {
+                <input type="hidden" name="Id" value="@Model.Id" />
+            }
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <input type="text" name="JobType" readonly="readonly" class="form-control" value="@Model.JobType" required>
+                <label>@L("JobType")</label>
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <input type="text" name="Job_Id" readonly="readonly" class="form-control" value="@Model.Job_Id" required>
+                <label>@L("Job_Id")</label>
+            </div>
+            @*<div class="form-group form-md-line-input form-md-floating-label no-hint">
+                    <input type="text" name="JobName" class="form-control@(Model.JobName.IsNullOrEmpty() ? "" : " edited")" value="@Model.JobName" required>
+                    <label>@L("JobName")</label>
+                </div>*@
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <input type="text" name="ExecStartTime" readonly="readonly" class="form-control" value="@Model.ExecStartTime" required>
+                <label>@L("ExecStartTime")</label>
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <input type="text" name="ExecEndTime" readonly="readonly" class="form-control" value="@Model.ExecEndTime" required>
+                <label>@L("ExecEndTime")</label>
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <textarea name="Note" rows="5" readonly="readonly" class="form-control" required>@Model.Note</textarea>
+                <label>@L("Note")</label>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">@L("Close")</button>
+</div>

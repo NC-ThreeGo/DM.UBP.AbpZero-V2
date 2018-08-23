@@ -5,6 +5,7 @@ using Abp.Quartz.Quartz.Configuration;
 using DM.UBP.Application.Quartz.Managers;
 using DM.UBP.Application.Quartz.Servers;
 using DM.UBP.Domain.Service;
+using DM.UBP.Domain.Service.BackgroundJobManager.Loggers;
 using Quartz;
 using System;
 using System.Collections.Generic;
@@ -42,8 +43,8 @@ namespace DM.UBP.Application.Quartz
             ///删除ABP的JobListener 删除ABP的Listener 在UBP的JobListener 用Logger写日志失败
             //Configuration.Modules.AbpQuartz().Scheduler.ListenerManager.RemoveJobListener("AbpJobListener");
 
-            ///使用UBP的JobListener
-            Configuration.Modules.AbpQuartz().Scheduler.ListenerManager.AddJobListener(new UBPQuartzJobListener());
+            //使用UBP的JobListener
+            Configuration.Modules.AbpQuartz().Scheduler.ListenerManager.AddJobListener(new UBPQuartzJobListener(IocManager.Resolve<ILoggerManager>()));
 
         }
     }

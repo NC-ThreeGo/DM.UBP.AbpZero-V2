@@ -512,6 +512,8 @@
     <Content Include="Areas\BackgroundJobManager\Views\Job_RPTEmail\_CreateOrEditModal.js" />
     <Content Include="Areas\BackgroundJobManager\Views\Job_Sql\Index.js" />
     <Content Include="Areas\BackgroundJobManager\Views\Job_Sql\_CreateOrEditModal.js" />
+    <Content Include="Areas\BackgroundJobManager\Views\Logger\Index.js" />
+    <Content Include="Areas\BackgroundJobManager\Views\Logger\_CreateOrEditModal.js" />
     <Content Include="Areas\BackgroundJobManager\Views\Scheduler\Index.js" />
     <Content Include="Areas\BackgroundJobManager\Views\Scheduler\_CreateOrEditModal.js" />
     <Content Include="Areas\BackgroundJobManager\Views\Trigger\Index.js" />
@@ -2433,6 +2435,8 @@
     <Content Include="WebReportDesigner\README.txt" />
     <Content Include="WebReportDesigner\svg\fontawesome-webfont.912ec66d7572ff821749319396470bde.svg" />
     <Content Include="WebReportDesigner\web.config" />
+    <Content Include="Areas\BackgroundJobManager\Views\Logger\Index.cshtml" />
+    <Content Include="Areas\BackgroundJobManager\Views\Logger\_CreateOrEditModal.cshtml" />
     <None Include="Properties\PublishProfiles\aspnetzero - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
@@ -3212,6 +3216,7 @@
     <Compile Include="Areas\BackgroundJobManager\Controllers\JobGroupController.cs" />
     <Compile Include="Areas\BackgroundJobManager\Controllers\Job_RPTEmailController.cs" />
     <Compile Include="Areas\BackgroundJobManager\Controllers\Job_SqlController.cs" />
+    <Compile Include="Areas\BackgroundJobManager\Controllers\LoggerController.cs" />
     <Compile Include="Areas\BackgroundJobManager\Controllers\SchedulerController.cs" />
     <Compile Include="Areas\BackgroundJobManager\Controllers\TriggerController.cs" />
     <Compile Include="Areas\Mpa\Startup\UbpNavigationProvider.cs" />

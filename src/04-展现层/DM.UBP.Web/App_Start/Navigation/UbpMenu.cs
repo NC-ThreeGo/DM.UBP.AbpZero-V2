@@ -22,5 +22,6 @@ namespace DM.UBP.Web.Navigation
         public const string BackgroundJobManagerJobGroups = "BackgroundJobManager.JobGroups";
         public const string BackgroundJobManagerSchedulers = "BackgroundJobManager.Schedulers";
         public const string BackgroundJobManagerTriggers = "BackgroundJobManager.Triggers";
+        public const string BackgroundJobManagerLoggers = "BackgroundJobManager.Loggers";
     }
 }

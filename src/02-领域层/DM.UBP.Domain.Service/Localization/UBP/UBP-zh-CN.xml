@@ -1,186 +1,202 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="zh-CN">
-    <texts>
-      <text name="Exec" value="执行" />
-      <text name="ExecJobMessage" value="请确认该任务的参数和属性，您确定要立即执行该任务吗？" />
-      <text name="SuccessfullyExec" value="操作成功！详情查看日志。" />
-      
-      <text name="DeleteRecordWarningMessage" value="当前记录将被删除." />
-      <text name="ReportManager" value="报表管理" />
-      <text name="Reports" value="报表" />
-        
-      <text name="Template" value="模板" />
-      <text name="TemplateList" value="模板列表" />
-      <text name="ReportTemplateTable" value="模板列表" />
-      <text name="ReportTemplates" value="报表模板" />
-      <text name="ReportManagerTemplates" value="报表模板管理" />
-      <text name="ReportManagerTemplateFiles" value="报表模板管理" />
-      <text name="CreateNewTemplate" value="创建新模板" />
-      <text name="CreateReportTemplate" value="创建模板" />
-      <text name="EditReportTemplate" value="编辑模板" />
-      <text name="TemplateHeaderInfo" value="模板文件生成在TemplateFiles目录下" />
-      <text name="ReportTemplateInformations" value="报表模板信息" />
-      <text name="TemplateName" value="模板名称" />
-      <text name="Description" value="表述" />
-      <text name="CreatingNewTemplate" value="创建新模板" />
-      <text name="EditingTemplate" value="编辑模板" />
-      <text name="DeletingTemplate" value="删除模板" />
-      
-      
-      
-      <text name="Category" value="分类" />
-      <text name="ReportCategories" value="报表分类" />
-      <text name="ReportManagerCategories" value="报表分类管理" />
-      <text name="CreateNewCategory" value="创建新分类" />
-      <text name="CreateCategory" value="创建分类" />
-      <text name="EditCategory" value="编辑分类" />
-      <text name="CategoryHeaderInfo" value="使用该分类划分报表" />
-      <text name="CategoryInformations" value="编辑分类信息" />
-      <text name="CategoryName" value="分类名称" />
-      <text name="ParentId" value="父级ID" />
-      
-      <text name="CreatingNewCategory" value="创建新分类" />
-      <text name="EditingCategory" value="编辑分类" />
-      <text name="DeletingCategory" value="删除分类" />
+  <texts>
+    <text name="Exec" value="执行" />
+    <text name="ExecJobMessage" value="请确认该任务的参数和属性，您确定要立即执行该任务吗？" />
+    <text name="SuccessfullyExec" value="操作成功！详情查看日志。" />
 
+    <text name="DeleteRecordWarningMessage" value="当前记录将被删除." />
+    <text name="ReportManager" value="报表管理" />
+    <text name="Reports" value="报表" />
 
-      <text name="ReportDataSources" value="报表数据源" />
-      <text name="ReportManagerDataSources" value="报表数据源管理" />
-      <text name="ReportDataSourceInformations" value="数据源表名可以不在数据库中存在，但是请保持唯一。" />
-      
-      <text name="CreatingNewDataSource" value="创建新数据源" />
-      <text name="CreateReportDataSource" value="创建新数据源" />
-      <text name="EditingDataSource" value="编辑数据源" />
-      <text name="EditReportDataSource" value="编辑数据源" />
-      <text name="DeletingDataSource" value="删除数据源" />
-      <text name="CreateNewDataSource" value="创建新数据源" />
-      <text name="ConnkeyName" value="连接字符串" />
-      <text name="TableName" value="表名称" />
-      <text name="CommandType" value="Command类型" />
-      <text name="CommandText" value="Command文本" />
-      <text name="DataSourceTable" value="数据源列表" />
+    <text name="Template" value="模板" />
+    <text name="TemplateList" value="模板列表" />
+    <text name="ReportTemplateTable" value="模板列表" />
+    <text name="ReportTemplates" value="报表模板" />
+    <text name="ReportManagerTemplates" value="报表模板管理" />
+    <text name="ReportManagerTemplateFiles" value="报表模板管理" />
+    <text name="CreateNewTemplate" value="创建新模板" />
+    <text name="CreateReportTemplate" value="创建模板" />
+    <text name="EditReportTemplate" value="编辑模板" />
+    <text name="TemplateHeaderInfo" value="模板文件生成在TemplateFiles目录下" />
+    <text name="ReportTemplateInformations" value="报表模板信息" />
+    <text name="TemplateName" value="模板名称" />
+    <text name="Description" value="表述" />
+    <text name="CreatingNewTemplate" value="创建新模板" />
+    <text name="EditingTemplate" value="编辑模板" />
+    <text name="DeletingTemplate" value="删除模板" />
 
 
 
-      <text name="ReportParameters" value="报表参数" />
-      <text name="ReportManagerParameters" value="报表参数管理" />
-      <text name="CreatingNewParameter" value="创建新参数" />
-      <text name="EditingParameter" value="编辑参数" />
-      <text name="EditReportParameter" value="编辑参数" />
-      <text name="DeletingParameter" value="删除参数" />
-      <text name="CreateNewParameter" value="创建新参数" />
-      <text name="CreateReportParameter" value="创建新参数" />
-      <text name="ParameterName" value="参数名称" />
-      <text name="ParamterType" value="参数类型" />
-      <text name="UiType" value="显示类型" />
-      <text name="ParameterTable" value="参数列表" />
-      <text name="LabelName" value="Label名称" />
-      <text name="DynamicSql" value="动态SQL" />
-      <text name="SortId" value="排序ID" />
-      <text name="ReportParameterInformations" value="参数大小写必须和数据源中的一致，参数名请保持唯一。" />
-      
-      
-      
-      <text name="ReportManagerDesigner" value="报表设计管理" />
+    <text name="Category" value="分类" />
+    <text name="ReportCategories" value="报表分类" />
+    <text name="ReportManagerCategories" value="报表分类管理" />
+    <text name="CreateNewCategory" value="创建新分类" />
+    <text name="CreateCategory" value="创建分类" />
+    <text name="EditCategory" value="编辑分类" />
+    <text name="CategoryHeaderInfo" value="使用该分类划分报表" />
+    <text name="CategoryInformations" value="编辑分类信息" />
+    <text name="CategoryName" value="分类名称" />
+    <text name="ParentId" value="父级ID" />
+
+    <text name="CreatingNewCategory" value="创建新分类" />
+    <text name="EditingCategory" value="编辑分类" />
+    <text name="DeletingCategory" value="删除分类" />
 
 
-      <text name="Design" value="设计" /> 
-      <text name="Preview" value="预览" />
-      
-      <text name="ReportList" value="报表列表" />    
-      <text name="ReportName" value="报表名称" /> 
-      <text name="Confirm" value="确定" />
+    <text name="ReportDataSources" value="报表数据源" />
+    <text name="ReportManagerDataSources" value="报表数据源管理" />
+    <text name="ReportDataSourceInformations" value="数据源表名可以不在数据库中存在，但是请保持唯一。" />
 
-      <text name="PleaseCheckOneTemplate" value="请选中一个模板" />
-      <text name="FilterByCategory" value="按分类筛选" />
-      <text name="DynamicDataSource" value="动态数据源" />
-      
-      
-      <text name="BackgroundJobManager" value="后台作业管理" />
-      
-      <text name="JobGroupManager" value="工作组管理" />
-      <text name="CreatingNewJobGroup" value="新建工作组" />
-      <text name="EditingJobGroup" value="修改工作组" />
-      <text name="DeletingJobGroup" value="删除工作组" />
-      <text name="JobGroupName" value="工作组名称" />
-      <text name="AssemblyName" value="程序集命名空间" />
-      <text name="ClassName" value="程序类名称" />
-      <text name="TypeTable" value="关联表名称" />
-      <text name="JobGroups" value="工作组" />
-      <text name="JobGroup" value="工作组" />
-      <text name="JobGroupHeaderInfo" value="同一类工作可以归为一个工作组" />
-      <text name="JobGroupInformations" value="工作组信息" />
-      
-      
-      
-      
-      <text name="Job_RPTEmailManager" value="报表邮件工作管理" />
-      <text name="CreatingNewJob_RPTEmail" value="新建报表邮件" />
-      <text name="EditingJob_RPTEmail" value="修改报表邮件" />
-      <text name="DeletingJob_RPTEmail" value="删除报表邮件" />
-
-      <text name="ScheduleManager" value="调度管理" />
-      <text name="CreatingNewScheduler" value="新建调度" />
-      <text name="EditingScheduler" value="修改调度" />
-      <text name="DeletingScheduler" value="删除调度" />
-
-      <text name="TriggerManager" value="触发器管理" />
-      <text name="CreatingNewTrigger" value="新建触发器" />
-      <text name="CreateNewTrigger" value="新建触发器" />
-      <text name="CreateTrigger" value="新建触发器" />
-      <text name="EditingTrigger" value="修改触发器" />
-      <text name="EditTrigger" value="修改触发器" />
-      <text name="DeletingTrigger" value="删除触发器" />
-      <text name="TriggerName" value="触发器名称" />
-      <text name="CronStr" value="Cron表达式" />
-      <text name="TriggerInformations" value="触发器信息" />
-      <text name="Triggers" value="触发器" />
-      <text name="TriggerHeaderInfo" value="不同的任务可以在调度中使用同一个触发器" />
-      <text name="Second" value="秒" />
-      <text name="Minute" value="分" />
-      <text name="Hour" value="时" />
-      <text name="Day" value="天" />
-      <text name="Month" value="月" />
-      <text name="Week" value="周" />
-      <text name="Year" value="年" />
+    <text name="CreatingNewDataSource" value="创建新数据源" />
+    <text name="CreateReportDataSource" value="创建新数据源" />
+    <text name="EditingDataSource" value="编辑数据源" />
+    <text name="EditReportDataSource" value="编辑数据源" />
+    <text name="DeletingDataSource" value="删除数据源" />
+    <text name="CreateNewDataSource" value="创建新数据源" />
+    <text name="ConnkeyName" value="连接字符串" />
+    <text name="TableName" value="表名称" />
+    <text name="CommandType" value="Command类型" />
+    <text name="CommandText" value="Command文本" />
+    <text name="DataSourceTable" value="数据源列表" />
 
 
-      <text name="Job_RPTEmails" value="报表邮件任务" />
-      <text name="Job_RPTEmailHeaderInfo" value="后台发送报表邮件功能" />
-      <text name="CreateNewJob_RPTEmail" value="创建报表邮件任务" />
-      <text name="Job_RptEmailName" value="任务名称" />
-      <text name="Bgjm_Jobgroup_Id" value="所属任务组" />
-      <text name="Emails" value="邮件" />
-      <text name="Template_Id" value="报表" />
-      <text name="Parameters" value="报表参数" />
-      <text name="CreateJob_RPTEmail" value="创建报表邮件任务" />
-      <text name="EditJob_RPTEmail" value="修改报表邮件任务" />
-      <text name="Job_RPTEmailInformations" value="报表邮件任务信息" />
 
-      <text name="Schedulers" value="调度" />
-      <text name="Scheduler" value="调度" />
-      <text name="SchedulerHeaderInfo" value="后台任务调度信息" />
-      <text name="SchedulerInformations" value="调度信息" />
-      <text name="CreateNewScheduler" value="创建新的调度" />
-      <text name="SchedulerName" value="调度名称" />
-      <text name="Status" value="是否启用" />
-      <text name="LastExtTime" value="最后一次执行时间" />
-      <text name="JobGroup_Id" value="任务组" />
-      <text name="Trigger_Id" value="触发器" />
-      <text name="Job_Id" value="任务" />
-      <text name="CreateScheduler" value="创建新的调度" />
-      <text name="EditScheduler" value="修改调度" />
-      
-      <text name="Job_SqlManager" value="SQL工作管理" />
-      <text name="CreatingNewJob_Sql" value="创建SQL任务" />
-      <text name="CreateJob_Sql" value="创建SQL任务" />
-      <text name="EditingJob_Sql" value="修改SQL任务" />
-      <text name="DeletingJob_Sql" value="删除SQL任务" />
-      <text name="Job_SqlInformations" value="SQL任务信息" />
-      <text name="Job_SqlName" value="任务名称" />
-      <text name="Paramters" value="参数" />
-      <text name="Job_Sql" value="SQL任务" />
-      <text name="Job_SqlHeaderInfo" value="SQL任务信息" />
-      <text name="CreateNewJob_Sql" value="创建SQL任务" />
-    </texts>
+    <text name="ReportParameters" value="报表参数" />
+    <text name="ReportManagerParameters" value="报表参数管理" />
+    <text name="CreatingNewParameter" value="创建新参数" />
+    <text name="EditingParameter" value="编辑参数" />
+    <text name="EditReportParameter" value="编辑参数" />
+    <text name="DeletingParameter" value="删除参数" />
+    <text name="CreateNewParameter" value="创建新参数" />
+    <text name="CreateReportParameter" value="创建新参数" />
+    <text name="ParameterName" value="参数名称" />
+    <text name="ParamterType" value="参数类型" />
+    <text name="UiType" value="显示类型" />
+    <text name="ParameterTable" value="参数列表" />
+    <text name="LabelName" value="Label名称" />
+    <text name="DynamicSql" value="动态SQL" />
+    <text name="SortId" value="排序ID" />
+    <text name="ReportParameterInformations" value="参数大小写必须和数据源中的一致，参数名请保持唯一。" />
+
+
+
+    <text name="ReportManagerDesigner" value="报表设计管理" />
+
+
+    <text name="Design" value="设计" />
+    <text name="Preview" value="预览" />
+
+    <text name="ReportList" value="报表列表" />
+    <text name="ReportName" value="报表名称" />
+    <text name="Confirm" value="确定" />
+
+    <text name="PleaseCheckOneTemplate" value="请选中一个模板" />
+    <text name="FilterByCategory" value="按分类筛选" />
+    <text name="DynamicDataSource" value="动态数据源" />
+
+
+    <text name="BackgroundJobManager" value="后台作业管理" />
+
+    <text name="JobGroupManager" value="工作组管理" />
+    <text name="CreatingNewJobGroup" value="新建工作组" />
+    <text name="EditingJobGroup" value="修改工作组" />
+    <text name="DeletingJobGroup" value="删除工作组" />
+    <text name="JobGroupName" value="工作组名称" />
+    <text name="AssemblyName" value="程序集命名空间" />
+    <text name="ClassName" value="程序类名称" />
+    <text name="TypeTable" value="关联表名称" />
+    <text name="JobGroups" value="工作组" />
+    <text name="JobGroup" value="工作组" />
+    <text name="JobGroupHeaderInfo" value="同一类工作可以归为一个工作组" />
+    <text name="JobGroupInformations" value="工作组信息" />
+
+
+
+
+    <text name="Job_RPTEmailManager" value="报表邮件工作管理" />
+    <text name="CreatingNewJob_RPTEmail" value="新建报表邮件" />
+    <text name="EditingJob_RPTEmail" value="修改报表邮件" />
+    <text name="DeletingJob_RPTEmail" value="删除报表邮件" />
+
+    <text name="ScheduleManager" value="调度管理" />
+    <text name="CreatingNewScheduler" value="新建调度" />
+    <text name="EditingScheduler" value="修改调度" />
+    <text name="DeletingScheduler" value="删除调度" />
+
+    <text name="TriggerManager" value="触发器管理" />
+    <text name="CreatingNewTrigger" value="新建触发器" />
+    <text name="CreateNewTrigger" value="新建触发器" />
+    <text name="CreateTrigger" value="新建触发器" />
+    <text name="EditingTrigger" value="修改触发器" />
+    <text name="EditTrigger" value="修改触发器" />
+    <text name="DeletingTrigger" value="删除触发器" />
+    <text name="TriggerName" value="触发器名称" />
+    <text name="CronStr" value="Cron表达式" />
+    <text name="TriggerInformations" value="触发器信息" />
+    <text name="Triggers" value="触发器" />
+    <text name="TriggerHeaderInfo" value="不同的任务可以在调度中使用同一个触发器" />
+    <text name="Second" value="秒" />
+    <text name="Minute" value="分" />
+    <text name="Hour" value="时" />
+    <text name="Day" value="天" />
+    <text name="Month" value="月" />
+    <text name="Week" value="周" />
+    <text name="Year" value="年" />
+
+
+    <text name="Job_RPTEmails" value="报表邮件任务" />
+    <text name="Job_RPTEmailHeaderInfo" value="后台发送报表邮件功能" />
+    <text name="CreateNewJob_RPTEmail" value="创建报表邮件任务" />
+    <text name="Job_RptEmailName" value="任务名称" />
+    <text name="Bgjm_Jobgroup_Id" value="所属任务组" />
+    <text name="Emails" value="邮件" />
+    <text name="Template_Id" value="报表" />
+    <text name="Parameters" value="报表参数" />
+    <text name="CreateJob_RPTEmail" value="创建报表邮件任务" />
+    <text name="EditJob_RPTEmail" value="修改报表邮件任务" />
+    <text name="Job_RPTEmailInformations" value="报表邮件任务信息" />
+
+    <text name="Schedulers" value="调度" />
+    <text name="Scheduler" value="调度" />
+    <text name="SchedulerHeaderInfo" value="后台任务调度信息" />
+    <text name="SchedulerInformations" value="调度信息" />
+    <text name="CreateNewScheduler" value="创建新的调度" />
+    <text name="SchedulerName" value="调度名称" />
+    <text name="Status" value="是否启用" />
+    <text name="LastExtTime" value="最后一次执行时间" />
+    <text name="JobGroup_Id" value="任务组" />
+    <text name="Trigger_Id" value="触发器" />
+    <text name="Job_Id" value="任务" />
+    <text name="CreateScheduler" value="创建新的调度" />
+    <text name="EditScheduler" value="修改调度" />
+
+    <text name="Job_SqlManager" value="SQL工作管理" />
+    <text name="CreatingNewJob_Sql" value="创建SQL任务" />
+    <text name="CreateJob_Sql" value="创建SQL任务" />
+    <text name="EditingJob_Sql" value="修改SQL任务" />
+    <text name="DeletingJob_Sql" value="删除SQL任务" />
+    <text name="Job_SqlInformations" value="SQL任务信息" />
+    <text name="Job_SqlName" value="任务名称" />
+    <text name="Paramters" value="参数" />
+    <text name="Job_Sql" value="SQL任务" />
+    <text name="Job_SqlHeaderInfo" value="SQL任务信息" />
+    <text name="CreateNewJob_Sql" value="创建SQL任务" />
+    
+    
+ <text name="PleaseSel" value="请选择" />
+
+    
+    <text name="LoggerManager" value="日志管理" />
+    <text name="JobType" value="任务类型" />
+    <text name="JobName" value="任务名称" />
+    <text name="ExecStartTime" value="执行开始时间" />
+    <text name="ExecEndTime" value="执行结束时间" />
+    <text name="IsException" value="是否异常" />
+    <text name="Note" value="日志内容" />
+    <text name="Details" value="查看明细" />
+    <text name="Loggers" value="日志" />
+    <text name="Logger" value="日志" />
+    <text name="LoggerHeaderInfo" value="关于后台任务的记录" />
+  </texts>
 </localizationDictionary>

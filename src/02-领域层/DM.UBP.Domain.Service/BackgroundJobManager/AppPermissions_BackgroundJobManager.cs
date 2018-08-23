@@ -38,7 +38,11 @@ namespace DM.UBP.Domain.Service.BackgroundJobManager
         public const string Pages_BackgroundJobManager_Job_Sql_Edit = "Pages.BackgroundJobManager.Job_Sql.Edit";
         public const string Pages_BackgroundJobManager_Job_Sql_Delete = "Pages.BackgroundJobManager.Job_Sql.Delete";
 
-
+        public const string Pages_BackgroundJobManager_Loggers = "Pages.BackgroundJobManager.Loggers";
+        //日志不需要创建修改删除权限
+        //public const string Pages_BackgroundJobManager_Loggers_Create = "Pages.BackgroundJobManager.Loggers.Create";
+        //public const string Pages_BackgroundJobManager_Loggers_Edit = "Pages.BackgroundJobManager.Loggers.Edit";
+        //public const string Pages_BackgroundJobManager_Loggers_Delete = "Pages.BackgroundJobManager.Loggers.Delete";
         //@@Insert Position
 
 

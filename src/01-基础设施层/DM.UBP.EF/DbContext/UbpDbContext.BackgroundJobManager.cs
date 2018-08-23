@@ -17,7 +17,9 @@ namespace DM.UBP.EF
 
         public virtual IDbSet<Job_Sql> Job_Sql { get; set; }
 
-//@@Insert Position
+        public virtual IDbSet<Logger> Loggers { get; set; }
+
+        //@@Insert Position
 
 
     }

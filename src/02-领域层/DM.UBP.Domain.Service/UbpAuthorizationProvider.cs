@@ -111,6 +111,14 @@ namespace DM.UBP.Domain.Service
                 job_SqlManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_Sql_Create, L("CreatingNewJob_Sql"));
                 job_SqlManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_Sql_Edit, L("EditingJob_Sql"));
                 job_SqlManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Job_Sql_Delete, L("DeletingJob_Sql"));
+
+                var loggerManager = backgroundJobManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Loggers, L("LoggerManager"));
+                //日志不需要创建修改删除权限
+                //scheduleManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Schedulers_Create, L("CreatingNewScheduler"));
+                //scheduleManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Schedulers_Edit, L("EditingScheduler"));
+                //scheduleManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Schedulers_Delete, L("DeletingScheduler"));
+
+
             }
         }
 

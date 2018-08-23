@@ -26,5 +26,9 @@ namespace DM.UBP.Domain.Entity
         public const int MaxStringLength1000 = 1000;
 
         public const int MaxStringLength2000 = 2000;
+
+        public const int MaxStringLength4000 = 4000;
+
+        public const int MaxStringLength = 99999999;
     }
 }

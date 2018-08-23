@@ -116,6 +116,13 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                         icon: "icon-clock",
                         requiredPermissionName: AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Triggers
                         )
+                    ).AddItem(new MenuItemDefinition(
+                        UbpMenu.BackgroundJobManagerLoggers,
+                        L("LoggerManager"),
+                        url: "BackgroundJobManager/Logger",
+                        icon: "icon-note",
+                        requiredPermissionName: AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Loggers
+                        )
                     )
                 );
             }

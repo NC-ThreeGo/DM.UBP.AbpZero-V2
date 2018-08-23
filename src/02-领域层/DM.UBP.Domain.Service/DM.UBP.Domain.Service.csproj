@@ -111,6 +111,8 @@
     <Compile Include="BackgroundJobManager\Job_RPTEmails\Job_RPTEmailManager.cs" />
     <Compile Include="BackgroundJobManager\Job_Sqls\IJob_SqlManager.cs" />
     <Compile Include="BackgroundJobManager\Job_Sqls\Job_SqlManager.cs" />
+    <Compile Include="BackgroundJobManager\Loggers\ILoggerManager.cs" />
+    <Compile Include="BackgroundJobManager\Loggers\LoggerManager.cs" />
     <Compile Include="BackgroundJobManager\Schedulers\ISchedulerManager.cs" />
     <Compile Include="BackgroundJobManager\Schedulers\SchedulerManager.cs" />
     <Compile Include="BackgroundJobManager\Triggers\ITriggerManager.cs" />

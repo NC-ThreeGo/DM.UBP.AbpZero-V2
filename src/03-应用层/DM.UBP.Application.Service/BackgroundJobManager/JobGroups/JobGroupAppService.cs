@@ -103,6 +103,13 @@ namespace DM.UBP.Application.Service.BackgroundJobManager.JobGroups
             return items;
         }
 
+        public async Task<List<ComboboxItemDto>> GetJobTypesToItem(string selectValue)
+        {
+            var entities = await _JobGroupManager.GetAllJobGroupsAsync();
+            var items = entities.Select(c => new ComboboxItemDto(c.TypeTable, c.TypeTable) { IsSelected = c.TypeTable == selectValue }).ToList();
+            return items;
+        }
+
         public async Task<List<ComboboxItemDto>> GetJobsToItem(long selectValue)
         {
             var entity = await _JobGroupManager.GetJobGroupByIdAsync(selectValue);

@@ -125,6 +125,8 @@
     <Compile Include="BackgroundJobManager\Job_RPTEmails\Job_RPTEmailAppService.cs" />
     <Compile Include="BackgroundJobManager\Job_Sqls\IJob_SqlAppService.cs" />
     <Compile Include="BackgroundJobManager\Job_Sqls\Job_SqlAppService.cs" />
+    <Compile Include="BackgroundJobManager\Loggers\ILoggerAppService.cs" />
+    <Compile Include="BackgroundJobManager\Loggers\LoggerAppService.cs" />
     <Compile Include="BackgroundJobManager\Schedulers\ISchedulerAppService.cs" />
     <Compile Include="BackgroundJobManager\Schedulers\SchedulerAppService.cs" />
     <Compile Include="BackgroundJobManager\Triggers\ITriggerAppService.cs" />
