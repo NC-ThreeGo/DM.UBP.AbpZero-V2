@@ -98,6 +98,8 @@
 
 
         function getEntities() {
+            //debugger;
+            //alert(_selectedDateRange.endDate);
             _$entityTable.jtable('load', {
                 filter: $('#JobNameFilter').val(),
                 startDate: _selectedDateRange.startDate,
