@@ -21,7 +21,7 @@
 	领域服务
 	工作单元
 	......
-2、按模块+功能建立子目录，例如：BaseManage（基础管理）\Permission（权限管理）；
+2、按模块+功能建立子目录，例如：BaseManage（基础管理）\Authorization（权限管理）；
 3、在子目录下创建相应的实体；
 4、需要为每种数据库创建不同的实体映射类，且必须为单独项目——TG.UBP.Domain.EntityConfiguration.XXX项目
 5、在子目录下创建相应的领域服务类，在其中使用UOW开启事物、修改数据库、提交事物；
@@ -29,6 +29,6 @@
 
 
 按模块+功能建立子目录
-	SysManage（系统管理）\Permission：权限管理，包括Module、User、Role、Tenant
+	SysManage（系统管理）\Authorization：权限管理，包括Module、User、Role、Tenant
 						  \Identity：身份管理，包括组织、部门、岗位、职务、员工
 						  \OAuth

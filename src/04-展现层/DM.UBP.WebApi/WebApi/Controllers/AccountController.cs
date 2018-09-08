@@ -21,6 +21,8 @@ namespace DM.UBP.WebApi.Controllers
         private readonly LogInManager _logInManager;
         private readonly AbpLoginResultTypeHelper _abpLoginResultTypeHelper;
 
+        private readonly UserManager _UserManager;
+
         static AccountController()
         {
             OAuthBearerOptions = new OAuthBearerAuthenticationOptions();
@@ -28,10 +30,12 @@ namespace DM.UBP.WebApi.Controllers
 
         public AccountController(
             AbpLoginResultTypeHelper abpLoginResultTypeHelper,
-            LogInManager logInManager)
+            LogInManager logInManager,
+            UserManager userManager)
         {
             _abpLoginResultTypeHelper = abpLoginResultTypeHelper;
             _logInManager = logInManager;
+            _UserManager = userManager;
         }
 
         [HttpPost]
@@ -63,6 +67,29 @@ namespace DM.UBP.WebApi.Controllers
                 default:
                     throw _abpLoginResultTypeHelper.CreateExceptionForFailedLoginAttempt(loginResult.Result, usernameOrEmailAddress, tenancyName);
             }
+        }
+
+        /// <summary>
+        /// 根据UserName验证用户是否存在
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="ignoreActiveStatus">是否忽略Active状态</param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<AjaxResponse> CheckUserByName(string userName, bool ignoreActiveStatus = false)
+        {
+            bool result = false;
+            var user = await _UserManager.FindByNameAsync(userName);
+            if (user != null)
+                result = true;
+
+            if (!ignoreActiveStatus)
+            {
+                if (!user.IsActive)
+                    result = false;
+            }
+
+            return new AjaxResponse(result);
         }
     }
 }
