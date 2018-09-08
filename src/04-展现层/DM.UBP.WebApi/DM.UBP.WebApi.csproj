@@ -207,11 +207,11 @@
       <Project>{10e6adbf-9f47-4b9e-918a-e0d2960599b6}</Project>
       <Name>DM.UBP.Application.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DM.UBP.Application\DM.UBP.Application.csproj">
+    <ProjectReference Include="..\..\00-aspnet-zero\DM.UBP.Application\DM.UBP.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
       <Name>DM.UBP.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DM.UBP.Core\DM.UBP.Core.csproj">
+    <ProjectReference Include="..\..\00-aspnet-zero\DM.UBP.Core\DM.UBP.Core.csproj">
       <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
       <Name>DM.UBP.Core</Name>
     </ProjectReference>

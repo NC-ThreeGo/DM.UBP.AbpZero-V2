@@ -3638,10 +3638,6 @@
       <Project>{3979f157-deb0-4878-ab1d-4cef6b5a1300}</Project>
       <Name>DM.UBP.EF</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\00-aspnet-zero\DM.UBP.WebApi\DM.UBP.WebApi.csproj">
-      <Project>{5EB52D3D-09FD-463A-B02A-8D9856BD3724}</Project>
-      <Name>DM.UBP.WebApi</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\02-领域层\DM.UBP.Domain.EntityConfiguration.OracleDevart\DM.UBP.Domain.EntityConfiguration.OracleDevart.csproj">
       <Project>{e4ce48f2-d1df-4d9d-b419-8adcf3be5866}</Project>
       <Name>DM.UBP.Domain.EntityConfiguration.OracleDevart</Name>
@@ -3665,6 +3661,10 @@
     <ProjectReference Include="..\..\03-应用层\DM.UBP.Application.Service\DM.UBP.Application.Service.csproj">
       <Project>{10e6adbf-9f47-4b9e-918a-e0d2960599b6}</Project>
       <Name>DM.UBP.Application.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DM.UBP.WebApi\DM.UBP.WebApi.csproj">
+      <Project>{5eb52d3d-09fd-463a-b02a-8d9856bd3724}</Project>
+      <Name>DM.UBP.WebApi</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
