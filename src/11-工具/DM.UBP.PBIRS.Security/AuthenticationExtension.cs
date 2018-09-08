@@ -28,6 +28,11 @@ using System.Security.Principal;
 using System.Web;
 using Microsoft.ReportingServices.Interfaces;
 using System.Globalization;
+using System.Configuration;
+using System.Net.Http;
+using System.Web.Script.Serialization;
+using System.Collections.Generic;
+using System.Net.Http.Headers;
 
 namespace DM.UBP.PBIRS.Security
 {
@@ -143,8 +148,27 @@ namespace DM.UBP.PBIRS.Security
             bool isValid = false;
 
             //TODO: 调用UBP的WebApi验证用户名是否存在。
-            //if (userName == "admin")
-                isValid = true;
+            string baseUrl = ConfigurationManager.AppSettings["CheckUser_WebApi_BaseUrl"];
+            string apiPath = ConfigurationManager.AppSettings["CheckUser_WebApi_Path"] + "?userName=" 
+                + userName + "&ignoreActiveStatus=false";
+
+            using (var client = new HttpClient() { BaseAddress = new Uri(baseUrl) })
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //await异步等待回应
+                var response = client.GetAsync(apiPath).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var resultJson = response.Content.ReadAsStringAsync();
+
+                    //实例化JavaScriptSerializer类的新实例
+                    JavaScriptSerializer jss = new JavaScriptSerializer();
+
+                    Dictionary<string, object> dictResult = (Dictionary<string, object>)jss.DeserializeObject(resultJson.Result);
+                    isValid = (bool)dictResult["success"];
+                }
+            }
 
             return isValid;
         }
