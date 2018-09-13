@@ -246,10 +246,6 @@
     <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.DirectoryServices.Protocols" />
     <Reference Include="System.IdentityModel" />
-    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.40306.1554, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\System.IdentityModel.Tokens.Jwt.4.0.4.403061554\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
@@ -527,6 +523,7 @@
     <Content Include="Areas\ReportManager\Views\Parameter\_CreateOrEditModal.js" />
     <Content Include="Areas\ReportManager\Views\Previewer\ReportList.cshtml" />
     <Content Include="Areas\ReportManager\Views\Designer\SaveDesignedReport.cshtml" />
+    <Content Include="Areas\ReportManager\Views\Previewer\PBIReportList.js" />
     <Content Include="Common\Images\isuzu_white_149_35.png" />
     <Content Include="Common\Images\isuzu_white_168_33.png" />
     <Content Include="libs\quartz-cron\cron.js" />
@@ -2437,6 +2434,9 @@
     <Content Include="WebReportDesigner\web.config" />
     <Content Include="Areas\BackgroundJobManager\Views\Logger\Index.cshtml" />
     <Content Include="Areas\BackgroundJobManager\Views\Logger\_CreateOrEditModal.cshtml" />
+    <Content Include="Areas\ReportManager\Views\Previewer\PBIReportList.cshtml" />
+    <Content Include="key.json" />
+    <Content Include="key.public.json" />
     <None Include="Properties\PublishProfiles\aspnetzero - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />

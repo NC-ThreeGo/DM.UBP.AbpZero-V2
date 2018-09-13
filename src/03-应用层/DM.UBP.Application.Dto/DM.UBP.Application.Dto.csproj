@@ -60,6 +60,7 @@
     <Compile Include="BackgroundJobManager\Schedulers\SchedulerOutputDto.cs" />
     <Compile Include="BackgroundJobManager\Triggers\TriggerInputDto.cs" />
     <Compile Include="BackgroundJobManager\Triggers\TriggerOutputDto.cs" />
+    <Compile Include="ReportManager\PBIReports\PBIReportResultDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportManager\Categories\ReportCategoryInputDto.cs" />
     <Compile Include="ReportManager\Categories\ReportCategoryOutputDto.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="ReportManager\DataSources\ReportDataSourceOutputDto.cs" />
     <Compile Include="ReportManager\Parameters\ReportParameterInputDto.cs" />
     <Compile Include="ReportManager\Parameters\ReportParameterOutputDto.cs" />
+    <Compile Include="ReportManager\PBIReports\PBIReportOutputDto.cs" />
     <Compile Include="ReportManager\ReportDefine.cs" />
     <Compile Include="ReportManager\Templates\ReportListInputDto.cs" />
     <Compile Include="ReportManager\Templates\ReportTemplateInputDto.cs" />

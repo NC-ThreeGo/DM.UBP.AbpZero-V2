@@ -21,8 +21,6 @@ namespace DM.UBP.Web
 
             var triggerServer = IocManager.Instance.Resolve<IQuartzServer>();
 
-
-            //读取配置文件中的EnabledCodeFirst
             if (ConfigurationManager.AppSettings["EnabledQuartzServer"] == null)
             {
                 triggerServer.StartUp();

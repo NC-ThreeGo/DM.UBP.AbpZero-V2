@@ -138,6 +138,8 @@
     <Compile Include="ReportManager\DataSources\ReportDataSourceAppService.cs" />
     <Compile Include="ReportManager\Parameters\IReportParameterAppService.cs" />
     <Compile Include="ReportManager\Parameters\ReportParameterAppService.cs" />
+    <Compile Include="ReportManager\PBIReports\IPBIReportsAppService.cs" />
+    <Compile Include="ReportManager\PBIReports\PBIReportsAppService.cs" />
     <Compile Include="ReportManager\Templates\IReportTemplateAppService.cs" />
     <Compile Include="ReportManager\Templates\ReportTemplateAppService.cs" />
     <Compile Include="UbpApplicationServiceModule.cs" />
@@ -170,6 +172,10 @@
     <ProjectReference Include="..\..\00-aspnet-zero\DM.UBP.Application\DM.UBP.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
       <Name>DM.UBP.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\01-基础设施层\DM.Common\DM.Common.csproj">
+      <Project>{d3c43dfa-4bc8-4daa-83a4-51d0000e788c}</Project>
+      <Name>DM.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\01-基础设施层\DM.UBP.Common\DM.UBP.Common.csproj">
       <Project>{4fe341bf-8422-4df3-8efa-dd5187032f70}</Project>

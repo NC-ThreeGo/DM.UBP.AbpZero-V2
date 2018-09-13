@@ -198,5 +198,9 @@
     <text name="Loggers" value="日志" />
     <text name="Logger" value="日志" />
     <text name="LoggerHeaderInfo" value="关于后台任务的记录" />
+
+
+
+    <text name="PBIReports" value="PowerBI报表" />
   </texts>
 </localizationDictionary>

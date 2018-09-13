@@ -1,0 +1,33 @@
+﻿@using Abp.Web.Mvc.Extensions
+@using DM.UBP.Web.Navigation
+@using DM.UBP.Domain.Service.ReportManager
+
+@{
+    ViewBag.CurrentPageName = UbpMenu.ReportsPBIReports;
+}
+@section Styles
+{
+    @*@Html.IncludeStyle("~/Areas/ReportManager/Views/ReportParameter/Index.min.css")*@
+}
+@section Scripts
+{
+    @Html.IncludeScript("~/Areas/ReportManager/Views/Previewer/PBIReportList.js")
+}
+<input id="UserName" value="@ViewBag.UserName" type="hidden" />
+<div class="row margin-bottom-5">
+    <div class="col-xs-6">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>@L("PBIReports") </span>
+                    @*<small>@L("ReportParameterHeaderInfo")</small>*@
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="portlet light margin-bottom-0">
+    <div class="portlet-body">
+        <div id="ReportListTable"></div>
+    </div>
+</div>
