@@ -46,9 +46,10 @@ namespace DM.UBP.Application.Service.ReportManager.PBIReports
         public string GetPowerBIUrl(string userName, string pbiName)
         {
             string url = ConfigurationManager.AppSettings["PBIReportsUrl"];
+            string audience = ConfigurationManager.AppSettings["PBIAudience"];
 
             JwtTokenUtils jwtTokenUtils = new JwtTokenUtils();
-            string token = jwtTokenUtils.GenerateJwtToken(userName, "", "pbirs");
+            string token = jwtTokenUtils.GenerateJwtToken(userName, "", audience);
 
             return url + pbiName + "?rs:embed=true&token=" + token;
         }
