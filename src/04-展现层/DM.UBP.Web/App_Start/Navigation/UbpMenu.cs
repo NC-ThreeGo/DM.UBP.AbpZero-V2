@@ -9,6 +9,8 @@ namespace DM.UBP.Web.Navigation
     {
         public const string Reports = "Reports";
 
+        public const string ReportsPBIReports = "Reports.PBIReports";
+
         public const string ReportManager = "ReportManager";
         public const string ReportManagerCategories = "ReportManager.Categories";
         public const string ReportManagerTemplates = "ReportManager.Templates";

@@ -61,6 +61,9 @@ namespace DM.UBP.Domain.Service
                     });
                 });
 
+                var reportPBI = reports.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Reports_PBIReports, L("PBIReports"));
+
+
                 var reportManager = pages.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager, L("ReportManager"));
 
                 var reportManagerCategories = reportManager.CreateChildPermission(AppPermissions_ReportManager.Pages_ReportManager_Categories, L("ReportManagerCategories"));

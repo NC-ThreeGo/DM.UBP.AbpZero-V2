@@ -1,6 +1,7 @@
 ﻿using Abp.Runtime.Caching;
 using Abp.Web.Mvc.Authorization;
 using DM.Common.Extensions;
+using DM.Common.Security;
 using DM.UBP.Application.Dto.ReportManager;
 using DM.UBP.Application.Dto.ReportManager.Categories;
 using DM.UBP.Application.Dto.ReportManager.Templates;
@@ -11,6 +12,7 @@ using DM.UBP.Application.Service.ReportManager.Templates;
 using DM.UBP.Common.DbHelper;
 using DM.UBP.Domain.Service.ReportManager;
 using DM.UBP.Web.Controllers;
+using DM.UBP.Web.Session;
 using FastReport.Web;
 using System;
 using System.Collections.Generic;
@@ -25,21 +27,23 @@ using System.Web.UI.WebControls;
 namespace DM.UBP.Web.Areas.ReportManager.Controllers
 {
     [AbpMvcAuthorize(AppPermissions_ReportManager.Pages_Reports)]
-    public class PreviewerController: UBPControllerBase
+    public class PreviewerController : UBPControllerBase
     {
+        private IPerRequestSessionCache _sessionCache;
         private IReportTemplateAppService _TemplateAppService;
         private IReportParameterAppService _ParameterAppService;
         private IReportDataSourceAppService _DataSourceAppService;
         private IReportCategoryAppService _CategoryAppService;
         public PreviewerController(
            ICacheManager cacheManager,
+           IPerRequestSessionCache sessionCache,
            IReportTemplateAppService templateAppService,
            IReportParameterAppService parameterAppService,
            IReportDataSourceAppService dataSourceAppService,
            IReportCategoryAppService categoryAppService
            )
         {
-
+            _sessionCache = sessionCache;
             _TemplateAppService = templateAppService;
             _ParameterAppService = parameterAppService;
             _DataSourceAppService = dataSourceAppService;
@@ -74,7 +78,7 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
             _webReport.SinglePage = true;
             _webReport.ShowTabCloseButton = true;
             _webReport.TabPosition = TabPosition.InsideToolbar;
-            
+
             #endregion
             #region 导出
             //_webReport.Export();
@@ -170,6 +174,13 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
         {
             var model = _CategoryAppService.GetCategoryById(categoryId).Result;
             return View(model);
+        }
+
+        public ActionResult PBIReportList()
+        {
+            var loginInfo = _sessionCache.GetCurrentLoginInformationsAsync();
+            ViewBag.UserName = loginInfo.Result.User.Name;
+            return View();
         }
     }
 }

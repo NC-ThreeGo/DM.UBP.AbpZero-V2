@@ -44,7 +44,16 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                         ));
                 });
 
+                reports.AddItem(new MenuItemDefinition(
+                        UbpMenu.ReportsPBIReports,
+                        L("PBIReports"),
+                        url: "ReportManager/Previewer/PBIReportList",
+                        icon: "icon-doc",
+                        requiredPermissionName: AppPermissions_ReportManager.Pages_ReportManager_Reports_PBIReports
+                        ));
+
                 menu.AddItem(reports);
+
 
                 menu.AddItem(new MenuItemDefinition(
                    UbpMenu.ReportManager,

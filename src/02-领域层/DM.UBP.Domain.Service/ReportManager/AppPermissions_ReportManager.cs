@@ -18,6 +18,7 @@ namespace DM.UBP.Domain.Service.ReportManager
         public const string Pages_Reports = "Pages.Reports";
 
         public const string Pages_ReportManager = "Pages.ReportManager";
+        public const string Pages_ReportManager_Reports_PBIReports = "Pages.ReportManager.Reports.PBIReports";
 
         public const string Pages_ReportManager_Categories = "Pages.ReportManager.Categories";
         public const string Pages_ReportManager_Categories_Create = "Pages.ReportManager.Categories.Create";
