@@ -125,6 +125,7 @@
     <Compile Include="DbContext\UbpDbContext.BackgroundJobManager.cs" />
     <Compile Include="DbContext\UbpDbContext.cs" />
     <Compile Include="DbContext\UbpDbContext.ReportManager.cs" />
+    <Compile Include="DbContext\UbpDbContext.WeiXinManager.cs" />
     <Compile Include="EntityConfigurationBase.cs" />
     <Compile Include="IDatabaseInitializer.cs" />
     <Compile Include="Migrations\CreateDatabaseIfNotExistsWithSeedBase.cs" />

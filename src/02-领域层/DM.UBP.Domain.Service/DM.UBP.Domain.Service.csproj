@@ -131,6 +131,11 @@
     <Compile Include="UbpAuthorizationProvider.cs" />
     <Compile Include="UbpDomainServiceConsts.cs" />
     <Compile Include="UbpDomainServiceModule.cs" />
+    <Compile Include="WeiXinManager\AppPermissions_WeiXinManager.cs" />
+    <Compile Include="WeiXinManager\WeixinApps\IWeiXinAppManager.cs" />
+    <Compile Include="WeiXinManager\WeixinApps\WeiXinAppManager.cs" />
+    <Compile Include="WeiXinManager\WeixinConfigs\IWeiXinConfigManager.cs" />
+    <Compile Include="WeiXinManager\WeixinConfigs\WeiXinConfigManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

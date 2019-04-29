@@ -1,10 +1,11 @@
 ﻿using Abp.Application.Navigation;
 using Abp.Domain.Uow;
 using Abp.Localization;
-using DM.UBP.Authorization;
 using DM.UBP.Domain.Service.BackgroundJobManager;
 using DM.UBP.Domain.Service.ReportManager;
 using DM.UBP.Domain.Service.ReportManager.Categories;
+using DM.UBP.Domain.Service.WeiXinManager;
+using DM.UBP.Domain.Service.WeiXinManager.WeiXinApps;
 using DM.UBP.Web.Navigation;
 
 namespace DM.UBP.Web.Areas.Mpa.Startup
@@ -12,9 +13,12 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
     public class UbpNavigationProvider : NavigationProvider
     {
         private readonly IReportCategoryManager _reportCategoryManager;
-        public UbpNavigationProvider(IReportCategoryManager reportCategoryManager)
+        private readonly IWeiXinAppManager _weiXinAppManager;
+        public UbpNavigationProvider(IReportCategoryManager reportCategoryManager,
+            IWeiXinAppManager weiXinAppManager)
         {
             _reportCategoryManager = reportCategoryManager;
+            _weiXinAppManager = weiXinAppManager;
         }
 
         [UnitOfWork]
@@ -24,6 +28,7 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
 
             if (menu != null)
             {
+                #region 报表导航
                 var reports = new MenuItemDefinition(
                    UbpMenu.Reports,
                    L("Reports"),
@@ -53,8 +58,9 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                         ));
 
                 menu.AddItem(reports);
+                #endregion
 
-
+                #region 报表管理导航
                 menu.AddItem(new MenuItemDefinition(
                    UbpMenu.ReportManager,
                    L("ReportManager"),
@@ -75,16 +81,10 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                         requiredPermissionName: AppPermissions_ReportManager.Pages_ReportManager_Templates
                         )
                    )
-               //.AddItem(new MenuItemDefinition(
-               //     UbpMenu.ReportManagerDesigner,
-               //     L("ReportManagerDesigner"),
-               //     url: "ReportManager/Designer",
-               //     icon: "icon-layers",
-               //     requiredPermissionName: AppPermissions_ReportManager.Pages_ReportManager_Designer
-               //     )
-               //)
                );
+                #endregion
 
+                #region 后台任务管理导航
                 menu.AddItem(new MenuItemDefinition(
                    UbpMenu.BackgroundJobManager,
                    L("BackgroundJobManager"),
@@ -134,6 +134,33 @@ namespace DM.UBP.Web.Areas.Mpa.Startup
                         )
                     )
                 );
+                #endregion
+
+                #region 企业微信管理导航
+                //icon-share 
+                menu.AddItem(new MenuItemDefinition(
+                   UbpMenu.WeiXinManager,
+                   L("WeiXinManager"),
+                   icon: "icon-bubble",
+                   requiredPermissionName: AppPermissions_WeiXinManager.Pages_WeiXinManager
+                   ).AddItem(new MenuItemDefinition(
+                        UbpMenu.WeiXinManager_WeiXinConfigs,
+                        L("WeiXinManager_Config"),
+                        url: "WeiXinManager/WeiXinConfig",
+                        icon: "icon-wrench",
+                        requiredPermissionName: AppPermissions_WeiXinManager.Pages_WeiXinManager_WeiXinConfigs
+                        )
+                   ).AddItem(new MenuItemDefinition(
+                        UbpMenu.WeiXinAppManager,
+                        L("WeiXinManager_App"),
+                        url: "WeiXinManager/WeiXinApp",
+                        icon: "icon-social-dropbox",
+                        requiredPermissionName: AppPermissions_WeiXinManager.Pages_WeiXinManager_WeiXinApps
+                        )
+                   )
+               );
+
+                #endregion
             }
         }
 

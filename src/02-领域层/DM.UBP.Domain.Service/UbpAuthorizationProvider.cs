@@ -7,6 +7,7 @@ using DM.UBP.Domain.Service.BackgroundJobManager;
 using DM.UBP.Domain.Service.ReportManager;
 using DM.UBP.Domain.Service.ReportManager.Categories;
 using DM.UBP.Domain.Service.ReportManager.Templates;
+using DM.UBP.Domain.Service.WeiXinManager;
 using System.Linq;
 
 namespace DM.UBP.Domain.Service
@@ -121,6 +122,17 @@ namespace DM.UBP.Domain.Service
                 //scheduleManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Schedulers_Edit, L("EditingScheduler"));
                 //scheduleManager.CreateChildPermission(AppPermissions_BackgroundJobManager.Pages_BackgroundJobManager_Schedulers_Delete, L("DeletingScheduler"));
 
+                var weixinManager = pages.CreateChildPermission(AppPermissions_WeiXinManager.Pages_WeiXinManager, L("WeiXinManager"));
+                var weixinConfigManager = weixinManager.CreateChildPermission(AppPermissions_WeiXinManager.Pages_WeiXinManager_WeiXinConfigs, L("WeiXinManager_Config"));
+                weixinConfigManager.CreateChildPermission(AppPermissions_WeiXinManager.Pages_WeiXinManager_WeiXinConfigs_Create, L("CreatingWeiXinManager_Config"));
+                weixinConfigManager.CreateChildPermission(AppPermissions_WeiXinManager.Pages_WeiXinManager_WeiXinConfigs_Delete, L("DeletingWeiXinManager_Config"));
+                weixinConfigManager.CreateChildPermission(AppPermissions_WeiXinManager.Pages_WeiXinManager_WeiXinConfigs_Edit, L("EditingWeiXinManager_Config"));
+
+
+                var weixinAppManager = weixinManager.CreateChildPermission(AppPermissions_WeiXinManager.Pages_WeiXinManager_WeiXinApps, L("WeiXinManager_App"));
+                weixinAppManager.CreateChildPermission(AppPermissions_WeiXinManager.Pages_WeiXinManager_WeiXinApps_Create, L("CreatingWeiXinManager_App"));
+                weixinAppManager.CreateChildPermission(AppPermissions_WeiXinManager.Pages_WeiXinManager_WeiXinApps_Delete, L("DeletingWeiXinManager_App"));
+                weixinAppManager.CreateChildPermission(AppPermissions_WeiXinManager.Pages_WeiXinManager_WeiXinApps_Edit, L("EditingWeiXinManager_App"));
 
             }
         }

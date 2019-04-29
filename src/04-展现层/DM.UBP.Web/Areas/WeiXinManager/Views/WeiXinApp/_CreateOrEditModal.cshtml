@@ -1,0 +1,83 @@
+﻿@using Abp.Extensions
+@using DM.UBP.Web.Areas.Mpa.Models.Common.Modals
+
+@model DM.UBP.Application.Dto.WeiXinManager.WeiXinApps.WeiXinAppOutputDto
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditingWeiXinManager_App") + ": " + Model.AppName) : L("CreatingWeiXinManager_App")))
+@section Styles
+{
+}
+@section Scripts
+{
+}
+
+<div class="modal-body">
+    <div class="tabbable-line">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#EntityInformationsTab" data-toggle="tab" aria-expanded="true">
+                    @L("WeiXinAppInformations")
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="EntityInformationsTab">
+                <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
+                    @if (Model.IsEditMode)
+    {
+                <input type="hidden" name="Id" value="@Model.Id" />
+}
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="CorpId" class="form-control@(Model.CorpId.IsNullOrEmpty() ? "" : " edited")" value="@Model.CorpId" required>
+                        <label>@L("CorpId")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="AppName" class="form-control@(Model.AppName.IsNullOrEmpty() ? "" : " edited")" value="@Model.AppName" required>
+                        <label>@L("AppName")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Descriotion" class="form-control@(Model.Descriotion.IsNullOrEmpty() ? "" : " edited")" value="@Model.Descriotion" required>
+                        <label>@L("Descriotion")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Home_Url" class="form-control@(Model.Home_Url.IsNullOrEmpty() ? "" : " edited")" value="@Model.Home_Url" required>
+                        <label>@L("Home_Url")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Redorect_Domain" class="form-control@(Model.Redorect_Domain.IsNullOrEmpty() ? "" : " edited")" value="@Model.Redorect_Domain" required>
+                        <label>@L("Redorect_Domain")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="AgentId" class="form-control@(Model.AgentId.IsNullOrEmpty() ? "" : " edited")" value="@Model.AgentId" required>
+                        <label>@L("AgentId")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="CorpSecret" class="form-control@(Model.CorpSecret.IsNullOrEmpty() ? "" : " edited")" value="@Model.CorpSecret" required>
+                        <label>@L("CorpSecret")</label>
+                    </div>
+                    <div class="md-checkbox">
+                        <input id="Report_location_Flag" class="md-check" type="checkbox" name="Report_location_Flag" value="true" @Html.Raw(Model.Report_location_Flag ? "checked=\"checked\"" : "")>
+                        <label for="Report_location_Flag" data-toggle="tooltip" title="@L("Report_location_Flag")">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span>
+                            @L("Report_location_Flag")
+                        </label>
+                    </div>
+
+                    <div class="md-checkbox">
+                        <input id="IsReportEnter" class="md-check" type="checkbox" name="IsReportEnter" value="true" @Html.Raw(Model.IsReportEnter ? "checked=\"checked\"" : "")>
+                        <label for="IsReportEnter" data-toggle="tooltip" title="@L("IsReportEnter")">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span>
+                            @L("IsReportEnter")
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

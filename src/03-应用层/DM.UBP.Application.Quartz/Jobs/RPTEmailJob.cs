@@ -350,7 +350,7 @@ namespace DM.UBP.Application.Quartz.Jobs
                                             <span>经营数据分析平台</span>
                                         </div>
                                         <div>
-                                            <span>平台地址：<a href=""http://10.50.239.55:88/"">http://10.50.239.55:88/</a></span>
+                                            <span>平台地址：<a href=""http://10.50.239.84:8001/"">http://10.50.239.84:8001/</a></span>
                                         </div>
                                         <div>
                                             <br>
@@ -359,7 +359,7 @@ namespace DM.UBP.Application.Quartz.Jobs
                                             <span>経営データの分析プラットフォーム </span>
                                         </div>
                                         <div>
-                                            <span>サイト：<a href=""http://10.50.239.55:88/"">http://10.50.239.55:88/</a></span>
+                                            <span>サイト：<a href=""http://10.50.239.84:8001/"">http://10.50.239.84:8001/</a></span>
                                         </div>
                                     </div>
                                 </div>

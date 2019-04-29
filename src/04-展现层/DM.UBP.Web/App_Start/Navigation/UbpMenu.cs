@@ -25,5 +25,9 @@ namespace DM.UBP.Web.Navigation
         public const string BackgroundJobManagerSchedulers = "BackgroundJobManager.Schedulers";
         public const string BackgroundJobManagerTriggers = "BackgroundJobManager.Triggers";
         public const string BackgroundJobManagerLoggers = "BackgroundJobManager.Loggers";
+
+        public const string WeiXinManager = "WeiXinManager";
+        public const string WeiXinManager_WeiXinConfigs = "WeiXinManager.WeiXinConfigs";
+        public const string WeiXinAppManager = "WeiXinAppManager";
     }
 }

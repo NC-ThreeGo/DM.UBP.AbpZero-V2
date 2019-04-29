@@ -1,0 +1,37 @@
+﻿@using Abp.Web.Mvc.Extensions
+@using DM.UBP.Web.Navigation
+@using DM.UBP.Domain.Service.WeiXinManager
+@{
+    ViewBag.CurrentPageName = UbpMenu.WeiXinManager_WeiXinConfigs;
+}
+@section Styles
+{
+    @*@Html.IncludeStyle("~/Areas/WeiXinManager/Views/WeiXinConfig/Index.min.css")*@
+}
+@section Scripts
+{
+    @Html.IncludeScript("~/Areas/WeiXinManager/Views/WeiXinConfig/Index.js")
+}
+
+<div class="row margin-bottom-5">
+    <div class="col-xs-6">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>@L("WeiXinManager_Config") </span> <small>@L("WeiXinManager_ConfigInfo")</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 text-right">
+        @if (IsGranted(AppPermissions_WeiXinManager.Pages_WeiXinManager_WeiXinConfigs_Create))
+        {
+            <button id="CreateNewWeiXinConfigButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreatingWeiXinManager_Config")</button>
+        }
+    </div>
+</div>
+<div class="portlet light margin-bottom-0">
+    <div class="portlet-body">
+        <div id="WeiXinConfigTable"></div>
+    </div>
+</div>

@@ -184,9 +184,8 @@
     <text name="CreateNewJob_Sql" value="创建SQL任务" />
     
     
- <text name="PleaseSel" value="请选择" />
+    <text name="PleaseSel" value="请选择" />
 
-    
     <text name="LoggerManager" value="日志管理" />
     <text name="JobType" value="任务类型" />
     <text name="JobName" value="任务名称" />
@@ -199,8 +198,39 @@
     <text name="Logger" value="日志" />
     <text name="LoggerHeaderInfo" value="关于后台任务的记录" />
 
-
-
     <text name="PBIReports" value="PowerBI报表" />
+
+    <text name="WeiXinManager" value="企业微信管理" />
+    <text name="WeiXinManager_Config" value="企业微信配置" />
+    <text name="CreatingWeiXinManager_Config" value="新增企业微信配置" />
+    <text name="DeletingWeiXinManager_Config" value="删除企业微信配置" />
+    <text name="EditingWeiXinManager_Config" value="修改企业微信配置" />
+    <text name="WeiXinManager_ConfigInfo" value="企业微信配置信息" />
+    <text name="WeiXinConfigList" value="企业微信配置列表" />
+    <text name="CorpName" value="企业名称" />
+    <text name="CorpId" value="企业ID" />
+    <text name="TXL_Secret" value="企业通讯录密钥" />
+    <text name="Synchro" value="同步通讯录" />
+    <text name="AddNewApp" value="新增应用" />
+
+    <text name="SynchroSuccessed" value="同步通讯录成功" />
+    <text name="SynchroFailed" value="同步通讯录失败" />
+    <text name="SendInfo" value="发送消息" />
+    <text name="SetMenu" value="配置菜单" />
+
+    <text name="WeiXinManager_App" value="企业微信应用管理" />
+    <text name="CreatingWeiXinManager_App" value="创建应用" />
+    <text name="DeletingWeiXinManager_App" value="删除应用" />
+    <text name="EditingWeiXinManager_App" value="修改应用" />
+    <text name="WeiXinAppInformations" value="企业微信应用信息" />
+    <text name="AppName" value="应用名称" />
+    <text name="Descriotion" value="应用详情" />
+    <text name="Home_Url" value="主页url" />
+    <text name="Redorect_Domain" value="可信域名" />
+    <text name="AgentId" value="应用的id" />
+    <text name="CorpSecret" value="应用的密钥" />
+    <text name="Report_location_Flag" value="是否打开地理位置上报" />
+    <text name="IsReportEnter" value="否上报用户进入应用事件" />
+    
   </texts>
 </localizationDictionary>

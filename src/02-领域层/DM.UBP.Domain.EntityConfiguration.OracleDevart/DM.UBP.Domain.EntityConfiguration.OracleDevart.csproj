@@ -65,6 +65,8 @@
     <Compile Include="ReportManager\Rpt_ParameterConfiguration.cs" />
     <Compile Include="ReportManager\Rpt_TemplateFileConfiguration.cs" />
     <Compile Include="ReportManager\Rpt_DataSourceConfiguration.cs" />
+    <Compile Include="WeiXinManager\Weixin_AppConfiguration.cs" />
+    <Compile Include="WeiXinManager\Weixin_ConfigConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp\Abp.csproj">

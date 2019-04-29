@@ -1,0 +1,49 @@
+﻿@using Abp.Extensions
+@using DM.UBP.Web.Areas.Mpa.Models.Common.Modals
+
+@model DM.UBP.Application.Dto.WeiXinManager.WeiXinConfigs.WeiXinConfigOutputDto
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditingWeiXinManager_Config") + ": " + Model.CorpName) : L("CreatingWeiXinManager_Config")))
+@section Styles
+{
+}
+@section Scripts
+{
+}
+
+<div class="modal-body">
+    <div class="tabbable-line">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#EntityInformationsTab" data-toggle="tab" aria-expanded="true">
+                    @L("WeiXinManager_ConfigInfo")
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="EntityInformationsTab">
+                <form name="EntityOptInformationsForm" role="form" novalidate class="form-validation">
+                    @if (Model.IsEditMode)
+                    {
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                    }
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="CorpName" class="form-control@(Model.CorpName.IsNullOrEmpty() ? "" : " edited")" value="@Model.CorpName" required>
+                        <label>@L("CorpName")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="CorpId" class="form-control@(Model.CorpId.IsNullOrEmpty() ? "" : " edited")" value="@Model.CorpId" required>
+                        <label>@L("CorpId")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="TXL_Secret" class="form-control@(Model.TXL_Secret.IsNullOrEmpty() ? "" : " edited")" value="@Model.TXL_Secret" required>
+                        <label>@L("TXL_Secret")</label>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

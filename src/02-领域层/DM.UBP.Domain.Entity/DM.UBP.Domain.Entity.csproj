@@ -57,6 +57,8 @@
     <Compile Include="ReportManager\Rpt_DataSource.cs" />
     <Compile Include="StringMaxLengthConst.cs" />
     <Compile Include="UbpDomainEntityModule.cs" />
+    <Compile Include="WeiXinManager\Weixin_App.cs" />
+    <Compile Include="WeiXinManager\Weixin_Config.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp\Abp.csproj">

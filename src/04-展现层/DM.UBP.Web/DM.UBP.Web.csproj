@@ -66,7 +66,18 @@
     <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Castle.Windsor.4.0.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="Devart.Data.Oracle, Version=9.6.558.0, Culture=neutral, PublicKeyToken=09af7300eec23701" />
+    <Reference Include="Devart.Data, Version=5.0.1611.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Devart\dotConnect\Oracle\Devart.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Devart.Data.Oracle, Version=9.2.187.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Devart\dotConnect\Oracle\Devart.Data.Oracle.dll</HintPath>
+    </Reference>
+    <Reference Include="Devart.Data.Oracle.Entity.EF6, Version=9.2.187.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Devart\dotConnect\Oracle\Entity\EF6\Devart.Data.Oracle.Entity.EF6.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -489,7 +500,6 @@
       <DependentUpon>index.css</DependentUpon>
     </Content>
     <Content Include="App\host\views\tenants\featuresModal.js" />
-    <Content Include="App_Data\Logs\Logs.txt" />
     <Content Include="Areas\BackgroundJobManager\Views\EasyUiTrigger\cron.js" />
     <Content Include="Areas\BackgroundJobManager\Views\EasyUiTrigger\icon.css" />
     <Content Include="Areas\BackgroundJobManager\Views\EasyUiTrigger\jquery-1.6.2.min.js" />
@@ -522,6 +532,11 @@
     <Content Include="Areas\ReportManager\Views\Previewer\ReportList.cshtml" />
     <Content Include="Areas\ReportManager\Views\Designer\SaveDesignedReport.cshtml" />
     <Content Include="Areas\ReportManager\Views\Previewer\PBIReportList.js" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinApp\Index.js" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinApp\_CreateOrEditModal.js" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\Index.js" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\_CreateOrEditModal.js" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\_SynchroModal.js" />
     <Content Include="Common\Images\isuzu_white_149_35.png" />
     <Content Include="Common\Images\isuzu_white_168_33.png" />
     <Content Include="libs\quartz-cron\cron.js" />
@@ -2435,6 +2450,13 @@
     <Content Include="Areas\ReportManager\Views\Previewer\PBIReportList.cshtml" />
     <Content Include="key.json" />
     <Content Include="key.public.json" />
+    <Content Include="Areas\WeiXinManager\Views\web.config" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinApp\Index.cshtml" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinApp\_CreateOrEditModal.cshtml" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\Index.cshtml" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\_CreateOrEditModal.cshtml" />
+    <Content Include="Areas\WeiXinManager\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\_SynchroModal.cshtml" />
     <None Include="Properties\PublishProfiles\aspnetzero - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
@@ -3225,6 +3247,9 @@
     <Compile Include="Areas\ReportManager\Controllers\PreviewerController.cs" />
     <Compile Include="Areas\ReportManager\Controllers\TemplateController.cs" />
     <Compile Include="Areas\ReportManager\ReportManagerAreaRegistration.cs" />
+    <Compile Include="Areas\WeiXinManager\Controllers\WeixinAppController.cs" />
+    <Compile Include="Areas\WeiXinManager\Controllers\WeixinConfigController.cs" />
+    <Compile Include="Areas\WeiXinManager\WeiXinManagerAreaRegistration.cs" />
     <Compile Include="Models\Layout\TenantCustomCssViewModel.cs" />
     <Compile Include="Areas\Mpa\Startup\UserMenuItemExtensions.cs" />
     <Compile Include="App_Start\Bundling\CssRewriteUrlWithVirtualDirectoryTransform.cs" />
@@ -3670,9 +3695,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\DesignedReports\" />
+    <Folder Include="App_Data\Logs\" />
     <Folder Include="Areas\BackgroundJobManager\Models\" />
     <Folder Include="Areas\BackgroundJobManager\Views\Shared\" />
     <Folder Include="Areas\ReportManager\Models\" />
+    <Folder Include="Areas\WeiXinManager\Models\" />
+    <Folder Include="Areas\WeiXinManager\Views\Shared\" />
     <Folder Include="libs\jquery-jtable\dev\" />
     <Folder Include="libs\jquery-jtable\lib\" />
   </ItemGroup>

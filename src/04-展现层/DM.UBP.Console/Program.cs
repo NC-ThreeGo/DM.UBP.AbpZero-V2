@@ -11,6 +11,7 @@ namespace DM.UBP.Console
     {
         static void Main(string[] args)
         {
+
             UBPConsoleApplication<UBPConsoleModule> application = new UBPConsoleApplication<UBPConsoleModule>();
             try
             {

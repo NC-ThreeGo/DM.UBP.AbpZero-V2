@@ -75,6 +75,10 @@
     <Compile Include="ReportManager\Templates\ReportTemplateOutputDto.cs" />
     <Compile Include="ReportManager\Templates\ReportTemplatesFilterDto.cs" />
     <Compile Include="UbpApplicationDtoModule.cs" />
+    <Compile Include="WeiXinManager\WeiXinApps\WeiXinAppInputDto.cs" />
+    <Compile Include="WeiXinManager\WeiXinApps\WeiXinAppOutputDto.cs" />
+    <Compile Include="WeiXinManager\WeiXinConfigs\WeiXinConfigInputDto.cs" />
+    <Compile Include="WeiXinManager\WeiXinConfigs\WeiXinConfigOutputDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp.AutoMapper\Abp.AutoMapper.csproj">
