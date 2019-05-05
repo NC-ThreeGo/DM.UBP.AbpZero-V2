@@ -81,9 +81,9 @@ namespace DM.UBP.Application.Service.WeiXinManager
         /// 获取部门成员详情
         /// </summary>
         /// <param name="id">部门id。获取指定部门及其下的子部门。 如果不填，默认获取全量组织架构</param>
-        public JObject GetDepartment(string id,bool? child = null)
+        public JObject GetUserInfoList(string id,int child = 0)
         {
-            string url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/user/list?access_token={0}&department_id={1}&fetch_child={2}", accessToken, id, child);
+            string url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/user/list?access_token={0}&department_id={1}&fetch_child={2}", accessToken, id, child.ToString());
             JObject joDepartment = WeiXinApiHelper.GetJson(url);
             return joDepartment;
         }

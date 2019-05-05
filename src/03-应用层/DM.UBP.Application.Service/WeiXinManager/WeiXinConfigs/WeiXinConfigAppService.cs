@@ -23,6 +23,8 @@ using DM.UBP.Dto;
 using Abp.Runtime.Caching;
 using Newtonsoft.Json.Linq;
 using DM.UBP.Organizations;
+using DM.UBP.Authorization.Users;
+using DM.UBP.Authorization.Users.Dto;
 
 namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
 {
@@ -34,18 +36,21 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
     {
         private readonly IWeiXinConfigManager _WeiXinConfigManager;
         private readonly IOrganizationUnitAppService _organizationUnitAppService;
+        private readonly IUserAppService _userAppService;
         private readonly ICacheManager _cacheManager;
 
         public WeiXinConfigAppService(
            IWeiXinConfigManager weixinconfigmanager,
            IOrganizationUnitAppService organizationUnitAppService,
-           ICacheManager cacheManager
+           IUserAppService userAppService,
+            ICacheManager cacheManager
            
            )
         {
             _WeiXinConfigManager = weixinconfigmanager;
             _organizationUnitAppService = organizationUnitAppService;
             _cacheManager = cacheManager;
+            _userAppService = userAppService;
         }
 
         public async Task<PagedResultDto<WeiXinConfigOutputDto>> GetWeiXinConfigs()
@@ -112,29 +117,51 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
             //获取部门列表
             JObject joDepInfo = api.GetDepartment();
 
-            SynchroDepartment(joDepInfo["department"]);
+            SynchroDepartment(api,joDepInfo["department"]);
             return true;
         }
 
         /// <summary>
-        /// 下载企业微信中的部门到本系统
+        /// 同步企业微信中的部门到本系统
         /// </summary>
         /// <param name="joDep"></param>
-        private async void SynchroDepartment(JToken joDep)
+        private async void SynchroDepartment(WeiXinApi api,JToken joDep)
         {
             for (int i = 0; i < joDep.Count(); i++)
             {
-                var name = joDep[i]["name"].ToString();
+                var departName = joDep[i]["name"].ToString();
                 var parentid = joDep[i]["parentid"].ToString();
+                var id  = joDep[i]["id"].ToString();
 
                 var orgList = await _organizationUnitAppService.GetOrganizationUnits();
-                if (orgList.Items.Count(item => item.DisplayName == name) == 0)
+                if (orgList.Items.Count(item => item.DisplayName == departName) == 0)
                 {//没有就创建
                     joDep.Select(d => d["parentid"].ToString() == parentid);
                     string pName = joDep.FirstOrDefault()["name"].ToString();
-
-                    CreateOrganizationUnit(name, pName);
+                    CreateOrganizationUnit(departName, pName);
                 }
+
+                JObject joUsers = api.GetUserInfoList(id);
+                var userList = await _userAppService.GetUsers(new GetUsersInput());
+                for (int u = 0; u < joUsers["userlist"].Count(); u++)
+                {
+                    //对应用户账号
+                    var userid = joUsers["userlist"][u]["userid"].ToString();
+                    //用户名称
+                    var username = joUsers["userlist"][u]["name"].ToString();
+                    var email = joUsers["userlist"][u]["email"].ToString();
+                    var mobile = joUsers["userlist"][u]["mobile"].ToString();
+
+                    if (userList.Items.Count(item => item.UserName == userid) == 0)
+                    {//没有就创建账号
+                        CreateUser(username, email, mobile, userid, "123456");
+                    }
+                    else//有就同步信息
+                    {
+                        
+                    }
+                } 
+                
             }
         }
 
@@ -160,5 +187,36 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
                 await _organizationUnitAppService.CreateOrganizationUnit(input);
             }
         }
+
+        /// <summary>
+        /// 创建用户
+        /// </summary>
+        private async void CreateUser(string name,string email,string mobile,string username,string  pwd)
+        {
+            var user = new CreateOrUpdateUserInput();
+            user.SendActivationEmail = false;
+            user.SetRandomPassword = false;
+            user.User = new UserEditDto();
+            user.User.Name = name;
+            user.User.Surname = name;
+            if (string.IsNullOrEmpty(email))
+                user.User.EmailAddress = username + "@jiangxi-isuzu.cn";
+            else
+                user.User.EmailAddress = email;
+            user.User.PhoneNumber = mobile;
+            user.User.UserName = username;
+            user.User.Password = pwd;
+            user.User.IsActive = true;
+            user.User.ShouldChangePasswordOnNextLogin = false;
+            user.User.IsTwoFactorEnabled = false;
+            user.User.IsLockoutEnabled = true;
+
+            user.AssignedRoleNames = new string[] { "User" };
+            user.SendActivationEmail = false;
+            user.SetRandomPassword = false;
+
+            await _userAppService.CreateOrUpdateUser(user);
+        }
+
     }
 }
