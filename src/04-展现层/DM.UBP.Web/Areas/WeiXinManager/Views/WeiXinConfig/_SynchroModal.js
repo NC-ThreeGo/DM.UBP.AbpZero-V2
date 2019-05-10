@@ -20,41 +20,22 @@
             var input = _$formInfo.serializeFormToObject();
 
             _modalManager.setBusy(true);
-
             //abp.message.info(input.Id, 'Id');
+            //同步
+            _appService.synchroTXL(input)
+            .done(function (data) {
+                if (data) {
+                    abp.message.success(app.localize('SynchroSuccessed'));
+                }
+                else {
+                    abp.message.error(app.localize('SynchroFailed'));
+                }
+                _modalManager.close();
+                abp.event.trigger('app.synchroModalSaved', data);
+            }).always(function () {
+                _modalManager.setBusy(false);
+            });
 
-            if (input.Id > 0) {
-                //同步
-                _appService.synchroTXL(input)
-                    .done(function (data) {
-                        if (data) {
-                            abp.message.success(app.localize('SynchroSuccessed'));
-                        }
-                        else {
-                            abp.message.error(app.localize('SynchroFailed'));
-                        }
-                        _modalManager.close();
-                        abp.event.trigger('app.synchroModalSaved',data);
-                    }).always(function () {
-                        _modalManager.setBusy(false);
-                    });
-            }
-            else {
-                //同步
-                _appService.synchroTXL(input)
-                    .done(function (data) {
-                        if (data) {
-                            abp.message.success(app.localize('SynchroSuccessed'));
-                        }
-                        else {
-                            abp.message.error(app.localize('SynchroFailed'));
-                        }
-                        _modalManager.close();
-                        abp.event.trigger('app.synchroModalSaved', data);
-                    }).always(function () {
-                        _modalManager.setBusy(false);
-                    });
-            };
         };
 
     };

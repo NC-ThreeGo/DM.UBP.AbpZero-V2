@@ -77,8 +77,10 @@
     <Compile Include="UbpApplicationDtoModule.cs" />
     <Compile Include="WeiXinManager\WeiXinApps\WeiXinAppInputDto.cs" />
     <Compile Include="WeiXinManager\WeiXinApps\WeiXinAppOutputDto.cs" />
+    <Compile Include="WeiXinManager\WeiXinConfigs\WeiXinConfigDownTXL.cs" />
     <Compile Include="WeiXinManager\WeiXinConfigs\WeiXinConfigInputDto.cs" />
     <Compile Include="WeiXinManager\WeiXinConfigs\WeiXinConfigOutputDto.cs" />
+    <Compile Include="WeiXinManager\WeiXinConfigs\WeiXinConfigSendMsgDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp.AutoMapper\Abp.AutoMapper.csproj">

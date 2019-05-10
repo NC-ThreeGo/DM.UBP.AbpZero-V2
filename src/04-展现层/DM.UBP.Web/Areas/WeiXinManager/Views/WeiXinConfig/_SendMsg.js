@@ -1,5 +1,5 @@
 ﻿(function ($) {
-    app.modals.CreateOrEditModal = function () {
+    app.modals.SendMsgModal = function () {
         var _appService = abp.services.ubp.weiXinConfig;
 
         var _modalManager;
@@ -21,28 +21,15 @@
 
             _modalManager.setBusy(true);
 
-            if (input.Id > 0) {
-                //修改
-                _appService.updateWeiXinConfig(input)
-                    .done(function () {
-                        abp.notify.info(app.localize('SavedSuccessfully'));
-                        _modalManager.close();
-                        abp.event.trigger('app.createOrEditModalSaved');
-                    }).always(function () {
-                        _modalManager.setBusy(false);
-                    });
-            }
-            else {
-                //新建
-                _appService.createWeiXinConfig(input)
-                    .done(function () {
-                        abp.notify.info(app.localize('SavedSuccessfully'));
-                        _modalManager.close();
-                        abp.event.trigger('app.createOrEditModalSaved');
-                    }).always(function () {
-                        _modalManager.setBusy(false);
-                    });
-            };
+            _appService.sendMsg(input)
+                .done(function () {
+                    abp.notify.info(app.localize('SendMsgSuccessfully'));
+                    _modalManager.close();
+                    abp.event.trigger('app.synchroModalSaved');
+                }).always(function () {
+                    _modalManager.setBusy(false);
+                });
+
         };
 
     };

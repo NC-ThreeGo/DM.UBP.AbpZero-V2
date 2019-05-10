@@ -230,7 +230,15 @@
     <text name="AgentId" value="应用的id" />
     <text name="CorpSecret" value="应用的密钥" />
     <text name="Report_location_Flag" value="是否打开地理位置上报" />
-    <text name="IsReportEnter" value="否上报用户进入应用事件" />
+    <text name="IsReportEnter" value="否上报用户进入应用事件" /> 
     
+    <text name="SendMsg" value="发送消息" />
+    <text name="UploadTXL" value="上传通讯录" />
+    <text name="DownTXL" value="下载通讯录" />
+
+    <text name="DownInfo" value="下载信息" />
+    <text name="UploadInfo" value="上传信息" />
+    <text name="MsgInfo" value="消息信息" />
+    <text name="SendMsgSuccessfully" value="消息发送成功" />
   </texts>
 </localizationDictionary>

@@ -17,6 +17,8 @@ using DM.UBP.Application.Dto.WeiXinManager.WeiXinConfigs;
 using DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs;
 using DM.UBP.Domain.Service.WeiXinManager;
 using DM.UBP.Web.Controllers;
+using System.Text;
+using System.Data;
 
 namespace DM.UBP.Web.Areas.WeiXinManager.Controllers
 {
@@ -59,6 +61,53 @@ namespace DM.UBP.Web.Areas.WeiXinManager.Controllers
         }
 
         /// <summary>
+        /// 下载通讯录
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [AbpMvcAuthorize(AppPermissions_WeiXinManager.Pages_WeiXinManager_WeiXinConfigs_Edit)]
+        public async Task<PartialViewResult> DownTXLModal(long id)
+        {
+            var viewModel = await _WeiXinConfigAppService.GetWeiXinConfigById(id);
+            var dt = _WeiXinConfigAppService.GetWeiXinDepartmentInfo(viewModel);
+            ViewBag.TreeHtml = buildingTreeHtml(dt, "0");
+            return PartialView("_DownTXL", viewModel);
+        }
+
+        private string buildingTreeHtml(DataTable table,string parentId)
+        {
+            var sbHtml = new StringBuilder();
+            var rows = table.Select(" isnull(parentid,0)=" + parentId);
+            if (rows.Length == 0)
+                return "";
+            sbHtml.AppendLine("<ul>");
+            foreach (var row in rows)
+            {
+                sbHtml.Append("<li id=\"" + row["id"]?.ToString() + "\" data-jstree='{\"selected\":\"true\"}'>"+ row["name"]?.ToString() + "("+ row["userNum"]?.ToString() + ")");
+                sbHtml.Append(buildingTreeHtml(table, row["id"]?.ToString()));
+                sbHtml.Append("</li>");
+            }
+            sbHtml.AppendLine("</ul>");
+
+
+            return sbHtml.ToString();
+        }
+
+        /// <summary>
+        /// 上传通讯录
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [AbpMvcAuthorize(AppPermissions_WeiXinManager.Pages_WeiXinManager_WeiXinConfigs_Edit)]
+        public async Task<PartialViewResult> UploadTXLModal(long id)
+        {
+            var viewModel = await _WeiXinConfigAppService.GetWeiXinConfigById(id);
+            var dt = _WeiXinConfigAppService.GetOrganizationUnitInfo();
+            ViewBag.TreeHtml = buildingTreeHtml(dt, "0");
+            return PartialView("_UploadTXL", viewModel);
+        }
+
+        /// <summary>
         /// 同步通讯录
         /// </summary>
         /// <param name="id"></param>
@@ -68,6 +117,18 @@ namespace DM.UBP.Web.Areas.WeiXinManager.Controllers
         {
             var viewModel = await _WeiXinConfigAppService.GetWeiXinConfigById(id);
             return PartialView("_SynchroModal", viewModel);
+        }
+
+        /// <summary>
+        /// 发送消息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [AbpMvcAuthorize(AppPermissions_WeiXinManager.Pages_WeiXinManager_WeiXinConfigs_Edit)]
+        public async Task<PartialViewResult> SendMsgModal(long id)
+        {
+            var viewModel = await _WeiXinConfigAppService.GetWeiXinConfigById(id);
+            return PartialView("_SendMsg", viewModel);
         }
     }
 }

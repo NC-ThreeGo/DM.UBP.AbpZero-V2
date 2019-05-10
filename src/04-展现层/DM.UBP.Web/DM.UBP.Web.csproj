@@ -536,7 +536,10 @@
     <Content Include="Areas\WeiXinManager\Views\WeiXinApp\_CreateOrEditModal.js" />
     <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\Index.js" />
     <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\_CreateOrEditModal.js" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\_DownTXL.js" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\_SendMsg.js" />
     <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\_SynchroModal.js" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\_UploadTXL.js" />
     <Content Include="Common\Images\isuzu_white_149_35.png" />
     <Content Include="Common\Images\isuzu_white_168_33.png" />
     <Content Include="libs\quartz-cron\cron.js" />
@@ -2457,6 +2460,9 @@
     <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\_CreateOrEditModal.cshtml" />
     <Content Include="Areas\WeiXinManager\Views\_ViewStart.cshtml" />
     <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\_SynchroModal.cshtml" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\_SendMsg.cshtml" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\_DownTXL.cshtml" />
+    <Content Include="Areas\WeiXinManager\Views\WeiXinConfig\_UploadTXL.cshtml" />
     <None Include="Properties\PublishProfiles\aspnetzero - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />

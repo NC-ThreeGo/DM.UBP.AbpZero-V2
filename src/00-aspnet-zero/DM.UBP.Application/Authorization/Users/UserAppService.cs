@@ -310,7 +310,7 @@ namespace DM.UBP.Authorization.Users
                 await _userEmailer.SendEmailActivationLinkAsync(user, input.User.Password);
             }
         }
-        
+
         private async Task FillRoleNames(List<UserListDto> userListDtos)
         {
             /* This method is optimized to fill role names to given list. */
@@ -336,6 +336,24 @@ namespace DM.UBP.Authorization.Users
 
                 userListDto.Roles = userListDto.Roles.OrderBy(r => r.RoleName).ToList();
             }
+        }
+
+        /// <summary>
+        /// 获取所有用户
+        /// </summary>
+        /// <returns></returns>
+
+        public async Task<List<UserListDto>> GetAllUsers()
+        {
+            var query = UserManager.Users
+               .Include(u => u.Roles);
+
+            var users = await query.ToListAsync();
+
+            var userListDtos = users.MapTo<List<UserListDto>>();
+            await FillRoleNames(userListDtos);
+
+            return userListDtos;
         }
     }
 }

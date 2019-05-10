@@ -21,10 +21,16 @@
             modalClass: 'CreateOrEditModal'
         });
 
-        var _synchroModal = new app.ModalManager({
-            viewUrl: abp.appPath + 'WeiXinManager/WeiXinConfig/SynchroModal',
-            scriptUrl: abp.appPath + 'Areas/WeiXinManager/Views/WeiXinConfig/_SynchroModal.js',
-            modalClass: 'SynchroModal'
+        var _uploadModal = new app.ModalManager({
+            viewUrl: abp.appPath + 'WeiXinManager/WeiXinConfig/UploadTXLModal',
+            scriptUrl: abp.appPath + 'Areas/WeiXinManager/Views/WeiXinConfig/_UploadTXL.js',
+            modalClass: 'UploadTXLModal'
+        });
+
+        var _downModal = new app.ModalManager({
+            viewUrl: abp.appPath + 'WeiXinManager/WeiXinConfig/DownTXLModal',
+            scriptUrl: abp.appPath + 'Areas/WeiXinManager/Views/WeiXinConfig/_DownTXL.js',
+            modalClass: 'DownTXLModal'
         });
 
         var _addNewAppModal = new app.ModalManager({
@@ -33,6 +39,11 @@
             modalClass: 'CreateOrEditModal'
         });
 
+        var _sendMsgModal = new app.ModalManager({
+            viewUrl: abp.appPath + 'WeiXinManager/WeiXinConfig/SendMsgModal',
+            scriptUrl: abp.appPath + 'Areas/WeiXinManager/Views/WeiXinConfig/_SendMsg.js',
+            modalClass: 'SendMsgModal'
+        });
 
         function getEntities() {
             _$entityTable.jtable('load');
@@ -108,21 +119,30 @@
                         }
                     },
                     {
-                        text: app.localize('Synchro'),
+                        text: app.localize('UploadTXL'),
                         visible: function () {
                             return _permissions.edit;
                         },
                         action: function (data) {
-                            _synchroModal.open({ id: data.record.id });
+                            _uploadModal.open({ id: data.record.id });
                         }
                     },
                     {
-                        text: app.localize('SendInfo'),
+                        text: app.localize('DownTXL'),
                         visible: function () {
                             return _permissions.edit;
                         },
                         action: function (data) {
-                            _synchroModal.open({ id: data.record.id });
+                            _downModal.open({ id: data.record.id });
+                        }
+                    },
+                    {
+                        text: app.localize('SendMsg'),
+                        visible: function () {
+                            return _permissions.edit;
+                        },
+                        action: function (data) {
+                            _sendMsgModal.open({ id: data.record.id });
                         }
                     },
                     {

@@ -13,6 +13,7 @@ using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using DM.UBP.Application.Dto.WeiXinManager.WeiXinConfigs;
 using DM.UBP.Dto;
+using System.Data;
 
 namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
 {
@@ -33,6 +34,35 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
 
         Task DeleteWeiXinConfig(EntityDto input);
 
-        Task<bool> SynchroTXL(WeiXinConfigInputDto input);
+        /// <summary>
+        /// 获取微信里面的部门信息，用于下载的时候显示用
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        DataTable GetWeiXinDepartmentInfo(WeiXinConfigOutputDto input);
+
+        /// <summary>
+        /// 获取UBP种所有部门，用户上传的时候显示用
+        /// </summary>
+        /// <returns></returns>
+        DataTable GetOrganizationUnitInfo();
+
+        /// <summary>
+        /// 确定下载通讯录
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="txlIds"></param>
+        /// <returns></returns>
+        Task<bool> DownTXL(WeiXinConfigDownTXL input);
+
+        /// <summary>
+        /// 确定上传通讯录
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="txlIds"></param>
+        /// <returns></returns>
+        Task<bool> UploadTXL(WeiXinConfigDownTXL input);
+
+        Task<bool> SendMsg(WeiXinConfigSendMsgDto input);
     }
 }
