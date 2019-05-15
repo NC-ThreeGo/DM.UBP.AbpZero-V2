@@ -125,6 +125,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="0-Extend\Authorization\Users\Dto\WX_CreateOrUpdateUserInput.cs" />
+    <Compile Include="0-Extend\Authorization\Users\Dto\WX_UserEditDto.cs" />
+    <Compile Include="0-Extend\Authorization\Users\Dto\WX_UserListDto.cs" />
+    <Compile Include="0-Extend\Authorization\Users\WX_IUserAppService.cs" />
+    <Compile Include="0-Extend\Authorization\Users\WX_UserAppService.cs" />
+    <Compile Include="0-Extend\Organizations\Dto\WX_CreateOrganizationUnitInput.cs" />
+    <Compile Include="0-Extend\Organizations\Dto\WX_OrganizationUnitDto.cs" />
+    <Compile Include="0-Extend\Organizations\Dto\WX_UpdateOrganizationUnitInput.cs" />
+    <Compile Include="0-Extend\Organizations\WX_IOrganizationUnitAppService.cs" />
+    <Compile Include="0-Extend\Organizations\WX_OrganizationUnitAppService.cs" />
     <Compile Include="UBPApplicationModule.cs" />
     <Compile Include="UBPAppServiceBase.cs" />
     <Compile Include="AppConsts.cs" />

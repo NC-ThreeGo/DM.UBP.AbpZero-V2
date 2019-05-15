@@ -134,29 +134,5 @@ namespace DM.UBP.Organizations
             dto.MemberCount = await _userOrganizationUnitRepository.CountAsync(uou => uou.OrganizationUnitId == organizationUnit.Id);
             return dto;
         }
-
-        /// <summary>
-        /// 获取部门下所有用户
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public async Task<List<OrganizationUnitUserListDto>> GetOrganizationUnitAllUsers(long id)
-        {
-            var query = from uou in _userOrganizationUnitRepository.GetAll()
-                        join ou in _organizationUnitRepository.GetAll() on uou.OrganizationUnitId equals ou.Id
-                        join user in UserManager.Users on uou.UserId equals user.Id
-                        where uou.OrganizationUnitId == id
-                        select new { uou, user };
-
-            var users = await query.ToListAsync();
-
-            return new List<OrganizationUnitUserListDto>(
-                users.Select(u =>
-                {
-                    var dto = u.user.MapTo<OrganizationUnitUserListDto>();
-                    dto.AddedTime = u.uou.CreationTime;
-                    return dto;
-                }).ToList());
-        }
     }
 }

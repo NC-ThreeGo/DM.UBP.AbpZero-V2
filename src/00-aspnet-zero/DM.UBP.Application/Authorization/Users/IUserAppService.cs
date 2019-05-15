@@ -26,11 +26,5 @@ namespace DM.UBP.Authorization.Users
         Task DeleteUser(EntityDto<long> input);
 
         Task UnlockUser(EntityDto<long> input);
-
-        /// <summary>
-        /// 获取所有用户
-        /// </summary>
-        /// <returns></returns>
-        Task<List<UserListDto>> GetAllUsers();
     }
 }

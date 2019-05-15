@@ -37,22 +37,22 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
     public class WeiXinConfigAppService : IWeiXinConfigAppService
     {
         private readonly IWeiXinConfigManager _WeiXinConfigManager;
-        private readonly IOrganizationUnitAppService _organizationUnitAppService;
-        private readonly IUserAppService _userAppService;
+        private readonly WX_IOrganizationUnitAppService _wx_OrganizationUnitAppService;
+        private readonly WX_IUserAppService _wx_UserAppService;
         private readonly ICacheManager _cacheManager;
 
         public WeiXinConfigAppService(
            IWeiXinConfigManager weixinconfigmanager,
-           IOrganizationUnitAppService organizationUnitAppService,
-           IUserAppService userAppService,
-            ICacheManager cacheManager
+           WX_IOrganizationUnitAppService wx_OrganizationUnitAppService,
+           WX_IUserAppService wx_UserAppService,
+           ICacheManager cacheManager
            
            )
         {
             _WeiXinConfigManager = weixinconfigmanager;
-            _organizationUnitAppService = organizationUnitAppService;
+            _wx_OrganizationUnitAppService = wx_OrganizationUnitAppService;
+            _wx_UserAppService = wx_UserAppService;
             _cacheManager = cacheManager;
-            _userAppService = userAppService;
         }
 
         public async Task<PagedResultDto<WeiXinConfigOutputDto>> GetWeiXinConfigs()
@@ -103,9 +103,6 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
             var entity = await _WeiXinConfigManager.GetWeiXinConfigByIdAsync(input.Id);
             await _WeiXinConfigManager.DeleteWeiXinConfigAsync(entity);
         }
-
-
-       
 
         /// <summary>
         /// 发送消息
@@ -168,7 +165,7 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
         /// <returns></returns>
         public DataTable GetOrganizationUnitInfo()
         {
-            var orgList = _organizationUnitAppService.GetOrganizationUnits();
+            var orgList = _wx_OrganizationUnitAppService.GetOrganizationUnits();
             DataTable dt = new DataTable();
             dt.Columns.Add("id");
             dt.Columns.Add("name");
@@ -199,46 +196,97 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
         {
             var entity = await _WeiXinConfigManager.GetWeiXinConfigByIdAsync(input.Id);
             WeiXinApi api = new WeiXinApi(_cacheManager.GetCache("WeiXinApi"), entity.CorpId, entity.TXL_Secret, "1");
-            //获取部门列表
+            //获取本次同步的部门列表
             JObject joDepInfo = api.GetDepartment();
-            var joDeps = joDepInfo["department"];
-            for (int i = 0; i < joDeps.Count(); i++)
-            {
-                var departName = joDeps[i]["name"].ToString();
-                var parentid = joDeps[i]["parentid"].ToString();
-                var id = joDeps[i]["id"].ToString();
+            var joDeps = joDepInfo["department"].Where(d => input.DepIds.Contains(d["id"].ToString())).ToList();
 
-                if (input.DepIds.Contains(id))
-                {
-                    var orgList = await _organizationUnitAppService.GetOrganizationUnits();
-                    if (orgList.Items.Count(item => item.DisplayName == departName) == 0)
-                    {//系统没有就创建
-                        var parentDep = joDeps.SingleOrDefault(d => d["id"].ToString() == parentid);//找出父级信息，如果没有就是顶级
-                        string parentName = parentDep?["name"]?.ToString();
-                        CreateOrganizationUnit(departName, parentName);
-                    }
+            //获取UBP中的部门
+            var orgList = await _wx_OrganizationUnitAppService.GetAllOrganizationUnits();
+            //获取全部用户
+            var userList = await _wx_UserAppService.GetAllUsers();
 
-                    JObject joUsers = api.GetUserInfoList(id);
-                    var userList = await _userAppService.GetAllUsers();//获取全部用户
-                    for (int u = 0; u < joUsers["userlist"].Count(); u++)
-                    {
-                        //对应用户账号
-                        var userid = joUsers["userlist"][u]["userid"].ToString();
-                        //用户姓名
-                        var username = joUsers["userlist"][u]["name"].ToString();
-                        var email = joUsers["userlist"][u]["email"].ToString();
-                        var mobile = joUsers["userlist"][u]["mobile"].ToString();
-
-                        if (userList.Count(item => item.UserName == userid) == 0)
-                        {//没有就创建账号
-                            CreateUser(username, email, mobile, userid, "123456");
-                        }
-                        AddUserToOrganizationUnit(userid, departName);
-                    }
-                }
-            }
-
+            DownTXL(api, joDeps, orgList, userList, "0");
             return true;
+        }
+
+        /// <summary>
+        /// 下载通讯录，递归
+        /// </summary>
+        /// <param name="api"></param>
+        /// <param name="joDeps"></param>
+        /// <param name="orgList"></param>
+        /// <param name="userList"></param>
+        /// <param name="parentId"></param>
+        private void DownTXL(WeiXinApi api,
+            List<JToken> joDeps,
+            List<WX_OrganizationUnitDto> orgList,
+            List<WX_UserListDto> userList,
+            string parentId)
+        {
+            var deps = joDeps.Where(d => d["parentid"].ToString() == parentId).ToList();
+
+            for (int i = 0; i < deps.Count(); i++)
+            {
+                //用户对应OU的对象
+                var userToOrg = new UserToOrganizationUnitInput();
+
+                var departName = deps[i]["name"].ToString();
+                var parentid = deps[i]["parentid"].ToString();
+                var id = deps[i]["id"].ToString();
+
+                var org = orgList.Single(o => o.WeiXinDepId == id);
+                if (org == null)
+                {//系统没有同步ID就创建
+                    var parentOrg = orgList.Single(o => o.WeiXinParentId == parentid);
+                    var input = new WX_CreateOrganizationUnitInput();
+                    input.DisplayName = departName;
+                    input.ParentId = parentOrg?.ParentId;
+                    input.WeiXinDepId = id;
+                    input.WeiXinParentId = parentId;
+                    userToOrg.OrganizationUnitId = _wx_OrganizationUnitAppService.CreateOrganizationUnit(input).Result.Id;
+                }
+                else
+                {//系统有就更新
+                    var parentOrg = orgList.Single(o => o.WeiXinParentId == parentid);
+                    var input = new WX_UpdateOrganizationUnitInput();
+                    input.Id = org.Id;
+                    input.DisplayName = departName;
+                    input.ParentId = parentOrg?.ParentId;
+                    input.WeiXinDepId = id;
+                    input.WeiXinParentId = parentId;
+                    userToOrg.OrganizationUnitId = _wx_OrganizationUnitAppService.UpdateOrganizationUnit(input).Result.Id;
+
+                }
+
+                JObject joUsers = api.GetUserInfoList(id);
+                for (int u = 0; u < joUsers["userlist"].Count(); u++)
+                {
+                    //对应用户账号
+                    var userid = joUsers["userlist"][u]["userid"].ToString();
+                    //用户姓名
+                    var username = joUsers["userlist"][u]["name"].ToString();
+                    var email = joUsers["userlist"][u]["email"].ToString();
+                    var mobile = joUsers["userlist"][u]["mobile"].ToString();
+
+                    var user = userList.Single(item => item.WeiXinUserId == userid);
+                    if (user == null)
+                    {//没有找到对应的微信账号
+                        user = userList.Single(item => item.UserName == userid);
+                        if (user == null)//找对应的用户账号
+                            userToOrg.UserId = CreateUser(username, email, mobile, userid, "123456").Result;
+                        else
+                            userToOrg.UserId = UpdateUser(user, username, email, mobile, userid, "123456").Result;
+                    }
+                    else
+                    {//有就更新账号
+                        userToOrg.UserId = UpdateUser(user, username, email, mobile, userid, "123456").Result;
+                    }
+                    
+                    //更新用户对应的OU
+                    _wx_OrganizationUnitAppService.AddUserToOrganizationUnit(userToOrg);
+                }
+                DownTXL(api, joDeps, orgList, userList, id);
+            }
         }
 
         /// <summary>
@@ -255,7 +303,7 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
             //获取微信所有用户
             var joUsers = api.GetUserInfoList("1", 1)["userlist"];
 
-            var orgList = await _organizationUnitAppService.GetOrganizationUnits();
+            var orgList = await _wx_OrganizationUnitAppService.GetOrganizationUnits();
             var listO = orgList.Items.Where(o => input.DepIds.Contains(o.Id.ToString())).ToList();
 
             //var userList = _userAppService.GetAllUsers().Result.ToList();
@@ -296,7 +344,7 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
                 {//在微信中找到了父级ID，并且没有目标信息就创建部门
                     var dep = api.CreateDepartment(item.DisplayName, depParentId);
 
-                    var userList = _organizationUnitAppService.GetOrganizationUnitAllUsers(item.Id);
+                    var userList = _wx_OrganizationUnitAppService.GetOrganizationUnitAllUsers(item.Id);
                     foreach (var user in userList.Result)
                     {
                         if (joUsers.Count(u => u["userid"].ToString() == user.UserName) == 0)
@@ -311,7 +359,7 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
                 {//如果没有找到父级ID，但是在微信中已经存在的就直接创建用户
 
                     var dep = joDeps.SingleOrDefault(d => d["name"].ToString() == item.DisplayName);
-                    var userList = _organizationUnitAppService.GetOrganizationUnitAllUsers(item.Id);
+                    var userList = _wx_OrganizationUnitAppService.GetOrganizationUnitAllUsers(item.Id);
                     foreach (var user in userList.Result)
                     {
                         if (joUsers.Count(u => u["userid"].ToString() == user.UserName) == 0)
@@ -327,29 +375,6 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
         }
 
         /// <summary>
-        /// 创建部门
-        /// </summary>
-        /// <param name="oName"></param>
-        /// <param name="pName"></param>
-        private async void CreateOrganizationUnit(string oName, string pName)
-        {
-            var orgList = await _organizationUnitAppService.GetOrganizationUnits();
-            if (orgList.Items.Count(item => item.DisplayName == pName) == 0)
-            {
-                var input = new Organizations.Dto.CreateOrganizationUnitInput();
-                input.DisplayName = oName;
-                await _organizationUnitAppService.CreateOrganizationUnit(input);
-            }
-            else
-            {
-                var input = new Organizations.Dto.CreateOrganizationUnitInput();
-                input.DisplayName = oName;
-                input.ParentId = orgList.Items.First(item => item.DisplayName == pName).Id;
-                await _organizationUnitAppService.CreateOrganizationUnit(input);
-            }
-        }
-
-        /// <summary>
         /// 创建用户
         /// </summary>
         /// <param name="name">姓名</param>
@@ -357,12 +382,12 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
         /// <param name="mobile"></param>
         /// <param name="username">用户名</param>
         /// <param name="pwd">密码</param>
-        private async void CreateUser(string name, string email, string mobile, string username, string pwd)
+        private async Task<long> CreateUser(string name, string email, string mobile, string username, string pwd)
         {
-            var user = new CreateOrUpdateUserInput();
+            var user = new WX_CreateOrUpdateUserInput();
             user.SendActivationEmail = false;
             user.SetRandomPassword = false;
-            user.User = new UserEditDto();
+            user.User = new WX_UserEditDto();
             user.User.Name = name;
             user.User.Surname = name;
             if (string.IsNullOrEmpty(email))
@@ -376,35 +401,51 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
             user.User.ShouldChangePasswordOnNextLogin = false;
             user.User.IsTwoFactorEnabled = false;
             user.User.IsLockoutEnabled = true;
+            user.User.WeiXinUserId = username;
 
             user.AssignedRoleNames = new string[] { "User" };
             user.SendActivationEmail = false;
             user.SetRandomPassword = false;
 
-            await _userAppService.CreateOrUpdateUser(user);
+            return await _wx_UserAppService.CreateOrUpdateUser(user);
         }
 
         /// <summary>
-        /// 将用户添加到部门中
+        /// 更新用户
         /// </summary>
+        /// <param name="userDto"></param>
+        /// <param name="name"></param>
+        /// <param name="email"></param>
+        /// <param name="mobile"></param>
         /// <param name="username"></param>
-        /// <param name="depName"></param>
-        private async void AddUserToOrganizationUnit(string username, string depName)
+        /// <param name="pwd"></param>
+        private async Task<long> UpdateUser(WX_UserListDto userDto, string name, string email, string mobile, string username, string pwd)
         {
-            var userList = await _userAppService.GetAllUsers();//获取全部用户
-            var user = userList.FirstOrDefault(u => u.UserName == username);
-            if (user == null)
-                return;
+            var user = new WX_CreateOrUpdateUserInput();
+            user.SendActivationEmail = false;
+            user.SetRandomPassword = false;
+            user.User = new WX_UserEditDto();
+            user.User.Id = userDto.Id;
+            user.User.Name = name;
+            user.User.Surname = name;
+            if (string.IsNullOrEmpty(email))
+                user.User.EmailAddress = username + "@jiangxi-isuzu.cn";
+            else
+                user.User.EmailAddress = email;
+            user.User.PhoneNumber = mobile;
+            user.User.UserName = username;
+            user.User.Password = pwd;
+            user.User.IsActive = true;
+            user.User.ShouldChangePasswordOnNextLogin = false;
+            user.User.IsTwoFactorEnabled = false;
+            user.User.IsLockoutEnabled = true;
+            user.User.WeiXinUserId = username;
 
-            var orgList = await _organizationUnitAppService.GetOrganizationUnits();
-            var org = orgList.Items.FirstOrDefault(o => o.DisplayName == depName);
-            if (org == null)
-                return;
+            user.AssignedRoleNames = new string[] { "User" };
+            user.SendActivationEmail = false;
+            user.SetRandomPassword = false;
 
-            var userToOrg = new UserToOrganizationUnitInput();
-            userToOrg.OrganizationUnitId = org.Id;
-            userToOrg.UserId = user.Id;
-            await _organizationUnitAppService.AddUserToOrganizationUnit(userToOrg);
+            return await _wx_UserAppService.CreateOrUpdateUser(user);
         }
     }
 }

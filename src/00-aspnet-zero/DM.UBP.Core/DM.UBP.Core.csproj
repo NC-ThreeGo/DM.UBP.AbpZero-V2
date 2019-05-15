@@ -108,6 +108,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="0-Extend\Authorization\Users\WX_User.cs" />
+    <Compile Include="0-Extend\Organizations\WX_OrganizationUnit.cs" />
+    <Compile Include="0-Extend\Organizations\WX_OrganizationUnitManager.cs" />
     <Compile Include="UBPConsts.cs" />
     <Compile Include="UBPCoreModule.cs" />
     <Compile Include="UBPDomainServiceBase.cs" />
@@ -241,5 +244,6 @@
       <Name>Abp.Zero</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

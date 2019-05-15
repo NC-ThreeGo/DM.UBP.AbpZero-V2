@@ -11,5 +11,7 @@ namespace DM.UBP.Organizations.Dto
         [Required]
         [StringLength(OrganizationUnit.MaxDisplayNameLength)]
         public string DisplayName { get; set; }
+
+        public long? ParentId { get; set; }
     }
 }

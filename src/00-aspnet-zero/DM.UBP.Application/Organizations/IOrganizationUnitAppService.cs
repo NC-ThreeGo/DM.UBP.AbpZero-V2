@@ -25,12 +25,5 @@ namespace DM.UBP.Organizations
         Task RemoveUserFromOrganizationUnit(UserToOrganizationUnitInput input);
 
         Task<bool> IsInOrganizationUnit(UserToOrganizationUnitInput input);
-
-        /// <summary>
-        /// 获取部门下所有用户
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        Task<List<OrganizationUnitUserListDto>> GetOrganizationUnitAllUsers(long id);
     }
 }
