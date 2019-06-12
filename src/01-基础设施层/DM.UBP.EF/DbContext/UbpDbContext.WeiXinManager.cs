@@ -8,7 +8,9 @@
 //------------------------------------------------------------
 
 using System.Data.Entity;
+using DM.UBP.Authorization.Users;
 using DM.UBP.Domain.Entity.WeiXinManager;
+using DM.UBP.Organizations;
 
 namespace DM.UBP.EF
 {
@@ -22,7 +24,10 @@ namespace DM.UBP.EF
 
         public virtual IDbSet<WeiXinApp> WeiXinApps { get; set; }
 
-        //@@Insert Position
+        public virtual IDbSet<WX_User> WXUser { get; set; }
 
+        public virtual IDbSet<WX_OrganizationUnit> WXOrganizationUnit { get; set; }
+
+        //@@Insert Position
     }
 }

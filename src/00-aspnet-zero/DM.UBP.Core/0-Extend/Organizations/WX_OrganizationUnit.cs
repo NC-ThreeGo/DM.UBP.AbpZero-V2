@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace DM.UBP.Organizations
 {
-    [Table("AbpOrganizationUnits")]
     public class WX_OrganizationUnit : OrganizationUnit
     {
-        public string WeiXinDepId { get; set; }
+        public virtual string WeiXinDepId { get; set; }
 
-        public string WeiXinParentId { get; set; }
+        public virtual string WeiXinParentId { get; set; }
+
+        public virtual string WeiXinCorpId { get; set; }
     }
 }

@@ -1,9 +1,11 @@
-﻿using Abp.Zero.EntityFramework;
+﻿using Abp.Organizations;
+using Abp.Zero.EntityFramework;
 using DM.UBP.Authorization.Roles;
 using DM.UBP.Authorization.Users;
 using DM.UBP.Chat;
 using DM.UBP.Friendships;
 using DM.UBP.MultiTenancy;
+using DM.UBP.Organizations;
 using DM.UBP.Storage;
 using System.Data.Common;
 using System.Data.Entity;
@@ -79,6 +81,9 @@ namespace DM.UBP.EF
             //TODO：由于DevartOracle和DynamicFilters V1.4.10及以上版本不兼容，正在等待作者解决，所以这里暂时禁用DynamicFilters。
             // disable all filters defined up to calling this method
             //modelBuilder.PreventAllDisabledFilterConditions();
+
+            modelBuilder.Entity<User>().Map<WX_User>(u => u.Requires("Discriminator").HasValue(""));
+            modelBuilder.Entity<OrganizationUnit>().Map<WX_OrganizationUnit>(o => o.Requires("Discriminator").HasValue(""));
         }
     }
 }

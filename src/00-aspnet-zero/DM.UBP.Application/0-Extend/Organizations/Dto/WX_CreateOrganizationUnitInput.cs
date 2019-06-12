@@ -12,5 +12,7 @@ namespace DM.UBP.Organizations.Dto
         public string WeiXinDepId { get; set; }
 
         public string WeiXinParentId { get; set; }
+
+        public string WeiXinCorpId { get; set; }
     }
 }

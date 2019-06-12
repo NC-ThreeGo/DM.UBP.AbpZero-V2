@@ -3,6 +3,8 @@ using Abp.AutoMapper;
 using Abp.Localization;
 using Abp.Modules;
 using DM.UBP.Authorization;
+using DM.UBP.Authorization.Users;
+using DM.UBP.Organizations;
 
 namespace DM.UBP
 {
@@ -26,6 +28,9 @@ namespace DM.UBP
 
         public override void Initialize()
         {
+            IocManager.Register<WX_IUserAppService, WX_UserAppService>();
+            IocManager.Register<WX_IOrganizationUnitAppService, WX_OrganizationUnitAppService>();
+
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
         }
     }

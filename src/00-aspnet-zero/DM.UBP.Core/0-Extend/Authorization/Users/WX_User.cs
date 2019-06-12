@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace DM.UBP.Authorization.Users
 {
-    [Table("AbpUsers")]
     public class WX_User: User
     {
-        public string WeiXinUserId { get; set; } 
+        public virtual string WeiXinUserId { get; set; } 
     }
 }

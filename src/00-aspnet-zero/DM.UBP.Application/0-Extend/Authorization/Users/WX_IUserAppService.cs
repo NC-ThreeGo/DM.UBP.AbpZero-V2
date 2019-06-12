@@ -16,6 +16,20 @@ namespace DM.UBP.Authorization.Users
         Task<List<WX_UserListDto>> GetAllUsers();
 
         /// <summary>
+        /// 按微信用户ID 查找
+        /// </summary>
+        /// <param name="WeiXinUserId"></param>
+        /// <returns></returns>
+        Task<WX_UserListDto> GetUsersByWeiXinUID(string WeiXinUserId);
+
+        /// <summary>
+        /// 按用户名称查找
+        /// </summary>
+        /// <param name="UserName"></param>
+        /// <returns></returns>
+        Task<WX_UserListDto> GetUsersByWeiUserName(string UserName);
+
+        /// <summary>
         /// 创建更新用户
         /// </summary>
         /// <param name="input"></param>

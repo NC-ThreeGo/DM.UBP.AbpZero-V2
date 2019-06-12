@@ -32,8 +32,17 @@ namespace DM.UBP.Authorization.Users
         private readonly IRepository<UserPermissionSetting, long> _userPermissionRepository;
         private readonly IRepository<UserRole, long> _userRoleRepository;
         private readonly IUserPolicy _userPolicy;
+        private readonly IRepository<WX_User, long> _wx_UserRepository;
 
-        public WX_UserAppService(RoleManager roleManager, IUserEmailer userEmailer, IUserListExcelExporter userListExcelExporter, INotificationSubscriptionManager notificationSubscriptionManager, IAppNotifier appNotifier, IRepository<RolePermissionSetting, long> rolePermissionRepository, IRepository<UserPermissionSetting, long> userPermissionRepository, IRepository<UserRole, long> userRoleRepository, IUserPolicy userPolicy) 
+        public WX_UserAppService(RoleManager roleManager,
+            IUserEmailer userEmailer,
+            IUserListExcelExporter userListExcelExporter,
+            INotificationSubscriptionManager notificationSubscriptionManager,
+            IAppNotifier appNotifier, IRepository<RolePermissionSetting, long> rolePermissionRepository,
+            IRepository<UserPermissionSetting, long> userPermissionRepository,
+            IRepository<UserRole, long> userRoleRepository,
+            IUserPolicy userPolicy,
+            IRepository<WX_User, long> wx_UserRepository) 
             : base(roleManager, userEmailer, userListExcelExporter, notificationSubscriptionManager, appNotifier, rolePermissionRepository, userPermissionRepository, userRoleRepository, userPolicy)
         {
             _roleManager = roleManager;
@@ -45,6 +54,7 @@ namespace DM.UBP.Authorization.Users
             _userPermissionRepository = userPermissionRepository;
             _userRoleRepository = userRoleRepository;
             _userPolicy = userPolicy;
+            _wx_UserRepository = wx_UserRepository;
         }
 
         /// <summary>
@@ -65,6 +75,18 @@ namespace DM.UBP.Authorization.Users
             return userListDtos;
         }
 
+        public async Task<WX_UserListDto> GetUsersByWeiXinUID(string WeiXinUserId)
+        {
+            var entity = await _wx_UserRepository.FirstOrDefaultAsync(u => u.WeiXinUserId == WeiXinUserId);
+            return entity?.MapTo<WX_UserListDto>();
+        }
+
+        public async Task<WX_UserListDto> GetUsersByWeiUserName(string UserName)
+        {
+            var entity = await _wx_UserRepository.FirstOrDefaultAsync(u => u.UserName == UserName);
+            return entity?.MapTo<WX_UserListDto>();
+        }
+
         public async Task<long> CreateOrUpdateUser(WX_CreateOrUpdateUserInput input)
         {
             if (input.User.Id.HasValue)
@@ -81,10 +103,11 @@ namespace DM.UBP.Authorization.Users
         {
             Debug.Assert(input.User.Id != null, "input.User.Id should be set.");
 
-            var user = await UserManager.FindByIdAsync(input.User.Id.Value);
+            var user = await _wx_UserRepository.GetAsync(input.User.Id.Value);
 
             //Update user properties
             input.User.MapTo(user); //Passwords is not mapped (see mapping configuration)
+            user.WeiXinUserId = input.User.WeiXinUserId;
 
             if (input.SetRandomPassword)
             {
@@ -116,10 +139,11 @@ namespace DM.UBP.Authorization.Users
             {
                 await _userPolicy.CheckMaxUserCountAsync(AbpSession.GetTenantId());
             }
-
-            var user = input.User.MapTo<WX_User>(); //Passwords is not mapped (see mapping configuration)
+            var user = new WX_User();
+            input.User.MapTo(user); //Passwords is not mapped (see mapping configuration)
             user.TenantId = AbpSession.TenantId;
-            
+            user.WeiXinUserId = input.User.WeiXinUserId;
+
             //Set password
             if (!input.User.Password.IsNullOrEmpty())
             {
@@ -129,7 +153,6 @@ namespace DM.UBP.Authorization.Users
             {
                 input.User.Password = User.CreateRandomPassword();
             }
-
             user.Password = new PasswordHasher().HashPassword(input.User.Password);
             user.ShouldChangePasswordOnNextLogin = input.User.ShouldChangePasswordOnNextLogin;
 
@@ -141,10 +164,11 @@ namespace DM.UBP.Authorization.Users
                 user.Roles.Add(new UserRole(AbpSession.TenantId, user.Id, role.Id));
             }
 
-            var identityResult = await UserManager.CreateAsync(user);
-            CheckErrors(identityResult);
-
+            var newuser = await _wx_UserRepository.InsertAsync(user);
+            //CheckErrors(await UserManager.CreateAsync(user));
             await CurrentUnitOfWork.SaveChangesAsync(); //To get new user's Id.
+
+            
 
             //Notifications
             await _notificationSubscriptionManager.SubscribeToAllAvailableNotificationsAsync(user.ToUserIdentifier());
@@ -157,7 +181,7 @@ namespace DM.UBP.Authorization.Users
                 await _userEmailer.SendEmailActivationLinkAsync(user, input.User.Password);
             }
 
-            return identityResult.MapTo<long>();
+            return user.Id;
         }
     }
 }

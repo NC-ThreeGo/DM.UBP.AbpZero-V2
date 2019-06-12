@@ -102,7 +102,7 @@ namespace DM.UBP.Web.Areas.WeiXinManager.Controllers
         public async Task<PartialViewResult> UploadTXLModal(long id)
         {
             var viewModel = await _WeiXinConfigAppService.GetWeiXinConfigById(id);
-            var dt = _WeiXinConfigAppService.GetOrganizationUnitInfo();
+            var dt = _WeiXinConfigAppService.GetOrganizationUnitInfo(viewModel);
             ViewBag.TreeHtml = buildingTreeHtml(dt, "0");
             return PartialView("_UploadTXL", viewModel);
         }

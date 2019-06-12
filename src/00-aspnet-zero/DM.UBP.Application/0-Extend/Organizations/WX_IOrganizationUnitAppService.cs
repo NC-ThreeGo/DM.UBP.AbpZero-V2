@@ -10,10 +10,31 @@ namespace DM.UBP.Organizations
     public interface WX_IOrganizationUnitAppService : IOrganizationUnitAppService
     {
         /// <summary>
-        /// 获取所有部门信息
+        /// 获取所有部门信息，用于上传显示用
         /// </summary>
         /// <returns></returns>
-        Task<List<WX_OrganizationUnitDto>> GetAllOrganizationUnits();
+        List<WX_OrganizationUnitDto> GetAllOrganizationUnitsByCorpId(string corpId);
+
+        /// <summary>
+        /// 按照OU名称和父级ID 获OU信息，防止重复增加
+        /// </summary>
+        /// <param name="WeiXinDepId">微信ID</param>
+        /// <returns></returns>
+        Task<WX_OrganizationUnitDto> GetOrganizationUnitsByName(string DisplayName,long? parentId);
+
+        /// <summary>
+        /// 获OU信息
+        /// </summary>
+        /// <param name="WeiXinDepId">微信ID</param>
+        /// <returns></returns>
+        Task<WX_OrganizationUnitDto> GetOrganizationUnitsByWXID(string WeiXinCorpId, string WeiXinDepId);
+
+        /// <summary>
+        /// 获OU信息
+        /// </summary>
+        /// <param name="WeiXinParentId">微信父级ID</param>
+        /// <returns></returns>
+        Task<WX_OrganizationUnitDto> GetOrganizationUnitsByWXPID(string WeiXinCorpId, string WeiXinParentId);
 
         /// <summary>
         /// 创建OU新部门

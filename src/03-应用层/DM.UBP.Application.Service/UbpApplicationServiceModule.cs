@@ -1,7 +1,9 @@
 ﻿using Abp.AutoMapper;
 using Abp.Modules;
 using DM.UBP.Application.Dto;
+using DM.UBP.Authorization.Users;
 using DM.UBP.Domain.Service;
+using DM.UBP.Organizations;
 using System.Reflection;
 
 namespace DM.UBP.Application.Service

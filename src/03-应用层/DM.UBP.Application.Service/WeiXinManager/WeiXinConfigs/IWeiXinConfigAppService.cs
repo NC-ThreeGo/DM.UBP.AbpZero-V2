@@ -45,7 +45,7 @@ namespace DM.UBP.Application.Service.WeiXinManager.WeiXinConfigs
         /// 获取UBP种所有部门，用户上传的时候显示用
         /// </summary>
         /// <returns></returns>
-        DataTable GetOrganizationUnitInfo();
+        DataTable GetOrganizationUnitInfo(WeiXinConfigOutputDto viewModel);
 
         /// <summary>
         /// 确定下载通讯录
