@@ -62,6 +62,10 @@ namespace DM.UBP.PBIRS.Security
             string baseUrl = ConfigurationManager.AppSettings["CheckUser_WebApi_BaseUrl"];
             string apiPath = ConfigurationManager.AppSettings["CheckUser_WebApi_Path"];
 
+            //http://it-zhuqiongpeng:90/PBIReports/api/v2.0/PowerBIReports 使用的是RSPortal进程的WebApi
+            //PBI RS升级到2019年5月20日版后， RSPortal进程无法读取ReportServer/web.config里的AppSettings信息，
+            //需要在Portal/RSPortal.exe.config里增加AppSettings信息，然后重启PBI服务
+
             using (var client = new HttpClient() { BaseAddress = new Uri(baseUrl) })
             {
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
