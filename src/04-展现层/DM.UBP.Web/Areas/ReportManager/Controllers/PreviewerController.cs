@@ -179,7 +179,7 @@ namespace DM.UBP.Web.Areas.ReportManager.Controllers
         public ActionResult PBIReportList()
         {
             var loginInfo = _sessionCache.GetCurrentLoginInformationsAsync();
-            ViewBag.UserName = loginInfo.Result.User.Name;
+            ViewBag.UserName = loginInfo.Result.User.UserName;
             return View();
         }
     }
